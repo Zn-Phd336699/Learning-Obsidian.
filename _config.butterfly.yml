@@ -1,0 +1,198 @@
+# ============================================================
+# Butterfly 主题配置 — 科技感深色风
+# ============================================================
+
+# 导航菜单
+nav:
+  首页: / || fa fa-home
+  分类: /categories/ || fa fa-folder-open
+  标签: /tags/ || fa fa-tags
+  归档: /archives/ || fa fa-archive
+  关于: /about/ || fa fa-user
+
+# 代码块
+codeblock:
+  theme: darker
+  highlight_theme: atom-one-dark
+  lang_show: true
+  copy: true
+  shrink: false
+  fullpage: false
+
+# 主题色
+theme_color:
+  enable: true
+  main: '#00d4ff'
+  paginator: '#00d4ff'
+  button_hover: '#0099cc'
+  text_selection: '#00d4ff'
+  link_color: '#00d4ff'
+  link_hover_color: '#00ffcc'
+
+# 深色模式
+darkmode:
+  enable: true
+  button: true
+  autoChangeMode: 2
+
+# 背景
+background: '#0a0e1a'
+
+# 首页副标题（打字机效果）
+subtitle:
+  enable: true
+  effect: true
+  typed_option:
+    strings:
+      - '嵌入式软件开发知识库'
+      - '从0到1 · 全栈学习笔记'
+      - '186篇系统笔记 · 持续更新'
+    typeSpeed: 80
+    backSpeed: 40
+    backDelay: 2000
+    loop: true
+  source: false
+  sub:
+    - 嵌入式软件开发知识库
+    - 从0到1 · 全栈学习笔记
+
+# 粒子背景（canvas_nest）
+canvas_nest:
+  enable: true
+  color: '0,212,255'
+  opacity: 0.5
+  zIndex: -1
+  count: 80
+  mobile: false
+
+# 鼠标点击烟花
+fireworks:
+  enable: false
+  zIndex: 9999
+  mobile: false
+
+# 页脚
+footer:
+  owner:
+    enable: true
+    since: 2025
+  custom_text: '<p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> + <a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank">Butterfly</a></p>'
+  copyright: true
+
+# 文章配置
+post:
+  meta:
+    date: true
+    updated: true
+    categories: true
+    tags: true
+    wordcount: true
+    min2read: true
+  toc:
+    enable: true
+    number: true
+    expand: false
+    style: simple
+  copyright:
+    enable: true
+    license: CC BY-NC-SA 4.0
+    license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+# 侧边栏
+aside:
+  enable: true
+  hide: false
+  button: true
+  mobile: true
+  position: right
+  display:
+    archive: true
+    tag: true
+    category: true
+  card_author:
+    enable: true
+    description: 嵌入式全栈开发者
+    button:
+      enable: true
+      icon: fab fa-github
+      text: GitHub
+      link: https://github.com/Zn-Phd336699
+  card_announcement:
+    enable: true
+    content: 欢迎来到嵌入式软件开发知识库，系统学习从裸机到Linux的全栈技术。
+  card_recent_post:
+    enable: true
+    limit: 5
+    sort: date
+    sort_order: -1
+  card_categories:
+    enable: true
+    limit: 8
+    expand: none
+    sort_order: -1
+  card_tags:
+    enable: true
+    limit: 40
+    color: true
+    sort_order: -1
+  card_archives:
+    enable: true
+    type: monthly
+    format: MMMM YYYY
+    order: -1
+    limit: 8
+  card_webinfo:
+    enable: false
+
+# 搜索
+search:
+  use: local_search
+  placeholder: 搜索文章...
+  local_search:
+    preload: false
+    top_n_per_article: 1
+    unescape: false
+    pagination:
+      enable: false
+
+# 站点地图
+sitemap:
+  path: sitemap.xml
+
+# 404页面
+error_404:
+  enable: true
+  subtitle: '页面不存在'
+
+# 图片懒加载
+lazyload:
+  enable: true
+  onlypost: false
+
+# 字数统计
+wordcount:
+  enable: true
+  post_wordcount: true
+  min2read: true
+  total_wordcount: true
+
+# 自定义CSS注入
+inject:
+  head:
+    - <link rel="stylesheet" href="/css/custom.css">
+  bottom:
+    - ''
+
+# 评论
+comments:
+  enable: false
+
+# 分享
+share:
+  enable: false
+
+# 相关文章
+related_post:
+  enable: true
+  limit: 6
+  date_type: created

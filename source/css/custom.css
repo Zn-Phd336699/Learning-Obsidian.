@@ -1,0 +1,252 @@
+/* ============================================================
+   科技感自定义样式 — 深色霓虹风
+   ============================================================ */
+
+:root {
+  --tech-primary: #00d4ff;
+  --tech-secondary: #00ffcc;
+  --tech-purple: #a855f7;
+  --tech-bg: #0a0e1a;
+  --tech-card: rgba(15, 23, 42, 0.85);
+  --tech-border: rgba(0, 212, 255, 0.2);
+  --tech-glow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+/* 全局背景 */
+body {
+  background: var(--tech-bg) !important;
+  color: #e2e8f0 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* 卡片毛玻璃效果 */
+#aside-content .card-widget,
+.recent-post-item,
+.article-sort-item,
+.flink-card-list .flink-card,
+#pagination .pagination,
+#post-comment,
+.article-content,
+#article-container {
+  background: var(--tech-card) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid var(--tech-border) !important;
+  border-radius: 12px !important;
+}
+
+/* 文章卡片悬停发光 */
+.recent-post-item:hover {
+  border-color: var(--tech-primary) !important;
+  box-shadow: var(--tech-glow) !important;
+  transform: translateY(-2px) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* 标题霓虹效果 */
+#site-title,
+#site-subtitle,
+.article-title,
+h1, h2, h3, h4 {
+  background: linear-gradient(135deg, var(--tech-primary), var(--tech-secondary)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* 链接颜色 */
+a {
+  color: var(--tech-primary) !important;
+  transition: all 0.3s ease !important;
+}
+
+a:hover {
+  color: var(--tech-secondary) !important;
+  text-shadow: 0 0 10px rgba(0, 255, 204, 0.5) !important;
+}
+
+/* 代码块科技感 */
+#article-container pre,
+.highlight {
+  background: #0d1117 !important;
+  border: 1px solid var(--tech-border) !important;
+  border-radius: 8px !important;
+  box-shadow: inset 0 0 30px rgba(0, 212, 255, 0.03) !important;
+}
+
+#article-container code {
+  background: rgba(0, 212, 255, 0.1) !important;
+  color: var(--tech-primary) !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  font-size: 0.9em !important;
+}
+
+/* 顶部导航 */
+#page-header.nav-fixed #nav,
+#nav {
+  background: rgba(10, 14, 26, 0.9) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--tech-border) !important;
+}
+
+#nav a {
+  color: #e2e8f0 !important;
+}
+
+#nav a:hover {
+  color: var(--tech-primary) !important;
+}
+
+/* 打字机文字 */
+#subtitle,
+.typewriter {
+  color: var(--tech-primary) !important;
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.5) !important;
+}
+
+/* 按钮 */
+.btn-bean,
+#to-top,
+.copy-btn {
+  background: linear-gradient(135deg, var(--tech-primary), var(--tech-purple)) !important;
+  border: none !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-bean:hover,
+#to-top:hover {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5) !important;
+  transform: scale(1.05) !important;
+}
+
+/* 标签云 */
+.tag-cloud a,
+#card-tags .card-tag-list a {
+  background: rgba(0, 212, 255, 0.1) !important;
+  border: 1px solid var(--tech-border) !important;
+  border-radius: 20px !important;
+  padding: 4px 12px !important;
+  margin: 4px !important;
+  transition: all 0.3s ease !important;
+}
+
+.tag-cloud a:hover,
+#card-tags .card-tag-list a:hover {
+  background: rgba(0, 212, 255, 0.2) !important;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3) !important;
+}
+
+/* 分类卡片 */
+.category-all-page .category-list a {
+  background: var(--tech-card) !important;
+  border: 1px solid var(--tech-border) !important;
+  border-radius: 8px !important;
+  padding: 12px 20px !important;
+  margin: 8px !important;
+  display: inline-block !important;
+  transition: all 0.3s ease !important;
+}
+
+.category-all-page .category-list a:hover {
+  border-color: var(--tech-primary) !important;
+  box-shadow: var(--tech-glow) !important;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--tech-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--tech-primary), var(--tech-purple));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--tech-primary);
+}
+
+/* 选中文字 */
+::selection {
+  background: rgba(0, 212, 255, 0.3) !important;
+  color: #fff !important;
+}
+
+/* 文章目录 */
+#aside-content #card-toc .toc-content .toc-link.active {
+  color: var(--tech-primary) !important;
+  border-left-color: var(--tech-primary) !important;
+}
+
+/* 分页 */
+#pagination .page-number.current {
+  background: linear-gradient(135deg, var(--tech-primary), var(--tech-purple)) !important;
+  color: #fff !important;
+}
+
+/* 暗色模式调整 */
+[data-theme='dark'] {
+  --tech-bg: #050810;
+  --tech-card: rgba(10, 15, 30, 0.9);
+}
+
+/* 首页大图遮罩 */
+#page-header {
+  background: linear-gradient(135deg, rgba(10, 14, 26, 0.95), rgba(0, 50, 80, 0.9)) !important;
+}
+
+#page-header::after {
+  background: none !important;
+}
+
+/* 文章元信息 */
+.article-meta-wrap,
+.post-meta,
+#post-meta {
+  color: rgba(226, 232, 240, 0.6) !important;
+}
+
+/* 引用块 */
+#article-container blockquote {
+  background: rgba(0, 212, 255, 0.05) !important;
+  border-left: 4px solid var(--tech-primary) !important;
+  border-radius: 0 8px 8px 0 !important;
+  padding: 12px 20px !important;
+  margin: 16px 0 !important;
+}
+
+/* 表格 */
+#article-container table {
+  border-collapse: collapse !important;
+  border: 1px solid var(--tech-border) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+#article-container th {
+  background: rgba(0, 212, 255, 0.1) !important;
+  color: var(--tech-primary) !important;
+  border-bottom: 2px solid var(--tech-border) !important;
+}
+
+#article-container td {
+  border-bottom: 1px solid var(--tech-border) !important;
+}
+
+#article-container tr:hover {
+  background: rgba(0, 212, 255, 0.05) !important;
+}
+
+/* 头像光环 */
+.card-info-avatar .avatar-img {
+  border: 2px solid var(--tech-primary) !important;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4) !important;
+}
