@@ -1,6 +1,6 @@
 ---
 title: 第89章 P3 · MCUboot 双分区 OTA 安全升级系统
-date: 2025-01-01
+date: 2025-03-04
 categories:
   - 项目集
 tags:
@@ -18,10 +18,13 @@ chapter: 89
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★☆ | 前置 [ch88-P2-ESP32S3桌面信息站WiFi工具箱](/posts/ch88-P2-ESP32S3桌面信息站WiFi工具箱/) | → [ch90-P4-LoRa温湿度采集网关ChirpStack后端](/posts/ch90-P4-LoRa温湿度采集网关ChirpStack后端/)
+⏱ 45min | ★★★★☆ | 前置 [ch88-P2-ESP32S3桌面信息站WiFi工具箱](/Learning-Obsidian./posts/ch88-P2-ESP32S3桌面信息站WiFi工具箱/) | → [ch90-P4-LoRa温湿度采集网关ChirpStack后端](/Learning-Obsidian./posts/ch90-P4-LoRa温湿度采集网关ChirpStack后端/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 交付支持 ECDSA 签名验证、自动回滚、断电安全的完整 OTA 底座（F407 + MCUboot）
@@ -69,7 +72,7 @@ int main(void)
 |------|----------|
 | swap 中断电一致性 | swap 算法在 param 区写状态机日志、每步幂等——移植时严格保留 trailer 结构 |
 | F407 扇区大擦写慢 | 下载阶段边收边写 slot1（扇区对齐缓冲），重启后才校验，用户无感 |
-| 传输通道可靠性 | 分块+CRC+断点续传（Ymodem 或 [ch30-Bootloader-IAP-OTA固件升级体系](/posts/ch30-Bootloader-IAP-OTA固件升级体系/) 自研协议二选一） |
+| 传输通道可靠性 | 分块+CRC+断点续传（Ymodem 或 [ch30-Bootloader-IAP-OTA固件升级体系](/Learning-Obsidian./posts/ch30-Bootloader-IAP-OTA固件升级体系/) 自研协议二选一） |
 | 多版本依赖管理 | imgtool dependencies 字段 + 设备端版本比较逻辑 |
 
 ## 89.4 测试矩阵与里程碑验收门（安全关键）
@@ -90,7 +93,7 @@ int main(void)
 | SHA256+ECDSA 校验 | 0.9s | 8% |
 | 切换重启到新系统 | 0.6s | 5% |
 
-用户感知 = 下载+重启 ≈ 9s——达到「无感升级」体验线（<15s）。信任链向首次上电延伸即 Secure Boot，见 [chsa-S1安全架构与SecureBoot实战](/posts/chsa-S1安全架构与SecureBoot实战/)。
+用户感知 = 下载+重启 ≈ 9s——达到「无感升级」体验线（<15s）。信任链向首次上电延伸即 Secure Boot，见 [chsa-S1安全架构与SecureBoot实战](/Learning-Obsidian./posts/chsa-S1安全架构与SecureBoot实战/)。
 
 ## 89.6 安全审计视角的自检清单
 
@@ -114,7 +117,7 @@ int main(void)
 |------|----------|----------|
 | MCUboot 不识别新镜像 | 魔数/哈希 TLV 缺失 | hexdump slot1 头部比对 imgtool 输出 |
 | revert 后旧版本也异常 | swap 被强断电未走完状态机 | 检查 param 区状态是否每步落盘 |
-| 下载速率上不去 | 每块同步等 ACK | 流水线发送+窗口确认（[ch74a-自研二进制协议设计规范](/posts/ch74a-自研二进制协议设计规范/)） |
+| 下载速率上不去 | 每块同步等 ACK | 流水线发送+窗口确认（[ch74a-自研二进制协议设计规范](/Learning-Obsidian./posts/ch74a-自研二进制协议设计规范/)） |
 | 公钥轮换后老设备拒升 | 公钥未双活过渡 | 先发带新公钥的过渡版本再切签名钥 |
 
 > [!example]- 🧪 动手实验 L89-1：把你的 OTA 系统做成「红蓝对抗」靶场（90 分钟）
@@ -127,7 +130,7 @@ int main(void)
 |------|----------|
 | MCUboot 官方文档与 Zephyr 集成示例 | 工业标准实现；swap move 算法论文级注释可精读 |
 | STM32 X-CUBE-SBSFU | ST 官方安全启动方案，对比设计取舍 |
-| RAUC（Linux 侧） | 同思想在 Linux A/B 的实现，跨域印证 [ch72-A-B-OTA升级与Recovery体系](/posts/ch72-A-B-OTA升级与Recovery体系/) |
+| RAUC（Linux 侧） | 同思想在 Linux A/B 的实现，跨域印证 [ch72-A-B-OTA升级与Recovery体系](/Learning-Obsidian./posts/ch72-A-B-OTA升级与Recovery体系/) |
 
 ## 89.10 进阶话题
 
@@ -150,4 +153,4 @@ int main(void)
 </div>
 
 ---
-🏷️ #domain/mcu #topic/bootloader #topic/security | 🔗 [ch88-P2-ESP32S3桌面信息站WiFi工具箱](/posts/ch88-P2-ESP32S3桌面信息站WiFi工具箱/) ← **本章** → [ch90-P4-LoRa温湿度采集网关ChirpStack后端](/posts/ch90-P4-LoRa温湿度采集网关ChirpStack后端/) | 📚 [P9-MOC](/posts/P9-MOC/)
+🏷️ #domain/mcu #topic/bootloader #topic/security | 🔗 [ch88-P2-ESP32S3桌面信息站WiFi工具箱](/Learning-Obsidian./posts/ch88-P2-ESP32S3桌面信息站WiFi工具箱/) ← **本章** → [ch90-P4-LoRa温湿度采集网关ChirpStack后端](/Learning-Obsidian./posts/ch90-P4-LoRa温湿度采集网关ChirpStack后端/) | 📚 [P9-MOC](/Learning-Obsidian./posts/P9-MOC/)

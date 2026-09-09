@@ -16,10 +16,13 @@ chapter: A2
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★☆ | 前置 [chfa-A1数字滤波七件套](/posts/chfa-A1数字滤波七件套/) | → [chfc-A3姿态解算双雄互补-Mahony-Madgwick](/posts/chfc-A3姿态解算双雄互补-Mahony-Madgwick/)
+⏱ 45min | ★★★★☆ | 前置 [chfa-A1数字滤波七件套](/Learning-Obsidian./posts/chfa-A1数字滤波七件套/) | → [chfc-A3姿态解算双雄互补-Mahony-Madgwick](/Learning-Obsidian./posts/chfc-A3姿态解算双雄互补-Mahony-Madgwick/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 徒手推导一维 KF 五公式，说出增益 K 在两个极端下的物理含义
@@ -114,7 +117,7 @@ UKF：sigma 点传播后重构均值/协方差——免推雅可比、二阶精�
 | Mahony(Kp=1) | 1.9° | ~0.8s | 0.8% |
 | ESKF(误差状态) | **0.4°** | **~0.5s** | 2.5% |
 
-结论：精度需求低于 2° 用互补/Mahony 足够；要 0.5° 级（云台/导航）再上 ESKF——姿态专用简化见 [chfc-A3姿态解算双雄互补-Mahony-Madgwick](/posts/chfc-A3姿态解算双雄互补-Mahony-Madgwick/)。
+结论：精度需求低于 2° 用互补/Mahony 足够；要 0.5° 级（云台/导航）再上 ESKF——姿态专用简化见 [chfc-A3姿态解算双雄互补-Mahony-Madgwick](/Learning-Obsidian./posts/chfc-A3姿态解算双雄互补-Mahony-Madgwick/)。
 
 ## A2.7 排故速查表：发散诊断高频五连
 | 症状 | 根因 | 处方 |
@@ -127,7 +130,7 @@ UKF：sigma 点传播后重构均值/协方差——免推雅可比、二阶精�
 ## A2.8 部署注意事项
 1. 冷启动二选一：P₀ 大值通用法，或直接 x̂=z₁、P=R；**禁止** x̂=0 且 P 小起步——长时间拖尾假数据；
 2. 数值卫生：float 长跑后每千拍执行对称化与下限 max(P,1e-6)；定点统一尺度表防 NaN；
-3. 变周期采样必须把 dt 传进预测步：P⁻=P+Q·dt；掉电时 x̂/P 存 NoInit 区热启动（[ch29a-电源异常与掉电保护](/posts/ch29a-电源异常与掉电保护/)）；
+3. 变周期采样必须把 dt 传进预测步：P⁻=P+Q·dt；掉电时 x̂/P 存 NoInit 区热启动（[ch29a-电源异常与掉电保护](/Learning-Obsidian./posts/ch29a-电源异常与掉电保护/)）；
 4. 多率融合各源独立修正无需对齐时刻；收到比上次旧的观测直接丢弃并计数；计算量 O(n³)，n≤4 时 M4 无压力。
 
 > [!example]- 🧪 动手实验 LA2-1：从数据到调参的完整闭环（90 分钟）
@@ -136,7 +139,7 @@ UKF：sigma 点传播后重构均值/协方差——免推雅可比、二阶精�
 ## A2.9 进阶话题
 - Square-root filter：Cholesky 因子传递协方差，定点长跑不发散——工业级 INS 内功；
 - 门控权衡：门限太紧真跳变被拒致滞后、太松野值穿透——连续拒收自愈逻辑兜底；
-- 开源参照：github.com/sfwa/ukf 与 PX4 ECL/EKF2 文档；EKF 的控制端搭档 LQR 见 [chfe-A5复合与现代控制前馈串级-Smith-LQR](/posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/)。
+- 开源参照：github.com/sfwa/ukf 与 PX4 ECL/EKF2 文档；EKF 的控制端搭档 LQR 见 [chfe-A5复合与现代控制前馈串级-Smith-LQR](/Learning-Obsidian./posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/)。
 
 > [!warning]- ❓ FAQ
 > **Q1：忘记预测步直接修会怎样？** P 只缩不涨，K 越来越小最终「失聪」；即使没有新观测也要走预测维持 P 增长。
@@ -154,4 +157,4 @@ UKF：sigma 点传播后重构均值/协方差——免推雅可比、二阶精�
 </div>
 
 ---
-🏷️ #domain/algorithms #topic/state-estimation | 🔗 [chfa-A1数字滤波七件套](/posts/chfa-A1数字滤波七件套/) ← **本章** → [chfc-A3姿态解算双雄互补-Mahony-Madgwick](/posts/chfc-A3姿态解算双雄互补-Mahony-Madgwick/) | 📚 [P11-MOC](/posts/P11-MOC/)
+🏷️ #domain/algorithms #topic/state-estimation | 🔗 [chfa-A1数字滤波七件套](/Learning-Obsidian./posts/chfa-A1数字滤波七件套/) ← **本章** → [chfc-A3姿态解算双雄互补-Mahony-Madgwick](/Learning-Obsidian./posts/chfc-A3姿态解算双雄互补-Mahony-Madgwick/) | 📚 [P11-MOC](/Learning-Obsidian./posts/P11-MOC/)

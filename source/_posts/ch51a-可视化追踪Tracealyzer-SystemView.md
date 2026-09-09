@@ -1,6 +1,6 @@
 ---
 title: 第51A章 可视化追踪：Tracealyzer 与 SystemView
-date: 2025-01-01
+date: 2025-04-11
 categories:
   - RTOS
 tags:
@@ -17,10 +17,13 @@ chapter: 51A
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★☆☆ | 前置 [ch51-RT-Thread与Zephyr横向对比](/posts/ch51-RT-Thread与Zephyr横向对比/) | → [ch52-seL4微内核能力模型形式化验证](/posts/ch52-seL4微内核能力模型形式化验证/)
+⏱ 35min | ★★★☆☆ | 前置 [ch51-RT-Thread与Zephyr横向对比](/Learning-Obsidian./posts/ch51-RT-Thread与Zephyr横向对比/) | → [ch52-seL4微内核能力模型形式化验证](/Learning-Obsidian./posts/ch52-seL4微内核能力模型形式化验证/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 搭建 Percepio Tracealyzer 或 SEGGER SystemView 的目标端采集链路（ITM/RTT/RAM 环形缓冲）
@@ -107,7 +110,7 @@ SystemView 录制 10 分钟抓到现场：
 - **自定义事件通道**：业务关键节点打用户事件标，与系统事件在时间线上对齐分析；
 - **长时间录制策略**：环形缓冲只保最近 N 秒 + 触发条件（如某队列高水位）冻结导出——「守株待兔」抓偶发的正确姿势；
 - **SMP 注意事项**：双核事件需带核号且时间戳对齐——确认工具版本支持 SMP 时间线再上项目；
-- 与 [ch14-日志系统设计RTT与远程回传](/posts/ch14-日志系统设计RTT与远程回传/) 的 RTT 日志通道复用同一物理链路时注意带宽分配。
+- 与 [ch14-日志系统设计RTT与远程回传](/Learning-Obsidian./posts/ch14-日志系统设计RTT与远程回传/) 的 RTT 日志通道复用同一物理链路时注意带宽分配。
 
 > [!warning]- ❓ FAQ
 > **Q1：为什么「加日志就好了」的问题最适合用追踪器破案？** 打印本身改变任务时序（观测者效应），bug 被时序变化掩盖成海森 bug；追踪器单事件开销 ~0.5µs 且不打乱调度序，能在不扰动系统的前提下留存完整现场。
@@ -125,4 +128,4 @@ SystemView 录制 10 分钟抓到现场：
 </div>
 
 ---
-🏷️ #domain/rtos #topic/tracing #freertos | 🔗 [ch51-RT-Thread与Zephyr横向对比](/posts/ch51-RT-Thread与Zephyr横向对比/) ← **本章** → [ch52-seL4微内核能力模型形式化验证](/posts/ch52-seL4微内核能力模型形式化验证/) | 📚 [P5-MOC](/posts/P5-MOC/)
+🏷️ #domain/rtos #topic/tracing #freertos | 🔗 [ch51-RT-Thread与Zephyr横向对比](/Learning-Obsidian./posts/ch51-RT-Thread与Zephyr横向对比/) ← **本章** → [ch52-seL4微内核能力模型形式化验证](/Learning-Obsidian./posts/ch52-seL4微内核能力模型形式化验证/) | 📚 [P5-MOC](/Learning-Obsidian./posts/P5-MOC/)

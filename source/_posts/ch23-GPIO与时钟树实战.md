@@ -1,6 +1,6 @@
 ---
 title: 第23章 GPIO与时钟树实战
-date: 2025-01-01
+date: 2025-05-09
 categories:
   - 单片机开发
 tags:
@@ -17,10 +17,13 @@ chapter: 23
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★☆☆ | 前置 [ch22-STM32生态与F407硬件](/posts/ch22-STM32生态与F407硬件/) | → [ch24-中断系统与NVIC深度应用](/posts/ch24-中断系统与NVIC深度应用/)
+⏱ 40min | ★★★☆☆ | 前置 [ch22-STM32生态与F407硬件](/Learning-Obsidian./posts/ch22-STM32生态与F407硬件/) | → [ch24-中断系统与NVIC深度应用](/Learning-Obsidian./posts/ch24-中断系统与NVIC深度应用/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 按场景正确选择推挽/开漏/复用推挽/复用开漏四种模式，并用汇编证据解释 BSRR 原子性
@@ -97,7 +100,7 @@ AF 编号写入 `AFR[pin/8]` 的 `(pin%8)*4` 位段（0~15），具体编号查�
 1. 未用引脚配**模拟输入**（施密特触发器关断）或输出固定电平，切忌浮空——悬空 CMOS 输入在线性区反复翻转，实测电源电流可翻倍且易受扰
 2. 输出电平与外围匹配：驱动上拉负载时，输出高比输出低省电
 3. 进 Stop 前：把悬空的 MOS 栅极、LED 驱动脚全部钉死到确定电平
-4. 测量手段联动 [ch29-低功耗设计](/posts/ch29-低功耗设计/)：电流表 µA 档 + 逐组 MODER 扫描 + 分段断开，找「漏电 GPIO」
+4. 测量手段联动 [ch29-低功耗设计](/Learning-Obsidian./posts/ch29-低功耗设计/)：电流表 µA 档 + 逐组 MODER 扫描 + 分段断开，找「漏电 GPIO」
 
 ## 23.7 实测数据表：输出模式对边沿的影响（PA5@3.3V，50pF 负载）
 
@@ -159,4 +162,4 @@ AF 编号写入 `AFR[pin/8]` 的 `(pin%8)*4` 位段（0~15），具体编号查�
 </div>
 
 ---
-🏷️ #domain/mcu #topic/gpio #topic/power | 🔗 [ch22-STM32生态与F407硬件](/posts/ch22-STM32生态与F407硬件/) ← **本章** → [ch24-中断系统与NVIC深度应用](/posts/ch24-中断系统与NVIC深度应用/) | 📚 [P3-MOC](/posts/P3-MOC/)
+🏷️ #domain/mcu #topic/gpio #topic/power | 🔗 [ch22-STM32生态与F407硬件](/Learning-Obsidian./posts/ch22-STM32生态与F407硬件/) ← **本章** → [ch24-中断系统与NVIC深度应用](/Learning-Obsidian./posts/ch24-中断系统与NVIC深度应用/) | 📚 [P3-MOC](/Learning-Obsidian./posts/P3-MOC/)

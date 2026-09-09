@@ -1,6 +1,6 @@
 ---
 title: 第9A章 AI 辅助嵌入式开发的实践与边界
-date: 2025-01-01
+date: 2025-05-23
 categories:
   - 编程基础
 tags:
@@ -18,10 +18,13 @@ chapter: 9A
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 30min | ★★☆☆☆ | 前置 [ch09-MISRA-C与单元测试](/posts/ch09-MISRA-C与单元测试/) | → [ch10-GCC交叉编译全景](/posts/ch10-GCC交叉编译全景/)
+⏱ 30min | ★★☆☆☆ | 前置 [ch09-MISRA-C与单元测试](/Learning-Obsidian./posts/ch09-MISRA-C与单元测试/) | → [ch10-GCC交叉编译全景](/Learning-Obsidian./posts/ch10-GCC交叉编译全景/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 
@@ -161,4 +164,4 @@ chapter: 9A
 </div>
 
 ---
-🏷️ #ai-assist #sdd #prompt-engineering | 🔗 [ch09-MISRA-C与单元测试](/posts/ch09-MISRA-C与单元测试/) ← **本章** → [ch10-GCC交叉编译全景](/posts/ch10-GCC交叉编译全景/) | 📚 [P1-MOC](/posts/P1-MOC/)
+🏷️ #ai-assist #sdd #prompt-engineering | 🔗 [ch09-MISRA-C与单元测试](/Learning-Obsidian./posts/ch09-MISRA-C与单元测试/) ← **本章** → [ch10-GCC交叉编译全景](/Learning-Obsidian./posts/ch10-GCC交叉编译全景/) | 📚 [P1-MOC](/Learning-Obsidian./posts/P1-MOC/)

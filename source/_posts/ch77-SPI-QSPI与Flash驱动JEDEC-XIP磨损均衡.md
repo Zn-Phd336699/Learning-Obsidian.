@@ -1,6 +1,6 @@
 ---
 title: 第77章 SPI/QSPI 与 Flash 驱动：JEDEC、XIP 与磨损均衡
-date: 2025-01-01
+date: 2025-03-16
 categories:
   - 协议开发
 tags:
@@ -17,10 +17,13 @@ chapter: 77
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch76-I2C协议与排障时钟拉伸总线锁死多主机](/posts/ch76-I2C协议与排障时钟拉伸总线锁死多主机/) | → [ch78-CAN-CANFD实战SocketCAN-DBC工作流](/posts/ch78-CAN-CANFD实战SocketCAN-DBC工作流/)
+⏱ 40min | ★★★★☆ | 前置 [ch76-I2C协议与排障时钟拉伸总线锁死多主机](/Learning-Obsidian./posts/ch76-I2C协议与排障时钟拉伸总线锁死多主机/) | → [ch78-CAN-CANFD实战SocketCAN-DBC工作流](/Learning-Obsidian./posts/ch78-CAN-CANFD实战SocketCAN-DBC工作流/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 给定器件手册判读四种 CPOL/CPHA 模式，说清 Mode0/Mode3 的空闲电平与采样沿
@@ -35,7 +38,7 @@ CPOL（Clock Polarity，时钟极性）定 SCK 空闲电平，CPHA（Clock Phase
 |------|-----------|----------|--------|----------|
 | Mode 0 ★最常见 | 0 / 0 | 低 | 第 1 个沿（上升） | 多数传感器/ADC |
 | Mode 3 | 1 / 1 | 高 | 第 2 个沿（下降） | Flash/屏 |
-**模式配错的症状指纹**：数据整体左/右移一位（MSB 对齐到错误沿），解码出「规律性乱码」；首字节正确后续全错 = CS 极性或首位采样沿错位。判定方法：逻辑分析仪按两种模式各解一次（见 [ch19-逻辑分析仪与sigrok](/posts/ch19-逻辑分析仪与sigrok/)），输出语义合理者即为正确模式。
+**模式配错的症状指纹**：数据整体左/右移一位（MSB 对齐到错误沿），解码出「规律性乱码」；首字节正确后续全错 = CS 极性或首位采样沿错位。判定方法：逻辑分析仪按两种模式各解一次（见 [ch19-逻辑分析仪与sigrok](/Learning-Obsidian./posts/ch19-逻辑分析仪与sigrok/)），输出语义合理者即为正确模式。
 
 ## 77.2 QSPI 四线提速与 XIP 原地执行
 提速三级跳：单线 SPI（命令+数据走 MOSI）→ Dual 2 线 → Quad 4 线 → XIP（内存映射执行：代码直接在 Flash 上跑，省拷贝）。W25Q128 四线 @50MHz 实测 ≈25MB/s。**Dummy Cycles 必须匹配器件手册对应频率档——读太快没等够 = 全 0xFF**。STM32 QUADSPI/OCTOSPI 六步配置：
@@ -129,7 +132,7 @@ void flash_write_buf(uint32_t addr, const uint8_t *buf, uint32_t len)
 > **验收**：断电零损坏 + 一张「各块擦写次数」直方图。
 
 ## 77.11 进阶话题
-- **XIP 与 OTA 冲突**：运行中擦自身镜像所在 bank 会取指停摆，升级流程要切 bank 或搬运执行（联动 [ch30-Bootloader-IAP-OTA固件升级体系](/posts/ch30-Bootloader-IAP-OTA固件升级体系/)）；
+- **XIP 与 OTA 冲突**：运行中擦自身镜像所在 bank 会取指停摆，升级流程要切 bank 或搬运执行（联动 [ch30-Bootloader-IAP-OTA固件升级体系](/Learning-Obsidian./posts/ch30-Bootloader-IAP-OTA固件升级体系/)）；
 - **OTP/安全区**：W25Q 有独立 OTP 扇区与锁位，放设备指纹/公钥哈希的免费保险箱；
 - **NAND 引入的分水岭**：参数区之外还需 >64MB 日志/媒体时才引入 SPI NAND——坏块管理与 ECC 的复杂度要值回票价。
 
@@ -149,4 +152,4 @@ void flash_write_buf(uint32_t addr, const uint8_t *buf, uint32_t len)
 </div>
 
 ---
-🏷️ #domain/protocol #topic/spi #topic/flash | 🔗 [ch76-I2C协议与排障时钟拉伸总线锁死多主机](/posts/ch76-I2C协议与排障时钟拉伸总线锁死多主机/) ← **本章** → [ch78-CAN-CANFD实战SocketCAN-DBC工作流](/posts/ch78-CAN-CANFD实战SocketCAN-DBC工作流/) | 📚 [P8-MOC](/posts/P8-MOC/)
+🏷️ #domain/protocol #topic/spi #topic/flash | 🔗 [ch76-I2C协议与排障时钟拉伸总线锁死多主机](/Learning-Obsidian./posts/ch76-I2C协议与排障时钟拉伸总线锁死多主机/) ← **本章** → [ch78-CAN-CANFD实战SocketCAN-DBC工作流](/Learning-Obsidian./posts/ch78-CAN-CANFD实战SocketCAN-DBC工作流/) | 📚 [P8-MOC](/Learning-Obsidian./posts/P8-MOC/)

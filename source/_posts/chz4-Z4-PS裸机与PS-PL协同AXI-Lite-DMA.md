@@ -18,10 +18,13 @@ chapter: Z4
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★★☆ | 前置 [chz3-Z3-PL快速入门Verilog-Vivado七步流程](/posts/chz3-Z3-PL快速入门Verilog-Vivado七步流程/) | → [chz5-Z5-综合实战PS-PL数据采集系统](/posts/chz5-Z5-综合实战PS-PL数据采集系统/)
+⏱ 35min | ★★★★☆ | 前置 [chz3-Z3-PL快速入门Verilog-Vivado七步流程](/Learning-Obsidian./posts/chz3-Z3-PL快速入门Verilog-Vivado七步流程/) | → [chz5-Z5-综合实战PS-PL数据采集系统](/Learning-Obsidian./posts/chz5-Z5-综合实战PS-PL数据采集系统/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 使用 Vivado Create and Package IP 创建 AXI-Lite 从设备并接入 Block Design
@@ -122,7 +125,7 @@ AXI-DMA 有 MM2S(内存→PL)与 S2MM(PL→内存 ★常用接收方向)两个�
 
 ## Z4.10 部署注意事项
 1. PL 每次改动都重新导出 XSA 并让 Vitis 更新平台工程，否则地址宏与硬件脱节。
-2. DMA 缓冲按 cache 行对齐并在收发两侧维护 cache（原理同 [ch26-DMA与Cache一致性](/posts/ch26-DMA与Cache一致性/)）。
+2. DMA 缓冲按 cache 行对齐并在收发两侧维护 cache（原理同 [ch26-DMA与Cache一致性](/Learning-Obsidian./posts/ch26-DMA与Cache一致性/)）。
 3. Address Editor 分配避开 PS 外设区间，基址表纳入版本管理；中断号一律引用 xparameters.h 宏。
 4. 先裸机打通再迁 Linux(UIO/dmaengine)，寄存器语义保持不变可平移。
 
@@ -151,4 +154,4 @@ AXI-DMA 有 MM2S(内存→PL)与 S2MM(PL→内存 ★常用接收方向)两个�
 </div>
 
 ---
-🏷️ #domain/fpga #topic/dma #topic/axi | 🔗 [chz3-Z3-PL快速入门Verilog-Vivado七步流程](/posts/chz3-Z3-PL快速入门Verilog-Vivado七步流程/) ← **本章** → [chz5-Z5-综合实战PS-PL数据采集系统](/posts/chz5-Z5-综合实战PS-PL数据采集系统/) | 📚 [P13-MOC](/posts/P13-MOC/)
+🏷️ #domain/fpga #topic/dma #topic/axi | 🔗 [chz3-Z3-PL快速入门Verilog-Vivado七步流程](/Learning-Obsidian./posts/chz3-Z3-PL快速入门Verilog-Vivado七步流程/) ← **本章** → [chz5-Z5-综合实战PS-PL数据采集系统](/Learning-Obsidian./posts/chz5-Z5-综合实战PS-PL数据采集系统/) | 📚 [P13-MOC](/Learning-Obsidian./posts/P13-MOC/)

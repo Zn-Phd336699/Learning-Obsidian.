@@ -18,10 +18,13 @@ chapter: SO2
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [chs1-SO1性能分析方法论与火焰图专题](/posts/chs1-SO1性能分析方法论与火焰图专题/) | → [chs3-SO3-RTOS多任务系统调优](/posts/chs3-SO3-RTOS多任务系统调优/)
+⏱ 40min | ★★★★☆ | 前置 [chs1-SO1性能分析方法论与火焰图专题](/Learning-Obsidian./posts/chs1-SO1性能分析方法论与火焰图专题/) | → [chs3-SO3-RTOS多任务系统调优](/Learning-Obsidian./posts/chs3-SO3-RTOS多任务系统调优/)
 
 </div>
 </div>
+
+<!-- more -->
+
 ## 🎯 学习目标
 - [ ] 能用启动瀑布图（GPIO 打点+逻辑分析仪）定位最大可压缩段并按收益排序动刀
 - [ ] 能用 map 文件三遍审读法系统裁剪 Flash/RAM，产出《裁剪决策表》
@@ -128,7 +131,7 @@ SCB->VTOR = 0x20000000;
 1. 可维护性红线：热点手写汇编必须配等价 C 参考实现+注释互指——没人读得懂的优化是负资产；
 2. 回归门禁同步升级：结构级优化（池化/合并）必须先补单元测试再合入；
 3. 极限余量管理：Flash 用到 >90% 即触发架构评审——下次需求的生存空间比本次优化更重要；
-4. 功耗联动复核：提频/加 DMA 可能推高待机功耗（[ch29-低功耗设计](/posts/ch29-低功耗设计/) 联动）；
+4. 功耗联动复核：提频/加 DMA 可能推高待机功耗（[ch29-低功耗设计](/Learning-Obsidian./posts/ch29-低功耗设计/) 联动）；
 5. 反模式文档化：记录「试过但不划算」的手段及原因——防止团队三个月后再踩一遍。
 > [!example]- 🧪 动手实验 LN-SO2：map 审读+启动摸底（35 分钟）
 > **步骤**：对自己工程跑三遍审读（SO2.7）→ 列《裁剪决策表》≥3 行 → 抓一次 GPIO 启动瀑布图 → 按 SO2.3 公式算理论地板。
@@ -151,4 +154,4 @@ SCB->VTOR = 0x20000000;
 </div>
 </div>
 ---
-🏷️ #domain/performance #topic/startup #topic/compiler | 🔗 [chs1-SO1性能分析方法论与火焰图专题](/posts/chs1-SO1性能分析方法论与火焰图专题/) ← **本章** → [chs3-SO3-RTOS多任务系统调优](/posts/chs3-SO3-RTOS多任务系统调优/) | 📚 [P12-MOC](/posts/P12-MOC/)
+🏷️ #domain/performance #topic/startup #topic/compiler | 🔗 [chs1-SO1性能分析方法论与火焰图专题](/Learning-Obsidian./posts/chs1-SO1性能分析方法论与火焰图专题/) ← **本章** → [chs3-SO3-RTOS多任务系统调优](/Learning-Obsidian./posts/chs3-SO3-RTOS多任务系统调优/) | 📚 [P12-MOC](/Learning-Obsidian./posts/P12-MOC/)

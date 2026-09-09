@@ -10,6 +10,9 @@ tags:
 
 # TC26 CRC 五元组联调约定
 
+
+<!-- more -->
+
 ## 现象
 MCU 与上位机互发帧，各自本地校验通过，线上 CRC 必错；或同一段字节两端结果不同。典型触发：一方 CRC16-MODBUS、另一方 CCITT-FALSE，却都自称「CRC16」。
 
@@ -56,5 +59,5 @@ assert f(b'123456789') == 0x4B37   # 两端先对齐黄金向量再联调
 - FPGA 侧串行实现与查表实现互相校验
 
 ## 关联
-- 源章节：[chfh-A8校验族谱CRC全家汉明HMAC边界](/posts/chfh-A8校验族谱CRC全家汉明HMAC边界/)
-- 相关章节：[ch75-UART-RS485与Modbus-RTU实战libmodbus](/posts/ch75-UART-RS485与Modbus-RTU实战libmodbus/) [ch74a-自研二进制协议设计规范](/posts/ch74a-自研二进制协议设计规范/)
+- 源章节：[chfh-A8校验族谱CRC全家汉明HMAC边界](/Learning-Obsidian./posts/chfh-A8校验族谱CRC全家汉明HMAC边界/)
+- 相关章节：[ch75-UART-RS485与Modbus-RTU实战libmodbus](/Learning-Obsidian./posts/ch75-UART-RS485与Modbus-RTU实战libmodbus/) [ch74a-自研二进制协议设计规范](/Learning-Obsidian./posts/ch74a-自研二进制协议设计规范/)

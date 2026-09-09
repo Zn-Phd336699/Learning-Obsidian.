@@ -18,10 +18,13 @@ chapter: Z3
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★☆☆ | 前置 [chz2-Z2-ZYNQ7020架构全景](/posts/chz2-Z2-ZYNQ7020架构全景/) | → [chz4-Z4-PS裸机与PS-PL协同AXI-Lite-DMA](/posts/chz4-Z4-PS裸机与PS-PL协同AXI-Lite-DMA/)
+⏱ 35min | ★★★☆☆ | 前置 [chz2-Z2-ZYNQ7020架构全景](/Learning-Obsidian./posts/chz2-Z2-ZYNQ7020架构全景/) | → [chz4-Z4-PS裸机与PS-PL协同AXI-Lite-DMA](/Learning-Obsidian./posts/chz4-Z4-PS裸机与PS-PL协同AXI-Lite-DMA/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 掌握 Verilog 精要子集：always 块/assign/时序与组合逻辑/参数化
@@ -154,4 +157,4 @@ endmodule
 </div>
 
 ---
-🏷️ #domain/fpga #topic/hdl #topic/simulation | 🔗 [chz2-Z2-ZYNQ7020架构全景](/posts/chz2-Z2-ZYNQ7020架构全景/) ← **本章** → [chz4-Z4-PS裸机与PS-PL协同AXI-Lite-DMA](/posts/chz4-Z4-PS裸机与PS-PL协同AXI-Lite-DMA/) | 📚 [P13-MOC](/posts/P13-MOC/)
+🏷️ #domain/fpga #topic/hdl #topic/simulation | 🔗 [chz2-Z2-ZYNQ7020架构全景](/Learning-Obsidian./posts/chz2-Z2-ZYNQ7020架构全景/) ← **本章** → [chz4-Z4-PS裸机与PS-PL协同AXI-Lite-DMA](/Learning-Obsidian./posts/chz4-Z4-PS裸机与PS-PL协同AXI-Lite-DMA/) | 📚 [P13-MOC](/Learning-Obsidian./posts/P13-MOC/)

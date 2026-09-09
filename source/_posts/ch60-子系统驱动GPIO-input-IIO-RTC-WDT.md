@@ -1,6 +1,6 @@
 ---
 title: 第60章 子系统驱动实战：GPIO / Input / IIO / RTC / Watchdog
-date: 2025-01-01
+date: 2025-04-02
 categories:
   - 嵌入式Linux
 tags:
@@ -18,10 +18,13 @@ chapter: 60
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★☆☆ | 前置 [ch59-platform驱动设备树regmap](/posts/ch59-platform驱动设备树regmap/) | → [ch61-中断下半部threaded-irq-workqueue](/posts/ch61-中断下半部threaded-irq-workqueue/)
+⏱ 35min | ★★★☆☆ | 前置 [ch59-platform驱动设备树regmap](/Learning-Obsidian./posts/ch59-platform驱动设备树regmap/) | → [ch61-中断下半部threaded-irq-workqueue](/Learning-Obsidian./posts/ch61-中断下半部threaded-irq-workqueue/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 用 gpiod 工具族与描述符 API 操作 GPIO，说出 sysfs GPIO 被废弃的理由
@@ -85,8 +88,8 @@ trigger/buffer 分工：trigger（定时器或外部中断）决定采样节奏�
 
 | 子系统 | 用户态入口 | 驱动要点 |
 |--------|-----------|----------|
-| RTC | /dev/rtcN + hwclock/date；alarm 走 ioctl RTC_WKALM_SET | 实现 read_time/set_alarm；wakealarm 可定时开机（联动 [ch29-低功耗设计](/posts/ch29-低功耗设计/)） |
-| Watchdog | /dev/watchdog：open 即启动；write 喂狗；ioctl WDIOC_GETTIMEOUT | nowayout 编译选项防意外关闭；心跳交给 systemd WatchdogSec 托管（[ch56-启动流程深度剖析systemd提速](/posts/ch56-启动流程深度剖析systemd提速/)） |
+| RTC | /dev/rtcN + hwclock/date；alarm 走 ioctl RTC_WKALM_SET | 实现 read_time/set_alarm；wakealarm 可定时开机（联动 [ch29-低功耗设计](/Learning-Obsidian./posts/ch29-低功耗设计/)） |
+| Watchdog | /dev/watchdog：open 即启动；write 喂狗；ioctl WDIOC_GETTIMEOUT | nowayout 编译选项防意外关闭；心跳交给 systemd WatchdogSec 托管（[ch56-启动流程深度剖析systemd提速](/Learning-Obsidian./posts/ch56-启动流程深度剖析systemd提速/)） |
 
 ## 60.5 LED 与 backlight：零代码功能库
 
@@ -130,10 +133,10 @@ backlight: pwm-backlight 节点配亮度表 → /sys/class/backlight/
 4. 按键做唤醒源时同步查 pinctrl 睡眠态与 wakeup-source 标志。
 
 > [!example]- 🧪 动手实验 L60-1：从 dts 到应用的按键全链（55 分钟）
-> **步骤**：① dts 加 gpio-keys 两键（不同 code/debounce）；② 重启后 evtest 验证事件流；③ 写 epoll 小程序统计按键次数；④ 调 debounce 参数观察连击抑制效果；⑤ 加 wakeup-source 测 Stop 唤醒（联动 [ch29-低功耗设计](/posts/ch29-低功耗设计/)）。**验收**：全链打通且输出「debounce 参数影响对照表」，连击误报归零。
+> **步骤**：① dts 加 gpio-keys 两键（不同 code/debounce）；② 重启后 evtest 验证事件流；③ 写 epoll 小程序统计按键次数；④ 调 debounce 参数观察连击抑制效果；⑤ 加 wakeup-source 测 Stop 唤醒（联动 [ch29-低功耗设计](/Learning-Obsidian./posts/ch29-低功耗设计/)）。**验收**：全链打通且输出「debounce 参数影响对照表」，连击误报归零。
 
 ## 60.10 进阶话题
-- IIO 触发缓冲工业用法：定时器触发多通道同步采样进 kfifo（思想同源 [ch66-综合实战USB摄像头流采集服务](/posts/ch66-综合实战USB摄像头流采集服务/) 的 V4L2 缓冲队列）；
+- IIO 触发缓冲工业用法：定时器触发多通道同步采样进 kfifo（思想同源 [ch66-综合实战USB摄像头流采集服务](/Learning-Obsidian./posts/ch66-综合实战USB摄像头流采集服务/) 的 V4L2 缓冲队列）；
 - 自写 leds trigger：把网络流量映射到呼吸灯频率——约 20 行代码的功能彩蛋；
 - drivers/input/keyboard/gpio_keys.c 仅约 600 行，读透它等于读懂一个子系统；接口文档见 Documentation/ABI/testing/sysfs-class-*。
 
@@ -153,4 +156,4 @@ backlight: pwm-backlight 节点配亮度表 → /sys/class/backlight/
 </div>
 
 ---
-🏷️ #domain/linux #topic/gpio #topic/input #topic/iio | 🔗 [ch59-platform驱动设备树regmap](/posts/ch59-platform驱动设备树regmap/) ← **本章** → [ch61-中断下半部threaded-irq-workqueue](/posts/ch61-中断下半部threaded-irq-workqueue/) | 📚 [P6-MOC](/posts/P6-MOC/)
+🏷️ #domain/linux #topic/gpio #topic/input #topic/iio | 🔗 [ch59-platform驱动设备树regmap](/Learning-Obsidian./posts/ch59-platform驱动设备树regmap/) ← **本章** → [ch61-中断下半部threaded-irq-workqueue](/Learning-Obsidian./posts/ch61-中断下半部threaded-irq-workqueue/) | 📚 [P6-MOC](/Learning-Obsidian./posts/P6-MOC/)

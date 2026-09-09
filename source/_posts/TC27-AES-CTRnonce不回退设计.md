@@ -10,6 +10,9 @@ tags:
 
 # TC27 AES-CTR nonce 不回退设计
 
+
+<!-- more -->
+
 ## 现象
 加密的固件包/遥测被推导出明文或被定向篡改；事后审计发现同一密钥下出现重复 nonce——两段密文异或即得两段明文异或，已知其一全泄其二。
 
@@ -50,5 +53,5 @@ bool next_nonce(uint8_t nonce[12])
 - 固件内置 nonce 单调自检，异常拒绝出数并告警
 
 ## 关联
-- 源章节：[chfj-A10轻量加密编码XTEA-AES-HMAC-RLE](/posts/chfj-A10轻量加密编码XTEA-AES-HMAC-RLE/)
-- 相关章节：[chsb-S2密钥管理与安全元件ATECC608](/posts/chsb-S2密钥管理与安全元件ATECC608/) [ch89-P3-MCUboot双分区OTA安全升级系统](/posts/ch89-P3-MCUboot双分区OTA安全升级系统/)
+- 源章节：[chfj-A10轻量加密编码XTEA-AES-HMAC-RLE](/Learning-Obsidian./posts/chfj-A10轻量加密编码XTEA-AES-HMAC-RLE/)
+- 相关章节：[chsb-S2密钥管理与安全元件ATECC608](/Learning-Obsidian./posts/chsb-S2密钥管理与安全元件ATECC608/) [ch89-P3-MCUboot双分区OTA安全升级系统](/Learning-Obsidian./posts/ch89-P3-MCUboot双分区OTA安全升级系统/)

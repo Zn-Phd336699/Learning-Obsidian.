@@ -17,10 +17,13 @@ chapter: A0
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 30min | ★★☆☆☆ | 前置 [chsd-S4-量产工程产测工装与老化](/posts/chsd-S4-量产工程产测工装与老化/) | → [chfa-A1数字滤波七件套](/posts/chfa-A1数字滤波七件套/)
+⏱ 30min | ★★☆☆☆ | 前置 [chsd-S4-量产工程产测工装与老化](/Learning-Obsidian./posts/chsd-S4-量产工程产测工装与老化/) | → [chfa-A1数字滤波七件套](/Learning-Obsidian./posts/chfa-A1数字滤波七件套/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 说清十二个 A 章的主线依赖顺序，为自己的项目规划学习路径
@@ -34,14 +37,14 @@ chapter: A0
 | A1 滤波七件套 | 噪声直觉起点 | 本章 |
 | A2 卡尔曼 | RC 的「变增益」推广 | A1 |
 | A3 姿态 / A4 PID | 解算与控制基石 | A2 |
-| A5-LQR · A6 FOC · A7 轨迹 | 终点为 [ch53-RTOS综合实战三轴云台控制器](/posts/ch53-RTOS综合实战三轴云台控制器/) 整机验收 | A4 |
+| A5-LQR · A6 FOC · A7 轨迹 | 终点为 [ch53-RTOS综合实战三轴云台控制器](/Learning-Obsidian./posts/ch53-RTOS综合实战三轴云台控制器/) 整机验收 | A4 |
 
 ## A0.2 前置基石一：采样定理与混叠（Aliasing）
 | 概念 | 一句话版本 | 嵌入式推论 |
 |------|-----------|-----------|
 | 奈奎斯特定理 | 采样率 f_s 必须 > 2×信号最高频率，否则混叠 | 采 25Hz 振动至少 51Hz 采样；抗混叠模拟滤波必须在 ADC 之前——软件救不了已混叠的频谱 |
 | 折叠频率 | 可见上限是 f_s/2，超出成分折叠回低频伪装 | f_s=100Hz 时 FFT 里 30Hz 尖峰可能是 70Hz 折叠来的——先怀疑后者！ |
-| 过采样红利 | 过采样率 OSR 每翻 4 倍有效分辨率 +1bit | 低速高精采集标配套路，见 [ch27-ADC-DAC与模拟前端](/posts/ch27-ADC-DAC与模拟前端/) |
+| 过采样红利 | 过采样率 OSR 每翻 4 倍有效分辨率 +1bit | 低速高精采集标配套路，见 [ch27-ADC-DAC与模拟前端](/Learning-Obsidian./posts/ch27-ADC-DAC与模拟前端/) |
 
 ## A0.3 前置基石二：时域/频域双视角直觉
 - 示波器=时域（什么时候多大），FFT=频域（由哪些频率组成）——信息等价、视角互补；
@@ -72,7 +75,7 @@ H(z) = alpha/(1-(1-alpha)z^-1)：分母定极点(稳定性/响应速度)，分�
 | 本篇口径实例 | RC ~10cy、FOC 内核 ~480cy | 一维 KF ~55cy |
 | 典型选择 | 高频内环(FOC/滤波) | KF/PID 等中低频路径 |
 
-纪律三条：**中间量扩宽(int16×int16 用 int32 中转) → 饱和处理 → 注明尺度**（详见 [ch03-C工程化预处理与定点数](/posts/ch03-C工程化预处理与定点数/)；CMSIS-DSP 后缀 _q15/_f32 即格式）。
+纪律三条：**中间量扩宽(int16×int16 用 int32 中转) → 饱和处理 → 注明尺度**（详见 [ch03-C工程化预处理与定点数](/Learning-Obsidian./posts/ch03-C工程化预处理与定点数/)；CMSIS-DSP 后缀 _q15/_f32 即格式）。
 
 ## A0.7 数值稳定性意识
 - **病态矩阵**：多维估计禁止手写求逆——对称化 P=(P+Pᵀ)/2 与 Cholesky/UD 分解（A2 展开）；
@@ -152,4 +155,4 @@ static inline uint32_t bench_cycles(void){ return DWT_CYCCNT; }
 </div>
 
 ---
-🏷️ #domain/algorithms #topic/math-basics | 🔗 [chsd-S4-量产工程产测工装与老化](/posts/chsd-S4-量产工程产测工装与老化/) ← **本章** → [chfa-A1数字滤波七件套](/posts/chfa-A1数字滤波七件套/) | 📚 [P11-MOC](/posts/P11-MOC/)
+🏷️ #domain/algorithms #topic/math-basics | 🔗 [chsd-S4-量产工程产测工装与老化](/Learning-Obsidian./posts/chsd-S4-量产工程产测工装与老化/) ← **本章** → [chfa-A1数字滤波七件套](/Learning-Obsidian./posts/chfa-A1数字滤波七件套/) | 📚 [P11-MOC](/Learning-Obsidian./posts/P11-MOC/)

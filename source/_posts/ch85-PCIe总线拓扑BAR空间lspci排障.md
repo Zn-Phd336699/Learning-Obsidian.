@@ -1,6 +1,6 @@
 ---
 title: 第85章 PCIe 总线：拓扑、BAR 空间与 lspci 排障
-date: 2025-01-01
+date: 2025-03-08
 categories:
   - 协议开发
 tags:
@@ -17,10 +17,13 @@ chapter: 85
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网](/posts/ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网/) | → [ch86-综合案例无线共存干扰排障全流程](/posts/ch86-综合案例无线共存干扰排障全流程/)
+⏱ 40min | ★★★★☆ | 前置 [ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网](/Learning-Obsidian./posts/ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网/) | → [ch86-综合案例无线共存干扰排障全流程](/Learning-Obsidian./posts/ch86-综合案例无线共存干扰排障全流程/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 说清 Root Complex/Switch/Endpoint 拓扑与深度优先枚举及 TLP 三层概念
@@ -153,4 +156,4 @@ XDMA(Xilinx DMA/PCIe Subsystem) 搬运 FPGA 采集数据：驱动枚举出 /dev/
 </div>
 
 ---
-🏷️ #domain/protocol #topic/pcie | 🔗 [ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网](/posts/ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网/) ← **本章** → [ch86-综合案例无线共存干扰排障全流程](/posts/ch86-综合案例无线共存干扰排障全流程/) | 📚 [P8-MOC](/posts/P8-MOC/)
+🏷️ #domain/protocol #topic/pcie | 🔗 [ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网](/Learning-Obsidian./posts/ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网/) ← **本章** → [ch86-综合案例无线共存干扰排障全流程](/Learning-Obsidian./posts/ch86-综合案例无线共存干扰排障全流程/) | 📚 [P8-MOC](/Learning-Obsidian./posts/P8-MOC/)

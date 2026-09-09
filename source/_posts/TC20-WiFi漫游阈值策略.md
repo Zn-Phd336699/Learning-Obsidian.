@@ -10,6 +10,9 @@ tags:
 
 # TC20 WiFi 漫游阈值策略
 
+
+<!-- more -->
+
 ## 现象
 漫游交界处终端 RSSI 已跌到 -75dBm 仍粘着旧 AP（吞吐骤降、视频卡顿），或刚切过去又切回来反复乒乓断流。典型触发：走廊/电梯口多 AP 同 SSID。
 
@@ -48,5 +51,5 @@ network={
 - 固件升级后重跑漫游测试（驱动行为可能变化）
 
 ## 关联
-- 源章节：[ch81-WiFi协议栈实战wpa_supplicant-hostapd](/posts/ch81-WiFi协议栈实战wpa_supplicant-hostapd/)
-- 相关章节：[ch86-综合案例无线共存干扰排障全流程](/posts/ch86-综合案例无线共存干扰排障全流程/) [ch32-ESP32外设与WiFi-BLE上手](/posts/ch32-ESP32外设与WiFi-BLE上手/)
+- 源章节：[ch81-WiFi协议栈实战wpa_supplicant-hostapd](/Learning-Obsidian./posts/ch81-WiFi协议栈实战wpa_supplicant-hostapd/)
+- 相关章节：[ch86-综合案例无线共存干扰排障全流程](/Learning-Obsidian./posts/ch86-综合案例无线共存干扰排障全流程/) [ch32-ESP32外设与WiFi-BLE上手](/Learning-Obsidian./posts/ch32-ESP32外设与WiFi-BLE上手/)

@@ -10,6 +10,9 @@ tags:
 
 # TC01 HardFault 四大指纹识别与对策
 
+
+<!-- more -->
+
 ## 现象
 程序突然跳进 HardFault_Handler 死循环，复现无规律；空函数指针、非法跳转、坏指针访存、栈溢出踩帧都会触发，不做指纹分析只能盲猜。
 
@@ -62,5 +65,5 @@ void hardfault_dump(uint32_t *frame, uint32_t exc_return)
 - HardFault 处理器打印现场后复位，禁止 while(1)
 
 ## 关联
-- 源章节：[ch05-ARM汇编与反汇编排障](/posts/ch05-ARM汇编与反汇编排障/)
-- 相关章节：[ch21-Cortex-M架构精讲](/posts/ch21-Cortex-M架构精讲/)、[ch24-中断系统与NVIC深度应用](/posts/ch24-中断系统与NVIC深度应用/)、[ch15-内存问题排查三板斧](/posts/ch15-内存问题排查三板斧/)
+- 源章节：[ch05-ARM汇编与反汇编排障](/Learning-Obsidian./posts/ch05-ARM汇编与反汇编排障/)
+- 相关章节：[ch21-Cortex-M架构精讲](/Learning-Obsidian./posts/ch21-Cortex-M架构精讲/)、[ch24-中断系统与NVIC深度应用](/Learning-Obsidian./posts/ch24-中断系统与NVIC深度应用/)、[ch15-内存问题排查三板斧](/Learning-Obsidian./posts/ch15-内存问题排查三板斧/)

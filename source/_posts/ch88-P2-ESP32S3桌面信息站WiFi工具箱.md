@@ -1,6 +1,6 @@
 ---
 title: 第88章 P2 · ESP32-S3 桌面信息站 / WiFi 工具箱
-date: 2025-01-01
+date: 2025-03-05
 categories:
   - 项目集
 tags:
@@ -18,10 +18,13 @@ chapter: 88
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★☆☆☆ | 前置 [ch87-P1-STM32环境监测终端](/posts/ch87-P1-STM32环境监测终端/) | → [ch89-P3-MCUboot双分区OTA安全升级系统](/posts/ch89-P3-MCUboot双分区OTA安全升级系统/)
+⏱ 35min | ★★☆☆☆ | 前置 [ch87-P1-STM32环境监测终端](/Learning-Obsidian./posts/ch87-P1-STM32环境监测终端/) | → [ch89-P3-MCUboot双分区OTA安全升级系统](/Learning-Obsidian./posts/ch89-P3-MCUboot双分区OTA安全升级系统/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 打造「开机即用」桌面信息终端：天气/时钟/B站粉丝/服务器监控多页面切换（ESP-IDF + LVGL9）
@@ -39,7 +42,7 @@ chapter: 88
 | WiFi 工具箱页 | 扫描列表/信道占用图/ping 工具/sniffer 开关 | esp_wifi_scan + sniffer 混杂模式(ch81.4) |
 | 电源管理 | 光感自动亮度+夜间深睡时段 | ledc 背光渐变 + esp_sleep 定时唤醒 |
 
-数据流：页面框架只消费消息队列——网络任务拉取数据 → cJSON 解析 → 队列推给 gui_task；服务器监控类数据源可扩展走 MQTT 订阅（协议本体见 [ch80a-MQTT-CoAP云协议本体与实现](/posts/ch80a-MQTT-CoAP云协议本体与实现/)）。sniffer 工具页同时是 [ch86-综合案例无线共存干扰排障全流程](/posts/ch86-综合案例无线共存干扰排障全流程/) 的取证前端。
+数据流：页面框架只消费消息队列——网络任务拉取数据 → cJSON 解析 → 队列推给 gui_task；服务器监控类数据源可扩展走 MQTT 订阅（协议本体见 [ch80a-MQTT-CoAP云协议本体与实现](/Learning-Obsidian./posts/ch80a-MQTT-CoAP云协议本体与实现/)）。sniffer 工具页同时是 [ch86-综合案例无线共存干扰排障全流程](/Learning-Obsidian./posts/ch86-综合案例无线共存干扰排障全流程/) 的取证前端。
 
 ## 88.2 关键实现代码：Captive Portal 配网门户
 
@@ -103,7 +106,7 @@ httpd_register_uri_handler(server, &save);
 1. **首开引导**：首次开机自动进入配网向导而非黑屏等待——第一印象 10 秒定生死；
 2. **断网优雅降级**：天气拉不到时显示「离线模式+本地时钟」，而不是报错弹窗；
 3. **亮度自适应曲线**：光敏值→PWM 做伽马校正映射，避免低光跳变；
-4. **OTA 静默升级**：夜间窗口+失败回滚提示，用户零感知（接口预留 [ch89-P3-MCUboot双分区OTA安全升级系统](/posts/ch89-P3-MCUboot双分区OTA安全升级系统/)）；
+4. **OTA 静默升级**：夜间窗口+失败回滚提示，用户零感知（接口预留 [ch89-P3-MCUboot双分区OTA安全升级系统](/Learning-Obsidian./posts/ch89-P3-MCUboot双分区OTA安全升级系统/)）；
 5. **彩蛋与人格化**：开机动画/语音播报开关——社交传播的种子。
 
 ## 88.8 排故速查表
@@ -131,7 +134,7 @@ httpd_register_uri_handler(server, &save);
 ## 88.10 进阶话题
 
 - **从玩具到产品的分水岭**：可制造性（外壳装配效率）、可维修性（模块化）、可升级性（OTA）三性评估表；
-- **功耗的最后 20%**：深睡期间 GPIO 漏电扫描法（[ch29-低功耗设计](/posts/ch29-低功耗设计/)）+外设电源树重构——续航翻倍常在硬件不在软件；
+- **功耗的最后 20%**：深睡期间 GPIO 漏电扫描法（[ch29-低功耗设计](/Learning-Obsidian./posts/ch29-低功耗设计/)）+外设电源树重构——续航翻倍常在硬件不在软件；
 - **社区运营初体验**：GitHub Trending 发布时机（周二上午、避开大厂发布会）与 README 封面图的重要性；WLED 用 GitHub Actions 自动出 release 包的流程值得全文抄读。
 
 > [!warning]- ❓ FAQ
@@ -149,4 +152,4 @@ httpd_register_uri_handler(server, &save);
 </div>
 
 ---
-🏷️ #domain/mcu #topic/wifi #topic/ble | 🔗 [ch87-P1-STM32环境监测终端](/posts/ch87-P1-STM32环境监测终端/) ← **本章** → [ch89-P3-MCUboot双分区OTA安全升级系统](/posts/ch89-P3-MCUboot双分区OTA安全升级系统/) | 📚 [P9-MOC](/posts/P9-MOC/)
+🏷️ #domain/mcu #topic/wifi #topic/ble | 🔗 [ch87-P1-STM32环境监测终端](/Learning-Obsidian./posts/ch87-P1-STM32环境监测终端/) ← **本章** → [ch89-P3-MCUboot双分区OTA安全升级系统](/Learning-Obsidian./posts/ch89-P3-MCUboot双分区OTA安全升级系统/) | 📚 [P9-MOC](/Learning-Obsidian./posts/P9-MOC/)

@@ -1,6 +1,6 @@
 ---
 title: 第80章 以太网与 lwIP 协议栈源码导读
-date: 2025-01-01
+date: 2025-03-13
 categories:
   - 协议开发
 tags:
@@ -18,10 +18,13 @@ chapter: 80
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch79-USB协议与驱动枚举描述符HID-CDC-Gadget](/posts/ch79-USB协议与驱动枚举描述符HID-CDC-Gadget/) | → [ch80a-MQTT-CoAP云协议本体与实现](/posts/ch80a-MQTT-CoAP云协议本体与实现/)
+⏱ 40min | ★★★★☆ | 前置 [ch79-USB协议与驱动枚举描述符HID-CDC-Gadget](/Learning-Obsidian./posts/ch79-USB协议与驱动枚举描述符HID-CDC-Gadget/) | → [ch80a-MQTT-CoAP云协议本体与实现](/Learning-Obsidian./posts/ch80a-MQTT-CoAP云协议本体与实现/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 说清 MAC+PHY 架构、RMII 接线与 BMSR/LPA 寄存器的自协商判读
@@ -127,9 +130,9 @@ if (err == ERR_OK && sent < len) {
 
 ## 80.9 进阶话题
 - **大流量饿死小流量**（工业相机案例）：千兆图像流打满 PBUF_POOL→控制连接零窗饿死 28s；药方只有分池隔离（图像专用 MEM 区）+tcp_prio 优先级+UDP 心跳兜底，改造后连续 1000h 零失控——「一条 TCP 连接被另一条饿死」是共享内存栈的固有病；
-- **LWIP_NETIF_STATUS_CALLBACK**：网口插拔事件钩子，业务层断线自愈的标准入口（思想同 [ch63-网络编程与TLS从socket到安全上云](/posts/ch63-网络编程与TLS从socket到安全上云/)）；
+- **LWIP_NETIF_STATUS_CALLBACK**：网口插拔事件钩子，业务层断线自愈的标准入口（思想同 [ch63-网络编程与TLS从socket到安全上云](/Learning-Obsidian./posts/ch63-网络编程与TLS从socket到安全上云/)）；
 - **HTTP/SNTP/DNS 三件套**：makefsdata 把 html 目录编译成 fsdata.c 零文件系统依赖；http_set_cgi_handlers 做 /led.cgi 动态控制；dns_gethostbyname 异步解析；
-- **双网口形态**：IP 路由器（双 netif 各自 IP 段+ip_forward）、单臂路由（VLAN tag 解析）、透明桥建议硬件方案；MQTT 云连接直接跑在本章栈上（[ch80a-MQTT-CoAP云协议本体与实现](/posts/ch80a-MQTT-CoAP云协议本体与实现/)）。
+- **双网口形态**：IP 路由器（双 netif 各自 IP 段+ip_forward）、单臂路由（VLAN tag 解析）、透明桥建议硬件方案；MQTT 云连接直接跑在本章栈上（[ch80a-MQTT-CoAP云协议本体与实现](/Learning-Obsidian./posts/ch80a-MQTT-CoAP云协议本体与实现/)）。
 
 > [!warning]- ❓ FAQ
 > **Q1：raw API 回调里能阻塞等待吗？** 不能——回调运行在内核/中断上下文，只做搬运与标记，重活交回主循环或邮箱。
@@ -147,4 +150,4 @@ if (err == ERR_OK && sent < len) {
 </div>
 
 ---
-🏷️ #domain/protocol #topic/network #topic/lwip | 🔗 [ch79-USB协议与驱动枚举描述符HID-CDC-Gadget](/posts/ch79-USB协议与驱动枚举描述符HID-CDC-Gadget/) ← **本章** → [ch80a-MQTT-CoAP云协议本体与实现](/posts/ch80a-MQTT-CoAP云协议本体与实现/) | 📚 [P8-MOC](/posts/P8-MOC/)
+🏷️ #domain/protocol #topic/network #topic/lwip | 🔗 [ch79-USB协议与驱动枚举描述符HID-CDC-Gadget](/Learning-Obsidian./posts/ch79-USB协议与驱动枚举描述符HID-CDC-Gadget/) ← **本章** → [ch80a-MQTT-CoAP云协议本体与实现](/Learning-Obsidian./posts/ch80a-MQTT-CoAP云协议本体与实现/) | 📚 [P8-MOC](/Learning-Obsidian./posts/P8-MOC/)

@@ -1,6 +1,6 @@
 ---
 title: 第27章 ADC/DAC 与模拟前端基础
-date: 2025-01-01
+date: 2025-05-05
 categories:
   - 单片机开发
 tags:
@@ -17,10 +17,13 @@ chapter: 27
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 30min | ★★★☆☆ | 前置 [ch26-DMA与Cache一致性](/posts/ch26-DMA与Cache一致性/) | → [ch28-串口工程化IDLE-DMA-RS485](/posts/ch28-串口工程化IDLE-DMA-RS485/)
+⏱ 30min | ★★★☆☆ | 前置 [ch26-DMA与Cache一致性](/Learning-Obsidian./posts/ch26-DMA与Cache一致性/) | → [ch28-串口工程化IDLE-DMA-RS485](/Learning-Obsidian./posts/ch28-串口工程化IDLE-DMA-RS485/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 掌握采样时间与信号源阻抗 RAIN 的匹配关系及注入组/规则组用法
@@ -138,4 +141,4 @@ HAL_DAC_SetValue(&hdac,DAC_CHANNEL_1,DAC_ALIGN_12B_R,2048); /* PA4≈VREF/2 */
 </div>
 
 ---
-🏷️ #domain/mcu #topic/adc | 🔗 [ch26-DMA与Cache一致性](/posts/ch26-DMA与Cache一致性/) ← **本章** → [ch28-串口工程化IDLE-DMA-RS485](/posts/ch28-串口工程化IDLE-DMA-RS485/) | 📚 [P3-MOC](/posts/P3-MOC/)
+🏷️ #domain/mcu #topic/adc | 🔗 [ch26-DMA与Cache一致性](/Learning-Obsidian./posts/ch26-DMA与Cache一致性/) ← **本章** → [ch28-串口工程化IDLE-DMA-RS485](/Learning-Obsidian./posts/ch28-串口工程化IDLE-DMA-RS485/) | 📚 [P3-MOC](/Learning-Obsidian./posts/P3-MOC/)

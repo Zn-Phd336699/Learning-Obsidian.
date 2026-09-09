@@ -1,6 +1,6 @@
 ---
 title: 第71章 设备适配实战：DTB / sepolicy / vendor blobs
-date: 2025-01-01
+date: 2025-03-22
 categories:
   - Android底层
 tags:
@@ -18,10 +18,13 @@ chapter: 71
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★★ | 前置 [ch70-Binder原理与实践](/posts/ch70-Binder原理与实践/) | → [ch72-A-B-OTA升级与Recovery体系](/posts/ch72-A-B-OTA升级与Recovery体系/)
+⏱ 45min | ★★★★★ | 前置 [ch70-Binder原理与实践](/Learning-Obsidian./posts/ch70-Binder原理与实践/) | → [ch72-A-B-OTA升级与Recovery体系](/Learning-Obsidian./posts/ch72-A-B-OTA升级与Recovery体系/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 独立执行新板适配七步清单（内核→boot 链→fstab→dtbo→HAL→sepolicy→性能调校）
@@ -33,7 +36,7 @@ chapter: 71
 | 步骤 | 内容 | 关键点 |
 |------|------|--------|
 | ① 内核侧 | 主线/厂商内核选型 → dts（复用同 SoC 参考板起步）→ 必要驱动在 defconfig 开启 | 先点亮再优化 |
-| ② boot 链 | ABL/U-Boot 支持 boot.img v4 头 + AVB2.0 校验链 | 与 [chsa-S1安全架构与SecureBoot实战](/posts/chsa-S1安全架构与SecureBoot实战/) 互补 |
+| ② boot 链 | ABL/U-Boot 支持 boot.img v4 头 + AVB2.0 校验链 | 与 [chsa-S1安全架构与SecureBoot实战](/Learning-Obsidian./posts/chsa-S1安全架构与SecureBoot实战/) 互补 |
 | ③ fstab | 分区 UUID/文件系统/avb flags 对齐实际 GPT | first stage init 靠它挂载 |
 | ④ dtbo | 多硬件变体走 overlay 机制 | bootloader 按硬件 ID 选择索引 |
 | ⑤ HAL 补齐 | 按 VINTF manifest 差集逐个移植 | 显示/Camera/Audio/Sensors 优先 |
@@ -42,7 +45,7 @@ chapter: 71
 
 ## 71.2 DTB 注入 boot 镜像与 dtbo 选择
 
-boot.img v4 头含独立 DTB 区段，vendor_boot 携带 dtbo 镜像；多硬件变体（不同内存/屏幕）共用一套内核时，由 bootloader 按 hardware ID 选 overlay 索引。dtbo 机制与 Linux 设备树 overlay 同源（参见 [ch40-内核适配与设备树dts语法-pinctrl-overlay](/posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/)）。
+boot.img v4 头含独立 DTB 区段，vendor_boot 携带 dtbo 镜像；多硬件变体（不同内存/屏幕）共用一套内核时，由 bootloader 按 hardware ID 选 overlay 索引。dtbo 机制与 Linux 设备树 overlay 同源（参见 [ch40-内核适配与设备树dts语法-pinctrl-overlay](/Learning-Obsidian./posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/)）。
 
 ## 71.3 关键代码：SELinux 类型强制判定流水线
 
@@ -146,4 +149,4 @@ allow gatewayd sensor_device:chr_file r_file_perms;   # 只给需要的
 </div>
 
 ---
-🏷️ #domain/android #topic/bsp #topic/selinux | 🔗 [ch70-Binder原理与实践](/posts/ch70-Binder原理与实践/) ← **本章** → [ch72-A-B-OTA升级与Recovery体系](/posts/ch72-A-B-OTA升级与Recovery体系/) | 📚 [P7-MOC](/posts/P7-MOC/)
+🏷️ #domain/android #topic/bsp #topic/selinux | 🔗 [ch70-Binder原理与实践](/Learning-Obsidian./posts/ch70-Binder原理与实践/) ← **本章** → [ch72-A-B-OTA升级与Recovery体系](/Learning-Obsidian./posts/ch72-A-B-OTA升级与Recovery体系/) | 📚 [P7-MOC](/Learning-Obsidian./posts/P7-MOC/)

@@ -10,6 +10,9 @@ tags:
 
 # TC06 CAN Bus-Off 恢复策略选择
 
+
+<!-- more -->
+
 ## 现象
 CAN 节点运行中突然整体停止发送，ESR 寄存器 BOFF=1、TEC=255；触发条件：总线强干扰、线束短路或波特率失配使发送错误计数器累计到 256。
 
@@ -52,5 +55,5 @@ Linux SocketCAN 对应配置：`ip link set can0 type can restart-ms 100`。
 - 量产设备记录 bus-off 日志便于售后追溯
 
 ## 关联
-- 源章节：[ch78-CAN-CANFD实战SocketCAN-DBC工作流](/posts/ch78-CAN-CANFD实战SocketCAN-DBC工作流/)
-- 相关章节：[ch74-总线与无线选型总表](/posts/ch74-总线与无线选型总表/)、[ch18-示波器实战](/posts/ch18-示波器实战/)
+- 源章节：[ch78-CAN-CANFD实战SocketCAN-DBC工作流](/Learning-Obsidian./posts/ch78-CAN-CANFD实战SocketCAN-DBC工作流/)
+- 相关章节：[ch74-总线与无线选型总表](/Learning-Obsidian./posts/ch74-总线与无线选型总表/)、[ch18-示波器实战](/Learning-Obsidian./posts/ch18-示波器实战/)

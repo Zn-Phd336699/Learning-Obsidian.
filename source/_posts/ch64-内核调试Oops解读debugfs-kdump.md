@@ -1,6 +1,6 @@
 ---
 title: 第64章 内核调试专题：Oops解读、debugfs、kgdb与kdump
-date: 2025-01-01
+date: 2025-03-29
 categories:
   - 嵌入式Linux
 tags:
@@ -17,10 +17,13 @@ chapter: 64
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★★☆ | 前置 [ch63-网络编程与TLS从socket到安全上云](/posts/ch63-网络编程与TLS从socket到安全上云/) | → [ch65-性能优化CPU隔离cgroup-io调优](/posts/ch65-性能优化CPU隔离cgroup-io调优/)
+⏱ 35min | ★★★★☆ | 前置 [ch63-网络编程与TLS从socket到安全上云](/Learning-Obsidian./posts/ch63-网络编程与TLS从socket到安全上云/) | → [ch65-性能优化CPU隔离cgroup-io调优](/Learning-Obsidian./posts/ch65-性能优化CPU隔离cgroup-io调优/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 用五步法独立解读 Oops 并反解出出错源码行
@@ -64,7 +67,7 @@ objdump -dS mydrv.ko                          # 反汇编对照源码验证
 | /sys/kernel/debug/regmap/*/registers | 寄存器实时 dump（regmap 驱动免费送） |
 | /sys/kernel/debug/pinctrl/*/pins | 引脚复用实况 |
 | /sys/kernel/debug/clk/clk_summary | 时钟树频率与使能计数 |
-| /sys/kernel/debug/tracing/ | ftrace 入口（[ch16-perf-ftrace-strace性能剖析](/posts/ch16-perf-ftrace-strace性能剖析/) 主战场） |
+| /sys/kernel/debug/tracing/ | ftrace 入口（[ch16-perf-ftrace-strace性能剖析](/Learning-Obsidian./posts/ch16-perf-ftrace-strace性能剖析/) 主战场） |
 
 ```bash
 devmem 0x0209C000              # 读 GPIO 控制器寄存器
@@ -123,7 +126,7 @@ reserved-memory { #address-cells=<1>; #size-cells=<1>; ranges;
 1. 生产环境 `panic_on_oops=1` + 看门狗：快死早超生；带黑匣子后死得体面又可查；
 2. 每次发布把 unstripped vmlinux/.ko 与版本号归档符号服务器——半年后的现场日志全靠它说话；
 3. ramoops 的 reserved-memory 地址须与 U-Boot/内核占用核对，`dmesg | grep pstore` 验证挂载成功；
-4. devmem 结论仅作硬件在位判定，修复必须回到正规驱动路径（[ch58-字符设备驱动hello-drv到并发安全](/posts/ch58-字符设备驱动hello-drv到并发安全/)）；
+4. devmem 结论仅作硬件在位判定，修复必须回到正规驱动路径（[ch58-字符设备驱动hello-drv到并发安全](/Learning-Obsidian./posts/ch58-字符设备驱动hello-drv到并发安全/)）；
 5. KASAN 开发期专用利器，发布固件必关（内存开销大）。
 
 > [!example]- 🧪 动手实验 L64-1：三种内核崩溃的取证对比（55 分钟）
@@ -133,7 +136,7 @@ reserved-memory { #address-cells=<1>; #size-cells=<1>; ranges;
 ## 64.9 进阶话题
 - **KASAN 内核版**：CONFIG_KASAN 板级抓越界/UAF，开销大——开发期专用，发布必关；
 - **三级黑匣子设计**：pstore 日志（必配）→ vmcore（可选）→ 统一远端上报格式；trace-cmd 现场抓 ftrace 离线分析；
-- **镜像思维**：本套流程与 Cortex-M HardFault 取证([ch05-ARM汇编与反汇编排障](/posts/ch05-ARM汇编与反汇编排障/))互为镜像。
+- **镜像思维**：本套流程与 Cortex-M HardFault 取证([ch05-ARM汇编与反汇编排障](/Learning-Obsidian./posts/ch05-ARM汇编与反汇编排障/))互为镜像。
 
 > [!warning]- ❓ FAQ
 > **Q1：Oops 后系统还在跑，要不要立刻重启？** 行为已不可信；生产开 panic_on_oops=1 自动重启，开发期保存完整日志后再重启。
@@ -151,4 +154,4 @@ reserved-memory { #address-cells=<1>; #size-cells=<1>; ranges;
 </div>
 
 ---
-🏷️ #domain/linux #topic/debugging | 🔗 [ch63-网络编程与TLS从socket到安全上云](/posts/ch63-网络编程与TLS从socket到安全上云/) ← **本章** → [ch65-性能优化CPU隔离cgroup-io调优](/posts/ch65-性能优化CPU隔离cgroup-io调优/) | 📚 [P6-MOC](/posts/P6-MOC/)
+🏷️ #domain/linux #topic/debugging | 🔗 [ch63-网络编程与TLS从socket到安全上云](/Learning-Obsidian./posts/ch63-网络编程与TLS从socket到安全上云/) ← **本章** → [ch65-性能优化CPU隔离cgroup-io调优](/Learning-Obsidian./posts/ch65-性能优化CPU隔离cgroup-io调优/) | 📚 [P6-MOC](/Learning-Obsidian./posts/P6-MOC/)

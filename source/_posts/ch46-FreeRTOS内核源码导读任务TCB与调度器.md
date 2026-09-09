@@ -1,6 +1,6 @@
 ---
 title: 第46章 FreeRTOS 内核源码导读①：任务、TCB 与调度器框架
-date: 2025-01-01
+date: 2025-04-16
 categories:
   - RTOS
 tags:
@@ -17,10 +17,13 @@ chapter: 46
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch45-实时性理论与调度算法](/posts/ch45-实时性理论与调度算法/) | → [ch47-FreeRTOS-PendSV上下文切换逐行汇编](/posts/ch47-FreeRTOS-PendSV上下文切换逐行汇编/)
+⏱ 40min | ★★★★☆ | 前置 [ch45-实时性理论与调度算法](/Learning-Obsidian./posts/ch45-实时性理论与调度算法/) | → [ch47-FreeRTOS-PendSV上下文切换逐行汇编](/Learning-Obsidian./posts/ch47-FreeRTOS-PendSV上下文切换逐行汇编/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 逐字段拆解 TCB 结构，说出每个成员被谁在什么时机访问
@@ -152,4 +155,4 @@ vTaskStartScheduler()
 </div>
 
 ---
-🏷️ #domain/rtos #topic/freertos | 🔗 [ch45-实时性理论与调度算法](/posts/ch45-实时性理论与调度算法/) ← **本章** → [ch47-FreeRTOS-PendSV上下文切换逐行汇编](/posts/ch47-FreeRTOS-PendSV上下文切换逐行汇编/) | 📚 [P5-MOC](/posts/P5-MOC/)
+🏷️ #domain/rtos #topic/freertos | 🔗 [ch45-实时性理论与调度算法](/Learning-Obsidian./posts/ch45-实时性理论与调度算法/) ← **本章** → [ch47-FreeRTOS-PendSV上下文切换逐行汇编](/Learning-Obsidian./posts/ch47-FreeRTOS-PendSV上下文切换逐行汇编/) | 📚 [P5-MOC](/Learning-Obsidian./posts/P5-MOC/)

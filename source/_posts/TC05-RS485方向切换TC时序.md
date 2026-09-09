@@ -10,6 +10,9 @@ tags:
 
 # TC05 RS485 方向切换时机错误损坏末字节
 
+
+<!-- more -->
+
 ## 现象
 RS485 半双工通信中每帧最后一个字节（常是 CRC 第二字节）固定损坏，接收端 CRC 校验失败率接近 100%；触发条件：DE 使能脚在中断里过早拉低切回接收。
 
@@ -53,5 +56,5 @@ __HAL_UART_ENABLE_IT(&huart1, UART_IT_TC);
 - 高波特率场景用示波器实测切换时序裕量并存档
 
 ## 关联
-- 源章节：[ch28-串口工程化IDLE-DMA-RS485](/posts/ch28-串口工程化IDLE-DMA-RS485/)
-- 相关章节：[ch75-UART-RS485与Modbus-RTU实战libmodbus](/posts/ch75-UART-RS485与Modbus-RTU实战libmodbus/)、[ch18-示波器实战](/posts/ch18-示波器实战/)
+- 源章节：[ch28-串口工程化IDLE-DMA-RS485](/Learning-Obsidian./posts/ch28-串口工程化IDLE-DMA-RS485/)
+- 相关章节：[ch75-UART-RS485与Modbus-RTU实战libmodbus](/Learning-Obsidian./posts/ch75-UART-RS485与Modbus-RTU实战libmodbus/)、[ch18-示波器实战](/Learning-Obsidian./posts/ch18-示波器实战/)

@@ -16,10 +16,13 @@ chapter: A1
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★☆☆ | 前置 [chf0-A0算法篇导学与前置知识](/posts/chf0-A0算法篇导学与前置知识/) | → [chfb-A2卡尔曼滤波族谱KF-EKF-UKF](/posts/chfb-A2卡尔曼滤波族谱KF-EKF-UKF/)
+⏱ 45min | ★★★☆☆ | 前置 [chf0-A0算法篇导学与前置知识](/Learning-Obsidian./posts/chf0-A0算法篇导学与前置知识/) | → [chfb-A2卡尔曼滤波族谱KF-EKF-UKF](/Learning-Obsidian./posts/chfb-A2卡尔曼滤波族谱KF-EKF-UKF/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 按噪声特征(白噪/脉冲/工频/漂移)选择滤波组合并排出级联顺序
@@ -135,7 +138,7 @@ float notch_run(bq_t *f, float x){
 ## A1.10 进阶话题
 - 自适应一阶滤波：误差大用大 α(快跟)、稳态用小 α(平滑)——一行增益调度；
 - CIC 抽取滤波：Σ-Δ ADC 后的抽取级，纯加减法实现的高分辨率低速采集标准前级；
-- WMA/峰值保持补充件与 CMSIS-DSP biquad 函数族；大窗中值的直方图法 O(N+量程)；FFT 验证手段见 [chfi-A9信号处理FFT-Goertzel-NTC-SOC融合](/posts/chfi-A9信号处理FFT-Goertzel-NTC-SOC融合/)。
+- WMA/峰值保持补充件与 CMSIS-DSP biquad 函数族；大窗中值的直方图法 O(N+量程)；FFT 验证手段见 [chfi-A9信号处理FFT-Goertzel-NTC-SOC融合](/Learning-Obsidian./posts/chfi-A9信号处理FFT-Goertzel-NTC-SOC融合/)。
 
 > [!warning]- ❓ FAQ
 > **Q1：Q15 乘法忘右移会怎样？** 输出瞬间飞到饱和；正确写法 `((int32_t)alpha_q15*(x-y))>>15`。
@@ -153,4 +156,4 @@ float notch_run(bq_t *f, float x){
 </div>
 
 ---
-🏷️ #domain/algorithms #topic/filtering | 🔗 [chf0-A0算法篇导学与前置知识](/posts/chf0-A0算法篇导学与前置知识/) ← **本章** → [chfb-A2卡尔曼滤波族谱KF-EKF-UKF](/posts/chfb-A2卡尔曼滤波族谱KF-EKF-UKF/) | 📚 [P11-MOC](/posts/P11-MOC/)
+🏷️ #domain/algorithms #topic/filtering | 🔗 [chf0-A0算法篇导学与前置知识](/Learning-Obsidian./posts/chf0-A0算法篇导学与前置知识/) ← **本章** → [chfb-A2卡尔曼滤波族谱KF-EKF-UKF](/Learning-Obsidian./posts/chfb-A2卡尔曼滤波族谱KF-EKF-UKF/) | 📚 [P11-MOC](/Learning-Obsidian./posts/P11-MOC/)

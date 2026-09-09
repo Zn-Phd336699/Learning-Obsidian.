@@ -1,6 +1,6 @@
 ---
 title: 第75章 UART/RS485 与 Modbus RTU 实战
-date: 2025-01-01
+date: 2025-03-18
 categories:
   - 协议开发
 tags:
@@ -18,10 +18,13 @@ chapter: 75
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★☆ | 前置 [ch74a-自研二进制协议设计规范](/posts/ch74a-自研二进制协议设计规范/) | → [ch76-I2C协议与排障时钟拉伸总线锁死多主机](/posts/ch76-I2C协议与排障时钟拉伸总线锁死多主机/)
+⏱ 45min | ★★★★☆ | 前置 [ch74a-自研二进制协议设计规范](/Learning-Obsidian./posts/ch74a-自研二进制协议设计规范/) | → [ch76-I2C协议与排障时钟拉伸总线锁死多主机](/Learning-Obsidian./posts/ch76-I2C协议与排障时钟拉伸总线锁死多主机/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 精通 Modbus RTU 帧结构、T1.5/T3.5 时序铁律与 CRC16 细节
@@ -133,7 +136,7 @@ void poll_engine(slave_t *slaves, int n, uint32_t now)
 
 ## 75.11 进阶话题
 - RTU over TCP 透传网关要做格式转换而非裸转发；联调用 mbpoll/qmodmaster，范本看 libmodbus tests/unit-test-client.c。
-- 冲突根治路线：Modbus 单主制是纪律而非缺陷，真要多主竞争请迁 CAN（[ch78-CAN-CANFD实战SocketCAN-DBC工作流](/posts/ch78-CAN-CANFD实战SocketCAN-DBC工作流/)）。
+- 冲突根治路线：Modbus 单主制是纪律而非缺陷，真要多主竞争请迁 CAN（[ch78-CAN-CANFD实战SocketCAN-DBC工作流](/Learning-Obsidian./posts/ch78-CAN-CANFD实战SocketCAN-DBC工作流/)）。
 
 > [!warning]- ❓ FAQ
 > **Q1：115200bps 下 T3.5 还按公式算吗？** 不。>19200bps 规范固定取 1.75ms——高速率下按字符时间算出的值已小于定时器精度。
@@ -151,4 +154,4 @@ void poll_engine(slave_t *slaves, int n, uint32_t now)
 </div>
 
 ---
-🏷️ #domain/protocol #topic/uart #topic/modbus | 🔗 [ch74a-自研二进制协议设计规范](/posts/ch74a-自研二进制协议设计规范/) ← **本章** → [ch76-I2C协议与排障时钟拉伸总线锁死多主机](/posts/ch76-I2C协议与排障时钟拉伸总线锁死多主机/) | 📚 [P8-MOC](/posts/P8-MOC/)
+🏷️ #domain/protocol #topic/uart #topic/modbus | 🔗 [ch74a-自研二进制协议设计规范](/Learning-Obsidian./posts/ch74a-自研二进制协议设计规范/) ← **本章** → [ch76-I2C协议与排障时钟拉伸总线锁死多主机](/Learning-Obsidian./posts/ch76-I2C协议与排障时钟拉伸总线锁死多主机/) | 📚 [P8-MOC](/Learning-Obsidian./posts/P8-MOC/)

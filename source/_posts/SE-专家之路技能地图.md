@@ -18,10 +18,13 @@ chapter: SE
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 30min | ★★☆☆☆ | 前置 [chs5-SO5-Linux系统优化进阶内核容器观测前沿](/posts/chs5-SO5-Linux系统优化进阶内核容器观测前沿/) | → [chz1-Z1导学与异构价值](/posts/chz1-Z1导学与异构价值/)
+⏱ 30min | ★★☆☆☆ | 前置 [chs5-SO5-Linux系统优化进阶内核容器观测前沿](/Learning-Obsidian./posts/chs5-SO5-Linux系统优化进阶内核容器观测前沿/) | → [chz1-Z1导学与异构价值](/Learning-Obsidian./posts/chz1-Z1导学与异构价值/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 对照九大域技能树完成个人能力的诚实评估(L1~L4 定级)
@@ -102,7 +105,7 @@ chapter: SE
 ## SE.9 知识管理运营：Obsidian×LLM 工作流回顾
 - **个人 wiki 结构**：踩坑数据库(现象/根因/修复)、实验记录、读书笔记、工具配方——检索键=报错原文；
 - **团队案例库运营**：每月评选「最佳复盘」入册；新案例必须关联旧案例(相似度标注)形成知识网络；
-- **衰减治理**：文档加「最后验证日期」，超过 2 年未验证自动标记待复核——过时知识比没有知识更危险；本库组织范式即该工作流的落地样例，工具链详见 [E-Obsidian×LLM工作流](/posts/E-Obsidian×LLM工作流/)。
+- **衰减治理**：文档加「最后验证日期」，超过 2 年未验证自动标记待复核——过时知识比没有知识更危险；本库组织范式即该工作流的落地样例，工具链详见 [E-Obsidian×LLM工作流](/Learning-Obsidian./posts/E-Obsidian×LLM工作流/)。
 
 ## SE.10 认证地图（按需投入）
 | 方向 | 认证/标准 | 适用岗位 | 投入量级 |
@@ -157,4 +160,4 @@ chapter: SE
 </div>
 
 ---
-🏷️ #career #skill-map #成长体系 | 🔗 [chs5-SO5-Linux系统优化进阶内核容器观测前沿](/posts/chs5-SO5-Linux系统优化进阶内核容器观测前沿/) ← **本章** → [chz1-Z1导学与异构价值](/posts/chz1-Z1导学与异构价值/) | 📚 [P12-MOC](/posts/P12-MOC/)
+🏷️ #career #skill-map #成长体系 | 🔗 [chs5-SO5-Linux系统优化进阶内核容器观测前沿](/Learning-Obsidian./posts/chs5-SO5-Linux系统优化进阶内核容器观测前沿/) ← **本章** → [chz1-Z1导学与异构价值](/Learning-Obsidian./posts/chz1-Z1导学与异构价值/) | 📚 [P12-MOC](/Learning-Obsidian./posts/P12-MOC/)

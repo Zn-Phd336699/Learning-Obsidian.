@@ -1,6 +1,6 @@
 ---
 title: 第65章 性能优化专题：CPU隔离、cgroup与IO调优
-date: 2025-01-01
+date: 2025-03-28
 categories:
   - 嵌入式Linux
 tags:
@@ -18,10 +18,13 @@ chapter: 65
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch64-内核调试Oops解读debugfs-kdump](/posts/ch64-内核调试Oops解读debugfs-kdump/) | → [ch66-综合实战USB摄像头流采集服务](/posts/ch66-综合实战USB摄像头流采集服务/)
+⏱ 40min | ★★★★☆ | 前置 [ch64-内核调试Oops解读debugfs-kdump](/Learning-Obsidian./posts/ch64-内核调试Oops解读debugfs-kdump/) | → [ch66-综合实战USB摄像头流采集服务](/Learning-Obsidian./posts/ch66-综合实战USB摄像头流采集服务/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 用 top/iostat/vmstat/perf 四板斧建立「先基线后优化」的工作纪律
@@ -125,7 +128,7 @@ max 的改善才是 RT 补丁的核心价值——买的是确定性而非速度
 2. 电池设备按「能效比」选 governor——performance 提速但功耗约 ×2；
 3. 隔离三层配合：isolcpus(启动期)+cpuset cgroup(运行期)+irqaffinity；改 isolcpus 需重启；
 4. ext4 data=journal 双写费 Flash 寿命，量产慎用；
-5. 实时指标纪律：验收只看负载下 P99 与 max（[ch61-中断下半部threaded-irq-workqueue](/posts/ch61-中断下半部threaded-irq-workqueue/) 线程化是前提）。
+5. 实时指标纪律：验收只看负载下 P99 与 max（[ch61-中断下半部threaded-irq-workqueue](/Learning-Obsidian./posts/ch61-中断下半部threaded-irq-workqueue/) 线程化是前提）。
 
 > [!example]- 🧪 动手实验 L65-1：一次完整的实时性验收（70 分钟）
 > **步骤**：① 装 cyclictest 与 stress-ng；② 基线测量(mainline+空载)；③ 加压(stress-ng --cpu 4 --io 2)再测暴露劣化；④ 按 65.6 清单逐项隔离元凶并整改；⑤ 输出「负载下 max 延迟」达标报告。
@@ -152,4 +155,4 @@ max 的改善才是 RT 补丁的核心价值——买的是确定性而非速度
 </div>
 
 ---
-🏷️ #domain/linux #topic/performance #topic/scheduling | 🔗 [ch64-内核调试Oops解读debugfs-kdump](/posts/ch64-内核调试Oops解读debugfs-kdump/) ← **本章** → [ch66-综合实战USB摄像头流采集服务](/posts/ch66-综合实战USB摄像头流采集服务/) | 📚 [P6-MOC](/posts/P6-MOC/)
+🏷️ #domain/linux #topic/performance #topic/scheduling | 🔗 [ch64-内核调试Oops解读debugfs-kdump](/Learning-Obsidian./posts/ch64-内核调试Oops解读debugfs-kdump/) ← **本章** → [ch66-综合实战USB摄像头流采集服务](/Learning-Obsidian./posts/ch66-综合实战USB摄像头流采集服务/) | 📚 [P6-MOC](/Learning-Obsidian./posts/P6-MOC/)

@@ -17,10 +17,13 @@ chapter: S3
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★★☆ | 前置 [chsb-S2密钥管理与安全元件ATECC608](/posts/chsb-S2密钥管理与安全元件ATECC608/) | → [chsd-S4-量产工程产测工装与老化](/posts/chsd-S4-量产工程产测工装与老化/)
+⏱ 35min | ★★★★☆ | 前置 [chsb-S2密钥管理与安全元件ATECC608](/Learning-Obsidian./posts/chsb-S2密钥管理与安全元件ATECC608/) | → [chsd-S4-量产工程产测工装与老化](/Learning-Obsidian./posts/chsd-S4-量产工程产测工装与老化/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 搭建三层测试金字塔：主机单测 → QEMU/Renode 仿真 → HIL 真机台架
@@ -62,9 +65,9 @@ mach set "node1" ; start                   # 切到指定机器并启动
 | 模块 | 实现 | 作用 |
 |------|------|------|
 | 被测板位 ×4 | 弹簧针治具+USB Hub | 并行老化与回归 |
-| 电源控制 | USB 继电器板 / 可编程电源(Rigol DP832) | 掉电注入、电流采样（方法见 [ch29-低功耗设计](/posts/ch29-低功耗设计/)） |
-| 信号激励 | 第二块 MCU 作「陪练」模拟传感器/从站 | 故障注入源（四类故障见 [ch75-UART-RS485与Modbus-RTU实战libmodbus](/posts/ch75-UART-RS485与Modbus-RTU实战libmodbus/)） |
-| 测量通道 | 24M 逻辑分析仪(sigrok CLI)/电流计(Joulescope) | 时序与功耗证据采集（工具见 [ch19-逻辑分析仪与sigrok](/posts/ch19-逻辑分析仪与sigrok/)） |
+| 电源控制 | USB 继电器板 / 可编程电源(Rigol DP832) | 掉电注入、电流采样（方法见 [ch29-低功耗设计](/Learning-Obsidian./posts/ch29-低功耗设计/)） |
+| 信号激励 | 第二块 MCU 作「陪练」模拟传感器/从站 | 故障注入源（四类故障见 [ch75-UART-RS485与Modbus-RTU实战libmodbus](/Learning-Obsidian./posts/ch75-UART-RS485与Modbus-RTU实战libmodbus/)） |
+| 测量通道 | 24M 逻辑分析仪(sigrok CLI)/电流计(Joulescope) | 时序与功耗证据采集（工具见 [ch19-逻辑分析仪与sigrok](/Learning-Obsidian./posts/ch19-逻辑分析仪与sigrok/)） |
 | 网络环境 | 可控路由器(openwrt)+衰减器(无线) | 断网/弱信号场景复现 |
 
 ## S3.4 关键代码：pytest-embedded 夜间回归骨架
@@ -138,4 +141,4 @@ def test_powerfail_recovery(dev, relay):                # 自定义 fixture
 </div>
 
 ---
-🏷️ #安全 #HIL #Renode #pytest #自动化测试 | 🔗 [chsb-S2密钥管理与安全元件ATECC608](/posts/chsb-S2密钥管理与安全元件ATECC608/) ← **本章** → [chsd-S4-量产工程产测工装与老化](/posts/chsd-S4-量产工程产测工装与老化/) | 📚 [P10-MOC](/posts/P10-MOC/)
+🏷️ #安全 #HIL #Renode #pytest #自动化测试 | 🔗 [chsb-S2密钥管理与安全元件ATECC608](/Learning-Obsidian./posts/chsb-S2密钥管理与安全元件ATECC608/) ← **本章** → [chsd-S4-量产工程产测工装与老化](/Learning-Obsidian./posts/chsd-S4-量产工程产测工装与老化/) | 📚 [P10-MOC](/Learning-Obsidian./posts/P10-MOC/)

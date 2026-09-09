@@ -10,6 +10,9 @@ tags:
 
 # TC25 S 曲线 jerk 选取经验式
 
+
+<!-- more -->
+
 ## 现象
 jerk 设太大：启动「哐当」异响、皮带打滑、到位过冲激发共振；设太小：同等行程时间翻倍，产线节拍不达标。典型触发：照抄别人设备的轨迹参数没做机械适配。
 
@@ -47,5 +50,5 @@ float jerk_pick(float a_max, mech_t m) { return a_max / t_rise_tab[m]; }
 - 机械结构大改（换皮带/加配重）后强制回归轨迹测试
 
 ## 关联
-- 源章节：[chfg-A7运动轨迹规划梯形S曲线前馈跟踪](/posts/chfg-A7运动轨迹规划梯形S曲线前馈跟踪/)
-- 相关章节：[chfe-A5复合与现代控制前馈串级-Smith-LQR](/posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/) [chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO](/posts/chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO/)
+- 源章节：[chfg-A7运动轨迹规划梯形S曲线前馈跟踪](/Learning-Obsidian./posts/chfg-A7运动轨迹规划梯形S曲线前馈跟踪/)
+- 相关章节：[chfe-A5复合与现代控制前馈串级-Smith-LQR](/Learning-Obsidian./posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/) [chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO](/Learning-Obsidian./posts/chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO/)

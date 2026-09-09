@@ -1,6 +1,6 @@
 ---
 title: 第36章 RK 平台：ATK-DLRK3568 / RK3588 / Luckfox Pico
-date: 2025-01-01
+date: 2025-04-26
 categories:
   - SoC开发
 tags:
@@ -17,10 +17,13 @@ chapter: 36
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 30min | ★★★☆☆ | 前置 [ch35-i-MX6U-ALPHA平台详解](/posts/ch35-i-MX6U-ALPHA平台详解/) | → [ch37-全志H3-OrangePiZero-NanoPiNEO实战](/posts/ch37-全志H3-OrangePiZero-NanoPiNEO实战/)
+⏱ 30min | ★★★☆☆ | 前置 [ch35-i-MX6U-ALPHA平台详解](/Learning-Obsidian./posts/ch35-i-MX6U-ALPHA平台详解/) | → [ch37-全志H3-OrangePiZero-NanoPiNEO实战](/Learning-Obsidian./posts/ch37-全志H3-OrangePiZero-NanoPiNEO实战/)
 
 </div>
 </div>
+
+<!-- more -->
+
 ## 🎯 学习目标
 - [ ] 说清 RK 启动链 TPL/SPL/idblock/miniloader/ATF 的角色分工与偏移布局
 - [ ] 掌握 rkdeveloptool/RKDevTool 烧写流程与 Maskrom 救砖全步骤
@@ -74,7 +77,7 @@ rknn_yolov5_demo model/yolov5s.rknn bus.jpg
 # 任一步失败 → 按 36.9 排故表对应行处理，不要跳步。
 ```
 
-Luckfox Pico 快览（超低成本路线）：官方 Buildroot SDK 含 IPC 例程(抓拍+RTSP)。`./build.sh lunch` 选 luckfox_pico 板型后 `./build.sh` 全量构建；SPI NAND 128MB 起步 → rootfs 用 squashfs 只读+overlay；RISC-V 小核跑 RTOS 走 rpmsg——AMP 架构练手绝佳（Buildroot 全流程见 [ch41-Buildroot定制rootfs全流程](/posts/ch41-Buildroot定制rootfs全流程/)）。
+Luckfox Pico 快览（超低成本路线）：官方 Buildroot SDK 含 IPC 例程(抓拍+RTSP)。`./build.sh lunch` 选 luckfox_pico 板型后 `./build.sh` 全量构建；SPI NAND 128MB 起步 → rootfs 用 squashfs 只读+overlay；RISC-V 小核跑 RTOS 走 rpmsg——AMP 架构练手绝佳（Buildroot 全流程见 [ch41-Buildroot定制rootfs全流程](/Learning-Obsidian./posts/ch41-Buildroot定制rootfs全流程/)）。
 ## 36.5 实测数据表：NPU 推理基准(rknn_model_zoo 口径+社区复测)
 
 | 模型(int8) | RK3566/68 (0.8T) | RK3588 单核(1T) | 备注 |
@@ -83,7 +86,7 @@ Luckfox Pico 快览（超低成本路线）：官方 Buildroot SDK 含 IPC 例�
 | yolov8n-320 | ~45fps | ~90fps | P5 项目选型依据 |
 | RetinaFace-320 | ~30fps | ~60fps | 人脸检测基线 |
 
-经验：NPU 利用率上不去先查预处理——CPU resize 是隐形瓶颈（详见 [ch43-NPU-GPU应用开发RKNN-MPP](/posts/ch43-NPU-GPU应用开发RKNN-MPP/)）。
+经验：NPU 利用率上不去先查预处理——CPU resize 是隐形瓶颈（详见 [ch43-NPU-GPU应用开发RKNN-MPP](/Learning-Obsidian./posts/ch43-NPU-GPU应用开发RKNN-MPP/)）。
 ## 36.6 RK3588(S) 深度剖析
 
 | 维度 | RK3588(S) | RK3576 | RK3568 |
@@ -98,7 +101,7 @@ Luckfox Pico 快览（超低成本路线）：官方 Buildroot SDK 含 IPC 例�
 - **三核 NPU 分配(rknn core_mask)**：单模型大 batch 用多核模式(`_0_1`/`_0_1_2` 自动拆 batch)吞吐 ↑2~2.5×；多模型并发每核绑一个模型避免调度抖动；实测三路 1080p yolov8n 各占一核 ≈每路 55fps 互不干扰。
 - **大小核调度**：业务线程 `sched_setaffinity` 绑 A76(通常 cpu4-7)，系统杂务留 A55；cpufreq policy 分域，大小核调频档独立。
 - **VOP4 显示管线**：4×VP+4×Esmart 图层，HDMI×2+MIPI DSI×2+eDP 并发组合——多屏广告机/会议盒子基础。
-- **PCIe Gen3×4 可拆分(x4/x2/x1)**：NVMe+双千兆卡+FPGA 同时挂载的带宽分配表要在载板设计前画好（时序教训同 [ch85-PCIe总线拓扑BAR空间lspci排障](/posts/ch85-PCIe总线拓扑BAR空间lspci排障/)）。
+- **PCIe Gen3×4 可拆分(x4/x2/x1)**：NVMe+双千兆卡+FPGA 同时挂载的带宽分配表要在载板设计前画好（时序教训同 [ch85-PCIe总线拓扑BAR空间lspci排障](/Learning-Obsidian./posts/ch85-PCIe总线拓扑BAR空间lspci排障/)）。
 - **内存带宽核算(LPDDR5×4≈34GB/s 峰值)**：4 路 1080p30 采集 ≈4GB/s + NPU 权重特征 ≈3GB/s + 编码读写 ≈2GB/s + 系统——利用率控制在 60% 内才稳。
 - **RK3588 vs S 版**：S 砍 PCIe×4/部分 HDMI 与第二 ISP——「单摄+NPU」产品用 S 省 20%；多目/存储服务器必须满血版。
 ## 36.7 参数调试技巧
@@ -134,7 +137,7 @@ rknn-toolkit2 文档首页的版本三角匹配表(toolkits ↔ runtime ↔ driv
 - **主线化的真实进度**：3568 纯主线可启动但 VPU/NPU 仍需补丁集——决策前先盘点 IP 清单；
 - **SVC 小核 AMP 用法**(RV1103)：RISC-V 核跑 RTOS 走 rpmsg——低成本双架构样本，OpenAMP 思想落地处；
 - **VOP2 图层规划**：Cluster/Esmart 能力不同(缩放/YUV)——多路 OSD 先画图层分配图再动手；
-- **Luckfox 的 Buildroot 流程**：squashfs 只读+overlay 是小容量 SPI Flash 的标准答案，通向 [ch41-Buildroot定制rootfs全流程](/posts/ch41-Buildroot定制rootfs全流程/)。
+- **Luckfox 的 Buildroot 流程**：squashfs 只读+overlay 是小容量 SPI Flash 的标准答案，通向 [ch41-Buildroot定制rootfs全流程](/Learning-Obsidian./posts/ch41-Buildroot定制rootfs全流程/)。
 
 > [!warning]- ❓ FAQ
 > **Q1：对比 i.MX 的 DCD 与 RK 的 TPL 在 DDR 初始化上的架构取舍？** DCD 由 ROM 解释，链路短但表达能力受限于命令集；TPL 是独立固件可单独替换升级、还能塞更多初始化逻辑，代价是启动链更长、多一次加载跳转。
@@ -152,4 +155,4 @@ rknn-toolkit2 文档首页的版本三角匹配表(toolkits ↔ runtime ↔ driv
 </div>
 
 ---
-🏷️ #domain/soc #topic/npu #topic/bootloader | 🔗 [ch35-i-MX6U-ALPHA平台详解](/posts/ch35-i-MX6U-ALPHA平台详解/) ← **本章** → [ch37-全志H3-OrangePiZero-NanoPiNEO实战](/posts/ch37-全志H3-OrangePiZero-NanoPiNEO实战/) | 📚 [P4-MOC](/posts/P4-MOC/)
+🏷️ #domain/soc #topic/npu #topic/bootloader | 🔗 [ch35-i-MX6U-ALPHA平台详解](/Learning-Obsidian./posts/ch35-i-MX6U-ALPHA平台详解/) ← **本章** → [ch37-全志H3-OrangePiZero-NanoPiNEO实战](/Learning-Obsidian./posts/ch37-全志H3-OrangePiZero-NanoPiNEO实战/) | 📚 [P4-MOC](/Learning-Obsidian./posts/P4-MOC/)

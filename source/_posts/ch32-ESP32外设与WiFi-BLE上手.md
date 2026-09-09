@@ -1,6 +1,6 @@
 ---
 title: 第32章 ESP32 外设速成与 WiFi/BLE 上手
-date: 2025-01-01
+date: 2025-04-30
 categories:
   - 单片机开发
 tags:
@@ -18,10 +18,13 @@ chapter: 32
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★☆☆ | 前置 [ch31-ESP-IDF入门](/posts/ch31-ESP-IDF入门/) | → [ch33-综合实战环境监测终端](/posts/ch33-综合实战环境监测终端/)
+⏱ 35min | ★★★☆☆ | 前置 [ch31-ESP-IDF入门](/Learning-Obsidian./posts/ch31-ESP-IDF入门/) | → [ch33-综合实战环境监测终端](/Learning-Obsidian./posts/ch33-综合实战环境监测终端/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 把 GPIO/ADC/I2C/PWM 的 STM32 经验平移到 ESP-IDF 对应 API，各举一例
@@ -42,7 +45,7 @@ ESP32-S3 外设 API 风格与 STM32 HAL 大同小异，真正的增量是 WiFi/B
 | 定时器 | TIM | esp_timer（µs 精度软定时）或 gptimer（硬件） |
 | UART | HAL_UART | `uart_driver_install` + 事件队列（IDLE 检测内置！） |
 
-**特有能力速记**：Touch 电容触摸通道；RMT 精确波形发生器（WS2812 灯带标配）；I2S 数字音频；ULP 协处理器深睡下采样（[ch29-低功耗设计](/posts/ch29-低功耗设计/) 同构思路）；USB OTG 可做 CDC 虚拟串口免驱动。
+**特有能力速记**：Touch 电容触摸通道；RMT 精确波形发生器（WS2812 灯带标配）；I2S 数字音频；ULP 协处理器深睡下采样（[ch29-低功耗设计](/Learning-Obsidian./posts/ch29-低功耗设计/) 同构思路）；USB OTG 可做 CDC 虚拟串口免驱动。
 
 ## 32.2 WiFi STA 四步初始化与断线自愈
 
@@ -80,13 +83,13 @@ esp_wifi_set_mode(WIFI_MODE_STA); esp_wifi_start();  // 发起连接
 | RAM 占用 | 省 RAM 首选（典型省数十 KB 级） | 占用高 |
 | 适用场景 | 单 MCU IoT 外设 | 需要 SPP/A2DP 等 Classic 功能 |
 
-调试神器：**nRF Connect** APP 扫描/读写/订阅全可视化；**Wireshark** 配 HCI 日志（nimble hci dump）逐包分析——协议深水区见 [ch82-BLE开发GATT设计BlueZ-DFU](/posts/ch82-BLE开发GATT设计BlueZ-DFU/)。
+调试神器：**nRF Connect** APP 扫描/读写/订阅全可视化；**Wireshark** 配 HCI 日志（nimble hci dump）逐包分析——协议深水区见 [ch82-BLE开发GATT设计BlueZ-DFU](/Learning-Obsidian./posts/ch82-BLE开发GATT设计BlueZ-DFU/)。
 
 ## 32.4 功耗与共存参数
 
-- **Modem sleep**：STA 空闲关 RF，~70mA→~3mA（DTIM 唤醒监听 Beacon）；**Deep sleep**：~10µA，RTC 定时/EXTI 唤醒后等效复位（[ch29-低功耗设计](/posts/ch29-低功耗设计/) 同构）；
+- **Modem sleep**：STA 空闲关 RF，~70mA→~3mA（DTIM 唤醒监听 Beacon）；**Deep sleep**：~10µA，RTC 定时/EXTI 唤醒后等效复位（[ch29-低功耗设计](/Learning-Obsidian./posts/ch29-低功耗设计/) 同构）；
 - **BLE 广播间隔**决定平均功耗：1s 广播比 20ms 省约 50 倍；
-- **WiFi/BLE 共存**（典型值）：二者共享同一射频前端，软件共存仲裁（coexist）默认开启；双活时吞吐典型下降 20%~50%，建议 BLE conn interval 与 DTIM 周期错峰取值；系统性共存排障见 [ch86-综合案例无线共存干扰排障全流程](/posts/ch86-综合案例无线共存干扰排障全流程/)。
+- **WiFi/BLE 共存**（典型值）：二者共享同一射频前端，软件共存仲裁（coexist）默认开启；双活时吞吐典型下降 20%~50%，建议 BLE conn interval 与 DTIM 周期错峰取值；系统性共存排障见 [ch86-综合案例无线共存干扰排障全流程](/Learning-Obsidian./posts/ch86-综合案例无线共存干扰排障全流程/)。
 
 ## 32.5 参数调试技巧
 
@@ -130,8 +133,8 @@ esp_wifi_set_mode(WIFI_MODE_STA); esp_wifi_start();  // 发起连接
 ## 32.9 进阶话题
 
 - 推导 Modem-sleep 下 DTIM=3、Beacon=100ms 的平均监听占空比（监听间隔拉长为 300ms 一次）；
-- 为 BLE OTA 设计分块传输协议：MTU 利用率、滑动窗口、CRC、断点续传字段（衔接 [ch82-BLE开发GATT设计BlueZ-DFU](/posts/ch82-BLE开发GATT设计BlueZ-DFU/)）；
-- 把 [ch28-串口工程化IDLE-DMA-RS485](/posts/ch28-串口工程化IDLE-DMA-RS485/) 的 IDLE+DMA 思想映射到 uart_driver 事件队列机制；PRO/APP 双核绑核实践见 [ch50a-FreeRTOS-SMP双核调度实战ESP32](/posts/ch50a-FreeRTOS-SMP双核调度实战ESP32/)。
+- 为 BLE OTA 设计分块传输协议：MTU 利用率、滑动窗口、CRC、断点续传字段（衔接 [ch82-BLE开发GATT设计BlueZ-DFU](/Learning-Obsidian./posts/ch82-BLE开发GATT设计BlueZ-DFU/)）；
+- 把 [ch28-串口工程化IDLE-DMA-RS485](/Learning-Obsidian./posts/ch28-串口工程化IDLE-DMA-RS485/) 的 IDLE+DMA 思想映射到 uart_driver 事件队列机制；PRO/APP 双核绑核实践见 [ch50a-FreeRTOS-SMP双核调度实战ESP32](/Learning-Obsidian./posts/ch50a-FreeRTOS-SMP双核调度实战ESP32/)。
 
 > [!warning]- ❓ FAQ
 > **Q1：新项目选 NimBLE 还是 Bluedroid？** 只做 BLE 选 NimBLE——省 RAM、API 轻；仅当需要经典蓝牙（SPP/A2DP）才用 Bluedroid。
@@ -149,4 +152,4 @@ esp_wifi_set_mode(WIFI_MODE_STA); esp_wifi_start();  // 发起连接
 </div>
 
 ---
-🏷️ #domain/mcu #topic/wifi #topic/ble | 🔗 [ch31-ESP-IDF入门](/posts/ch31-ESP-IDF入门/) ← **本章** → [ch33-综合实战环境监测终端](/posts/ch33-综合实战环境监测终端/) | 📚 [P3-MOC](/posts/P3-MOC/)
+🏷️ #domain/mcu #topic/wifi #topic/ble | 🔗 [ch31-ESP-IDF入门](/Learning-Obsidian./posts/ch31-ESP-IDF入门/) ← **本章** → [ch33-综合实战环境监测终端](/Learning-Obsidian./posts/ch33-综合实战环境监测终端/) | 📚 [P3-MOC](/Learning-Obsidian./posts/P3-MOC/)

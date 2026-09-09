@@ -17,10 +17,13 @@ chapter: A10
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [chfi-A9信号处理FFT-Goertzel-NTC-SOC融合](/posts/chfi-A9信号处理FFT-Goertzel-NTC-SOC融合/) | → [chfk-A11机器人导航定位建图路径规划](/posts/chfk-A11机器人导航定位建图路径规划/)
+⏱ 40min | ★★★★☆ | 前置 [chfi-A9信号处理FFT-Goertzel-NTC-SOC融合](/Learning-Obsidian./posts/chfi-A9信号处理FFT-Goertzel-NTC-SOC融合/) | → [chfk-A11机器人导航定位建图路径规划](/Learning-Obsidian./posts/chfk-A11机器人导航定位建图路径规划/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 按资源档位在 XTEA 自研与 AES-CTR/mbedTLS 裁剪间正确选型
@@ -54,7 +57,7 @@ void xtea_enc(uint32_t v[2], const uint32_t k[4]){
 本质：用 AES 把「Nonce‖Counter」变成高质量密钥流再与明文 XOR——分组密码当随机数发生器用，与一次性密码本同构；解密=同一过程对称，加解密共用一套代码。调用：`mbedtls_aes_setkey_enc(&a,key,128)` 后 `mbedtls_aes_crypt_ctr(&a,len,&off,nonce_iv,stream,xor_in,out)` 两行搞定。**安全性完全依赖 nonce 绝不重复**，三条纪律：
 1. IV/Nonce 绝不复用！同 key 下重用 nonce=密码学自杀——组合 `device_id(4B)‖boot_counter(4B)‖seq(8B)` 保证唯一；
 2. CTR 只保密不认证 → 叠加截断 HMAC(A10.5)，或直接换 AES-GCM；
-3. 密钥来自 [chsb-S2密钥管理与安全元件ATECC608](/posts/chsb-S2密钥管理与安全元件ATECC608/) 注入路径而非代码常量。
+3. 密钥来自 [chsb-S2密钥管理与安全元件ATECC608](/Learning-Obsidian./posts/chsb-S2密钥管理与安全元件ATECC608/) 注入路径而非代码常量。
 
 ## A10.4 Nonce 不回退设计：单调计数器+RTC 下限双保险
 
@@ -81,7 +84,7 @@ void xtea_enc(uint32_t v[2], const uint32_t k[4]){
 
 ## A10.7 安全启动摘要链设计
 
-机密性与完整性各司其职：AES-CTR 加密固件包(保密)+ECDSA 签名(真实性与来源)，逐级构成信任链([chsa-S1安全架构与SecureBoot实战](/posts/chsa-S1安全架构与SecureBoot实战/))：ROM Boot─验签─▶ BL(公钥/根哈希存 OTP 区) ─验签+摘要─▶ APP(双分区槽见 [ch89-P3-MCUboot双分区OTA安全升级系统](/posts/ch89-P3-MCUboot双分区OTA安全升级系统/)) ─▶ 运行期对关键镜像区周期性 HMAC 自检(S2 密钥)；任何一级校验失败→进入安全失败态，绝不跳转。原则：发布验证用非对称(ECDSA 可公开分发)，运行期完整性用对称(HMAC 快)；摘要链上每一环只信上一环给出的度量值。
+机密性与完整性各司其职：AES-CTR 加密固件包(保密)+ECDSA 签名(真实性与来源)，逐级构成信任链([chsa-S1安全架构与SecureBoot实战](/Learning-Obsidian./posts/chsa-S1安全架构与SecureBoot实战/))：ROM Boot─验签─▶ BL(公钥/根哈希存 OTP 区) ─验签+摘要─▶ APP(双分区槽见 [ch89-P3-MCUboot双分区OTA安全升级系统](/Learning-Obsidian./posts/ch89-P3-MCUboot双分区OTA安全升级系统/)) ─▶ 运行期对关键镜像区周期性 HMAC 自检(S2 密钥)；任何一级校验失败→进入安全失败态，绝不跳转。原则：发布验证用非对称(ECDSA 可公开分发)，运行期完整性用对称(HMAC 快)；摘要链上每一环只信上一环给出的度量值。
 
 ## A10.8 无损编码三板斧与 Varint（遥测瘦身）
 
@@ -127,7 +130,7 @@ void xtea_enc(uint32_t v[2], const uint32_t k[4]){
 
 > [!example]- 🧪 动手实验 LA10-1：给 LoRa 载荷做一次「瘦身+护甲」（90 分钟）
 > **步骤**：① 把 24B 遥测帧 Delta+Varint 压缩到 <12B 并写 Unity 回归；② 叠加 AES-CTR+截断 HMAC 形成完整安全帧；③ 统计压缩率与加解密耗时；④ 注入篡改一比特验证 MAC 拦截。
-> **验收**：载荷 ↓≥50%、防篡改实测通过、总开销在占空比预算内([ch83-LoRaWAN组网LoRaMac-node-ChirpStack](/posts/ch83-LoRaWAN组网LoRaMac-node-ChirpStack/))。
+> **验收**：载荷 ↓≥50%、防篡改实测通过、总开销在占空比预算内([ch83-LoRaWAN组网LoRaMac-node-ChirpStack](/Learning-Obsidian./posts/ch83-LoRaWAN组网LoRaMac-node-ChirpStack/))。
 
 ## A10.13 进阶话题
 
@@ -153,4 +156,4 @@ void xtea_enc(uint32_t v[2], const uint32_t k[4]){
 </div>
 
 ---
-🏷️ #domain/algorithms #topic/crypto #topic/hmac #topic/varint | 🔗 [chfi-A9信号处理FFT-Goertzel-NTC-SOC融合](/posts/chfi-A9信号处理FFT-Goertzel-NTC-SOC融合/) ← **本章** → [chfk-A11机器人导航定位建图路径规划](/posts/chfk-A11机器人导航定位建图路径规划/) | 📚 [P11-MOC](/posts/P11-MOC/)
+🏷️ #domain/algorithms #topic/crypto #topic/hmac #topic/varint | 🔗 [chfi-A9信号处理FFT-Goertzel-NTC-SOC融合](/Learning-Obsidian./posts/chfi-A9信号处理FFT-Goertzel-NTC-SOC融合/) ← **本章** → [chfk-A11机器人导航定位建图路径规划](/Learning-Obsidian./posts/chfk-A11机器人导航定位建图路径规划/) | 📚 [P11-MOC](/Learning-Obsidian./posts/P11-MOC/)

@@ -1,6 +1,6 @@
 ---
 title: 第76章 I2C 协议与排障：时钟拉伸、总线锁死与多主机
-date: 2025-01-01
+date: 2025-03-17
 categories:
   - 协议开发
 tags:
@@ -17,10 +17,13 @@ chapter: 76
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★☆ | 前置 [ch75-UART-RS485与Modbus-RTU实战libmodbus](/posts/ch75-UART-RS485与Modbus-RTU实战libmodbus/) | → [ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡](/posts/ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡/)
+⏱ 45min | ★★★★☆ | 前置 [ch75-UART-RS485与Modbus-RTU实战libmodbus](/Learning-Obsidian./posts/ch75-UART-RS485与Modbus-RTU实战libmodbus/) | → [ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡](/Learning-Obsidian./posts/ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 精读 START/ACK/NACK/时钟拉伸的电气与协议含义
@@ -151,4 +154,4 @@ i2ctransfer -y 1 w2@0x48 0x00 r2 # 组合事务：写2再读2(Sr 原子操作!)
 </div>
 
 ---
-🏷️ #domain/protocol #topic/i2c | 🔗 [ch75-UART-RS485与Modbus-RTU实战libmodbus](/posts/ch75-UART-RS485与Modbus-RTU实战libmodbus/) ← **本章** → [ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡](/posts/ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡/) | 📚 [P8-MOC](/posts/P8-MOC/)
+🏷️ #domain/protocol #topic/i2c | 🔗 [ch75-UART-RS485与Modbus-RTU实战libmodbus](/Learning-Obsidian./posts/ch75-UART-RS485与Modbus-RTU实战libmodbus/) ← **本章** → [ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡](/Learning-Obsidian./posts/ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡/) | 📚 [P8-MOC](/Learning-Obsidian./posts/P8-MOC/)

@@ -1,6 +1,6 @@
 ---
 title: 第28章 串口工程化：空闲中断 + DMA 不定长接收与 RS485
-date: 2025-01-01
+date: 2025-05-04
 categories:
   - 单片机开发
 tags:
@@ -17,10 +17,13 @@ chapter: 28
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★☆☆ | 前置 [ch26-DMA与Cache一致性](/posts/ch26-DMA与Cache一致性/) | → [ch29-低功耗设计](/posts/ch29-低功耗设计/)
+⏱ 40min | ★★★☆☆ | 前置 [ch26-DMA与Cache一致性](/Learning-Obsidian./posts/ch26-DMA与Cache一致性/) | → [ch29-低功耗设计](/Learning-Obsidian./posts/ch29-低功耗设计/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 实现 IDLE 中断+DMA 循环接收的不定长帧提取方案（含三种变体取舍）
@@ -152,4 +155,4 @@ void parser_feed(parser_t*p,const uint8_t*d,int n){     /* 喂任意长度片段
 </div>
 
 ---
-🏷️ #domain/mcu #topic/uart | 🔗 [ch27-ADC-DAC与模拟前端](/posts/ch27-ADC-DAC与模拟前端/) ← **本章** → [ch29-低功耗设计](/posts/ch29-低功耗设计/) | 📚 [P3-MOC](/posts/P3-MOC/)
+🏷️ #domain/mcu #topic/uart | 🔗 [ch27-ADC-DAC与模拟前端](/Learning-Obsidian./posts/ch27-ADC-DAC与模拟前端/) ← **本章** → [ch29-低功耗设计](/Learning-Obsidian./posts/ch29-低功耗设计/) | 📚 [P3-MOC](/Learning-Obsidian./posts/P3-MOC/)

@@ -10,6 +10,9 @@ tags:
 
 # TC19 Flash 擦写寿命预算
 
+
+<!-- more -->
+
 ## 现象
 设备运行 1~3 年后保存的参数频繁 CRC 出错甚至丢失、写入变慢、坏块连片；典型触发：参数每秒落盘到 SPI NOR 同一扇区的「省事」设计。
 
@@ -52,5 +55,5 @@ void param_flush(void)
 - 承诺寿命指标前预留 ≥20% 耐久余量
 
 ## 关联
-- 源章节：[ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡](/posts/ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡/)
-- 相关章节：[ch29a-电源异常与掉电保护](/posts/ch29a-电源异常与掉电保护/) [ch87-P1-STM32环境监测终端](/posts/ch87-P1-STM32环境监测终端/)
+- 源章节：[ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡](/Learning-Obsidian./posts/ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡/)
+- 相关章节：[ch29a-电源异常与掉电保护](/Learning-Obsidian./posts/ch29a-电源异常与掉电保护/) [ch87-P1-STM32环境监测终端](/Learning-Obsidian./posts/ch87-P1-STM32环境监测终端/)

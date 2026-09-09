@@ -1,6 +1,6 @@
 ---
 title: 第14章 嵌入式日志系统设计：分级、异步、RTT 与远程回传
-date: 2025-01-01
+date: 2025-05-18
 categories:
   - 调试工具链
 tags:
@@ -17,12 +17,15 @@ chapter: 14
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★☆☆ | 前置 [ch13-探针实战OpenOCD-JLink-probe-rs](/posts/ch13-探针实战OpenOCD-JLink-probe-rs/) | → [ch15-内存问题排查三板斧](/posts/ch15-内存问题排查三板斧/)
+⏱ 35min | ★★★☆☆ | 前置 [ch13-探针实战OpenOCD-JLink-probe-rs](/Learning-Obsidian./posts/ch13-探针实战OpenOCD-JLink-probe-rs/) | → [ch15-内存问题排查三板斧](/Learning-Obsidian./posts/ch15-内存问题排查三板斧/)
 
 </div>
 </div>
 
 printf 是最慢的外设操作之一。本章设计一套「开发期零阻塞、量产期可关闭」的日志体系：分级宏编译期蒸发、异步环形缓冲把 IO 移出关键路径、RTT 提供 MB 级吞吐通道、黑匣子负责量产回溯。
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 实现带时间戳/级别/模块名的日志宏，`LOG_COMPILE_LEVEL` 编译期裁剪零开销
@@ -110,7 +113,7 @@ RTT 接入：① SEGGER_RTT.c/.h 入工程，尾端换 SEGGER_RTT_WriteString(0,
 | UART@115200 同步 | ≈5.2ms | ❌ 灾难 | 60B×10bit/115200 |
 | UART+DMA 队列 | ~2µs 入队 | ✅ | 需管理发送队列深度 |
 | RTT | ~1.5µs（memcpy 量级） | ✅ | 探针不在时静默丢（可计数） |
-| Flash 黑匣子 | 页编程 ms 级 | ❌ 仅 ERR 级专用 | 掉电安全见 [ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡](/posts/ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡/) |
+| Flash 黑匣子 | 页编程 ms 级 | ❌ 仅 ERR 级专用 | 掉电安全见 [ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡](/Learning-Obsidian./posts/ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡/) |
 
 ## 14.6 排故速查表
 
@@ -125,14 +128,14 @@ RTT 接入：① SEGGER_RTT.c/.h 入工程，尾端换 SEGGER_RTT_WriteString(0,
 
 1. ISR 里只允许 `log_output`（纯内存拷贝）；在 ISR 同步 printf 会错过中断窗口引发新 Bug。
 2. 缓冲满必须「丢弃 + `dropped++`」，禁止阻塞等待——实时任务不能被日志拖死。
-3. 量产黑匣子只留 ERR 级 + 关键状态机迁移，写外部 Flash/FRAM 循环区；HardFault Handler 把取证现场连同最近 32 条日志索引一起落盘（联动 [ch30-Bootloader-IAP-OTA固件升级体系](/posts/ch30-Bootloader-IAP-OTA固件升级体系/)）。
+3. 量产黑匣子只留 ERR 级 + 关键状态机迁移，写外部 Flash/FRAM 循环区；HardFault Handler 把取证现场连同最近 32 条日志索引一起落盘（联动 [ch30-Bootloader-IAP-OTA固件升级体系](/Learning-Obsidian./posts/ch30-Bootloader-IAP-OTA固件升级体系/)）。
 4. 时间基准用「开机秒数 + 上次校时快照」双段表示，避免 RTC 未配的时间黑洞；上电先读上次异常记录，经 Modbus 扩展寄存器/BLE 特征值导出。
 
 > [!example]- 🧪 动手实验 L14-1：迁移 printf 并量化 dropped 率（35 分钟）
 > **步骤**：① 全局替换业务 printf 为 LOGI 宏（保留启动段直出）；② 高频路径故意灌 2000 行/秒压满环形缓冲；③ 从 dropped 计数器读取丢失率；④ 调整缓冲大小与 pump 优先级把丢失率压到 0 并记录 RAM 代价；⑤ 断开探针运行验证「无探针不卡死」。**验收**：产出一张「缓冲大小×丢失率×RAM」权衡表进仓库。
 
 ## 14.8 进阶话题
-- **时间戳补偿**：tickless 下 tick 不连续，维护 last_tick/last_wall 快照在唤醒钩子里线性插值（联动 [ch50-FreeRTOS中断管理与Tickless低功耗](/posts/ch50-FreeRTOS中断管理与Tickless低功耗/)）
+- **时间戳补偿**：tickless 下 tick 不连续，维护 last_tick/last_wall 快照在唤醒钩子里线性插值（联动 [ch50-FreeRTOS中断管理与Tickless低功耗](/Learning-Obsidian./posts/ch50-FreeRTOS中断管理与Tickless低功耗/)）
 - **二进制遥测通道**：高频曲线别走文本！紧凑结构体直写 RTT CH1，主机按 magic+length 解析——带宽省 5 倍且免格式化 CPU
 - **采样降级**：占用>70% 时仅丢白名单外的 INFO 条目，比全局静默优雅
 
@@ -152,4 +155,4 @@ RTT 接入：① SEGGER_RTT.c/.h 入工程，尾端换 SEGGER_RTT_WriteString(0,
 </div>
 
 ---
-🏷️ #domain/fundamentals #topic/logging | 🔗 [ch13-探针实战OpenOCD-JLink-probe-rs](/posts/ch13-探针实战OpenOCD-JLink-probe-rs/) ← **本章** → [ch15-内存问题排查三板斧](/posts/ch15-内存问题排查三板斧/) | 📚 [P2-MOC](/posts/P2-MOC/)
+🏷️ #domain/fundamentals #topic/logging | 🔗 [ch13-探针实战OpenOCD-JLink-probe-rs](/Learning-Obsidian./posts/ch13-探针实战OpenOCD-JLink-probe-rs/) ← **本章** → [ch15-内存问题排查三板斧](/Learning-Obsidian./posts/ch15-内存问题排查三板斧/) | 📚 [P2-MOC](/Learning-Obsidian./posts/P2-MOC/)

@@ -10,6 +10,9 @@ tags:
 
 # TC16 Linux Oops 五步定位法
 
+
+<!-- more -->
+
 ## 现象
 控制台突然打印 `Unable to handle kernel paging request` 与 pc/lr 寄存器区，随后 panic 或任务被杀；典型触发：模块首次访问设备、高并发下的偶发野指针。
 
@@ -46,5 +49,5 @@ CPU 访存或取指命中非法虚拟地址，触发 Data/Prefetch Abort，内�
 - panic_on_oops=1 与 kdump 常态化，现场不丢
 
 ## 关联
-- 源章节：[ch64-内核调试Oops解读debugfs-kdump](/posts/ch64-内核调试Oops解读debugfs-kdump/)
-- 相关章节：[ch05-ARM汇编与反汇编排障](/posts/ch05-ARM汇编与反汇编排障/) [ch12-GDB深度实战](/posts/ch12-GDB深度实战/) [ch15-内存问题排查三板斧](/posts/ch15-内存问题排查三板斧/)
+- 源章节：[ch64-内核调试Oops解读debugfs-kdump](/Learning-Obsidian./posts/ch64-内核调试Oops解读debugfs-kdump/)
+- 相关章节：[ch05-ARM汇编与反汇编排障](/Learning-Obsidian./posts/ch05-ARM汇编与反汇编排障/) [ch12-GDB深度实战](/Learning-Obsidian./posts/ch12-GDB深度实战/) [ch15-内存问题排查三板斧](/Learning-Obsidian./posts/ch15-内存问题排查三板斧/)

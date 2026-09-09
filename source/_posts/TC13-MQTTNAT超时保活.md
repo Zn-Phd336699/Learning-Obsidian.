@@ -10,6 +10,9 @@ tags:
 
 # TC13 MQTT NAT 超时保活双保险
 
+
+<!-- more -->
+
 ## 现象
 NB-IoT/Cat1 设备表面在线，实际 publish 全部石沉大海，十几分钟后才收到 socket 错误；触发条件：运营商 NAT/防火墙会话超时远短于 MQTT KeepAlive 设定值。
 
@@ -53,5 +56,5 @@ hb(); cli.loop_start()
 - 注册 Last Will 遗嘱消息，让云端第一时间识破假在线
 
 ## 关联
-- 源章节：[ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网](/posts/ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网/)
-- 相关章节：[ch80a-MQTT-CoAP云协议本体与实现](/posts/ch80a-MQTT-CoAP云协议本体与实现/)、[ch63-网络编程与TLS从socket到安全上云](/posts/ch63-网络编程与TLS从socket到安全上云/)
+- 源章节：[ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网](/Learning-Obsidian./posts/ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网/)
+- 相关章节：[ch80a-MQTT-CoAP云协议本体与实现](/Learning-Obsidian./posts/ch80a-MQTT-CoAP云协议本体与实现/)、[ch63-网络编程与TLS从socket到安全上云](/Learning-Obsidian./posts/ch63-网络编程与TLS从socket到安全上云/)

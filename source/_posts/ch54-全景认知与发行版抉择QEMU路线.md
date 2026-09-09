@@ -1,6 +1,6 @@
 ---
 title: 第54章 全景认知与发行版抉择QEMU路线
-date: 2025-01-01
+date: 2025-04-08
 categories:
   - 嵌入式Linux
 tags:
@@ -17,10 +17,13 @@ chapter: 54
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 30min | ★★☆☆☆ | 前置 [ch34-ARM-A架构与国产SoC选型地图](/posts/ch34-ARM-A架构与国产SoC选型地图/) | → [ch55-交叉编译与sysroot](/posts/ch55-交叉编译与sysroot/)
+⏱ 30min | ★★☆☆☆ | 前置 [ch34-ARM-A架构与国产SoC选型地图](/Learning-Obsidian./posts/ch34-ARM-A架构与国产SoC选型地图/) | → [ch55-交叉编译与sysroot](/Learning-Obsidian./posts/ch55-交叉编译与sysroot/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 能用启动时延、续航、UI 复杂度三条信号完成 MCU/嵌入式 Linux/Android 三层方案选型
@@ -34,9 +37,9 @@ chapter: 54
 | 路线 | 代表 | 优点 | 缺点 | 适用 |
 |------|------|------|------|------|
 | 桌面发行版裁剪 | Debian/Armbian | apt 生态即拿即用，开发效率极高 | 体积大、启动慢、版本碎片 | 原型验证、网关、边缘服务器 |
-| Buildroot | [ch41](/posts/ch41-Buildroot定制rootfs全流程\/) | 小、快、可控、可复现 | 加包要自己写 recipe | 单一功能设备量产 |
-| Yocto | [ch42](/posts/ch42-Yocto入门-layer-recipe-bbappend\/) | 企业级多层管理、合规报表 | 陡峭学习曲线 | 多产品线大厂 |
-| OpenWrt | [ch92](/posts/ch92-P6-OpenWrt定制路由器全志H3\/) | 网络功能全家桶+uci 配置体系 | 非网络类包少 | 路由器/网关类 |
+| Buildroot | [ch41](/Learning-Obsidian./posts/ch41-Buildroot定制rootfs全流程\/) | 小、快、可控、可复现 | 加包要自己写 recipe | 单一功能设备量产 |
+| Yocto | [ch42](/Learning-Obsidian./posts/ch42-Yocto入门-layer-recipe-bbappend\/) | 企业级多层管理、合规报表 | 陡峭学习曲线 | 多产品线大厂 |
+| OpenWrt | [ch92](/Learning-Obsidian./posts/ch92-P6-OpenWrt定制路由器全志H3\/) | 网络功能全家桶+uci 配置体系 | 非网络类包少 | 路由器/网关类 |
 
 ## 54.3 最小系统三件套与 QEMU 无板路线
 嵌入式 Linux 可启动的最小闭环是三件东西：**内核镜像 zImage + 设备树 dtb + 根文件系统 rootfs**。三者齐备即可在任何平台（含 QEMU）引导到 shell。QEMU 路线的定位：**模拟器只覆盖 CPU 与标准外设模型——学系统用 QEMU，学 BSP 上真机**；DMA、真实 PHY 时序、电源行为、厂商专属外设（IPU/NPU）仍必须真机验证。
@@ -94,7 +97,7 @@ qemu-system-arm -M vexpress-a9 -m 512M \
 2. QEMU 实验产物（zImage/dtb/rootfs）命名规范与真机一致，迁移时只换平台参数。
 3. 板级专属外设实验不要在 QEMU 上浪费时间——直接排真机计划。
 4. `/var` `/tmp` 必须规划 tmpfs，否则 Flash 写穿是量产头号杀手。
-5. 自研应用统一放 `/usr/bin` 并配 systemd unit，为 [ch56-启动流程深度剖析systemd提速](/posts/ch56-启动流程深度剖析systemd提速/) 服务化铺路。
+5. 自研应用统一放 `/usr/bin` 并配 systemd unit，为 [ch56-启动流程深度剖析systemd提速](/Learning-Obsidian./posts/ch56-启动流程深度剖析systemd提速/) 服务化铺路。
 
 > [!example]- 🧪 动手实验 L54-1：无板跑通第一个驱动实验（40 分钟）
 > **步骤**：① 按 54.4 起 QEMU 环境；② 编译 ch58 的 hello_drv.ko(vexpress 配置内核树)；③ insmod 后 cat /dev/hello；④ 故意 rmmod 前打开设备观察引用计数保护。**验收**：全程零真机完成一次内核模块生命周期管理——本篇其余实验都可先在此预演。
@@ -106,7 +109,7 @@ qemu-system-arm -M vexpress-a9 -m 512M \
 
 > [!warning]- ❓ FAQ
 > **Q1：没有开发板能学完第六篇吗？** 可以。QEMU 覆盖 ch55~63 的系统/驱动/应用实验；涉及 BSP 外设的章节再借板或买板。
-> **Q2：Debian 起步会不会养成坏习惯？** 不会，但要清楚它的体积与启动代价；量产切换构建体系时，[ch41-Buildroot定制rootfs全流程](/posts/ch41-Buildroot定制rootfs全流程/) 的 staging/target 目录概念会补上这一课。
+> **Q2：Debian 起步会不会养成坏习惯？** 不会，但要清楚它的体积与启动代价；量产切换构建体系时，[ch41-Buildroot定制rootfs全流程](/Learning-Obsidian./posts/ch41-Buildroot定制rootfs全流程/) 的 staging/target 目录概念会补上这一课。
 
 <div style="border-left: 4px solid #d97706; background: #fffbeb; padding: 12px 16px; margin: 16px 0; border-radius: 0 6px 6px 0;">
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">❓ 📝 思考题</p>
@@ -120,4 +123,4 @@ qemu-system-arm -M vexpress-a9 -m 512M \
 </div>
 
 ---
-🏷️ #domain/linux #topic/qemu | 🔗 [ch53-RTOS综合实战三轴云台控制器](/posts/ch53-RTOS综合实战三轴云台控制器/) ← **本章** → [ch55-交叉编译与sysroot](/posts/ch55-交叉编译与sysroot/) | 📚 [P6-MOC](/posts/P6-MOC/)
+🏷️ #domain/linux #topic/qemu | 🔗 [ch53-RTOS综合实战三轴云台控制器](/Learning-Obsidian./posts/ch53-RTOS综合实战三轴云台控制器/) ← **本章** → [ch55-交叉编译与sysroot](/Learning-Obsidian./posts/ch55-交叉编译与sysroot/) | 📚 [P6-MOC](/Learning-Obsidian./posts/P6-MOC/)

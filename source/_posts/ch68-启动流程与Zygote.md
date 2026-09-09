@@ -1,6 +1,6 @@
 ---
 title: 第68章 启动流程与Zygote
-date: 2025-01-01
+date: 2025-03-25
 categories:
   - Android底层
 tags:
@@ -17,10 +17,13 @@ chapter: 68
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch67-AOSP架构与源码编译](/posts/ch67-AOSP架构与源码编译/) | → [ch69-HAL演进与AIDL-HAL实战](/posts/ch69-HAL演进与AIDL-HAL实战/)
+⏱ 40min | ★★★★☆ | 前置 [ch67-AOSP架构与源码编译](/Learning-Obsidian./posts/ch67-AOSP架构与源码编译/) | → [ch69-HAL演进与AIDL-HAL实战](/Learning-Obsidian./posts/ch69-HAL演进与AIDL-HAL实战/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 完整复述六级启动接力：BootROM→bootloader→kernel→init→Zygote→SystemServer→Launcher
@@ -41,7 +44,7 @@ Android 启动是一场「接力赛」，每一棒的职责边界必须清晰：
 | 5 | SystemServer | AMS/WMS/PMS… 上百个系统服务 |
 | 6 | Launcher | 桌面就绪 |
 
-Zygote 精髓：所有 App 由它 fork——只读段共享(COW)，启动快、内存省、类加载一致。Linux 侧前置链路见 [ch38-SoC启动链深度剖析](/posts/ch38-SoC启动链深度剖析/)。
+Zygote 精髓：所有 App 由它 fork——只读段共享(COW)，启动快、内存省、类加载一致。Linux 侧前置链路见 [ch38-SoC启动链深度剖析](/Learning-Obsidian./posts/ch38-SoC启动链深度剖析/)。
 
 ## 68.2 init rc 脚本语法速成
 
@@ -132,8 +135,8 @@ dmesg | grep avc                      # 被 SELinux 拦截的现场(ch71)
 ## 68.9 进阶话题
 - **属性触发的编排力**：`on property:sys.boot_completed=1` 串接开机后任务序列
 - **bootanim 卡顿三元凶**：SurfaceFlinger/keymaster/critical 服务崩溃循环——event log 的 boot_progress 序列逐棒排查
-- **与 systemd 对照**：rc service 与 unit 文件逐字段映射（[ch56-启动流程深度剖析systemd提速](/posts/ch56-启动流程深度剖析systemd提速/)）
-- **守护同构**：SystemServer watchdog 与嵌入式三级守护设计同构（[ch44-综合实战RK3568多协议边缘网关](/posts/ch44-综合实战RK3568多协议边缘网关/)）
+- **与 systemd 对照**：rc service 与 unit 文件逐字段映射（[ch56-启动流程深度剖析systemd提速](/Learning-Obsidian./posts/ch56-启动流程深度剖析systemd提速/)）
+- **守护同构**：SystemServer watchdog 与嵌入式三级守护设计同构（[ch44-综合实战RK3568多协议边缘网关](/Learning-Obsidian./posts/ch44-综合实战RK3568多协议边缘网关/)）
 
 > [!warning]- ❓ FAQ
 > **Q1：init.svc 状态机有哪些取值？** stopping/started/running 等，`getprop \| grep init.svc` 直接查看。
@@ -152,4 +155,4 @@ dmesg | grep avc                      # 被 SELinux 拦截的现场(ch71)
 </div>
 
 ---
-🏷️ #domain/android #topic/bootloader | 🔗 [ch67-AOSP架构与源码编译](/posts/ch67-AOSP架构与源码编译/) ← **本章** → [ch69-HAL演进与AIDL-HAL实战](/posts/ch69-HAL演进与AIDL-HAL实战/) | 📚 [P7-MOC](/posts/P7-MOC/)
+🏷️ #domain/android #topic/bootloader | 🔗 [ch67-AOSP架构与源码编译](/Learning-Obsidian./posts/ch67-AOSP架构与源码编译/) ← **本章** → [ch69-HAL演进与AIDL-HAL实战](/Learning-Obsidian./posts/ch69-HAL演进与AIDL-HAL实战/) | 📚 [P7-MOC](/Learning-Obsidian./posts/P7-MOC/)

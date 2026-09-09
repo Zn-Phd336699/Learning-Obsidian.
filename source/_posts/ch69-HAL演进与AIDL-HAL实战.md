@@ -1,6 +1,6 @@
 ---
 title: 第69章 HAL演进与AIDL-HAL实战
-date: 2025-01-01
+date: 2025-03-24
 categories:
   - Android底层
 tags:
@@ -17,10 +17,13 @@ chapter: 69
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★☆ | 前置 [ch68-启动流程与Zygote](/posts/ch68-启动流程与Zygote/) | → [ch70-Binder原理与实践](/posts/ch70-Binder原理与实践/)
+⏱ 45min | ★★★★☆ | 前置 [ch68-启动流程与Zygote](/Learning-Obsidian./posts/ch68-启动流程与Zygote/) | → [ch70-Binder原理与实践](/Learning-Obsidian./posts/ch70-Binder原理与实践/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 说清三代 HAL（legacy/HIDL/AIDL）形态差异与迁移背景
@@ -153,4 +156,4 @@ sepolicy: hwservice_contexts + .te 文件
 </div>
 
 ---
-🏷️ #domain/android #topic/hal | 🔗 [ch68-启动流程与Zygote](/posts/ch68-启动流程与Zygote/) ← **本章** → [ch70-Binder原理与实践](/posts/ch70-Binder原理与实践/) | 📚 [P7-MOC](/posts/P7-MOC/)
+🏷️ #domain/android #topic/hal | 🔗 [ch68-启动流程与Zygote](/Learning-Obsidian./posts/ch68-启动流程与Zygote/) ← **本章** → [ch70-Binder原理与实践](/Learning-Obsidian./posts/ch70-Binder原理与实践/) | 📚 [P7-MOC](/Learning-Obsidian./posts/P7-MOC/)

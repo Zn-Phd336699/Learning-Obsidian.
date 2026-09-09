@@ -1,6 +1,6 @@
 ---
 title: 第50章 FreeRTOS 中断管理与 Tickless 低功耗
-date: 2025-01-01
+date: 2025-04-12
 categories:
   - RTOS
 tags:
@@ -18,10 +18,13 @@ chapter: 50
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★★☆ | 前置 [ch49-FreeRTOS内存管理heap与栈检测](/posts/ch49-FreeRTOS内存管理heap与栈检测/) | → [ch51-RT-Thread与Zephyr横向对比](/posts/ch51-RT-Thread与Zephyr横向对比/)
+⏱ 35min | ★★★★☆ | 前置 [ch49-FreeRTOS内存管理heap与栈检测](/Learning-Obsidian./posts/ch49-FreeRTOS内存管理heap与栈检测/) | → [ch51-RT-Thread与Zephyr横向对比](/Learning-Obsidian./posts/ch51-RT-Thread与Zephyr横向对比/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 完整掌握 FromISR API 家族的延迟切换机制及其存在原因
@@ -136,4 +139,4 @@ tickless 方案：
 </div>
 
 ---
-🏷️ #domain/rtos #topic/interrupt #topic/power | 🔗 [ch49-FreeRTOS内存管理heap与栈检测](/posts/ch49-FreeRTOS内存管理heap与栈检测/) ← **本章** → [ch51-RT-Thread与Zephyr横向对比](/posts/ch51-RT-Thread与Zephyr横向对比/) | 📚 [P5-MOC](/posts/P5-MOC/)
+🏷️ #domain/rtos #topic/interrupt #topic/power | 🔗 [ch49-FreeRTOS内存管理heap与栈检测](/Learning-Obsidian./posts/ch49-FreeRTOS内存管理heap与栈检测/) ← **本章** → [ch51-RT-Thread与Zephyr横向对比](/Learning-Obsidian./posts/ch51-RT-Thread与Zephyr横向对比/) | 📚 [P5-MOC](/Learning-Obsidian./posts/P5-MOC/)

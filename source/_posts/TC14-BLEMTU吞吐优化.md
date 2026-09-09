@@ -10,6 +10,9 @@ tags:
 
 # TC14 BLE MTU 吞吐优化三板斧
 
+
+<!-- more -->
+
 ## 现象
 GATT Notify 实测吞吐只有约 0.8~1KB/s，远低于 BLE 4.2/5 理论能力；触发条件：沿用默认 ATT MTU=23（有效载荷仅 20B）+ 默认连接参数 + 1M PHY。
 
@@ -49,5 +52,5 @@ sd_ble_gap_phy_update(m_conn_handle, &phy);                /* 2M PHY */
 - 用 nRF Sniffer 抓空口验证包长确实生效
 
 ## 关联
-- 源章节：[ch82-BLE开发GATT设计BlueZ-DFU](/posts/ch82-BLE开发GATT设计BlueZ-DFU/)
-- 相关章节：[ch32-ESP32外设与WiFi-BLE上手](/posts/ch32-ESP32外设与WiFi-BLE上手/)、[ch86-综合案例无线共存干扰排障全流程](/posts/ch86-综合案例无线共存干扰排障全流程/)
+- 源章节：[ch82-BLE开发GATT设计BlueZ-DFU](/Learning-Obsidian./posts/ch82-BLE开发GATT设计BlueZ-DFU/)
+- 相关章节：[ch32-ESP32外设与WiFi-BLE上手](/Learning-Obsidian./posts/ch32-ESP32外设与WiFi-BLE上手/)、[ch86-综合案例无线共存干扰排障全流程](/Learning-Obsidian./posts/ch86-综合案例无线共存干扰排障全流程/)

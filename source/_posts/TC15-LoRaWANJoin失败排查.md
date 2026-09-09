@@ -10,6 +10,9 @@ tags:
 
 # TC15 LoRaWAN OTAA Join 失败排查链
 
+
+<!-- more -->
+
 ## 现象
 终端反复发送 Join Request，网关侧能看到上行帧，但 ChirpStack 不下发 JoinAccept，或下发后终端收不到入网失败；触发条件：OTAA 首次入网阶段。
 
@@ -51,5 +54,5 @@ LoRaMacStart();
 - 新设备先在实验室 NS 全流程打通再上站
 
 ## 关联
-- 源章节：[ch83-LoRaWAN组网LoRaMac-node-ChirpStack](/posts/ch83-LoRaWAN组网LoRaMac-node-ChirpStack/)
-- 相关章节：[ch90-P4-LoRa温湿度采集网关ChirpStack后端](/posts/ch90-P4-LoRa温湿度采集网关ChirpStack后端/)、[ch20-频谱仪与射频排障](/posts/ch20-频谱仪与射频排障/)
+- 源章节：[ch83-LoRaWAN组网LoRaMac-node-ChirpStack](/Learning-Obsidian./posts/ch83-LoRaWAN组网LoRaMac-node-ChirpStack/)
+- 相关章节：[ch90-P4-LoRa温湿度采集网关ChirpStack后端](/Learning-Obsidian./posts/ch90-P4-LoRa温湿度采集网关ChirpStack后端/)、[ch20-频谱仪与射频排障](/Learning-Obsidian./posts/ch20-频谱仪与射频排障/)

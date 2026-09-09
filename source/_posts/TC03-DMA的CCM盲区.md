@@ -10,6 +10,9 @@ tags:
 
 # TC03 DMA 的 CCM 盲区判别与修复
 
+
+<!-- more -->
+
 ## 现象
 UART/ADC/SPI 配置全部正确却收不到任何 DMA 数据，无报错无中断；典型触发条件是缓冲区数组被链接器放进了 STM32F4 的 CCM RAM（0x10000000 起）。
 
@@ -49,5 +52,5 @@ uint8_t uart1_rx_buf[256]
 - F7/H7 牢记 DTCM 只对 MDMA 可见，普通 DMA 一律避开
 
 ## 关联
-- 源章节：[ch06-链接器与内存布局](/posts/ch06-链接器与内存布局/)
-- 相关章节：[ch26-DMA与Cache一致性](/posts/ch26-DMA与Cache一致性/)、[ch22-STM32生态与F407硬件](/posts/ch22-STM32生态与F407硬件/)
+- 源章节：[ch06-链接器与内存布局](/Learning-Obsidian./posts/ch06-链接器与内存布局/)
+- 相关章节：[ch26-DMA与Cache一致性](/Learning-Obsidian./posts/ch26-DMA与Cache一致性/)、[ch22-STM32生态与F407硬件](/Learning-Obsidian./posts/ch22-STM32生态与F407硬件/)

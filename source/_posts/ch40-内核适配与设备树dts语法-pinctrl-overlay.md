@@ -1,6 +1,6 @@
 ---
 title: 第40章 内核适配与设备树dts语法-pinctrl-overlay
-date: 2025-01-01
+date: 2025-04-22
 categories:
   - SoC开发
 tags:
@@ -18,10 +18,13 @@ chapter: 40
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★☆ | 前置 [ch39-U-Boot移植与网络开发模式](/posts/ch39-U-Boot移植与网络开发模式/) | → [ch41-Buildroot定制rootfs全流程](/posts/ch41-Buildroot定制rootfs全流程/)
+⏱ 45min | ★★★★☆ | 前置 [ch39-U-Boot移植与网络开发模式](/Learning-Obsidian./posts/ch39-U-Boot移植与网络开发模式/) | → [ch41-Buildroot定制rootfs全流程](/Learning-Obsidian./posts/ch41-Buildroot定制rootfs全流程/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 掌握节点/属性/phandle 引用语法与 compatible 匹配机制
@@ -85,7 +88,7 @@ dtc -@ -I dts -O dtb -o my-board.dtbo my-overlay.dts   # -@生成符号表必须
 | match 成功 | 调 probe；资源按 devm 生命周期管理 | ls -l .../devices/*/driver |
 | -EPROBE_DEFER | 依赖未就绪→重新排队，supplier ready 后重试 | /sys/kernel/debug/devices_deferred ★金矿 |
 
-debugfs 工具箱：时钟实况 `clk/clk_summary`、引脚实况 `pinctrl/pinctrl-handles`、中断映射对照 `/proc/interrupts`。regmap 红利：挂上 regmap 的设备自动获得 registers dump——自研 IP 也建议包一层 regmap_mmio（platform/regmap 全景见 [ch59-platform驱动设备树regmap](/posts/ch59-platform驱动设备树regmap/)）。
+debugfs 工具箱：时钟实况 `clk/clk_summary`、引脚实况 `pinctrl/pinctrl-handles`、中断映射对照 `/proc/interrupts`。regmap 红利：挂上 regmap 的设备自动获得 registers dump——自研 IP 也建议包一层 regmap_mmio（platform/regmap 全景见 [ch59-platform驱动设备树regmap](/Learning-Obsidian./posts/ch59-platform驱动设备树regmap/)）。
 ## 40.5 关键代码：SoC 端 LED 平台驱动全栈（dts→驱动→用户态）
 ```dts
 leds {
@@ -153,4 +156,4 @@ module_platform_driver(...); MODULE_LICENSE("GPL"); /* 用户态即刻可用： 
 </div>
 
 ---
-🏷️ #domain/soc #domain/linux #topic/device-tree | 🔗 [ch39-U-Boot移植与网络开发模式](/posts/ch39-U-Boot移植与网络开发模式/) ← **本章** → [ch41-Buildroot定制rootfs全流程](/posts/ch41-Buildroot定制rootfs全流程/) | 📚 [P4-MOC](/posts/P4-MOC/)
+🏷️ #domain/soc #domain/linux #topic/device-tree | 🔗 [ch39-U-Boot移植与网络开发模式](/Learning-Obsidian./posts/ch39-U-Boot移植与网络开发模式/) ← **本章** → [ch41-Buildroot定制rootfs全流程](/Learning-Obsidian./posts/ch41-Buildroot定制rootfs全流程/) | 📚 [P4-MOC](/Learning-Obsidian./posts/P4-MOC/)

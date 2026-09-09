@@ -18,10 +18,13 @@ chapter: SO1
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [chfk-A11机器人导航定位建图路径规划](/posts/chfk-A11机器人导航定位建图路径规划/) | → [chs2-SO2-MCU系统优化实战](/posts/chs2-SO2-MCU系统优化实战/)
+⏱ 40min | ★★★★☆ | 前置 [chfk-A11机器人导航定位建图路径规划](/Learning-Obsidian./posts/chfk-A11机器人导航定位建图路径规划/) | → [chs2-SO2-MCU系统优化实战](/Learning-Obsidian./posts/chs2-SO2-MCU系统优化实战/)
 
 </div>
 </div>
+
+<!-- more -->
+
 ## 🎯 学习目标
 - [ ] 能复述延迟/吞吐/CPU利用率/带宽/抖动的精确语义，并用分位数替代平均值下结论
 - [ ] 会用「自顶向下五层分解 + USE 资源检查表」双框架完成归因，杜绝跳层猜测
@@ -150,4 +153,4 @@ void sampler_isr(void){
 </div>
 </div>
 ---
-🏷️ #domain/performance #topic/profiling #topic/flamegraph | 🔗 [chfk-A11机器人导航定位建图路径规划](/posts/chfk-A11机器人导航定位建图路径规划/) ← **本章** → [chs2-SO2-MCU系统优化实战](/posts/chs2-SO2-MCU系统优化实战/) | 📚 [P12-MOC](/posts/P12-MOC/)
+🏷️ #domain/performance #topic/profiling #topic/flamegraph | 🔗 [chfk-A11机器人导航定位建图路径规划](/Learning-Obsidian./posts/chfk-A11机器人导航定位建图路径规划/) ← **本章** → [chs2-SO2-MCU系统优化实战](/Learning-Obsidian./posts/chs2-SO2-MCU系统优化实战/) | 📚 [P12-MOC](/Learning-Obsidian./posts/P12-MOC/)

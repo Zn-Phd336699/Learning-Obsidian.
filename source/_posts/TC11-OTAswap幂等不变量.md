@@ -10,6 +10,9 @@ tags:
 
 # TC11 OTA swap 幂等不变量设计
 
+
+<!-- more -->
+
 ## 现象
 双分区 OTA 在交换/搬移镜像过程中掉电或复位后，设备再也起不来；触发条件：swap 长事务进行到任意中间状态时断电。
 
@@ -57,5 +60,5 @@ ota_err_t boot_swap_or_resume(void)
 - 优先采用 MCUboot 成熟实现，不自造 swap 协议
 
 ## 关联
-- 源章节：[ch30-Bootloader-IAP-OTA固件升级体系](/posts/ch30-Bootloader-IAP-OTA固件升级体系/)
-- 相关章节：[ch89-P3-MCUboot双分区OTA安全升级系统](/posts/ch89-P3-MCUboot双分区OTA安全升级系统/)、[chsa-S1安全架构与SecureBoot实战](/posts/chsa-S1安全架构与SecureBoot实战/)
+- 源章节：[ch30-Bootloader-IAP-OTA固件升级体系](/Learning-Obsidian./posts/ch30-Bootloader-IAP-OTA固件升级体系/)
+- 相关章节：[ch89-P3-MCUboot双分区OTA安全升级系统](/Learning-Obsidian./posts/ch89-P3-MCUboot双分区OTA安全升级系统/)、[chsa-S1安全架构与SecureBoot实战](/Learning-Obsidian./posts/chsa-S1安全架构与SecureBoot实战/)

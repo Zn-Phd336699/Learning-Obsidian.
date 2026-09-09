@@ -1,6 +1,6 @@
 ---
 title: 第44C章 新板矩阵：五块新硬件开箱与分析
-date: 2025-01-01
+date: 2025-04-18
 categories:
   - SoC开发
 tags:
@@ -18,10 +18,13 @@ chapter: 44C
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 30min | ★★★☆☆ | 前置 [ch44b-RK3588-NAS边缘服务器](/posts/ch44b-RK3588-NAS边缘服务器/) | → [ch45-实时性理论与调度算法](/posts/ch45-实时性理论与调度算法/)
+⏱ 30min | ★★★☆☆ | 前置 [ch44b-RK3588-NAS边缘服务器](/Learning-Obsidian./posts/ch44b-RK3588-NAS边缘服务器/) | → [ch45-实时性理论与调度算法](/Learning-Obsidian./posts/ch45-实时性理论与调度算法/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 建立六板（含已有 ATK-RK3568）能力矩阵，按项目需求快速选型
@@ -49,11 +52,11 @@ chapter: 44C
 
 | 板卡 | BSP 来源 | 首日验证三步 | 知识库联动 |
 |------|----------|--------------|------------|
-| 夸克 H3 | Seeed wiki + 稚晖君 GitHub(开源工程) | ①烧写出厂镜像→串口登录 ②WiFi 扫描确认 ③GPIO 点灯 | [ch37-全志H3-OrangePiZero-NanoPiNEO实战](/posts/ch37-全志H3-OrangePiZero-NanoPiNEO实战/) + 本章 44C.4 |
-| 泰山派 RK3566 | LCKFB 立创开发板资料中心(lckfb.com) | ①烧写 Buildroot/Debian 镜像 ②HDMI 出桌面 ③GPIO/I2C 外设测试 | ch36/[ch41-Buildroot定制rootfs全流程](/posts/ch41-Buildroot定制rootfs全流程/) + ch91(P5 换板) |
-| NanoPC-T4 | FriendlyELEC wiki + Armbian | ①SD 卡启动 Armbian ②NVMe 识别确认 ③大小核拓扑检查(lscpu) | 本章 44C.3 + SO 系列([chs1-SO1性能分析方法论与火焰图专题](/posts/chs1-SO1性能分析方法论与火焰图专题/)) |
+| 夸克 H3 | Seeed wiki + 稚晖君 GitHub(开源工程) | ①烧写出厂镜像→串口登录 ②WiFi 扫描确认 ③GPIO 点灯 | [ch37-全志H3-OrangePiZero-NanoPiNEO实战](/Learning-Obsidian./posts/ch37-全志H3-OrangePiZero-NanoPiNEO实战/) + 本章 44C.4 |
+| 泰山派 RK3566 | LCKFB 立创开发板资料中心(lckfb.com) | ①烧写 Buildroot/Debian 镜像 ②HDMI 出桌面 ③GPIO/I2C 外设测试 | ch36/[ch41-Buildroot定制rootfs全流程](/Learning-Obsidian./posts/ch41-Buildroot定制rootfs全流程/) + ch91(P5 换板) |
+| NanoPC-T4 | FriendlyELEC wiki + Armbian | ①SD 卡启动 Armbian ②NVMe 识别确认 ③大小核拓扑检查(lscpu) | 本章 44C.3 + SO 系列([chs1-SO1性能分析方法论与火焰图专题](/Learning-Obsidian./posts/chs1-SO1性能分析方法论与火焰图专题/)) |
 | NanoPC-T6 | FriendlyELEC wiki + armbian/build rk35xx | ①eMMC 出厂系统验证 ②NPU 设备节点确认(/dev/rknpu) ③双网口连通 | ch36.10/ch43/ch44A·B 实机化 |
-| ZYNQ7020 领航者 | 正点原子资料中心 + Vivado/Vitis/PetaLinux 2020.2 | ①JTAG 连接确认 ②PL 波形仿真跑通 ③FSBL→U-Boot→Linux 启动链 | **第十三篇(Z1~Z5)** + [chz1-Z1导学与异构价值](/posts/chz1-Z1导学与异构价值/) |
+| ZYNQ7020 领航者 | 正点原子资料中心 + Vivado/Vitis/PetaLinux 2020.2 | ①JTAG 连接确认 ②PL 波形仿真跑通 ③FSBL→U-Boot→Linux 启动链 | **第十三篇(Z1~Z5)** + [chz1-Z1导学与异构价值](/Learning-Obsidian./posts/chz1-Z1导学与异构价值/) |
 
 ## 44C.3 NanoPC-T4：大小核实践第一板
 RK3399 是国产 SoC 中最早成熟的 big.LITTLE 平台（2016 发布），虽已非旗舰，但社区维护恰好处于「厂商 BSP 可用、Armbian 主线可用但非完美」的中间态，是学习 BSP 差异与大小核调度的理想实物载体。
@@ -153,4 +156,4 @@ RK3399 是国产 SoC 中最早成熟的 big.LITTLE 平台（2016 发布），虽
 </div>
 
 ---
-🏷️ #domain/soc #topic/bsp #topic/bringup | 🔗 [ch44b-RK3588-NAS边缘服务器](/posts/ch44b-RK3588-NAS边缘服务器/) ← **本章** → [ch45-实时性理论与调度算法](/posts/ch45-实时性理论与调度算法/) | 📚 [P4-MOC](/posts/P4-MOC/)
+🏷️ #domain/soc #topic/bsp #topic/bringup | 🔗 [ch44b-RK3588-NAS边缘服务器](/Learning-Obsidian./posts/ch44b-RK3588-NAS边缘服务器/) ← **本章** → [ch45-实时性理论与调度算法](/Learning-Obsidian./posts/ch45-实时性理论与调度算法/) | 📚 [P4-MOC](/Learning-Obsidian./posts/P4-MOC/)

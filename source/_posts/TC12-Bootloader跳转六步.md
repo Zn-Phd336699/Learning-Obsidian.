@@ -10,6 +10,9 @@ tags:
 
 # TC12 Bootloader 跳转六步
 
+
+<!-- more -->
+
 ## 现象
 跳转后偶发 HardFault、一开中断就死机、或 App 压根没起来；典型触发条件：Bootloader 里一句 `((void(*)())addr)()` 直接跳转，省略了现场清理与合法性校验。
 
@@ -57,5 +60,5 @@ static void jump_to_app(uint32_t base)
 - 用中断密集用例验收：跳转后立刻触发 EXTI/SysTick
 
 ## 关联
-- 源章节：[ch30-Bootloader-IAP-OTA固件升级体系](/posts/ch30-Bootloader-IAP-OTA固件升级体系/)
-- 相关章节：[ch21-Cortex-M架构精讲](/posts/ch21-Cortex-M架构精讲/)、[ch38-SoC启动链深度剖析](/posts/ch38-SoC启动链深度剖析/)
+- 源章节：[ch30-Bootloader-IAP-OTA固件升级体系](/Learning-Obsidian./posts/ch30-Bootloader-IAP-OTA固件升级体系/)
+- 相关章节：[ch21-Cortex-M架构精讲](/Learning-Obsidian./posts/ch21-Cortex-M架构精讲/)、[ch38-SoC启动链深度剖析](/Learning-Obsidian./posts/ch38-SoC启动链深度剖析/)

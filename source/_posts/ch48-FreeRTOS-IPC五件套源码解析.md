@@ -1,6 +1,6 @@
 ---
 title: 第48章 IPC 五件套源码解析与选型：队列/信号量/互斥/事件组/任务通知
-date: 2025-01-01
+date: 2025-04-14
 categories:
   - RTOS
 tags:
@@ -17,10 +17,13 @@ chapter: 48
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch47-FreeRTOS-PendSV上下文切换逐行汇编](/posts/ch47-FreeRTOS-PendSV上下文切换逐行汇编/) | → [ch49-FreeRTOS内存管理heap与栈检测](/posts/ch49-FreeRTOS内存管理heap与栈检测/)
+⏱ 40min | ★★★★☆ | 前置 [ch47-FreeRTOS-PendSV上下文切换逐行汇编](/Learning-Obsidian./posts/ch47-FreeRTOS-PendSV上下文切换逐行汇编/) | → [ch49-FreeRTOS内存管理heap与栈检测](/Learning-Obsidian./posts/ch49-FreeRTOS内存管理heap与栈检测/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 读懂 Queue_t 统一底座如何派生出全部五件套，并用「RAM 成本×时延」矩阵完成选型
@@ -150,4 +153,4 @@ static inline void stress_lock_take(Mutex_t *m){ xSemaphoreTake(m->handle, pdMS_
 </div>
 
 ---
-🏷️ #domain/rtos #topic/ipc | 🔗 [ch47-FreeRTOS-PendSV上下文切换逐行汇编](/posts/ch47-FreeRTOS-PendSV上下文切换逐行汇编/) ← **本章** → [ch49-FreeRTOS内存管理heap与栈检测](/posts/ch49-FreeRTOS内存管理heap与栈检测/) | 📚 [P5-MOC](/posts/P5-MOC/)
+🏷️ #domain/rtos #topic/ipc | 🔗 [ch47-FreeRTOS-PendSV上下文切换逐行汇编](/Learning-Obsidian./posts/ch47-FreeRTOS-PendSV上下文切换逐行汇编/) ← **本章** → [ch49-FreeRTOS内存管理heap与栈检测](/Learning-Obsidian./posts/ch49-FreeRTOS内存管理heap与栈检测/) | 📚 [P5-MOC](/Learning-Obsidian./posts/P5-MOC/)

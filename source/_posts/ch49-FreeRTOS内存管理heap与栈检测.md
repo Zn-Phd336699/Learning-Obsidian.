@@ -1,6 +1,6 @@
 ---
 title: 第49章 FreeRTOS 内存管理：heap_1~5 与任务栈检测
-date: 2025-01-01
+date: 2025-04-13
 categories:
   - RTOS
 tags:
@@ -17,10 +17,13 @@ chapter: 49
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch48-FreeRTOS-IPC五件套源码解析](/posts/ch48-FreeRTOS-IPC五件套源码解析/) | → [ch50-FreeRTOS中断管理与Tickless低功耗](/posts/ch50-FreeRTOS中断管理与Tickless低功耗/)
+⏱ 40min | ★★★★☆ | 前置 [ch48-FreeRTOS-IPC五件套源码解析](/Learning-Obsidian./posts/ch48-FreeRTOS-IPC五件套源码解析/) | → [ch50-FreeRTOS中断管理与Tickless低功耗](/Learning-Obsidian./posts/ch50-FreeRTOS中断管理与Tickless低功耗/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 说清 heap_1~5 五方案的机制、开销与适用场景，能按项目约束选型
@@ -151,4 +154,4 @@ QueueHandle_t q = xQueueCreateStatic(8,sizeof(evt_t),qbuf,&qcb);
 </div>
 
 ---
-🏷️ #domain/rtos #topic/memory | 🔗 [ch48-FreeRTOS-IPC五件套源码解析](/posts/ch48-FreeRTOS-IPC五件套源码解析/) ← **本章** → [ch50-FreeRTOS中断管理与Tickless低功耗](/posts/ch50-FreeRTOS中断管理与Tickless低功耗/) | 📚 [P5-MOC](/posts/P5-MOC/)
+🏷️ #domain/rtos #topic/memory | 🔗 [ch48-FreeRTOS-IPC五件套源码解析](/Learning-Obsidian./posts/ch48-FreeRTOS-IPC五件套源码解析/) ← **本章** → [ch50-FreeRTOS中断管理与Tickless低功耗](/Learning-Obsidian./posts/ch50-FreeRTOS中断管理与Tickless低功耗/) | 📚 [P5-MOC](/Learning-Obsidian./posts/P5-MOC/)

@@ -17,10 +17,13 @@ chapter: A11
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [chfj-A10轻量加密编码XTEA-AES-HMAC-RLE](/posts/chfj-A10轻量加密编码XTEA-AES-HMAC-RLE/) | → [chs1-SO1性能分析方法论与火焰图专题](/posts/chs1-SO1性能分析方法论与火焰图专题/)
+⏱ 40min | ★★★★☆ | 前置 [chfj-A10轻量加密编码XTEA-AES-HMAC-RLE](/Learning-Obsidian./posts/chfj-A10轻量加密编码XTEA-AES-HMAC-RLE/) | → [chs1-SO1性能分析方法论与火焰图专题](/Learning-Obsidian./posts/chs1-SO1性能分析方法论与火焰图专题/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 建立「里程计漂移→需要绝对参考」的问题认知链并给出漂移量级
@@ -150,4 +153,4 @@ f(n)=g(n)+h(n)：已走代价+启发函数(到终点直线距离)。h 满足 adm
 </div>
 
 ---
-🏷️ #domain/algorithms #topic/robotics #topic/navigation #topic/slam | 🔗 [chfj-A10轻量加密编码XTEA-AES-HMAC-RLE](/posts/chfj-A10轻量加密编码XTEA-AES-HMAC-RLE/) ← **本章** → [chs1-SO1性能分析方法论与火焰图专题](/posts/chs1-SO1性能分析方法论与火焰图专题/) | 📚 [P11-MOC](/posts/P11-MOC/)
+🏷️ #domain/algorithms #topic/robotics #topic/navigation #topic/slam | 🔗 [chfj-A10轻量加密编码XTEA-AES-HMAC-RLE](/Learning-Obsidian./posts/chfj-A10轻量加密编码XTEA-AES-HMAC-RLE/) ← **本章** → [chs1-SO1性能分析方法论与火焰图专题](/Learning-Obsidian./posts/chs1-SO1性能分析方法论与火焰图专题/) | 📚 [P11-MOC](/Learning-Obsidian./posts/P11-MOC/)

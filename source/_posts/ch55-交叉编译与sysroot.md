@@ -1,6 +1,6 @@
 ---
 title: 第55章 交叉编译与sysroot
-date: 2025-01-01
+date: 2025-04-07
 categories:
   - 嵌入式Linux
 tags:
@@ -17,10 +17,13 @@ chapter: 55
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★☆☆ | 前置 [ch10-GCC交叉编译全景](/posts/ch10-GCC交叉编译全景/) | → [ch56-启动流程深度剖析systemd提速](/posts/ch56-启动流程深度剖析systemd提速/)
+⏱ 40min | ★★★☆☆ | 前置 [ch10-GCC交叉编译全景](/Learning-Obsidian./posts/ch10-GCC交叉编译全景/) | → [ch56-启动流程深度剖析systemd提速](/Learning-Obsidian./posts/ch56-启动流程深度剖析systemd提速/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 能拆解工具链三元组命名并说清 sysroot 在「主机编译、板端运行」链路中的角色
@@ -114,7 +117,7 @@ WORKDIR /src
 ## 55.9 部署注意事项
 1. 上板前跑依赖体检脚本（见 Lab）：架构、interpreter、NEEDED 闭集三项全过再打包。
 2. 产品二进制统一 `$ORIGIN` 相对 rpath；禁止把 LD_LIBRARY_PATH 写进启动脚本。
-3. strip 与 .debug 分离入库，符号文件按 git hash 归档支撑 [ch64-内核调试Oops解读debugfs-kdump](/posts/ch64-内核调试Oops解读debugfs-kdump/)。
+3. strip 与 .debug 分离入库，符号文件按 git hash 归档支撑 [ch64-内核调试Oops解读debugfs-kdump](/Learning-Obsidian./posts/ch64-内核调试Oops解读debugfs-kdump/)。
 4. glibc 版本地狱根治法：工具链 libc 版本 ≤ 目标系统出厂版本；或干脆 musl 全静态。
 5. Buildroot 取 sysroot 认准 staging 目录（含头文件与 .so 链接体）；target 是裁剪后成品，拿错目录会把你搞疯。
 
@@ -125,7 +128,7 @@ WORKDIR /src
 - `-fdebug-prefix-map` 的团队价值：把本机绝对路径映射为统一路径——core dump 与 perf 符号在不同机器间通用。
 - ABI 兼容三层检查：符号版本(libc)+结构体布局(自定义 IPC)+枚举值(协议)——跨版本升级事故都藏在这三层里。
 - crosstool-ng 是自建工具链的终极方案；musl vs glibc 对比见 wiki.musl-libc.org。
-- RPATH/RUNPATH/NEEDED 查找优先级推导是面试高频题（见思考题 1 与 [A-面试题库](/posts/A-面试题库/)）。
+- RPATH/RUNPATH/NEEDED 查找优先级推导是面试高频题（见思考题 1 与 [A-面试题库](/Learning-Obsidian./posts/A-面试题库/)）。
 
 > [!warning]- ❓ FAQ
 > **Q1：undefined reference 到 libxxx.so 但板上有？** 你缺的不是库，是 sysroot——链接期用的是主机视图，加 `--sysroot` 并确认 `-L` 指向目标板库目录。
@@ -143,4 +146,4 @@ WORKDIR /src
 </div>
 
 ---
-🏷️ #domain/linux #topic/toolchain | 🔗 [ch54-全景认知与发行版抉择QEMU路线](/posts/ch54-全景认知与发行版抉择QEMU路线/) ← **本章** → [ch56-启动流程深度剖析systemd提速](/posts/ch56-启动流程深度剖析systemd提速/) | 📚 [P6-MOC](/posts/P6-MOC/)
+🏷️ #domain/linux #topic/toolchain | 🔗 [ch54-全景认知与发行版抉择QEMU路线](/Learning-Obsidian./posts/ch54-全景认知与发行版抉择QEMU路线/) ← **本章** → [ch56-启动流程深度剖析systemd提速](/Learning-Obsidian./posts/ch56-启动流程深度剖析systemd提速/) | 📚 [P6-MOC](/Learning-Obsidian./posts/P6-MOC/)

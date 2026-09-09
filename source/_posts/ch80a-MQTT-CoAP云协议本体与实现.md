@@ -1,6 +1,6 @@
 ---
 title: 第80A章 MQTT/CoAP 云协议本体与嵌入式实现
-date: 2025-01-01
+date: 2025-03-13
 categories:
   - 协议开发
 tags:
@@ -17,10 +17,13 @@ chapter: 80A
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★☆☆ | 前置 [ch80-以太网与lwIP协议栈源码导读](/posts/ch80-以太网与lwIP协议栈源码导读/) | → [ch81-WiFi协议栈实战wpa_supplicant-hostapd](/posts/ch81-WiFi协议栈实战wpa_supplicant-hostapd/)
+⏱ 35min | ★★★☆☆ | 前置 [ch80-以太网与lwIP协议栈源码导读](/Learning-Obsidian./posts/ch80-以太网与lwIP协议栈源码导读/) | → [ch81-WiFi协议栈实战wpa_supplicant-hostapd](/Learning-Obsidian./posts/ch81-WiFi协议栈实战wpa_supplicant-hostapd/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 手绘三级 QoS 握手序列，说清 PUBACK/PUBREC/PUBREL/PUBCOMP 的语义与去重点
@@ -153,4 +156,4 @@ while (1) MQTTYield(&c, 100);     /* 周期收包驱动 PUBACK/PINGRESP */
 </div>
 
 ---
-🏷️ #domain/protocol #topic/mqtt | 🔗 [ch80-以太网与lwIP协议栈源码导读](/posts/ch80-以太网与lwIP协议栈源码导读/) ← **本章** → [ch81-WiFi协议栈实战wpa_supplicant-hostapd](/posts/ch81-WiFi协议栈实战wpa_supplicant-hostapd/) | 📚 [P8-MOC](/posts/P8-MOC/)
+🏷️ #domain/protocol #topic/mqtt | 🔗 [ch80-以太网与lwIP协议栈源码导读](/Learning-Obsidian./posts/ch80-以太网与lwIP协议栈源码导读/) ← **本章** → [ch81-WiFi协议栈实战wpa_supplicant-hostapd](/Learning-Obsidian./posts/ch81-WiFi协议栈实战wpa_supplicant-hostapd/) | 📚 [P8-MOC](/Learning-Obsidian./posts/P8-MOC/)

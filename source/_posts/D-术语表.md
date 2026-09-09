@@ -12,6 +12,9 @@ tags:
 
 > 遇到陌生词先来这里。持续把新学到的术语补充进你自己的副本——这就是知识库的生长方式。主表按英文字母序，中文主导术语单列表格。
 
+
+<!-- more -->
+
 ## A~F
 
 | 术语 | 中文对照 | 一句话解释 |
@@ -98,7 +101,7 @@ tags:
 
 - 新术语**首现章节内联解释**，稳定后收编进本表并保持字母序
 - 解释控制在**一句话**，细节交给正文章节的 wiki-link
-- 每季度用 LLM 做一次孤岛/重复检查（方法见 [E-Obsidian×LLM工作流](/posts/E-Obsidian×LLM工作流/)）
+- 每季度用 LLM 做一次孤岛/重复检查（方法见 [E-Obsidian×LLM工作流](/Learning-Obsidian./posts/E-Obsidian×LLM工作流/)）
 
 ---
-🏷️ #appendix #reference | 📚 [附录-MOC](/posts/附录-MOC/)
+🏷️ #appendix #reference | 📚 [附录-MOC](/Learning-Obsidian./posts/附录-MOC/)

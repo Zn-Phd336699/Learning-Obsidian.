@@ -10,7 +10,10 @@ tags:
 
 # 附录C · 芯片 / 模块 / 仪器 / 开发板选型对照表
 
-> 2026 视角的常用货盘点。价格档位为大致区间（典型值），采购前以立创商城/官方渠道现价为准；选型方法论见 [ch34-ARM-A架构与国产SoC选型地图](/posts/ch34-ARM-A架构与国产SoC选型地图/) 与 [ch74-总线与无线选型总表](/posts/ch74-总线与无线选型总表/)。
+> 2026 视角的常用货盘点。价格档位为大致区间（典型值），采购前以立创商城/官方渠道现价为准；选型方法论见 [ch34-ARM-A架构与国产SoC选型地图](/Learning-Obsidian./posts/ch34-ARM-A架构与国产SoC选型地图/) 与 [ch74-总线与无线选型总表](/Learning-Obsidian./posts/ch74-总线与无线选型总表/)。
+
+
+<!-- more -->
 
 ## MCU 快选表
 
@@ -50,7 +53,7 @@ tags:
 | BC26/BC28 | NB-IoT | 超低功耗表计类 | ¥18 |
 | CYW43439(Waveshare) | WiFi6+BLE5 | RP2040/2350 官配无线 | ¥30 |
 
-协议层深度对照与共存排障：[ch81-WiFi协议栈实战wpa_supplicant-hostapd](/posts/ch81-WiFi协议栈实战wpa_supplicant-hostapd/) · [ch82-BLE开发GATT设计BlueZ-DFU](/posts/ch82-BLE开发GATT设计BlueZ-DFU/) · [ch83-LoRaWAN组网LoRaMac-node-ChirpStack](/posts/ch83-LoRaWAN组网LoRaMac-node-ChirpStack/) · [ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网](/posts/ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网/)
+协议层深度对照与共存排障：[ch81-WiFi协议栈实战wpa_supplicant-hostapd](/Learning-Obsidian./posts/ch81-WiFi协议栈实战wpa_supplicant-hostapd/) · [ch82-BLE开发GATT设计BlueZ-DFU](/Learning-Obsidian./posts/ch82-BLE开发GATT设计BlueZ-DFU/) · [ch83-LoRaWAN组网LoRaMac-node-ChirpStack](/Learning-Obsidian./posts/ch83-LoRaWAN组网LoRaMac-node-ChirpStack/) · [ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网](/Learning-Obsidian./posts/ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网/)
 
 ### 无线场景速查
 
@@ -72,7 +75,7 @@ tags:
 | ¥2000 标准 | DS1054Z(软解100M) + NanoVNA-F + DSLogic Plus | 完整第二篇全部实验无妥协 |
 | ¥5000+ 专业 | 100M+ 四通道(Siglent SDS1104X-E) + Joulescope JS220 | 功耗能量分析/EMI 预兼容更从容 |
 
-仪器实操入口：[ch18-示波器实战](/posts/ch18-示波器实战/) · [ch19-逻辑分析仪与sigrok](/posts/ch19-逻辑分析仪与sigrok/) · [ch20-频谱仪与射频排障](/posts/ch20-频谱仪与射频排障/)
+仪器实操入口：[ch18-示波器实战](/Learning-Obsidian./posts/ch18-示波器实战/) · [ch19-逻辑分析仪与sigrok](/Learning-Obsidian./posts/ch19-逻辑分析仪与sigrok/) · [ch20-频谱仪与射频排障](/Learning-Obsidian./posts/ch20-频谱仪与射频排障/)
 
 ## 存储介质对照
 
@@ -84,7 +87,7 @@ tags:
 | SD 卡 | 看品控波动大 | 无保障 | 日志导出/媒体缓存 |
 | EEPROM 24C02 | 100 万次 | 页写保护设计 | 小参数传统方案 |
 
-磨损均衡与 Flash 驱动细节：[ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡](/posts/ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡/) · 只读 rootfs 与 overlayfs：[ch57-根文件系统构建只读overlayfs](/posts/ch57-根文件系统构建只读overlayfs/)
+磨损均衡与 Flash 驱动细节：[ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡](/Learning-Obsidian./posts/ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡/) · 只读 rootfs 与 overlayfs：[ch57-根文件系统构建只读overlayfs](/Learning-Obsidian./posts/ch57-根文件系统构建只读overlayfs/)
 
 ## Linux / SoC 开发板快选表
 
@@ -96,7 +99,7 @@ tags:
 | 泰山派 RK3566 | 4×A55@1.8G | 2-8GB LPDDR4 | LCKFB Buildroot/Debian | P5 换板/RK 入门 |
 | 夸克 Quark(H3) | 4×A7@1.2G | 256-512MB DDR3 | Seeed Wiki/Buildroot | 极简 IoT 节点/ch37 联动 |
 
-平台详解与启动链：[ch35-i-MX6U-ALPHA平台详解](/posts/ch35-i-MX6U-ALPHA平台详解/) · [ch36-RK平台ATK-DLRK3568-RK3588-Luckfox](/posts/ch36-RK平台ATK-DLRK3568-RK3588-Luckfox/) · [ch37-全志H3-OrangePiZero-NanoPiNEO实战](/posts/ch37-全志H3-OrangePiZero-NanoPiNEO实战/) · [ch38-SoC启动链深度剖析](/posts/ch38-SoC启动链深度剖析/) · [chz2-Z2-ZYNQ7020架构全景](/posts/chz2-Z2-ZYNQ7020架构全景/)
+平台详解与启动链：[ch35-i-MX6U-ALPHA平台详解](/Learning-Obsidian./posts/ch35-i-MX6U-ALPHA平台详解/) · [ch36-RK平台ATK-DLRK3568-RK3588-Luckfox](/Learning-Obsidian./posts/ch36-RK平台ATK-DLRK3568-RK3588-Luckfox/) · [ch37-全志H3-OrangePiZero-NanoPiNEO实战](/Learning-Obsidian./posts/ch37-全志H3-OrangePiZero-NanoPiNEO实战/) · [ch38-SoC启动链深度剖析](/Learning-Obsidian./posts/ch38-SoC启动链深度剖析/) · [chz2-Z2-ZYNQ7020架构全景](/Learning-Obsidian./posts/chz2-Z2-ZYNQ7020架构全景/)
 
 ## 选型决策速判原则
 
@@ -107,4 +110,4 @@ tags:
 5. **存储按「掉电安全 × 擦写寿命」二维矩阵**选：高频落盘选 FRAM，固件选 NOR，系统盘选 eMMC+日志文件系统
 
 ---
-🏷️ #appendix #reference | 📚 [附录-MOC](/posts/附录-MOC/)
+🏷️ #appendix #reference | 📚 [附录-MOC](/Learning-Obsidian./posts/附录-MOC/)

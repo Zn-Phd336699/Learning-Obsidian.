@@ -17,10 +17,13 @@ chapter: S1
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch92-P6-OpenWrt定制路由器全志H3](/posts/ch92-P6-OpenWrt定制路由器全志H3/) | → [chsb-S2密钥管理与安全元件ATECC608](/posts/chsb-S2密钥管理与安全元件ATECC608/)
+⏱ 40min | ★★★★☆ | 前置 [ch92-P6-OpenWrt定制路由器全志H3](/Learning-Obsidian./posts/ch92-P6-OpenWrt定制路由器全志H3/) | → [chsb-S2密钥管理与安全元件ATECC608](/Learning-Obsidian./posts/chsb-S2密钥管理与安全元件ATECC608/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 能用 STRIDE 方法为产品画出物理/网络/供应链三类攻击面的威胁模型
@@ -34,7 +37,7 @@ chapter: S1
 | 攻击面 | 典型手法 | 防御锚点 |
 |--------|----------|----------|
 | 物理接触 | SWD 读固件、Fault 注入提权、拆片读 Flash | RDP+JTAG 锁、Flash 加密、主动屏蔽罩、传感器检测 |
-| 网络远程 | OTA 劫持、协议漏洞利用、凭证重放 | 签名 OTA（见 [ch89-P3-MCUboot双分区OTA安全升级系统](/posts/ch89-P3-MCUboot双分区OTA安全升级系统/)）、TLS 双向认证（[ch63-网络编程与TLS从socket到安全上云](/posts/ch63-网络编程与TLS从socket到安全上云/)）、最小权限服务 |
+| 网络远程 | OTA 劫持、协议漏洞利用、凭证重放 | 签名 OTA（见 [ch89-P3-MCUboot双分区OTA安全升级系统](/Learning-Obsidian./posts/ch89-P3-MCUboot双分区OTA安全升级系统/)）、TLS 双向认证（[ch63-网络编程与TLS从socket到安全上云](/Learning-Obsidian./posts/ch63-网络编程与TLS从socket到安全上云/)）、最小权限服务 |
 | 供应链 | 构建机投毒、第三方库后门、代工厂泄密 | 可复现构建+签名验发、SBOM 审计、密钥不出 HSM |
 
 ## S1.2 硬件信任根与逐级验签信任链
@@ -45,7 +48,7 @@ chapter: S1
 3. **U-Boot**：用 FIT 镜像内嵌公钥验 Kernel+DTB；
 4. **Kernel/App**：dm-verity 或 MCUboot 二次校验业务镜像。
 
-任何一级被替换都会在下一级的验签处断链，攻击面被压缩为「只能执行已验证代码」。启动链细节参见 [ch38-SoC启动链深度剖析](/posts/ch38-SoC启动链深度剖析/)。
+任何一级被替换都会在下一级的验签处断链，攻击面被压缩为「只能执行已验证代码」。启动链细节参见 [ch38-SoC启动链深度剖析](/Learning-Obsidian./posts/ch38-SoC启动链深度剖析/)。
 
 ## S1.3 关键代码：路线 A · MCUboot 签名全链（推荐起步）
 ```bash
@@ -94,7 +97,7 @@ imgtool sign --key root-ec-p256.pem --header-size 0x200 \
 | MPU 五区域 | 0(配置) | <1% | 越权访问/栈溢出提权 |
 
 ## S1.8 运行时防护三板斧
-1. **内存防护**：MPU 划栈哨兵/外设特权区/代码只读（模板见 [ch21-Cortex-M架构精讲](/posts/ch21-Cortex-M架构精讲/)）；A 核用 SELinux 域；
+1. **内存防护**：MPU 划栈哨兵/外设特权区/代码只读（模板见 [ch21-Cortex-M架构精讲](/Learning-Obsidian./posts/ch21-Cortex-M架构精讲/)）；A 核用 SELinux 域；
 2. **通信防护**：所有对外接口输入过「长度+类型+CRC/签名」三门；日志脱敏；
 3. **可观测性**：异常重启计数、fault 日志上云——被攻击时的可见性就是响应速度。
 
@@ -111,7 +114,7 @@ imgtool sign --key root-ec-p256.pem --header-size 0x200 \
 2. 量产前把「JTAG 锁死 vs 售后可维修性」写成显式决策记录；
 3. 对外接口输入一律过三门校验，日志脱敏防信息泄露；
 4. 异常重启计数与 fault 日志接监控上云；
-5. 固件升级体系与 [ch30-Bootloader-IAP-OTA固件升级体系](/posts/ch30-Bootloader-IAP-OTA固件升级体系/) 统一规划，避免两套引导并存打架。
+5. 固件升级体系与 [ch30-Bootloader-IAP-OTA固件升级体系](/Learning-Obsidian./posts/ch30-Bootloader-IAP-OTA固件升级体系/) 统一规划，避免两套引导并存打架。
 
 > [!example]- 🧪 动手实验 LS1-1：红队视角攻破自己的旧固件（90 分钟）
 > **步骤**：① 取一个未加防护的项目版本；② 尝试 JTAG dump 全 Flash、串口 shell 提权、伪造 OTA 包替换三条路径；③ 记录每条攻击路径的成功点；④ 逐项部署本章对策后重放全部攻击验证拦截；⑤ 输出攻防矩阵报告。
@@ -137,4 +140,4 @@ imgtool sign --key root-ec-p256.pem --header-size 0x200 \
 </div>
 
 ---
-🏷️ #安全 #SecureBoot #eFuse #MCUboot #威胁建模 | 🔗 [ch92-P6-OpenWrt定制路由器全志H3](/posts/ch92-P6-OpenWrt定制路由器全志H3/) ← **本章** → [chsb-S2密钥管理与安全元件ATECC608](/posts/chsb-S2密钥管理与安全元件ATECC608/) | 📚 [P10-MOC](/posts/P10-MOC/)
+🏷️ #安全 #SecureBoot #eFuse #MCUboot #威胁建模 | 🔗 [ch92-P6-OpenWrt定制路由器全志H3](/Learning-Obsidian./posts/ch92-P6-OpenWrt定制路由器全志H3/) ← **本章** → [chsb-S2密钥管理与安全元件ATECC608](/Learning-Obsidian./posts/chsb-S2密钥管理与安全元件ATECC608/) | 📚 [P10-MOC](/Learning-Obsidian./posts/P10-MOC/)

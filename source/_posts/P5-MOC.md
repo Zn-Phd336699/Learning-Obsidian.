@@ -1,6 +1,6 @@
 ---
 title: P5 RTOS
-date: 2025-01-01
+date: 2025-06-26
 categories:
   - RTOS
 tags:
@@ -11,14 +11,14 @@ tags:
 # 第五篇 · RTOS
 | 章 | 链接 | 难度 |
 |---|---|---|
-|45|[ch45-实时性理论与调度算法](/posts/ch45-实时性理论与调度算法/)|★★★★|
-|46|[ch46-FreeRTOS内核源码导读任务TCB与调度器](/posts/ch46-FreeRTOS内核源码导读任务TCB与调度器/)|★★★★|
-|47|[ch47-FreeRTOS-PendSV上下文切换逐行汇编](/posts/ch47-FreeRTOS-PendSV上下文切换逐行汇编/)|★★★★★|
-|48|[ch48-FreeRTOS-IPC五件套源码解析](/posts/ch48-FreeRTOS-IPC五件套源码解析/)|★★★★|
-|49|[ch49-FreeRTOS内存管理heap与栈检测](/posts/ch49-FreeRTOS内存管理heap与栈检测/)|★★★|
-|50|[ch50-FreeRTOS中断管理与Tickless低功耗](/posts/ch50-FreeRTOS中断管理与Tickless低功耗/)|★★★|
-|50A|[ch50a-FreeRTOS-SMP双核调度实战ESP32](/posts/ch50a-FreeRTOS-SMP双核调度实战ESP32/)|★★★★|
-|51|[ch51-RT-Thread与Zephyr横向对比](/posts/ch51-RT-Thread与Zephyr横向对比/)|★★★|
-|51A|[ch51a-可视化追踪Tracealyzer-SystemView](/posts/ch51a-可视化追踪Tracealyzer-SystemView/)|★★★|
-|52|[ch52-seL4微内核能力模型形式化验证](/posts/ch52-seL4微内核能力模型形式化验证/)|★★★★|
-|53|[ch53-RTOS综合实战三轴云台控制器](/posts/ch53-RTOS综合实战三轴云台控制器/)|★★★★|
+|45|[ch45-实时性理论与调度算法](/Learning-Obsidian./posts/ch45-实时性理论与调度算法/)|★★★★|
+|46|[ch46-FreeRTOS内核源码导读任务TCB与调度器](/Learning-Obsidian./posts/ch46-FreeRTOS内核源码导读任务TCB与调度器/)|★★★★|
+|47|[ch47-FreeRTOS-PendSV上下文切换逐行汇编](/Learning-Obsidian./posts/ch47-FreeRTOS-PendSV上下文切换逐行汇编/)|★★★★★|
+|48|[ch48-FreeRTOS-IPC五件套源码解析](/Learning-Obsidian./posts/ch48-FreeRTOS-IPC五件套源码解析/)|★★★★|
+|49|[ch49-FreeRTOS内存管理heap与栈检测](/Learning-Obsidian./posts/ch49-FreeRTOS内存管理heap与栈检测/)|★★★|
+|50|[ch50-FreeRTOS中断管理与Tickless低功耗](/Learning-Obsidian./posts/ch50-FreeRTOS中断管理与Tickless低功耗/)|★★★|
+|50A|[ch50a-FreeRTOS-SMP双核调度实战ESP32](/Learning-Obsidian./posts/ch50a-FreeRTOS-SMP双核调度实战ESP32/)|★★★★|
+|51|[ch51-RT-Thread与Zephyr横向对比](/Learning-Obsidian./posts/ch51-RT-Thread与Zephyr横向对比/)|★★★|
+|51A|[ch51a-可视化追踪Tracealyzer-SystemView](/Learning-Obsidian./posts/ch51a-可视化追踪Tracealyzer-SystemView/)|★★★|
+|52|[ch52-seL4微内核能力模型形式化验证](/Learning-Obsidian./posts/ch52-seL4微内核能力模型形式化验证/)|★★★★|
+|53|[ch53-RTOS综合实战三轴云台控制器](/Learning-Obsidian./posts/ch53-RTOS综合实战三轴云台控制器/)|★★★★|

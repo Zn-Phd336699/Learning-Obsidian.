@@ -1,6 +1,6 @@
 ---
 title: 第52章 seL4 微内核：能力模型、形式化验证与实践
-date: 2025-01-01
+date: 2025-04-10
 categories:
   - RTOS
 tags:
@@ -17,10 +17,13 @@ chapter: 52
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch51a-可视化追踪Tracealyzer-SystemView](/posts/ch51a-可视化追踪Tracealyzer-SystemView/) | → [ch53-RTOS综合实战三轴云台控制器](/posts/ch53-RTOS综合实战三轴云台控制器/)
+⏱ 40min | ★★★★☆ | 前置 [ch51a-可视化追踪Tracealyzer-SystemView](/Learning-Obsidian./posts/ch51a-可视化追踪Tracealyzer-SystemView/) | → [ch53-RTOS综合实战三轴云台控制器](/Learning-Obsidian./posts/ch53-RTOS综合实战三轴云台控制器/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 说清微内核（Microkernel）与宏内核的架构哲学差异及 IPC 性能代价
@@ -111,7 +114,7 @@ examples/hello：
 5. RISC-V（RV64）支持已成熟，国产平台移植前先查社区公开案例。
 
 > [!example]- 🧪 动手实验 L52-1：制造一次「跨域入侵」并观察隔离（40 分钟）
-> **步骤**：① 在 client 域里故意解引用未授权地址；② 观察仅该域重启、系统其余部分存活；③ 记录 fault 上报路径与日志形态；④ 对比 Linux 下同款错误的整机影响（参考 [ch64-内核调试Oops解读debugfs-kdump](/posts/ch64-内核调试Oops解读debugfs-kdump/)）。
+> **步骤**：① 在 client 域里故意解引用未授权地址；② 观察仅该域重启、系统其余部分存活；③ 记录 fault 上报路径与日志形态；④ 对比 Linux 下同款错误的整机影响（参考 [ch64-内核调试Oops解读debugfs-kdump](/Learning-Obsidian./posts/ch64-内核调试Oops解读debugfs-kdump/)）。
 > **验收**：产出一张「微内核 vs Linux」故障影响对比表——隔离价值从此不是 PPT 名词。
 
 ## 52.9 进阶话题
@@ -136,4 +139,4 @@ examples/hello：
 </div>
 
 ---
-🏷️ #domain/rtos #topic/microkernel #security | 🔗 [ch51a-可视化追踪Tracealyzer-SystemView](/posts/ch51a-可视化追踪Tracealyzer-SystemView/) ← **本章** → [ch53-RTOS综合实战三轴云台控制器](/posts/ch53-RTOS综合实战三轴云台控制器/) | 📚 [P5-MOC](/posts/P5-MOC/)
+🏷️ #domain/rtos #topic/microkernel #security | 🔗 [ch51a-可视化追踪Tracealyzer-SystemView](/Learning-Obsidian./posts/ch51a-可视化追踪Tracealyzer-SystemView/) ← **本章** → [ch53-RTOS综合实战三轴云台控制器](/Learning-Obsidian./posts/ch53-RTOS综合实战三轴云台控制器/) | 📚 [P5-MOC](/Learning-Obsidian./posts/P5-MOC/)

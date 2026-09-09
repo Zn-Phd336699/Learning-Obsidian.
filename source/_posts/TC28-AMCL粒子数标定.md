@@ -10,6 +10,9 @@ tags:
 
 # TC28 AMCL 粒子数标定
 
+
+<!-- more -->
+
 ## 现象
 AMCL 在长走廊/对称场景被「绑架」（抱起平移）后粒子云收敛到错误位置再也回不来；把粒子数拉到几万救场后 CPU 单核占满，定位频率掉到 1Hz 以下。
 
@@ -45,5 +48,5 @@ recovery_alpha_fast: 0.1     # 快注入：权重突变时迅速补充
 - 地图更新/雷达更换视为环境变更，强制重跑标定
 
 ## 关联
-- 源章节：[chfk-A11机器人导航定位建图路径规划](/posts/chfk-A11机器人导航定位建图路径规划/)
-- 相关章节：[chs3-SO3-RTOS多任务系统调优](/posts/chs3-SO3-RTOS多任务系统调优/) [ch91-P5-RK3568边缘AI盒子多路视频检测推流](/posts/ch91-P5-RK3568边缘AI盒子多路视频检测推流/)
+- 源章节：[chfk-A11机器人导航定位建图路径规划](/Learning-Obsidian./posts/chfk-A11机器人导航定位建图路径规划/)
+- 相关章节：[chs3-SO3-RTOS多任务系统调优](/Learning-Obsidian./posts/chs3-SO3-RTOS多任务系统调优/) [ch91-P5-RK3568边缘AI盒子多路视频检测推流](/Learning-Obsidian./posts/ch91-P5-RK3568边缘AI盒子多路视频检测推流/)

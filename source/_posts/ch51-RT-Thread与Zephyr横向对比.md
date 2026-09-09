@@ -1,6 +1,6 @@
 ---
 title: 第51章 RT-Thread 与 Zephyr 横向对比
-date: 2025-01-01
+date: 2025-04-11
 categories:
   - RTOS
 tags:
@@ -17,10 +17,13 @@ chapter: 51
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 30min | ★★★☆☆ | 前置 [ch50-FreeRTOS中断管理与Tickless低功耗](/posts/ch50-FreeRTOS中断管理与Tickless低功耗/) | → [ch51a-可视化追踪Tracealyzer-SystemView](/posts/ch51a-可视化追踪Tracealyzer-SystemView/)
+⏱ 30min | ★★★☆☆ | 前置 [ch50-FreeRTOS中断管理与Tickless低功耗](/Learning-Obsidian./posts/ch50-FreeRTOS中断管理与Tickless低功耗/) | → [ch51a-可视化追踪Tracealyzer-SystemView](/Learning-Obsidian./posts/ch51a-可视化追踪Tracealyzer-SystemView/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 梳理 FreeRTOS/RT-Thread/Zephyr 三家的定位差异与生态特征，建立选型坐标系
@@ -136,4 +139,4 @@ west build -t menuconfig                                # Kconfig 图形化
 </div>
 
 ---
-🏷️ #domain/rtos #topic/architecture | 🔗 [ch50-FreeRTOS中断管理与Tickless低功耗](/posts/ch50-FreeRTOS中断管理与Tickless低功耗/) ← **本章** → [ch51a-可视化追踪Tracealyzer-SystemView](/posts/ch51a-可视化追踪Tracealyzer-SystemView/) | 📚 [P5-MOC](/posts/P5-MOC/)
+🏷️ #domain/rtos #topic/architecture | 🔗 [ch50-FreeRTOS中断管理与Tickless低功耗](/Learning-Obsidian./posts/ch50-FreeRTOS中断管理与Tickless低功耗/) ← **本章** → [ch51a-可视化追踪Tracealyzer-SystemView](/Learning-Obsidian./posts/ch51a-可视化追踪Tracealyzer-SystemView/) | 📚 [P5-MOC](/Learning-Obsidian./posts/P5-MOC/)

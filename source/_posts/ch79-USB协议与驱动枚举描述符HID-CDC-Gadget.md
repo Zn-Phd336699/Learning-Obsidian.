@@ -1,6 +1,6 @@
 ---
 title: 第79章 USB 协议与驱动：枚举、描述符、HID/CDC 类与 Gadget
-date: 2025-01-01
+date: 2025-03-14
 categories:
   - 协议开发
 tags:
@@ -17,10 +17,13 @@ chapter: 79
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch78-CAN-CANFD实战SocketCAN-DBC工作流](/posts/ch78-CAN-CANFD实战SocketCAN-DBC工作流/) | → [ch80-以太网与lwIP协议栈源码导读](/posts/ch80-以太网与lwIP协议栈源码导读/)
+⏱ 40min | ★★★★☆ | 前置 [ch78-CAN-CANFD实战SocketCAN-DBC工作流](/Learning-Obsidian./posts/ch78-CAN-CANFD实战SocketCAN-DBC工作流/) | → [ch80-以太网与lwIP协议栈源码导读](/Learning-Obsidian./posts/ch80-以太网与lwIP协议栈源码导读/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 复述插线后的枚举八步曲并指出每步的排障锚点
@@ -41,7 +44,7 @@ chapter: 79
 | 7 加载驱动 | 按 Class 或 VID/PID 匹配 | WinUSB/Zadig 免驱方案考量 |
 | 8 SET_CONFIGURATION | bConfigurationValue 激活上电 | bMaxPower 与实际耗电匹配 |
 
-排障锚点：黄色感叹码 = 描述符错/驱动缺；枚举中断在第 4 步附近 = 描述符长度字段不自洽。**手写描述符九成事故出在「wTotalLength 与实际返回不一致」**——抓包核对即可定位（Wireshark USBPcap / Linux usbmon，方法论同 [ch17-Wireshark-tcpdump抓包分析](/posts/ch17-Wireshark-tcpdump抓包分析/)）。
+排障锚点：黄色感叹码 = 描述符错/驱动缺；枚举中断在第 4 步附近 = 描述符长度字段不自洽。**手写描述符九成事故出在「wTotalLength 与实际返回不一致」**——抓包核对即可定位（Wireshark USBPcap / Linux usbmon，方法论同 [ch17-Wireshark-tcpdump抓包分析](/Learning-Obsidian./posts/ch17-Wireshark-tcpdump抓包分析/)）。
 
 ## 79.2 描述符族层级与 CDC-ACM 虚拟串口
 层级：Device → Config → Interface → Endpoint，另有字符串索引族。CDC-ACM 虚拟串口的复合描述符骨架：
@@ -130,7 +133,7 @@ libusb_bulk_transfer(h, ep_in, buf, 512, &n, 1000);   /* 异步流用 submit_tra
 
 ## 79.10 进阶话题
 - **Type-C/PD 三层栈**：CC 检测角色（DFP/UFP/DRP，PD 控制器如 FUSB302/STUSB4500 或 STM32 UCPD）→ BMC 编码 PD 协议 Source Capabilities↔Request；固件可读 RDO 判「对方给了多少瓦」动态调整业务；
-- **UVC 描述符高频错误**：VC 单元拓扑 unit ID 冲突或未连成图→识别但无流；VS Format/Frame 的 bFrameIntervalType 与离散表数量不一致；isoc 带宽声明超实际→分配失败黑屏（联动 [ch66-综合实战USB摄像头流采集服务](/posts/ch66-综合实战USB摄像头流采集服务/)）；
+- **UVC 描述符高频错误**：VC 单元拓扑 unit ID 冲突或未连成图→识别但无流；VS Format/Frame 的 bFrameIntervalType 与离散表数量不一致；isoc 带宽声明超实际→分配失败黑屏（联动 [ch66-综合实战USB摄像头流采集服务](/Learning-Obsidian./posts/ch66-综合实战USB摄像头流采集服务/)）；
 - **USB3 SuperSpeed 差异**：全双工光纤式差分对、链路级电源管理——但嵌入式 MCU 场景仍以 HS 为主流；眼图验收按 HS 模板（T Eye≥350mV×UI），改版前后波形留档对比。
 
 > [!warning]- ❓ FAQ
@@ -149,4 +152,4 @@ libusb_bulk_transfer(h, ep_in, buf, 512, &n, 1000);   /* 异步流用 submit_tra
 </div>
 
 ---
-🏷️ #domain/protocol #topic/usb | 🔗 [ch78-CAN-CANFD实战SocketCAN-DBC工作流](/posts/ch78-CAN-CANFD实战SocketCAN-DBC工作流/) ← **本章** → [ch80-以太网与lwIP协议栈源码导读](/posts/ch80-以太网与lwIP协议栈源码导读/) | 📚 [P8-MOC](/posts/P8-MOC/)
+🏷️ #domain/protocol #topic/usb | 🔗 [ch78-CAN-CANFD实战SocketCAN-DBC工作流](/Learning-Obsidian./posts/ch78-CAN-CANFD实战SocketCAN-DBC工作流/) ← **本章** → [ch80-以太网与lwIP协议栈源码导读](/Learning-Obsidian./posts/ch80-以太网与lwIP协议栈源码导读/) | 📚 [P8-MOC](/Learning-Obsidian./posts/P8-MOC/)

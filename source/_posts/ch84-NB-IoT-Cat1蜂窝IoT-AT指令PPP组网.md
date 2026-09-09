@@ -1,6 +1,6 @@
 ---
 title: 第84章 NB-IoT/Cat.1 蜂窝IoT：AT指令工程化与PPP组网
-date: 2025-01-01
+date: 2025-03-09
 categories:
   - 协议开发
 tags:
@@ -17,10 +17,13 @@ chapter: 84
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★☆☆ | 前置 [ch83-LoRaWAN组网LoRaMac-node-ChirpStack](/posts/ch83-LoRaWAN组网LoRaMac-node-ChirpStack/) | → [ch85-PCIe总线拓扑BAR空间lspci排障](/posts/ch85-PCIe总线拓扑BAR空间lspci排障/)
+⏱ 35min | ★★★☆☆ | 前置 [ch83-LoRaWAN组网LoRaMac-node-ChirpStack](/Learning-Obsidian./posts/ch83-LoRaWAN组网LoRaMac-node-ChirpStack/) | → [ch85-PCIe总线拓扑BAR空间lspci排障](/Learning-Obsidian./posts/ch85-PCIe总线拓扑BAR空间lspci排障/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 建立「上电→SIM→注网→PDP→业务」AT 注网状态机，每步带超时重试
@@ -99,7 +102,7 @@ void cm_tick(void) {                        /* 1s 周期调用 */
 | Active Timer(T3324) | PSM 前可达窗口 | 取 30s：窗口内可被寻呼，下行交互须在此完成 |
 | eDRX 周期 | 寻呼监听间隔(20s~41min 可配) | 取 20min：下行延迟均值 10min，电流介于 PSM 与常连之间 |
 
-决策公式：可容忍下行延迟 ≥TAU → PSM 最省；秒~分级下行 → eDRX；实时业务 → 常连+心跳。注网比发数据更耗电（突发 A 级电流）——减少注网次数才是王道（实测联动 [ch29-低功耗设计](/posts/ch29-低功耗设计/)）。
+决策公式：可容忍下行延迟 ≥TAU → PSM 最省；秒~分级下行 → eDRX；实时业务 → 常连+心跳。注网比发数据更耗电（突发 A 级电流）——减少注网次数才是王道（实测联动 [ch29-低功耗设计](/Learning-Obsidian./posts/ch29-低功耗设计/)）。
 
 ## 84.6 信号质量判读与参数调试技巧
 
@@ -154,4 +157,4 @@ void cm_tick(void) {                        /* 1s 周期调用 */
 </div>
 
 ---
-🏷️ #domain/protocol #topic/nb-iot | 🔗 [ch83-LoRaWAN组网LoRaMac-node-ChirpStack](/posts/ch83-LoRaWAN组网LoRaMac-node-ChirpStack/) ← **本章** → [ch85-PCIe总线拓扑BAR空间lspci排障](/posts/ch85-PCIe总线拓扑BAR空间lspci排障/) | 📚 [P8-MOC](/posts/P8-MOC/)
+🏷️ #domain/protocol #topic/nb-iot | 🔗 [ch83-LoRaWAN组网LoRaMac-node-ChirpStack](/Learning-Obsidian./posts/ch83-LoRaWAN组网LoRaMac-node-ChirpStack/) ← **本章** → [ch85-PCIe总线拓扑BAR空间lspci排障](/Learning-Obsidian./posts/ch85-PCIe总线拓扑BAR空间lspci排障/) | 📚 [P8-MOC](/Learning-Obsidian./posts/P8-MOC/)

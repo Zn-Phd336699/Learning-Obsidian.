@@ -1,6 +1,6 @@
 ---
 title: 第41章 Buildroot定制rootfs全流程
-date: 2025-01-01
+date: 2025-04-21
 categories:
   - SoC开发
 tags:
@@ -18,10 +18,13 @@ chapter: 41
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★☆☆ | 前置 [ch40-内核适配与设备树dts语法-pinctrl-overlay](/posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/) | → [ch42-Yocto入门-layer-recipe-bbappend](/posts/ch42-Yocto入门-layer-recipe-bbappend/)
+⏱ 40min | ★★★☆☆ | 前置 [ch40-内核适配与设备树dts语法-pinctrl-overlay](/Learning-Obsidian./posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/) | → [ch42-Yocto入门-layer-recipe-bbappend](/Learning-Obsidian./posts/ch42-Yocto入门-layer-recipe-bbappend/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 完成 Buildroot 全量构建并用 external tree 替换为自研 app
@@ -66,9 +69,9 @@ my-br-ext/
 | squashfs | 只读压缩、掉电安全、天然防篡改 | 量产固件主体（配 data 分区可写层） |
 | ext4 | 可读写、支持日志 | 开发期/data分区 |
 | initramfs | 内存根、极快、随内核加载 | 恢复模式/升级器环境(ch72 recovery 同思想) |
-| ubifs/jffs2 | NAND 友好磨损均衡 | SPI NAND 设备(Luckfox 类，见 [ch36-RK平台ATK-DLRK3568-RK3588-Luckfox](/posts/ch36-RK平台ATK-DLRK3568-RK3588-Luckfox/)) |
+| ubifs/jffs2 | NAND 友好磨损均衡 | SPI NAND 设备(Luckfox 类，见 [ch36-RK平台ATK-DLRK3568-RK3588-Luckfox](/Learning-Obsidian./posts/ch36-RK平台ATK-DLRK3568-RK3588-Luckfox/)) |
 
-**只读系统 + overlayfs 黄金组合**：squashfs(ro) 作底层 + tmpfs 作上层 + overlayfs 合并视图 = 「每次开机都是全新系统」，用户数据单独挂 /var 或 /data 分区。这是路由器/IoT 网关的标准架构——固件升级=整分区块替换，永不担心半写状态损坏（展开见 [ch57-根文件系统构建只读overlayfs](/posts/ch57-根文件系统构建只读overlayfs/)）。
+**只读系统 + overlayfs 黄金组合**：squashfs(ro) 作底层 + tmpfs 作上层 + overlayfs 合并视图 = 「每次开机都是全新系统」，用户数据单独挂 /var 或 /data 分区。这是路由器/IoT 网关的标准架构——固件升级=整分区块替换，永不担心半写状态损坏（展开见 [ch57-根文件系统构建只读overlayfs](/Learning-Obsidian./posts/ch57-根文件系统构建只读overlayfs/)）。
 
 ## 41.4 原理深挖：Buildroot 的 make 生命周期
 
@@ -150,4 +153,4 @@ esac
 </div>
 
 ---
-🏷️ #domain/soc #topic/buildroot #topic/rootfs | 🔗 [ch40-内核适配与设备树dts语法-pinctrl-overlay](/posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/) ← **本章** → [ch42-Yocto入门-layer-recipe-bbappend](/posts/ch42-Yocto入门-layer-recipe-bbappend/) | 📚 [P4-MOC](/posts/P4-MOC/)
+🏷️ #domain/soc #topic/buildroot #topic/rootfs | 🔗 [ch40-内核适配与设备树dts语法-pinctrl-overlay](/Learning-Obsidian./posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/) ← **本章** → [ch42-Yocto入门-layer-recipe-bbappend](/Learning-Obsidian./posts/ch42-Yocto入门-layer-recipe-bbappend/) | 📚 [P4-MOC](/Learning-Obsidian./posts/P4-MOC/)

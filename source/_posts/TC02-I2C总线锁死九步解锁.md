@@ -10,6 +10,9 @@ tags:
 
 # TC02 I2C 总线锁死九步解锁 SOP
 
+
+<!-- more -->
+
 ## 现象
 I2C 外设初始化后 SDA 恒为低电平、外设报 BUSY/超时无法通信；典型触发条件是主机在读事务中途被复位（看门狗咬狗/调试器下载固件）。
 
@@ -55,5 +58,5 @@ int i2c_bus_recover(gpio_t scl, gpio_t sda)
 - 多电源域系统保证主机与从机同域上/断电，避免单方复位
 
 ## 关联
-- 源章节：[ch76-I2C协议与排障时钟拉伸总线锁死多主机](/posts/ch76-I2C协议与排障时钟拉伸总线锁死多主机/)
-- 相关章节：[ch19-逻辑分析仪与sigrok](/posts/ch19-逻辑分析仪与sigrok/)、[ch23-GPIO与时钟树实战](/posts/ch23-GPIO与时钟树实战/)
+- 源章节：[ch76-I2C协议与排障时钟拉伸总线锁死多主机](/Learning-Obsidian./posts/ch76-I2C协议与排障时钟拉伸总线锁死多主机/)
+- 相关章节：[ch19-逻辑分析仪与sigrok](/Learning-Obsidian./posts/ch19-逻辑分析仪与sigrok/)、[ch23-GPIO与时钟树实战](/Learning-Obsidian./posts/ch23-GPIO与时钟树实战/)

@@ -1,6 +1,6 @@
 ---
 title: 第26章 DMA 与 Cache 一致性（M7 重点）
-date: 2025-01-01
+date: 2025-05-06
 categories:
   - 单片机开发
 tags:
@@ -17,10 +17,13 @@ chapter: 26
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch25-定时器全家桶](/posts/ch25-定时器全家桶/) | → [ch27-ADC-DAC与模拟前端](/posts/ch27-ADC-DAC与模拟前端/)
+⏱ 40min | ★★★★☆ | 前置 [ch25-定时器全家桶](/Learning-Obsidian./posts/ch25-定时器全家桶/) | → [ch27-ADC-DAC与模拟前端](/Learning-Obsidian./posts/ch27-ADC-DAC与模拟前端/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 掌握 DMA 流/通道/请求映射的查表方法与优先级仲裁规则
@@ -151,4 +154,4 @@ Bsp/bsp_rx_dma.c —— UART 不定长接收终极方案
 </div>
 
 ---
-🏷️ #domain/mcu #topic/dma | 🔗 [ch25-定时器全家桶](/posts/ch25-定时器全家桶/) ← **本章** → [ch27-ADC-DAC与模拟前端](/posts/ch27-ADC-DAC与模拟前端/) | 📚 [P3-MOC](/posts/P3-MOC/)
+🏷️ #domain/mcu #topic/dma | 🔗 [ch25-定时器全家桶](/Learning-Obsidian./posts/ch25-定时器全家桶/) ← **本章** → [ch27-ADC-DAC与模拟前端](/Learning-Obsidian./posts/ch27-ADC-DAC与模拟前端/) | 📚 [P3-MOC](/Learning-Obsidian./posts/P3-MOC/)

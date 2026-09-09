@@ -1,6 +1,6 @@
 ---
 title: 第58章 字符设备驱动hello-drv到并发安全
-date: 2025-01-01
+date: 2025-04-04
 categories:
   - 嵌入式Linux
 tags:
@@ -17,10 +17,13 @@ chapter: 58
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★☆ | 前置 [ch40-内核适配与设备树dts语法-pinctrl-overlay](/posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/) | → [ch59-platform驱动设备树regmap](/posts/ch59-platform驱动设备树regmap/)
+⏱ 45min | ★★★★☆ | 前置 [ch40-内核适配与设备树dts语法-pinctrl-overlay](/Learning-Obsidian./posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/) | → [ch59-platform驱动设备树regmap](/Learning-Obsidian./posts/ch59-platform驱动设备树regmap/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 独立完成字符驱动的 cdev 注册三步（alloc_chrdev_region→cdev_init/cdev_add→节点创建）与卸载逆序清理
@@ -151,4 +154,4 @@ misc_register(&hello_misc);      /* 卸载用 misc_deregister；主设备号固�
 </div>
 
 ---
-🏷️ #domain/linux #topic/driver | 🔗 [ch57-根文件系统构建只读overlayfs](/posts/ch57-根文件系统构建只读overlayfs/) ← **本章** → [ch59-platform驱动设备树regmap](/posts/ch59-platform驱动设备树regmap/) | 📚 [P6-MOC](/posts/P6-MOC/)
+🏷️ #domain/linux #topic/driver | 🔗 [ch57-根文件系统构建只读overlayfs](/Learning-Obsidian./posts/ch57-根文件系统构建只读overlayfs/) ← **本章** → [ch59-platform驱动设备树regmap](/Learning-Obsidian./posts/ch59-platform驱动设备树regmap/) | 📚 [P6-MOC](/Learning-Obsidian./posts/P6-MOC/)

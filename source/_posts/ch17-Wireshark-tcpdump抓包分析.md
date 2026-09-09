@@ -1,6 +1,6 @@
 ---
 title: 第17章 Wireshark / tcpdump 抓包分析与流量镜像方法
-date: 2025-01-01
+date: 2025-05-15
 categories:
   - 调试工具链
 tags:
@@ -17,12 +17,15 @@ chapter: 17
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★☆☆ | 前置 [ch16-perf-ftrace-strace性能剖析](/posts/ch16-perf-ftrace-strace性能剖析/) | → [ch18-示波器实战](/posts/ch18-示波器实战/)
+⏱ 40min | ★★★☆☆ | 前置 [ch16-perf-ftrace-strace性能剖析](/Learning-Obsidian./posts/ch16-perf-ftrace-strace性能剖析/) | → [ch18-示波器实战](/Learning-Obsidian./posts/ch18-示波器实战/)
 
 </div>
 </div>
 
 网络类故障（连不上/掉线/慢）没有抓包就是玄学。本章把「抓得到、看得懂、能定位」一次讲完：两种过滤器语法、TCP 异常指纹表、五大抓包点与 tshark 自动化。
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 区分 BPF 捕获过滤器与 Wireshark 显示过滤器的语法与性能差异
@@ -46,7 +49,7 @@ BPF 捕获过滤器跑在内核逐包裁剪（性能高、语法古老），显�
 | SYN 无响应 ×N | 连接被丢弃 | 端口未监听/IP 错误/防火墙；ARP 未解析成功（先看 ARP 有无 reply） |
 | SYN→SYN,ACK 但 ACK 缺失 | 半开连接堆积 | 客户端回程路由不通（网关配置） |
 | RST 立即返回 | 主动拒绝 | 服务未起、backlog 满、防火墙 REJECT |
-| DUP ACK 洪流 + Fast Retransmit | 丢包恢复中 | 无线链路质量/WiFi 重传（联动 [ch86-综合案例无线共存干扰排障全流程](/posts/ch86-综合案例无线共存干扰排障全流程/)） |
+| DUP ACK 洪流 + Fast Retransmit | 丢包恢复中 | 无线链路质量/WiFi 重传（联动 [ch86-综合案例无线共存干扰排障全流程](/Learning-Obsidian./posts/ch86-综合案例无线共存干扰排障全流程/)） |
 | ZeroWindow 反复出现 | 接收方应用消费不动 | 对端任务阻塞/缓冲满——查应用而非网络 |
 | 大包丢小包通（MTU 黑洞） | 路径 MTU 问题 | PMTU 发现失效；临时 MSS clamp 或降 MTU 验证 |
 
@@ -71,10 +74,10 @@ tcp.flags.syn==1 && tcp.flags.ack==0            # 新建连接
 ① 板端 tcpdump —— 最方便，但高吞吐时丢包（先看 dropped 计数）
 ② 交换机镜像口(SPAN) —— 主机侧旁路，零侵入最真实
 ③ WiFi monitor 模式：airmon-ng start wlan0; iw dev mon0 set channel 6;
-   能看 802.11 管理/控制帧全貌（重传率统计联动 [ch81-WiFi协议栈实战wpa_supplicant-hostapd](/posts/ch81-WiFi协议栈实战wpa_supplicant-hostapd/)）
-④ USB 场景：usbmon 内核模块抓枚举与传输（[ch79-USB协议与驱动枚举描述符HID-CDC-Gadget](/posts/ch79-USB协议与驱动枚举描述符HID-CDC-Gadget/)）
+   能看 802.11 管理/控制帧全貌（重传率统计联动 [ch81-WiFi协议栈实战wpa_supplicant-hostapd](/Learning-Obsidian./posts/ch81-WiFi协议栈实战wpa_supplicant-hostapd/)）
+④ USB 场景：usbmon 内核模块抓枚举与传输（[ch79-USB协议与驱动枚举描述符HID-CDC-Gadget](/Learning-Obsidian./posts/ch79-USB协议与驱动枚举描述符HID-CDC-Gadget/)）
 ⑤ 串口/总线没有"包"概念 → 逻辑分析仪导出 CSV 脚本转 pcap，
-   让 Modbus/CAN 帧也享受 dissector 解析（[ch19-逻辑分析仪与sigrok](/posts/ch19-逻辑分析仪与sigrok/)）
+   让 Modbus/CAN 帧也享受 dissector 解析（[ch19-逻辑分析仪与sigrok](/Learning-Obsidian./posts/ch19-逻辑分析仪与sigrok/)）
 ```
 
 ```bash
@@ -126,7 +129,7 @@ tshark -r cap.pcap -z conv,tcp            # 会话排行；字段级断言塞进
 4. 抓包前先做时间轴对齐（17.3 第四块），否则跨设备证据链不被采信。
 
 > [!example]- 🧪 动手实验 L17-1：MQTT 断线 RST 归因（40 分钟）
-> **步骤**：① 板端 tcpdump 只抓 broker 流量；② 制造一次真实断线（路由器重启或心跳超时）；③ Wireshark 追踪流，定位第一个 FIN/RST 的发送方与前一包时间差；④ 结合 keepalive 配置判断是 NAT 超时还是主动踢；⑤ 按 [ch63-网络编程与TLS从socket到安全上云](/posts/ch63-网络编程与TLS从socket到安全上云/) 结论调整心跳并复测。**验收**：能用一张带注释的时序截图向他人讲清整条断线因果链。
+> **步骤**：① 板端 tcpdump 只抓 broker 流量；② 制造一次真实断线（路由器重启或心跳超时）；③ Wireshark 追踪流，定位第一个 FIN/RST 的发送方与前一包时间差；④ 结合 keepalive 配置判断是 NAT 超时还是主动踢；⑤ 按 [ch63-网络编程与TLS从socket到安全上云](/Learning-Obsidian./posts/ch63-网络编程与TLS从socket到安全上云/) 结论调整心跳并复测。**验收**：能用一张带注释的时序截图向他人讲清整条断线因果链。
 
 ## 17.8 进阶话题
 - **TLS 时代调试姿势**：mbedTLS 自导 session key，或前置终结 TLS 的网关上看明文
@@ -149,4 +152,4 @@ tshark -r cap.pcap -z conv,tcp            # 会话排行；字段级断言塞进
 </div>
 
 ---
-🏷️ #domain/fundamentals #topic/network | 🔗 [ch16-perf-ftrace-strace性能剖析](/posts/ch16-perf-ftrace-strace性能剖析/) ← **本章** → [ch18-示波器实战](/posts/ch18-示波器实战/) | 📚 [P2-MOC](/posts/P2-MOC/)
+🏷️ #domain/fundamentals #topic/network | 🔗 [ch16-perf-ftrace-strace性能剖析](/Learning-Obsidian./posts/ch16-perf-ftrace-strace性能剖析/) ← **本章** → [ch18-示波器实战](/Learning-Obsidian./posts/ch18-示波器实战/) | 📚 [P2-MOC](/Learning-Obsidian./posts/P2-MOC/)

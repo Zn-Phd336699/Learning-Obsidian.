@@ -1,6 +1,6 @@
 ---
 title: 第9章 代码质量：MISRA C、cppcheck 与 Unity 单元测试
-date: 2025-01-01
+date: 2025-05-23
 categories:
   - 编程基础
 tags:
@@ -18,10 +18,13 @@ chapter: 9
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★☆☆ | 前置 [ch08-分层架构与设计模式](/posts/ch08-分层架构与设计模式/) | → [ch09a-AI辅助开发实践](/posts/ch09a-AI辅助开发实践/)
+⏱ 35min | ★★★☆☆ | 前置 [ch08-分层架构与设计模式](/Learning-Obsidian./posts/ch08-分层架构与设计模式/) | → [ch09a-AI辅助开发实践](/Learning-Obsidian./posts/ch09a-AI辅助开发实践/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 
@@ -195,4 +198,4 @@ jobs:
 </div>
 
 ---
-🏷️ #misra #unit-test #ci | 🔗 [ch08-分层架构与设计模式](/posts/ch08-分层架构与设计模式/) ← **本章** → [ch09a-AI辅助开发实践](/posts/ch09a-AI辅助开发实践/) | 📚 [P1-MOC](/posts/P1-MOC/)
+🏷️ #misra #unit-test #ci | 🔗 [ch08-分层架构与设计模式](/Learning-Obsidian./posts/ch08-分层架构与设计模式/) ← **本章** → [ch09a-AI辅助开发实践](/Learning-Obsidian./posts/ch09a-AI辅助开发实践/) | 📚 [P1-MOC](/Learning-Obsidian./posts/P1-MOC/)

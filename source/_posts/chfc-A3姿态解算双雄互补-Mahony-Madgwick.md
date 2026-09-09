@@ -17,10 +17,13 @@ chapter: A3
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [chfb-A2卡尔曼滤波族谱KF-EKF-UKF](/posts/chfb-A2卡尔曼滤波族谱KF-EKF-UKF/) | → [chfd-A4-PID工程化全集抗饱和自整定](/posts/chfd-A4-PID工程化全集抗饱和自整定/)
+⏱ 40min | ★★★★☆ | 前置 [chfb-A2卡尔曼滤波族谱KF-EKF-UKF](/Learning-Obsidian./posts/chfb-A2卡尔曼滤波族谱KF-EKF-UKF/) | → [chfd-A4-PID工程化全集抗饱和自整定](/Learning-Obsidian./posts/chfd-A4-PID工程化全集抗饱和自整定/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 说清陀螺仪与加速度计的互补性，写出带可信度门控的互补滤波并解释 α 的频域含义
@@ -103,7 +106,7 @@ void mahony_update(mahony_t *m,float gx,float gy,float gz,
 | 互补+门控 | 约 4.7° | 好(α 合适时) | 小于 0.3% | 30 行 | 平衡车/玩具 ★起步首选 |
 | Mahony(MIMU) | 约 1.9° | 好 | 约 0.8% | 150 行 | 云台/无人机自稳 ★主力 |
 | Madgwick(β 调参) | 约 1.6° | 极快收敛(β 大) | 约 1.1% | 180 行 | 高动态场景；单旋钮易调 |
-| ESKF(见 [chfb-A2卡尔曼滤波族谱KF-EKF-UKF](/posts/chfb-A2卡尔曼滤波族谱KF-EKF-UKF/)) | 0.4° | 最好 | 2.5% | 800+ 行 | 导航级精度需求 |
+| ESKF(见 [chfb-A2卡尔曼滤波族谱KF-EKF-UKF](/Learning-Obsidian./posts/chfb-A2卡尔曼滤波族谱KF-EKF-UKF/)) | 0.4° | 最好 | 2.5% | 800+ 行 | 导航级精度需求 |
 
 ## A3.6 参数调试技巧（可视化驱动整定）
 | 症状 | 测量手段 | 调什么 | 判据 |
@@ -154,4 +157,4 @@ void mahony_update(mahony_t *m,float gx,float gy,float gz,
 </div>
 
 ---
-🏷️ #domain/algorithms #topic/imu #姿态解算 #Mahony #Madgwick | 🔗 [chfb-A2卡尔曼滤波族谱KF-EKF-UKF](/posts/chfb-A2卡尔曼滤波族谱KF-EKF-UKF/) ← **本章** → [chfd-A4-PID工程化全集抗饱和自整定](/posts/chfd-A4-PID工程化全集抗饱和自整定/) | 📚 [P11-MOC](/posts/P11-MOC/)
+🏷️ #domain/algorithms #topic/imu #姿态解算 #Mahony #Madgwick | 🔗 [chfb-A2卡尔曼滤波族谱KF-EKF-UKF](/Learning-Obsidian./posts/chfb-A2卡尔曼滤波族谱KF-EKF-UKF/) ← **本章** → [chfd-A4-PID工程化全集抗饱和自整定](/Learning-Obsidian./posts/chfd-A4-PID工程化全集抗饱和自整定/) | 📚 [P11-MOC](/Learning-Obsidian./posts/P11-MOC/)

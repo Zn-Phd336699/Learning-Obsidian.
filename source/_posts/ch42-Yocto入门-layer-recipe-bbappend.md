@@ -1,6 +1,6 @@
 ---
 title: 第42章 Yocto 入门：layer / recipe / bbappend
-date: 2025-01-01
+date: 2025-04-20
 categories:
   - SoC开发
 tags:
@@ -17,10 +17,13 @@ chapter: 42
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 32min | ★★★☆☆ | 前置 [ch41-Buildroot定制rootfs全流程](/posts/ch41-Buildroot定制rootfs全流程/) | → [ch43-NPU-GPU应用开发RKNN-MPP](/posts/ch43-NPU-GPU应用开发RKNN-MPP/)
+⏱ 32min | ★★★☆☆ | 前置 [ch41-Buildroot定制rootfs全流程](/Learning-Obsidian./posts/ch41-Buildroot定制rootfs全流程/) | → [ch43-NPU-GPU应用开发RKNN-MPP](/Learning-Obsidian./posts/ch43-NPU-GPU应用开发RKNN-MPP/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 用 Poky/Layer/Recipe/bitbake 四层心智模型解释一次完整构建发生了什么
@@ -146,11 +149,11 @@ devtool update-recipe busybox # 改动沉淀回自己 layer 的 .bbappend/补丁
 <div>
 
 1. 解释 sstate-cache 为什么能让「换一行代码」的增量构建接近秒级。
-2. 把 [ch41-Buildroot定制rootfs全流程](/posts/ch41-Buildroot定制rootfs全流程/) 的 external tree 项目迁移成 Yocto layer，列出等价物映射表。
+2. 把 [ch41-Buildroot定制rootfs全流程](/Learning-Obsidian./posts/ch41-Buildroot定制rootfs全流程/) 的 external tree 项目迁移成 Yocto layer，列出等价物映射表。
 3. 设计公司级「BSP 平台层 + 产品层」的双层 Yocto 组织结构图。
 
 </div>
 </div>
 
 ---
-🏷️ #domain/soc #topic/buildsystem | 🔗 [ch41-Buildroot定制rootfs全流程](/posts/ch41-Buildroot定制rootfs全流程/) ← **本章** → [ch43-NPU-GPU应用开发RKNN-MPP](/posts/ch43-NPU-GPU应用开发RKNN-MPP/) | 📚 [P4-MOC](/posts/P4-MOC/)
+🏷️ #domain/soc #topic/buildsystem | 🔗 [ch41-Buildroot定制rootfs全流程](/Learning-Obsidian./posts/ch41-Buildroot定制rootfs全流程/) ← **本章** → [ch43-NPU-GPU应用开发RKNN-MPP](/Learning-Obsidian./posts/ch43-NPU-GPU应用开发RKNN-MPP/) | 📚 [P4-MOC](/Learning-Obsidian./posts/P4-MOC/)

@@ -17,10 +17,13 @@ chapter: S4
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 30min | ★★★☆☆ | 前置 [chsc-S3-HIL测试台架与Renode仿真](/posts/chsc-S3-HIL测试台架与Renode仿真/) | → [chf0-A0算法篇导学与前置知识](/posts/chf0-A0算法篇导学与前置知识/)
+⏱ 30min | ★★★☆☆ | 前置 [chsc-S3-HIL测试台架与Renode仿真](/Learning-Obsidian./posts/chsc-S3-HIL测试台架与Renode仿真/) | → [chf0-A0算法篇导学与前置知识](/Learning-Obsidian./posts/chf0-A0算法篇导学与前置知识/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 设计「一夹具三站式」产测流程：烧录→功能测试→老化抽检，节拍达标
@@ -33,7 +36,7 @@ chapter: S4
 
 | 工位 | 动作 | 节拍目标 | 关键设备 |
 |------|------|----------|----------|
-| ST1 烧录站 | 探针夹具+USB/网口批量写入固件+序列号+密钥（按 S2 SOP） | ≤40s/台 | rkdeveloptool/uuu/probe-rs 脚本化（见 [ch13-探针实战OpenOCD-JLink-probe-rs](/posts/ch13-探针实战OpenOCD-JLink-probe-rs/)） |
+| ST1 烧录站 | 探针夹具+USB/网口批量写入固件+序列号+密钥（按 S2 SOP） | ≤40s/台 | rkdeveloptool/uuu/probe-rs 脚本化（见 [ch13-探针实战OpenOCD-JLink-probe-rs](/Learning-Obsidian./posts/ch13-探针实战OpenOCD-JLink-probe-rs/)） |
 | ST2 功能站 | HIL 台架全自动跑冒烟集：外设/无线注网/校准 | ≤90s/台 | 陪练板+继电器矩阵+屏蔽盒(无线) |
 | ST3 老化区 | 高温房 48h 通电运行，每小时心跳上报 | 并行整批 | 老化车+监控服务 |
 
@@ -60,15 +63,15 @@ reset_and_expect "SELFTEST PASS" 15 && echo "PASS $SN $(date +%s)" >> trace.log
 |---|--------|------|------|
 | 1 | 供电电流(工作态) | 程控电源读数 | 规格 ±20% |
 | 2 | 时钟精度 | MCO 输出测频 | ±50ppm |
-| 3 | 无线发射(TX 功率) | 耦合器+频谱仪（见 [ch20-频谱仪与射频排障](/posts/ch20-频谱仪与射频排障/)） | 规格 ±2dB |
+| 3 | 无线发射(TX 功率) | 耦合器+频谱仪（见 [ch20-频谱仪与射频排障](/Learning-Obsidian./posts/ch20-频谱仪与射频排障/)） | 规格 ±2dB |
 | 4 | 传感器全链路 | 陪练板激励→数值核对 | 误差表内 |
 | 5 | 按键/指示灯人机项 | 治具压键+光电检测 LED | 响应正确 |
-| 6 | Vrefint/温度自检 | ADC 内部通道（见 [ch27-ADC-DAC与模拟前端](/posts/ch27-ADC-DAC与模拟前端/)） | 范围判定 |
+| 6 | Vrefint/温度自检 | ADC 内部通道（见 [ch27-ADC-DAC与模拟前端](/Learning-Obsidian./posts/ch27-ADC-DAC与模拟前端/)） | 范围判定 |
 
 ## S4.4 可靠性老化的三层筛选策略
 1. **全数老化(ST3)**：48h@45℃ 高温通电——杀早期死亡（浴盆曲线左沿），期间断电重启 4 次验证恢复；
 2. **抽样强化**：每批 3~5 台做极限项——高低温循环 -20~70℃、静电 ESD 接触 ±8kV 抽检；
-3. **现场数据回流**：设备心跳带「重启原因计数」——某批次异常上升自动告警，比客诉早两周发现问题（复用 [ch44-综合实战RK3568多协议边缘网关](/posts/ch44-综合实战RK3568多协议边缘网关/) 的监控看板）。
+3. **现场数据回流**：设备心跳带「重启原因计数」——某批次异常上升自动告警，比客诉早两周发现问题（复用 [ch44-综合实战RK3568多协议边缘网关](/Learning-Obsidian./posts/ch44-综合实战RK3568多协议边缘网关/) 的监控看板）。
 
 ## S4.5 追溯体系与良率/RMA 返修流程
 - **一物一码**：SN 为唯一主键；MAC 由 SN 派生保证唯一；`trace.log`（SN/工位/时间戳/结果/测量值）是追溯的根；
@@ -133,4 +136,4 @@ reset_and_expect "SELFTEST PASS" 15 && echo "PASS $SN $(date +%s)" >> trace.log
 </div>
 
 ---
-🏷️ #量产 #产测 #老化 #追溯 #RMA | 🔗 [chsc-S3-HIL测试台架与Renode仿真](/posts/chsc-S3-HIL测试台架与Renode仿真/) ← **本章** → [chf0-A0算法篇导学与前置知识](/posts/chf0-A0算法篇导学与前置知识/) | 📚 [P10-MOC](/posts/P10-MOC/)
+🏷️ #量产 #产测 #老化 #追溯 #RMA | 🔗 [chsc-S3-HIL测试台架与Renode仿真](/Learning-Obsidian./posts/chsc-S3-HIL测试台架与Renode仿真/) ← **本章** → [chf0-A0算法篇导学与前置知识](/Learning-Obsidian./posts/chf0-A0算法篇导学与前置知识/) | 📚 [P10-MOC](/Learning-Obsidian./posts/P10-MOC/)

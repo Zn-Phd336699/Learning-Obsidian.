@@ -1,6 +1,6 @@
 ---
 title: 第74A章 自研二进制协议设计规范
-date: 2025-01-01
+date: 2025-03-19
 categories:
   - 协议开发
 tags:
@@ -18,10 +18,13 @@ chapter: 74A
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★☆☆ | 前置 [ch74-总线与无线选型总表](/posts/ch74-总线与无线选型总表/) | → [ch75-UART-RS485与Modbus-RTU实战libmodbus](/posts/ch75-UART-RS485与Modbus-RTU实战libmodbus/)
+⏱ 40min | ★★★☆☆ | 前置 [ch74-总线与无线选型总表](/Learning-Obsidian./posts/ch74-总线与无线选型总表/) | → [ch75-UART-RS485与Modbus-RTU实战libmodbus](/Learning-Obsidian./posts/ch75-UART-RS485与Modbus-RTU实战libmodbus/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 掌握帧结构七大决策点：同步头/地址/CMD/LEN/SEQ/CRC/字节序
@@ -81,7 +84,7 @@ size_t cobs_encode(const uint8_t *in, size_t n, uint8_t *out)
 | CRC-32 | KB 级帧 | 以太网同款 | 大块数据/文件分片 |
 | CRC-16+CRC-32 叠加 | 异构多项式双保险 | — | 安全关键链路 |
 
-多项式族谱与汉明距离推导见 [chfh-A8校验族谱CRC全家汉明HMAC边界](/posts/chfh-A8校验族谱CRC全家汉明HMAC边界/)。
+多项式族谱与汉明距离推导见 [chfh-A8校验族谱CRC全家汉明HMAC边界](/Learning-Obsidian./posts/chfh-A8校验族谱CRC全家汉明HMAC边界/)。
 
 ## 74A.4 可靠传输状态机：停等 ARQ vs 滑动窗口
 ```text
@@ -134,7 +137,7 @@ size_t cobs_encode(const uint8_t *in, size_t n, uint8_t *out)
 ## 74A.10 进阶话题
 - COBS 最坏开销为何是 ⌈n/254⌉ 而不是 n：码字上限 0xFF 强制每 254 个数据字节断块一次。
 - 底层换成 BLE MTU 包时：SOF/转义决策作废（链路自带定界），保留 SEQ/CRC/版本设计。
-- 云侧衔接：自研协议通常终结于网关，网关之上走 MQTT/CoAP（[ch80a-MQTT-CoAP云协议本体与实现](/posts/ch80a-MQTT-CoAP云协议本体与实现/)）。
+- 云侧衔接：自研协议通常终结于网关，网关之上走 MQTT/CoAP（[ch80a-MQTT-CoAP云协议本体与实现](/Learning-Obsidian./posts/ch80a-MQTT-CoAP云协议本体与实现/)）。
 
 > [!warning]- ❓ FAQ
 > **Q1：为什么我的帧在长 0xFF 序列后丢失同步？** 无转义+纯 SOF 匹配的通病；改 COBS 或增加「SOF 前置静默要求」，接收端加最大帧长保护防假同步。
@@ -152,4 +155,4 @@ size_t cobs_encode(const uint8_t *in, size_t n, uint8_t *out)
 </div>
 
 ---
-🏷️ #domain/protocol #topic/protocol #topic/crc | 🔗 [ch74-总线与无线选型总表](/posts/ch74-总线与无线选型总表/) ← **本章** → [ch75-UART-RS485与Modbus-RTU实战libmodbus](/posts/ch75-UART-RS485与Modbus-RTU实战libmodbus/) | 📚 [P8-MOC](/posts/P8-MOC/)
+🏷️ #domain/protocol #topic/protocol #topic/crc | 🔗 [ch74-总线与无线选型总表](/Learning-Obsidian./posts/ch74-总线与无线选型总表/) ← **本章** → [ch75-UART-RS485与Modbus-RTU实战libmodbus](/Learning-Obsidian./posts/ch75-UART-RS485与Modbus-RTU实战libmodbus/) | 📚 [P8-MOC](/Learning-Obsidian./posts/P8-MOC/)

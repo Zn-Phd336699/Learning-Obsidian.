@@ -10,6 +10,9 @@ tags:
 
 # TC04 M7 Cache 一致性三方案
 
+
+<!-- more -->
+
 ## 现象
 Cortex-M7（STM32F7/H7）使能 D-Cache 后，DMA 收到的数据 CPU 读出来全是 0 或上一轮旧值；触发条件：RX 缓冲位于可缓存普通内存且未做任何 Cache 维护。
 
@@ -60,5 +63,5 @@ SCB_CleanDCache_by_Addr((uint32_t *)txbuf, sizeof txbuf);
 - 移植 ST 例程必查其内存放置假设（不少例程默认关着 Cache）
 
 ## 关联
-- 源章节：[ch26-DMA与Cache一致性](/posts/ch26-DMA与Cache一致性/)
-- 相关章节：[ch06-链接器与内存布局](/posts/ch06-链接器与内存布局/)、[chs2-SO2-MCU系统优化实战](/posts/chs2-SO2-MCU系统优化实战/)
+- 源章节：[ch26-DMA与Cache一致性](/Learning-Obsidian./posts/ch26-DMA与Cache一致性/)
+- 相关章节：[ch06-链接器与内存布局](/Learning-Obsidian./posts/ch06-链接器与内存布局/)、[chs2-SO2-MCU系统优化实战](/Learning-Obsidian./posts/chs2-SO2-MCU系统优化实战/)

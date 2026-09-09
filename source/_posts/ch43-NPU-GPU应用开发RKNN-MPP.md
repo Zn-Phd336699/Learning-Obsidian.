@@ -1,6 +1,6 @@
 ---
 title: 第43章 NPU/GPU 应用开发：RKNN Toolkit 与 MPP 硬编解码
-date: 2025-01-01
+date: 2025-04-19
 categories:
   - SoC开发
 tags:
@@ -17,10 +17,13 @@ chapter: 43
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 38min | ★★★★☆ | 前置 [ch42-Yocto入门-layer-recipe-bbappend](/posts/ch42-Yocto入门-layer-recipe-bbappend/) | → [ch44-综合实战RK3568多协议边缘网关](/posts/ch44-综合实战RK3568多协议边缘网关/)
+⏱ 38min | ★★★★☆ | 前置 [ch42-Yocto入门-layer-recipe-bbappend](/Learning-Obsidian./posts/ch42-Yocto入门-layer-recipe-bbappend/) | → [ch44-综合实战RK3568多协议边缘网关](/Learning-Obsidian./posts/ch44-综合实战RK3568多协议边缘网关/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 走通 ONNX→RKNN 转换与 INT8 量化全流程，掉点后知道往哪查
@@ -33,7 +36,7 @@ chapter: 43
 # PC 端：rknn-toolkit2（版本必须与板上 runtime 匹配！）
 from rknn.api import RKNN
 rknn = RKNN()
-rknn.config(mean_values=[0,0,0](/posts/0,0,0/), std_values=[255,255,255](/posts/255,255,255/),
+rknn.config(mean_values=[0,0,0](/Learning-Obsidian./posts/0,0,0/), std_values=[255,255,255](/Learning-Obsidian./posts/255,255,255/),
             target_platform='rk3568',
             quantized_dtype='asymmetric_quantized-8',   # INT8：体积÷4 速度×4
             quantized_algorithm='normal')
@@ -69,7 +72,7 @@ ffmpeg -c:v hevc_rkmpp -i input.mp4 -f null -
 gst-launch-1.0 uridecodebin uri=file:///v.mp4 ! videoconvert ! autovideosink
 ```
 
-零拷贝优化链：**V4L2 → DRM Prime fd → RGA → NPU 输入**，全程传 dmabuf fd 而非 memcpy——1080p@30 一帧 3MB × 30 = 90MB/s 的搬运直接省下（思想同 [ch26-DMA与Cache一致性](/posts/ch26-DMA与Cache一致性/)）。
+零拷贝优化链：**V4L2 → DRM Prime fd → RGA → NPU 输入**，全程传 dmabuf fd 而非 memcpy——1080p@30 一帧 3MB × 30 = 90MB/s 的搬运直接省下（思想同 [ch26-DMA与Cache一致性](/Learning-Obsidian./posts/ch26-DMA与Cache一致性/)）。
 
 ## 43.4 GStreamer 一条龙管道（检测+推流）
 
@@ -123,7 +126,7 @@ appsrc ! videoconvert ! mpph264enc bps=4000000 ! h264parse ! \
 
 > [!example]- 🧪 动手实验 L43-1：模型转换到板端出框全链（70 分钟）
 > **步骤**：① toolkit2 转换 yolov8n 并量化（准备 ≥200 张现场风格图做校准集）；② 板端 rknn_run 跑静态图验证输出维度；③ 接 43.4 管道实时推理并叠加 OSD；④ 记录前处理/推理/后处理三段耗时形成预算表。
-> **验收**：实时画面稳定出框，交付一张「各环节 ms 数」表——可直接作为 [ch91-P5-RK3568边缘AI盒子多路视频检测推流](/posts/ch91-P5-RK3568边缘AI盒子多路视频检测推流/) 立项书的性能章节。
+> **验收**：实时画面稳定出框，交付一张「各环节 ms 数」表——可直接作为 [ch91-P5-RK3568边缘AI盒子多路视频检测推流](/Learning-Obsidian./posts/ch91-P5-RK3568边缘AI盒子多路视频检测推流/) 立项书的性能章节。
 
 ## 43.9 部署路径对比与进阶话题
 
@@ -153,4 +156,4 @@ appsrc ! videoconvert ! mpph264enc bps=4000000 ! h264parse ! \
 </div>
 
 ---
-🏷️ #domain/soc #topic/npu | 🔗 [ch42-Yocto入门-layer-recipe-bbappend](/posts/ch42-Yocto入门-layer-recipe-bbappend/) ← **本章** → [ch44-综合实战RK3568多协议边缘网关](/posts/ch44-综合实战RK3568多协议边缘网关/) | 📚 [P4-MOC](/posts/P4-MOC/)
+🏷️ #domain/soc #topic/npu | 🔗 [ch42-Yocto入门-layer-recipe-bbappend](/Learning-Obsidian./posts/ch42-Yocto入门-layer-recipe-bbappend/) ← **本章** → [ch44-综合实战RK3568多协议边缘网关](/Learning-Obsidian./posts/ch44-综合实战RK3568多协议边缘网关/) | 📚 [P4-MOC](/Learning-Obsidian./posts/P4-MOC/)

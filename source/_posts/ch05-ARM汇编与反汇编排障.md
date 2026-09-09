@@ -1,6 +1,6 @@
 ---
 title: 第5章 ARM 汇编与反汇编排障：HardFault 定位
-date: 2025-01-01
+date: 2025-05-27
 categories:
   - 编程基础
 tags:
@@ -18,10 +18,13 @@ chapter: 5
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch02-C语言进阶指针与内存模型](/posts/ch02-C语言进阶指针与内存模型/) | → [ch06-链接器与内存布局](/posts/ch06-链接器与内存布局/)
+⏱ 40min | ★★★★☆ | 前置 [ch02-C语言进阶指针与内存模型](/Learning-Obsidian./posts/ch02-C语言进阶指针与内存模型/) | → [ch06-链接器与内存布局](/Learning-Obsidian./posts/ch06-链接器与内存布局/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 
@@ -173,4 +176,4 @@ void fault_capture_c(uint32_t *sp, void *unused) {
 </div>
 
 ---
-🏷️ #assembly #hardfault #cfsr | 🔗 [ch04-CPP嵌入式子集与RAII](/posts/ch04-CPP嵌入式子集与RAII/) ← **本章** → [ch06-链接器与内存布局](/posts/ch06-链接器与内存布局/) | 📚 [P1-MOC](/posts/P1-MOC/)
+🏷️ #assembly #hardfault #cfsr | 🔗 [ch04-CPP嵌入式子集与RAII](/Learning-Obsidian./posts/ch04-CPP嵌入式子集与RAII/) ← **本章** → [ch06-链接器与内存布局](/Learning-Obsidian./posts/ch06-链接器与内存布局/) | 📚 [P1-MOC](/Learning-Obsidian./posts/P1-MOC/)

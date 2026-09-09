@@ -10,6 +10,9 @@ tags:
 
 # TC23 PID 积分饱和四种对策
 
+
+<!-- more -->
+
 ## 现象
 设定值大阶跃（如 25℃→85℃ 温控）后执行器长期 100% 满输出，到达设定后冲过头 8~12℃ 缓慢回落；积分项数值巨大。典型触发：误差长时间同号使积分无界累积。
 
@@ -59,5 +62,5 @@ float pid_step(PID *p, float sp, float pv)
 - dt 由硬件定时器提供，禁止主循环软计时
 
 ## 关联
-- 源章节：[chfd-A4-PID工程化全集抗饱和自整定](/posts/chfd-A4-PID工程化全集抗饱和自整定/)
-- 相关章节：[chfe-A5复合与现代控制前馈串级-Smith-LQR](/posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/) [ch53-RTOS综合实战三轴云台控制器](/posts/ch53-RTOS综合实战三轴云台控制器/)
+- 源章节：[chfd-A4-PID工程化全集抗饱和自整定](/Learning-Obsidian./posts/chfd-A4-PID工程化全集抗饱和自整定/)
+- 相关章节：[chfe-A5复合与现代控制前馈串级-Smith-LQR](/Learning-Obsidian./posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/) [ch53-RTOS综合实战三轴云台控制器](/Learning-Obsidian./posts/ch53-RTOS综合实战三轴云台控制器/)

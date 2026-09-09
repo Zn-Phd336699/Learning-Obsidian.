@@ -17,10 +17,13 @@ chapter: SO3
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★☆ | 前置 [chs2-SO2-MCU系统优化实战](/posts/chs2-SO2-MCU系统优化实战/) | → [chs4-SO4综合优化战役复盘五大战役](/posts/chs4-SO4综合优化战役复盘五大战役/)
+⏱ 45min | ★★★★☆ | 前置 [chs2-SO2-MCU系统优化实战](/Learning-Obsidian./posts/chs2-SO2-MCU系统优化实战/) | → [chs4-SO4综合优化战役复盘五大战役](/Learning-Obsidian./posts/chs4-SO4综合优化战役复盘五大战役/)
 
 </div>
 </div>
+
+<!-- more -->
+
 ## 🎯 学习目标
 - [ ] 会用 Tracealyzer 泳道图审计任务架构，识别五类结构性问题
 - [ ] 能评估任务粒度：在「过粗互等阻塞」与「过碎切换开销」间给出量化依据，并落地 RMS 工程版优先级设计
@@ -47,7 +50,7 @@ chapter: SO3
 启示： CPU 总占用没变甚至略升，但「确定性」彻底改变——架构级优化与函数级优化的本质区别。
 ```
 ## SO3.3 优先级设计实践：RMS 工程版
-1. **基线法则**：周期任务按周期越短优先级越高（Rate-Monotonic，[ch45-实时性理论与调度算法](/posts/ch45-实时性理论与调度算法/)），事件任务按截止期排；用利用率上界 n(2^(1/n)−1) 做可调度性粗校验；
+1. **基线法则**：周期任务按周期越短优先级越高（Rate-Monotonic，[ch45-实时性理论与调度算法](/Learning-Obsidian./posts/ch45-实时性理论与调度算法/)），事件任务按截止期排；用利用率上界 n(2^(1/n)−1) 做可调度性粗校验；
 2. **工程纪律**：优先级矩阵文档化，任何 prio 改动需更新实时性预算表并评审；
 3. **动态调整五陷阱**：①运行期改优先级破坏 RMS 前提，可调度性分析作废；②与互斥量优先级继承冲突——PI 提升期间外部 vTaskPrioritySet 会踩掉继承值；③提升忘回落造成饥饿窗口——必须绑定「作用域结束自动回落」；④调试不可复现——所有动态调整打点留痕；⑤SMP 下跨核迁移+优先级组合语义因核而异(ch50a)，单核直觉不可平移。
 ## SO3.4 CPU 负载核算：IDLE 任务计数法
@@ -152,4 +155,4 @@ void taskB(void *a){ for(;;){ ulTaskNotifyTake(pdTRUE,portMAX_DELAY); xTaskNotif
 </div>
 </div>
 ---
-🏷️ #domain/performance #topic/rtos #topic/scheduler | 🔗 [chs2-SO2-MCU系统优化实战](/posts/chs2-SO2-MCU系统优化实战/) ← **本章** → [chs4-SO4综合优化战役复盘五大战役](/posts/chs4-SO4综合优化战役复盘五大战役/) | 📚 [P12-MOC](/posts/P12-MOC/)
+🏷️ #domain/performance #topic/rtos #topic/scheduler | 🔗 [chs2-SO2-MCU系统优化实战](/Learning-Obsidian./posts/chs2-SO2-MCU系统优化实战/) ← **本章** → [chs4-SO4综合优化战役复盘五大战役](/Learning-Obsidian./posts/chs4-SO4综合优化战役复盘五大战役/) | 📚 [P12-MOC](/Learning-Obsidian./posts/P12-MOC/)

@@ -18,10 +18,13 @@ chapter: Z2
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 30min | ★★★☆☆ | 前置 [chz1-Z1导学与异构价值](/posts/chz1-Z1导学与异构价值/) | → [chz3-Z3-PL快速入门Verilog-Vivado七步流程](/posts/chz3-Z3-PL快速入门Verilog-Vivado七步流程/)
+⏱ 30min | ★★★☆☆ | 前置 [chz1-Z1导学与异构价值](/Learning-Obsidian./posts/chz1-Z1导学与异构价值/) | → [chz3-Z3-PL快速入门Verilog-Vivado七步流程](/Learning-Obsidian./posts/chz3-Z3-PL快速入门Verilog-Vivado七步流程/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 画出 ZYNQ7020 的 PS/PL 资源分布与 AXI 互联拓扑
@@ -124,7 +127,7 @@ all:
 5. SLCR 基址 0xF8000000 是全局开关重地，裸机误写可能导致外设整体失能。
 
 > [!example]- 🧪 动手实验 LZ2-1：GPIO 打点画启动瀑布图（45 分钟）
-> **步骤**：① 在 FSBL/U-Boot/内核各阶段入口翻转独立 GPIO（方法同 [ch38-SoC启动链深度剖析](/posts/ch38-SoC启动链深度剖析/)）；② 逻辑分析仪一次抓全链；③ 标注每段耗时并计算可压缩空间。
+> **步骤**：① 在 FSBL/U-Boot/内核各阶段入口翻转独立 GPIO（方法同 [ch38-SoC启动链深度剖析](/Learning-Obsidian./posts/ch38-SoC启动链深度剖析/)）；② 逻辑分析仪一次抓全链；③ 标注每段耗时并计算可压缩空间。
 > **验收**：产出一张带实测数据的启动瀑布图，各段耗时可复现。
 
 ## Z2.9 进阶话题
@@ -152,4 +155,4 @@ all:
 </div>
 
 ---
-🏷️ #domain/fpga #topic/soc #topic/bootloader | 🔗 [chz1-Z1导学与异构价值](/posts/chz1-Z1导学与异构价值/) ← **本章** → [chz3-Z3-PL快速入门Verilog-Vivado七步流程](/posts/chz3-Z3-PL快速入门Verilog-Vivado七步流程/) | 📚 [P13-MOC](/posts/P13-MOC/)
+🏷️ #domain/fpga #topic/soc #topic/bootloader | 🔗 [chz1-Z1导学与异构价值](/Learning-Obsidian./posts/chz1-Z1导学与异构价值/) ← **本章** → [chz3-Z3-PL快速入门Verilog-Vivado七步流程](/Learning-Obsidian./posts/chz3-Z3-PL快速入门Verilog-Vivado七步流程/) | 📚 [P13-MOC](/Learning-Obsidian./posts/P13-MOC/)

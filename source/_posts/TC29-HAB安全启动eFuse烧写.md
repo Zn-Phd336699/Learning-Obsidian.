@@ -10,6 +10,9 @@ tags:
 
 # TC29 HAB 安全启动 eFuse 烧写 SOP
 
+
+<!-- more -->
+
 ## 现象
 目标：i.MX 平台烧 SRK hash 启用 HAB 并关闭 open mode。风险动作不可逆——hash 算错、证书链配错或顺序颠倒，芯片将只认错误签名，任何镜像无法启动且无法返工。
 
@@ -47,5 +50,5 @@ U-Boot 烧写 SOP（bank/word 以所选型号 fusemap 与 AN4581 为准）
 - 常备未锁定开发板作对照与事故演练
 
 ## 关联
-- 源章节：[ch35-i-MX6U-ALPHA平台详解](/posts/ch35-i-MX6U-ALPHA平台详解/)
-- 相关章节：[chsa-S1安全架构与SecureBoot实战](/posts/chsa-S1安全架构与SecureBoot实战/) [ch38-SoC启动链深度剖析](/posts/ch38-SoC启动链深度剖析/) [chsd-S4-量产工程产测工装与老化](/posts/chsd-S4-量产工程产测工装与老化/)
+- 源章节：[ch35-i-MX6U-ALPHA平台详解](/Learning-Obsidian./posts/ch35-i-MX6U-ALPHA平台详解/)
+- 相关章节：[chsa-S1安全架构与SecureBoot实战](/Learning-Obsidian./posts/chsa-S1安全架构与SecureBoot实战/) [ch38-SoC启动链深度剖析](/Learning-Obsidian./posts/ch38-SoC启动链深度剖析/) [chsd-S4-量产工程产测工装与老化](/Learning-Obsidian./posts/chsd-S4-量产工程产测工装与老化/)

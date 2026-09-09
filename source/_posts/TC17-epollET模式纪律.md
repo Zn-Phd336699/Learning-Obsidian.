@@ -10,6 +10,9 @@ tags:
 
 # TC17 epoll ET 模式读空纪律
 
+
+<!-- more -->
+
 ## 现象
 ET 模式下客户端明明发了数据，服务端从此收不到（连接假死），对端分片发送或负载高时必现；改回 LT 立即恢复。典型触发：一次 EPOLLIN 没把接收缓冲读完。
 
@@ -48,5 +51,5 @@ for (;;) {
 - 连接级看门狗：空闲超时主动踢除，让假死无处藏身
 
 ## 关联
-- 源章节：[ch62-应用编程epoll进程线程IPC](/posts/ch62-应用编程epoll进程线程IPC/)
-- 相关章节：[ch63-网络编程与TLS从socket到安全上云](/posts/ch63-网络编程与TLS从socket到安全上云/) [ch80-以太网与lwIP协议栈源码导读](/posts/ch80-以太网与lwIP协议栈源码导读/)
+- 源章节：[ch62-应用编程epoll进程线程IPC](/Learning-Obsidian./posts/ch62-应用编程epoll进程线程IPC/)
+- 相关章节：[ch63-网络编程与TLS从socket到安全上云](/Learning-Obsidian./posts/ch63-网络编程与TLS从socket到安全上云/) [ch80-以太网与lwIP协议栈源码导读](/Learning-Obsidian./posts/ch80-以太网与lwIP协议栈源码导读/)

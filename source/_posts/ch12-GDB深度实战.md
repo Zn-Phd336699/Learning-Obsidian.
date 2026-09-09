@@ -1,6 +1,6 @@
 ---
 title: 第12章 GDB深度实战
-date: 2025-01-01
+date: 2025-05-20
 categories:
   - 调试工具链
 tags:
@@ -17,12 +17,15 @@ chapter: 12
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★☆☆ | 前置 [ch11-构建系统Makefile-CMake-Kconfig](/posts/ch11-构建系统Makefile-CMake-Kconfig/) | → [ch13-探针实战OpenOCD-JLink-probe-rs](/posts/ch13-探针实战OpenOCD-JLink-probe-rs/)
+⏱ 40min | ★★★☆☆ | 前置 [ch11-构建系统Makefile-CMake-Kconfig](/Learning-Obsidian./posts/ch11-构建系统Makefile-CMake-Kconfig/) | → [ch13-探针实战OpenOCD-JLink-probe-rs](/Learning-Obsidian./posts/ch13-探针实战OpenOCD-JLink-probe-rs/)
 
 </div>
 </div>
 
 GDB 是嵌入式排障的手术刀：断点家族（BKPT/FPB/DWT）、观察点抓内存踩踏、.gdbinit 自动化与 FreeRTOS 感知调试一网打尽。
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 说清软件断点/硬件断点/观察点的原理与数量限制
@@ -122,7 +125,7 @@ TUI：`Ctrl-X A` 切换，layout src/asm/split。VSCode Cortex-Debug 关键字�
 |------|----------|----------|
 | 断点打不上/变灰色 | 优化内联行号漂移；Flash 未加载 | -Og 编译；先 load 再 break；b *ADDR 兜底 |
 | watch 不触发 | 比较器被占；变量在 DWT 盲区 | info breakpoints 看槽位；换软件轮询法 |
-| attach 后设备复位 | 探针连接即复位策略 | reset_config none；probe-rs attach 参数（详见 [ch13-探针实战OpenOCD-JLink-probe-rs](/posts/ch13-探针实战OpenOCD-JLink-probe-rs/)） |
+| attach 后设备复位 | 探针连接即复位策略 | reset_config none；probe-rs attach 参数（详见 [ch13-探针实战OpenOCD-JLink-probe-rs](/Learning-Obsidian./posts/ch13-探针实战OpenOCD-JLink-probe-rs/)） |
 
 ## 12.9 部署注意事项
 
@@ -137,7 +140,7 @@ TUI：`Ctrl-X A` 切换，layout src/asm/split。VSCode Cortex-Debug 关键字�
 
 - **checkpoint 思想**：关键节点 dump binary memory 存档全 RAM，restore 回去倒带复现——裸机版时光机。
 - **tracepoint 半侵入追踪**：目标端记录不中断运行，抓不能停机的偶发；M 核支持有限，A 核体验完整。
-- **pretty printer 与方法论延伸**：给 QueueHandle 写 pretty printer 后 `p q` 直显内容；watchpoint 思路在 [ch15-内存问题排查三板斧](/posts/ch15-内存问题排查三板斧/) 反复使用，core dump 尸检是 [ch64-内核调试Oops解读debugfs-kdump](/posts/ch64-内核调试Oops解读debugfs-kdump/) 的用户态姊妹篇。
+- **pretty printer 与方法论延伸**：给 QueueHandle 写 pretty printer 后 `p q` 直显内容；watchpoint 思路在 [ch15-内存问题排查三板斧](/Learning-Obsidian./posts/ch15-内存问题排查三板斧/) 反复使用，core dump 尸检是 [ch64-内核调试Oops解读debugfs-kdump](/Learning-Obsidian./posts/ch64-内核调试Oops解读debugfs-kdump/) 的用户态姊妹篇。
 
 > [!warning]- ❓ FAQ
 > **Q1：为何 RAM 软件断点无限而 Flash 只有 6 个硬件断点？** 软件断点改写指令字节（RAM 随便改）；Flash 只读区改不了只能靠 FPB 比较器，M3/M4 仅 6 个指令比较器。
@@ -154,4 +157,4 @@ TUI：`Ctrl-X A` 切换，layout src/asm/split。VSCode Cortex-Debug 关键字�
 </div>
 
 ---
-🏷️ #domain/fundamentals #topic/debugger | 🔗 [ch11-构建系统Makefile-CMake-Kconfig](/posts/ch11-构建系统Makefile-CMake-Kconfig/) ← **本章** → [ch13-探针实战OpenOCD-JLink-probe-rs](/posts/ch13-探针实战OpenOCD-JLink-probe-rs/) | 📚 [P2-MOC](/posts/P2-MOC/)
+🏷️ #domain/fundamentals #topic/debugger | 🔗 [ch11-构建系统Makefile-CMake-Kconfig](/Learning-Obsidian./posts/ch11-构建系统Makefile-CMake-Kconfig/) ← **本章** → [ch13-探针实战OpenOCD-JLink-probe-rs](/Learning-Obsidian./posts/ch13-探针实战OpenOCD-JLink-probe-rs/) | 📚 [P2-MOC](/Learning-Obsidian./posts/P2-MOC/)

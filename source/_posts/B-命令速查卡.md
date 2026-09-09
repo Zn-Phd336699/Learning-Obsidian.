@@ -12,6 +12,9 @@ tags:
 
 > 按使用频率排序的肌肉记忆清单。建议打印贴墙或做成 IDE snippet；命令均在表格内以反引号包裹，含管道符处已转义。
 
+
+<!-- more -->
+
 ## 编译烧写调试（GCC 工具链）
 
 | 命令 | 作用 | 备注 |
@@ -113,4 +116,4 @@ tags:
 | CI 三件套门禁 | `-Werror` 构建 + Unity 主机测试 + cppcheck warning=error | 合并不达标即拦截 |
 
 ---
-🏷️ #appendix #reference | 📚 [附录-MOC](/posts/附录-MOC/)
+🏷️ #appendix #reference | 📚 [附录-MOC](/Learning-Obsidian./posts/附录-MOC/)

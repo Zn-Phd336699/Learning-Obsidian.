@@ -1,6 +1,6 @@
 ---
 title: 第30章 Bootloader/IAP/OTA 固件升级体系
-date: 2025-01-01
+date: 2025-05-02
 categories:
   - 单片机开发
 tags:
@@ -17,10 +17,13 @@ chapter: 30
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★★ | 前置 [ch29a-电源异常与掉电保护](/posts/ch29a-电源异常与掉电保护/) | → [ch31-ESP-IDF入门](/posts/ch31-ESP-IDF入门/)
+⏱ 45min | ★★★★★ | 前置 [ch29a-电源异常与掉电保护](/Learning-Obsidian./posts/ch29a-电源异常与掉电保护/) | → [ch31-ESP-IDF入门](/Learning-Obsidian./posts/ch31-ESP-IDF入门/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 设计双分区 Flash 映射与「TESTING→CONFIRMED→REVERT」升级状态机
@@ -65,7 +68,7 @@ APP 侧配套三件事：保险起见 `SystemInit` 里自己再设一遍 VTOR；
 | 协议 | 特点 | 场景 |
 |------|------|------|
 | Ymodem-1K | Xshell/TeraTerm 原生支持，免开发上位机 | 产线烧录、维修工装 |
-| 自定义帧([ch28-串口工程化IDLE-DMA-RS485](/posts/ch28-串口工程化IDLE-DMA-RS485/)) | 与业务协议统一，可加密可断点续传 | 远程 OTA 主力 |
+| 自定义帧([ch28-串口工程化IDLE-DMA-RS485](/Learning-Obsidian./posts/ch28-串口工程化IDLE-DMA-RS485/)) | 与业务协议统一，可加密可断点续传 | 远程 OTA 主力 |
 | TFTP over Ethernet | F407+LwIP 场景标准件 | 网关类设备批量部署 |
 
 写 Flash 铁律：F407 扇区擦除粒度大小不一(16~128KB)；先擦后写；写入必须按半字/字/双字对齐；擦写期间该 bank 取指会停顿——大固件升级把擦写循环放 Bootloader 执行，APP 运行中只做「搬运指令」。
@@ -127,13 +130,13 @@ int main(void){
 4. 防降级：单调计数器放 OTP/备份域而非参数区（可被整片擦除伪造），每次升级 +1 且新固件必须 ≥ 计数值。
 
 > [!example]- 🧪 动手实验 L30-1：断电注入 50 连击（60 分钟）
-> **步骤**：① 按 [ch29a-电源异常与掉电保护](/posts/ch29a-电源异常与掉电保护/) 方法搭继电器断电装置；② 脚本循环：发起升级→随机延时 0~25s 断电→上电→检查设备可达性与固件版本；③ 统计 50 次结果分布（成功升级/干净回滚/需人工介入）；④ 对任何一次异常用黑匣子还原现场。
+> **步骤**：① 按 [ch29a-电源异常与掉电保护](/Learning-Obsidian./posts/ch29a-电源异常与掉电保护/) 方法搭继电器断电装置；② 脚本循环：发起升级→随机延时 0~25s 断电→上电→检查设备可达性与固件版本；③ 统计 50 次结果分布（成功升级/干净回滚/需人工介入）；④ 对任何一次异常用黑匣子还原现场。
 > **验收**：50/50 无砖。哪怕一次失败都是宝贵 Bug——修到全绿为止。
 
 ## 30.9 进阶话题
 
 - **差分升级(bsdiff)的 MCU 移植**：解压需要约 1×新旧镜像之一的 RAM 工作区——小 RAM 设备改用分块 VCDIFF 或整包压缩。
-- **A/B 指针式替代真交换**：不搬数据只改「启动槽指针」，代价是两份常驻空间——H7 双 Bank 与 ESP32 都是此思路；Linux 对照见 [ch72-A-B-OTA升级与Recovery体系](/posts/ch72-A-B-OTA升级与Recovery体系/)。
+- **A/B 指针式替代真交换**：不搬数据只改「启动槽指针」，代价是两份常驻空间——H7 双 Bank 与 ESP32 都是此思路；Linux 对照见 [ch72-A-B-OTA升级与Recovery体系](/Learning-Obsidian./posts/ch72-A-B-OTA升级与Recovery体系/)。
 - **权威出处**：mcu-tools/mcuboot 的 `boot/bootutil/src/loader.c` 是 swap 状态机权威实现；AN2606 是 STM32 ROM bootloader 全解。
 
 > [!warning]- ❓ FAQ
@@ -151,4 +154,4 @@ int main(void){
 </div>
 </div>
 ---
-🏷️ #domain/mcu #topic/bootloader #topic/ota | 🔗 [ch29a-电源异常与掉电保护](/posts/ch29a-电源异常与掉电保护/) ← **本章** → [ch31-ESP-IDF入门](/posts/ch31-ESP-IDF入门/) | 📚 [P3-MOC](/posts/P3-MOC/)
+🏷️ #domain/mcu #topic/bootloader #topic/ota | 🔗 [ch29a-电源异常与掉电保护](/Learning-Obsidian./posts/ch29a-电源异常与掉电保护/) ← **本章** → [ch31-ESP-IDF入门](/Learning-Obsidian./posts/ch31-ESP-IDF入门/) | 📚 [P3-MOC](/Learning-Obsidian./posts/P3-MOC/)

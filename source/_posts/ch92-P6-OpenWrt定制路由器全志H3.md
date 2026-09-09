@@ -1,6 +1,6 @@
 ---
 title: 第92章 P6 · OpenWrt 定制路由器：全志 H3 从固件到插件开发
-date: 2025-01-01
+date: 2025-03-01
 categories:
   - 项目集
 tags:
@@ -18,10 +18,13 @@ chapter: 92
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch91-P5-RK3568边缘AI盒子多路视频检测推流](/posts/ch91-P5-RK3568边缘AI盒子多路视频检测推流/) | → [chsa-S1安全架构与SecureBoot实战](/posts/chsa-S1安全架构与SecureBoot实战/)
+⏱ 40min | ★★★★☆ | 前置 [ch91-P5-RK3568边缘AI盒子多路视频检测推流](/Learning-Obsidian./posts/ch91-P5-RK3568边缘AI盒子多路视频检测推流/) | → [chsa-S1安全架构与SecureBoot实战](/Learning-Obsidian./posts/chsa-S1安全架构与SecureBoot实战/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 为 Orange Pi Zero 定制一台带完整管理界面（LuCI）的路由器
@@ -76,13 +79,13 @@ luci-app-mystat/                        # 最小 LuCI 插件
 1. **流量分账**：iptables/nft 计数规则按 IP 统计 → Lua 页面图表展示；
 2. **广告过滤**：集成 dnsmasq full + AdGuard Home 二选一部署；
 3. **异地组网**：WireGuard 站点到站点隧道（内核态性能远优于用户态）；
-4. **监控上报**：collectd/node_exporter 把路由器纳入 Grafana 体系（联动 [ch90-P4-LoRa温湿度采集网关ChirpStack后端](/posts/ch90-P4-LoRa温湿度采集网关ChirpStack后端/)）。
+4. **监控上报**：collectd/node_exporter 把路由器纳入 Grafana 体系（联动 [ch90-P4-LoRa温湿度采集网关ChirpStack后端](/Learning-Obsidian./posts/ch90-P4-LoRa温湿度采集网关ChirpStack后端/)）。
 
 ## 92.5 BOM 与资源占用
 
 | 物料 | 规格 | 说明 |
 |------|------|------|
-| 主板 | Orange Pi Zero（H3, cortex-a7） | 见 [ch37-全志H3-OrangePiZero-NanoPiNEO实战](/posts/ch37-全志H3-OrangePiZero-NanoPiNEO实战/) |
+| 主板 | Orange Pi Zero（H3, cortex-a7） | 见 [ch37-全志H3-OrangePiZero-NanoPiNEO实战](/Learning-Obsidian./posts/ch37-全志H3-OrangePiZero-NanoPiNEO实战/) |
 | 扩展网卡 | USB AX88772（可换千兆型号） | 有线 LAN 扩展 |
 | 存储/电源 | ≥8GB SD 卡；5V≥2A | 典型值：基础系统 <64MB RAM；NAT 高压留裕量 |
 
@@ -150,7 +153,7 @@ luci-app-mystat/                        # 最小 LuCI 插件
 </div>
 </div>
 
-🎓 **毕业寄语**：项目集到此闭环。回到 [ch01-导学与能力地图](/posts/ch01-导学与能力地图/) 做 L1~L5 自评。「测量驱动决策、分层控制复杂度、证据链说话」——三句话带走，剩下的路你已经会走了。
+🎓 **毕业寄语**：项目集到此闭环。回到 [ch01-导学与能力地图](/Learning-Obsidian./posts/ch01-导学与能力地图/) 做 L1~L5 自评。「测量驱动决策、分层控制复杂度、证据链说话」——三句话带走，剩下的路你已经会走了。
 
 ---
-🏷️ #domain/soc #topic/linux #topic/qos | 🔗 [ch91-P5-RK3568边缘AI盒子多路视频检测推流](/posts/ch91-P5-RK3568边缘AI盒子多路视频检测推流/) ← **本章** → [chsa-S1安全架构与SecureBoot实战](/posts/chsa-S1安全架构与SecureBoot实战/) | 📚 [P9-MOC](/posts/P9-MOC/)
+🏷️ #domain/soc #topic/linux #topic/qos | 🔗 [ch91-P5-RK3568边缘AI盒子多路视频检测推流](/Learning-Obsidian./posts/ch91-P5-RK3568边缘AI盒子多路视频检测推流/) ← **本章** → [chsa-S1安全架构与SecureBoot实战](/Learning-Obsidian./posts/chsa-S1安全架构与SecureBoot实战/) | 📚 [P9-MOC](/Learning-Obsidian./posts/P9-MOC/)

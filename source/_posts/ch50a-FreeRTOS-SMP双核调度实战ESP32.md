@@ -1,6 +1,6 @@
 ---
 title: 第50A章 FreeRTOS-SMP 双核调度实战（ESP32）
-date: 2025-01-01
+date: 2025-04-12
 categories:
   - RTOS
 tags:
@@ -17,10 +17,13 @@ chapter: 50A
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch50-FreeRTOS中断管理与Tickless低功耗](/posts/ch50-FreeRTOS中断管理与Tickless低功耗/) | → [ch51-RT-Thread与Zephyr横向对比](/posts/ch51-RT-Thread与Zephyr横向对比/)
+⏱ 40min | ★★★★☆ | 前置 [ch50-FreeRTOS中断管理与Tickless低功耗](/Learning-Obsidian./posts/ch50-FreeRTOS中断管理与Tickless低功耗/) | → [ch51-RT-Thread与Zephyr横向对比](/Learning-Obsidian./posts/ch51-RT-Thread与Zephyr横向对比/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 说清 SMP（Symmetric Multiprocessing，对称多处理）与 AMP 的架构差异及 FreeRTOS-SMP 内核的核心改动点
@@ -58,7 +61,7 @@ vTaskCoreAffinitySet(h, 1 << 1);   /* 运行期改绑(谨慎) */
 ## 50A.3 SMP 特有竞态三连
 1. **per-core 全局变量幻觉**：pxCurrentTCB 变为 per-core 数组——「当前任务」不再唯一，日志打印要带核号；
 2. **自旋锁下的优先级倒置变体**：核 A 持自旋锁不会被抢占，但核 B 自旋等待期间其上的高优任务可能饿死——持锁段纪律比单核更严；
-3. **L1 Cache 一致性**：ESP32 双核不自动同步各自 Cache——跨核共享缓冲要么放非缓存区，要么手动写回/失效（[ch26-DMA与Cache一致性](/posts/ch26-DMA与Cache一致性/) 思想的 SMP 升级版）。
+3. **L1 Cache 一致性**：ESP32 双核不自动同步各自 Cache——跨核共享缓冲要么放非缓存区，要么手动写回/失效（[ch26-DMA与Cache一致性](/Learning-Obsidian./posts/ch26-DMA与Cache一致性/) 思想的 SMP 升级版）。
 
 ## 50A.4 实测数据表：双核分工对吞吐的影响
 场景：HTTP 服务 + LVGL 同跑（ESP32-S3 实测）。
@@ -100,7 +103,7 @@ vTaskCoreAffinitySet(h, 1 << 1);   /* 运行期改绑(谨慎) */
 - **IDLE 任务每核一个**：tickless 判定变为「所有核都 idle 才深睡」——一颗核忙整板睡不着，功耗排查新维度；
 - **xTaskDelayUntil 语义不变但基准变**：唤醒可能在另一核执行——CPU 亲和影响 Cache 局部性，热任务尽量固定核；
 - **调试武器库**：esp_log 带 core 标记 + GDB 多线程视图按核过滤 + perfmon 计数器分核采样；
-- **迁移视角**：Zephyr SMP 就绪队列组织方式与 FreeRTOS-SMP 不同，跨 RTOS 设计绑核策略前先确认调度模型（见 [ch51-RT-Thread与Zephyr横向对比](/posts/ch51-RT-Thread与Zephyr横向对比/)）。
+- **迁移视角**：Zephyr SMP 就绪队列组织方式与 FreeRTOS-SMP 不同，跨 RTOS 设计绑核策略前先确认调度模型（见 [ch51-RT-Thread与Zephyr横向对比](/Learning-Obsidian./posts/ch51-RT-Thread与Zephyr横向对比/)）。
 
 > [!warning]- ❓ FAQ
 > **Q1：为什么「关闭中断」不足以保护跨核共享数据？** 关中断仅屏蔽本核调度与中断，对侧核对同一地址照常读写；两核 Cache 行可各自持有副本（MESI 视角），必须靠原子指令支撑的自旋锁串行化临界区。
@@ -118,4 +121,4 @@ vTaskCoreAffinitySet(h, 1 << 1);   /* 运行期改绑(谨慎) */
 </div>
 
 ---
-🏷️ #domain/rtos #topic/smp #freertos | 🔗 [ch50-FreeRTOS中断管理与Tickless低功耗](/posts/ch50-FreeRTOS中断管理与Tickless低功耗/) ← **本章** → [ch51-RT-Thread与Zephyr横向对比](/posts/ch51-RT-Thread与Zephyr横向对比/) | 📚 [P5-MOC](/posts/P5-MOC/)
+🏷️ #domain/rtos #topic/smp #freertos | 🔗 [ch50-FreeRTOS中断管理与Tickless低功耗](/Learning-Obsidian./posts/ch50-FreeRTOS中断管理与Tickless低功耗/) ← **本章** → [ch51-RT-Thread与Zephyr横向对比](/Learning-Obsidian./posts/ch51-RT-Thread与Zephyr横向对比/) | 📚 [P5-MOC](/Learning-Obsidian./posts/P5-MOC/)

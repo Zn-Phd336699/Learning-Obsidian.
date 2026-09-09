@@ -17,10 +17,13 @@ chapter: A8
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [chfg-A7运动轨迹规划梯形S曲线前馈跟踪](/posts/chfg-A7运动轨迹规划梯形S曲线前馈跟踪/) | → [chfi-A9信号处理FFT-Goertzel-NTC-SOC融合](/posts/chfi-A9信号处理FFT-Goertzel-NTC-SOC融合/)
+⏱ 40min | ★★★★☆ | 前置 [chfg-A7运动轨迹规划梯形S曲线前馈跟踪](/Learning-Obsidian./posts/chfg-A7运动轨迹规划梯形S曲线前馈跟踪/) | → [chfi-A9信号处理FFT-Goertzel-NTC-SOC融合](/Learning-Obsidian./posts/chfi-A9信号处理FFT-Goertzel-NTC-SOC融合/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 手算模 2 多项式除法，解释 CRC 检错能力的三个数学推论
@@ -153,4 +156,4 @@ uint8_t ham_syndrome(uint64_t word){
 </div>
 
 ---
-🏷️ #domain/algorithms #topic/crc #topic/ecc #topic/hmac | 🔗 [chfg-A7运动轨迹规划梯形S曲线前馈跟踪](/posts/chfg-A7运动轨迹规划梯形S曲线前馈跟踪/) ← **本章** → [chfi-A9信号处理FFT-Goertzel-NTC-SOC融合](/posts/chfi-A9信号处理FFT-Goertzel-NTC-SOC融合/) | 📚 [P11-MOC](/posts/P11-MOC/)
+🏷️ #domain/algorithms #topic/crc #topic/ecc #topic/hmac | 🔗 [chfg-A7运动轨迹规划梯形S曲线前馈跟踪](/Learning-Obsidian./posts/chfg-A7运动轨迹规划梯形S曲线前馈跟踪/) ← **本章** → [chfi-A9信号处理FFT-Goertzel-NTC-SOC融合](/Learning-Obsidian./posts/chfi-A9信号处理FFT-Goertzel-NTC-SOC融合/) | 📚 [P11-MOC](/Learning-Obsidian./posts/P11-MOC/)

@@ -1,6 +1,6 @@
 ---
 title: 第78章 CAN/CAN FD 实战：SocketCAN 与 DBC 工作流
-date: 2025-01-01
+date: 2025-03-15
 categories:
   - 协议开发
 tags:
@@ -17,10 +17,13 @@ chapter: 78
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★☆ | 前置 [ch75-UART-RS485与Modbus-RTU实战libmodbus](/posts/ch75-UART-RS485与Modbus-RTU实战libmodbus/) | → [ch79-USB协议与驱动枚举描述符HID-CDC-Gadget](/posts/ch79-USB协议与驱动枚举描述符HID-CDC-Gadget/)
+⏱ 45min | ★★★★☆ | 前置 [ch75-UART-RS485与Modbus-RTU实战libmodbus](/Learning-Obsidian./posts/ch75-UART-RS485与Modbus-RTU实战libmodbus/) | → [ch79-USB协议与驱动枚举描述符HID-CDC-Gadget](/Learning-Obsidian./posts/ch79-USB协议与驱动枚举描述符HID-CDC-Gadget/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 讲清 CAN 显性/隐性位与非破坏性逐位仲裁的工程价值
@@ -133,7 +136,7 @@ J1939 的 29bit ID 拆解：`Priority(3) | R(1) | PGN(18) | SA(8)`；PGN 的 PDU
 > **验收**：两条延迟曲线 + 一次 bus-off 救砖记录。
 
 ## 78.11 进阶话题
-- **UDS 刷写骨架**（ISO 14229）：编程会话(0x10，非默认态有 S3 超时 5s 回退)→安全解锁(0x27 种子密钥，算法放服务端别硬编码)→擦除例程→34/36×N/37 块传输→完整性校验→复位(0x11)；与 [ch89-P3-MCUboot双分区OTA安全升级系统](/posts/ch89-P3-MCUboot双分区OTA安全升级系统/) 是同一件事的车规话术；
+- **UDS 刷写骨架**（ISO 14229）：编程会话(0x10，非默认态有 S3 超时 5s 回退)→安全解锁(0x27 种子密钥，算法放服务端别硬编码)→擦除例程→34/36×N/37 块传输→完整性校验→复位(0x11)；与 [ch89-P3-MCUboot双分区OTA安全升级系统](/Learning-Obsidian./posts/ch89-P3-MCUboot双分区OTA安全升级系统/) 是同一件事的车规话术；
 - **CANopen 对象字典**：16bit 索引+8bit 子索引编址（0x1017 心跳/0x6000+ Profile 区）；SDO 异步请求响应做配置，PDO 无协议开销实时映射且可动态重绑；
 - **AUTOSAR CP 分层**：SWC/RTE/BSW(ECU 抽象层/MCAL/服务层)——嵌入式工程师切入点是 MCAL 驱动开发+OS 配置+COM Stack 集成；EtherCAT 从站栈可用开源 SOES；
 - **J1939 多包传输(TP)**：大于 8B 报文的分片重组协议，卡车仪表对接必学；python-j1939 库可直接解析，cantools 也支持 j1939 DBC。
@@ -154,4 +157,4 @@ J1939 的 29bit ID 拆解：`Priority(3) | R(1) | PGN(18) | SA(8)`；PGN 的 PDU
 </div>
 
 ---
-🏷️ #domain/protocol #topic/can | 🔗 [ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡](/posts/ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡/) ← **本章** → [ch79-USB协议与驱动枚举描述符HID-CDC-Gadget](/posts/ch79-USB协议与驱动枚举描述符HID-CDC-Gadget/) | 📚 [P8-MOC](/posts/P8-MOC/)
+🏷️ #domain/protocol #topic/can | 🔗 [ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡](/Learning-Obsidian./posts/ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡/) ← **本章** → [ch79-USB协议与驱动枚举描述符HID-CDC-Gadget](/Learning-Obsidian./posts/ch79-USB协议与驱动枚举描述符HID-CDC-Gadget/) | 📚 [P8-MOC](/Learning-Obsidian./posts/P8-MOC/)

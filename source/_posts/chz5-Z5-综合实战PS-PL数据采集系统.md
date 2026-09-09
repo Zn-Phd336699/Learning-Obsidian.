@@ -18,10 +18,13 @@ chapter: Z5
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★★ | 前置 [chz4-Z4-PS裸机与PS-PL协同AXI-Lite-DMA](/posts/chz4-Z4-PS裸机与PS-PL协同AXI-Lite-DMA/) | → [A-面试题库](/posts/A-面试题库/)
+⏱ 45min | ★★★★★ | 前置 [chz4-Z4-PS裸机与PS-PL协同AXI-Lite-DMA](/Learning-Obsidian./posts/chz4-Z4-PS裸机与PS-PL协同AXI-Lite-DMA/) | → [A-面试题库](/Learning-Obsidian./posts/A-面试题库/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 构建「PL 加速 → DMA 搬运 → ARM 消费」完整数据通路
@@ -29,7 +32,7 @@ chapter: Z5
 - [ ] 用性能预算表对比纯软件 vs 硬件加速，跑通 G1~G4 验收门
 
 ## Z5.1 项目架构与端到端数据流
-PL 实现 FIR 滤波硬件加速 → AXI-DMA 搬运到 DDR → ARM 读取打包 MQTT 上云——ZYNQ 异构架构的经典应用范式（采集前端选型回看 [ch27-ADC-DAC与模拟前端](/posts/ch27-ADC-DAC与模拟前端/)）：
+PL 实现 FIR 滤波硬件加速 → AXI-DMA 搬运到 DDR → ARM 读取打包 MQTT 上云——ZYNQ 异构架构的经典应用范式（采集前端选型回看 [ch27-ADC-DAC与模拟前端](/Learning-Obsidian./posts/ch27-ADC-DAC与模拟前端/)）：
 
 | 层 | 组件 | 职责 | 工具链 |
 |----|------|------|--------|
@@ -64,7 +67,7 @@ Block Design 关键 IP：
 FIR 参数示例(低通截止 10kHz @ fs=100kHz)：Tap 数 64；系数量化 Q15；群延迟 32 个采样周期
 ```
 
-## Z5.4 Linux 侧数据消费框架（上云栈参考 [ch80a-MQTT-CoAP云协议本体与实现](/posts/ch80a-MQTT-CoAP云协议本体与实现/)）
+## Z5.4 Linux 侧数据消费框架（上云栈参考 [ch80a-MQTT-CoAP云协议本体与实现](/Learning-Obsidian./posts/ch80a-MQTT-CoAP云协议本体与实现/)）
 ```c
 /* 方案A UIO 用户态 DMA proxy(原型期推荐)：dts 绑定 uio → mmap 缓冲+寄存器 → read() 阻塞等 IRQ
    方案B 标准 dmaengine API(量产推荐)：dmaengine framework + virtqueue，或厂商 axidma 库 */
@@ -150,4 +153,4 @@ while (running) {
 </div>
 
 ---
-🏷️ #domain/fpga #topic/dma #topic/adc | 🔗 [chz4-Z4-PS裸机与PS-PL协同AXI-Lite-DMA](/posts/chz4-Z4-PS裸机与PS-PL协同AXI-Lite-DMA/) ← **本章** → [A-面试题库](/posts/A-面试题库/) | 📚 [P13-MOC](/posts/P13-MOC/)
+🏷️ #domain/fpga #topic/dma #topic/adc | 🔗 [chz4-Z4-PS裸机与PS-PL协同AXI-Lite-DMA](/Learning-Obsidian./posts/chz4-Z4-PS裸机与PS-PL协同AXI-Lite-DMA/) ← **本章** → [A-面试题库](/Learning-Obsidian./posts/A-面试题库/) | 📚 [P13-MOC](/Learning-Obsidian./posts/P13-MOC/)

@@ -17,10 +17,13 @@ chapter: A9
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [chfh-A8校验族谱CRC全家汉明HMAC边界](/posts/chfh-A8校验族谱CRC全家汉明HMAC边界/) | → [chfj-A10轻量加密编码XTEA-AES-HMAC-RLE](/posts/chfj-A10轻量加密编码XTEA-AES-HMAC-RLE/)
+⏱ 40min | ★★★★☆ | 前置 [chfh-A8校验族谱CRC全家汉明HMAC边界](/Learning-Obsidian./posts/chfh-A8校验族谱CRC全家汉明HMAC边界/) | → [chfj-A10轻量加密编码XTEA-AES-HMAC-RLE](/Learning-Obsidian./posts/chfj-A10轻量加密编码XTEA-AES-HMAC-RLE/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 用 CMSIS-DSP FFT 完成「加窗→变换→幅值恢复」的频谱取证流程
@@ -44,7 +47,7 @@ void fft_forensic(const float32_t *raw){
 }
 ```
 
-判读三峰指纹：50Hz 尖峰+谐波族→工频耦合(布线/共模)；20kHz~MHz 毛刺群→DC-DC 开关频率及倍频；宽底抬升→白噪(参考电压/采样时间不足,见 [ch27-ADC-DAC与模拟前端](/posts/ch27-ADC-DAC与模拟前端/))。
+判读三峰指纹：50Hz 尖峰+谐波族→工频耦合(布线/共模)；20kHz~MHz 毛刺群→DC-DC 开关频率及倍频；宽底抬升→白噪(参考电压/采样时间不足,见 [ch27-ADC-DAC与模拟前端](/Learning-Obsidian./posts/ch27-ADC-DAC与模拟前端/))。
 
 ## A9.2 频谱泄漏与窗函数选择
 
@@ -131,7 +134,7 @@ float goz_run(goz_t*g,const q15_t*x,int n){
 
 ## A9.10 进阶话题
 
-- **实时频谱监测**：FFT 每 100ms 一帧画瀑布图上云([ch80a-MQTT-CoAP云协议本体与实现](/posts/ch80a-MQTT-CoAP云协议本体与实现/))——电机轴承故障特征频率追踪入门；
+- **实时频谱监测**：FFT 每 100ms 一帧画瀑布图上云([ch80a-MQTT-CoAP云协议本体与实现](/Learning-Obsidian./posts/ch80a-MQTT-CoAP云协议本体与实现/))——电机轴承故障特征频率追踪入门；
 - **DSP 库选型**：CMSIS-DSP(f32/q15 全家桶)+KISS FFT(纯 C 备胎)覆盖本节全部需求；
 - **rfft 只算一半的原因**：实信号谱共轭对称 X[N−k]=X*[k]；DC 与 Nyquist 谱线恢复时不乘 2。
 
@@ -153,4 +156,4 @@ float goz_run(goz_t*g,const q15_t*x,int n){
 </div>
 
 ---
-🏷️ #domain/algorithms #topic/dsp #topic/battery #topic/ntc | 🔗 [chfh-A8校验族谱CRC全家汉明HMAC边界](/posts/chfh-A8校验族谱CRC全家汉明HMAC边界/) ← **本章** → [chfj-A10轻量加密编码XTEA-AES-HMAC-RLE](/posts/chfj-A10轻量加密编码XTEA-AES-HMAC-RLE/) | 📚 [P11-MOC](/posts/P11-MOC/)
+🏷️ #domain/algorithms #topic/dsp #topic/battery #topic/ntc | 🔗 [chfh-A8校验族谱CRC全家汉明HMAC边界](/Learning-Obsidian./posts/chfh-A8校验族谱CRC全家汉明HMAC边界/) ← **本章** → [chfj-A10轻量加密编码XTEA-AES-HMAC-RLE](/Learning-Obsidian./posts/chfj-A10轻量加密编码XTEA-AES-HMAC-RLE/) | 📚 [P11-MOC](/Learning-Obsidian./posts/P11-MOC/)

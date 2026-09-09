@@ -1,6 +1,6 @@
 ---
 title: 第39章 U-Boot移植与网络开发模式
-date: 2025-01-01
+date: 2025-04-23
 categories:
   - SoC开发
 tags:
@@ -18,10 +18,13 @@ chapter: 39
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★☆☆ | 前置 [ch38-SoC启动链深度剖析](/posts/ch38-SoC启动链深度剖析/) | → [ch40-内核适配与设备树dts语法-pinctrl-overlay](/posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/)
+⏱ 45min | ★★★☆☆ | 前置 [ch38-SoC启动链深度剖析](/Learning-Obsidian./posts/ch38-SoC启动链深度剖析/) | → [ch40-内核适配与设备树dts语法-pinctrl-overlay](/Learning-Obsidian./posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 以参考板 defconfig 为基线编译定制 U-Boot，说出关键配置项与产物差异
@@ -122,7 +125,7 @@ bootz 内核入口前，CPU 世界只剩三样东西：
 2. saveenv 固化静态 IP 与 netboot 序列，产线/开发两套 env 用脚本切换；
 3. pxe/dhcp 自动发现是机房批量设备零接触部署的入口；
 4. U-Boot 阶段看门狗：CONFIG_WDT 且 SPL 启动即喂——否则 DDR 训练慢的板子会被 ROM 开的 WDG 咬死；
-5. ums/fastboot 的产线用法延伸见 [chsd-S4-量产工程产测工装与老化](/posts/chsd-S4-量产工程产测工装与老化/)。
+5. ums/fastboot 的产线用法延伸见 [chsd-S4-量产工程产测工装与老化](/Learning-Obsidian./posts/chsd-S4-量产工程产测工装与老化/)。
 
 > [!example]- 🧪 动手实验 L39-1：搭建黄金环并实测迭代效率（60 分钟）
 > **步骤**：① 主机配 tftpd+nfs-server，exports 加 no_root_squash；② U-Boot 写入 ipaddr/serverip 并 saveenv；③ 自制最小 busybox rootfs 放 NFS 目录；④ 完成 tftpboot+bootz 全链启动登录；⑤ 改一个内核 printk 重编走完整流程计时。
@@ -132,7 +135,7 @@ bootz 内核入口前，CPU 世界只剩三样东西：
 
 - fitImage 的 config 选择：一个 itb 打包多组 kernel+fdt，bootm 用 `#conf-xx.dtb` 后缀选配置——一镜像多硬件变体的官方方案；
 - pxe 分支可从网络拉取启动配置——零接触部署的协议基础；
-- extlinux/boot.scr 约定是 Armbian/OpenWrt 镜像通用性的根因（参见 [ch92-P6-OpenWrt定制路由器全志H3](/posts/ch92-P6-OpenWrt定制路由器全志H3/)）；
+- extlinux/boot.scr 约定是 Armbian/OpenWrt 镜像通用性的根因（参见 [ch92-P6-OpenWrt定制路由器全志H3](/Learning-Obsidian./posts/ch92-P6-OpenWrt定制路由器全志H3/)）；
 - 扩展阅读：U-Boot `doc/develop/bootstd.rst`(distro boot 权威描述)；内核文档 `Documentation/arm/booting.rst`(交接契约原文)；Buildroot `board/*/post-image.sh`(自动打包启动介质的套路)。
 
 > [!warning]- ❓ FAQ
@@ -153,4 +156,4 @@ bootz 内核入口前，CPU 世界只剩三样东西：
 </div>
 
 ---
-🏷️ #domain/soc #topic/bootloader #topic/network | 🔗 [ch38-SoC启动链深度剖析](/posts/ch38-SoC启动链深度剖析/) ← **本章** → [ch40-内核适配与设备树dts语法-pinctrl-overlay](/posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/) | 📚 [P4-MOC](/posts/P4-MOC/)
+🏷️ #domain/soc #topic/bootloader #topic/network | 🔗 [ch38-SoC启动链深度剖析](/Learning-Obsidian./posts/ch38-SoC启动链深度剖析/) ← **本章** → [ch40-内核适配与设备树dts语法-pinctrl-overlay](/Learning-Obsidian./posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/) | 📚 [P4-MOC](/Learning-Obsidian./posts/P4-MOC/)

@@ -1,6 +1,6 @@
 ---
 title: P4 SoC开发
-date: 2025-01-01
+date: 2025-06-27
 categories:
   - SoC开发
 tags:
@@ -11,17 +11,17 @@ tags:
 # 第四篇 · SoC 开发
 | 章 | 链接 | 难度 |
 |---|---|---|
-|34|[ch34-ARM-A架构与国产SoC选型地图](/posts/ch34-ARM-A架构与国产SoC选型地图/)|★★|
-|35|[ch35-i-MX6U-ALPHA平台详解](/posts/ch35-i-MX6U-ALPHA平台详解/)|★★|
-|36|[ch36-RK平台ATK-DLRK3568-RK3588-Luckfox](/posts/ch36-RK平台ATK-DLRK3568-RK3588-Luckfox/)|★★★|
-|37|[ch37-全志H3-OrangePiZero-NanoPiNEO实战](/posts/ch37-全志H3-OrangePiZero-NanoPiNEO实战/)|★★|
-|38|[ch38-SoC启动链深度剖析](/posts/ch38-SoC启动链深度剖析/)|★★★★|
-|39|[ch39-U-Boot移植与网络开发模式](/posts/ch39-U-Boot移植与网络开发模式/)|★★★|
-|40|[ch40-内核适配与设备树dts语法-pinctrl-overlay](/posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/)|★★★★|
-|41|[ch41-Buildroot定制rootfs全流程](/posts/ch41-Buildroot定制rootfs全流程/)|★★★|
-|42|[ch42-Yocto入门-layer-recipe-bbappend](/posts/ch42-Yocto入门-layer-recipe-bbappend/)|★★★|
-|43|[ch43-NPU-GPU应用开发RKNN-MPP](/posts/ch43-NPU-GPU应用开发RKNN-MPP/)|★★★★|
-|44|[ch44-综合实战RK3568多协议边缘网关](/posts/ch44-综合实战RK3568多协议边缘网关/)|★★★★|
-|44A|[ch44a-RK3588四目AI视觉工作站](/posts/ch44a-RK3588四目AI视觉工作站/)|★★★★|
-|44B|[ch44b-RK3588-NAS边缘服务器](/posts/ch44b-RK3588-NAS边缘服务器/)|★★★★|
-|44C|[ch44c-新板矩阵五块新硬件开箱与分析](/posts/ch44c-新板矩阵五块新硬件开箱与分析/)|★★|
+|34|[ch34-ARM-A架构与国产SoC选型地图](/Learning-Obsidian./posts/ch34-ARM-A架构与国产SoC选型地图/)|★★|
+|35|[ch35-i-MX6U-ALPHA平台详解](/Learning-Obsidian./posts/ch35-i-MX6U-ALPHA平台详解/)|★★|
+|36|[ch36-RK平台ATK-DLRK3568-RK3588-Luckfox](/Learning-Obsidian./posts/ch36-RK平台ATK-DLRK3568-RK3588-Luckfox/)|★★★|
+|37|[ch37-全志H3-OrangePiZero-NanoPiNEO实战](/Learning-Obsidian./posts/ch37-全志H3-OrangePiZero-NanoPiNEO实战/)|★★|
+|38|[ch38-SoC启动链深度剖析](/Learning-Obsidian./posts/ch38-SoC启动链深度剖析/)|★★★★|
+|39|[ch39-U-Boot移植与网络开发模式](/Learning-Obsidian./posts/ch39-U-Boot移植与网络开发模式/)|★★★|
+|40|[ch40-内核适配与设备树dts语法-pinctrl-overlay](/Learning-Obsidian./posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/)|★★★★|
+|41|[ch41-Buildroot定制rootfs全流程](/Learning-Obsidian./posts/ch41-Buildroot定制rootfs全流程/)|★★★|
+|42|[ch42-Yocto入门-layer-recipe-bbappend](/Learning-Obsidian./posts/ch42-Yocto入门-layer-recipe-bbappend/)|★★★|
+|43|[ch43-NPU-GPU应用开发RKNN-MPP](/Learning-Obsidian./posts/ch43-NPU-GPU应用开发RKNN-MPP/)|★★★★|
+|44|[ch44-综合实战RK3568多协议边缘网关](/Learning-Obsidian./posts/ch44-综合实战RK3568多协议边缘网关/)|★★★★|
+|44A|[ch44a-RK3588四目AI视觉工作站](/Learning-Obsidian./posts/ch44a-RK3588四目AI视觉工作站/)|★★★★|
+|44B|[ch44b-RK3588-NAS边缘服务器](/Learning-Obsidian./posts/ch44b-RK3588-NAS边缘服务器/)|★★★★|
+|44C|[ch44c-新板矩阵五块新硬件开箱与分析](/Learning-Obsidian./posts/ch44c-新板矩阵五块新硬件开箱与分析/)|★★|

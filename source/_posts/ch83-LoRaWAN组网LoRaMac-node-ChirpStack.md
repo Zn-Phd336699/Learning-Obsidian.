@@ -1,6 +1,6 @@
 ---
 title: 第83章 LoRa/LoRaWAN 组网：LoRaMac-node 与 ChirpStack 实战
-date: 2025-01-01
+date: 2025-03-10
 categories:
   - 协议开发
 tags:
@@ -17,10 +17,13 @@ chapter: 83
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★☆ | 前置 [ch82-BLE开发GATT设计BlueZ-DFU](/posts/ch82-BLE开发GATT设计BlueZ-DFU/) | → [ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网](/posts/ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网/)
+⏱ 45min | ★★★★☆ | 前置 [ch82-BLE开发GATT设计BlueZ-DFU](/Learning-Obsidian./posts/ch82-BLE开发GATT设计BlueZ-DFU/) | → [ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网](/Learning-Obsidian./posts/ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 说清 SF/BW/CR 三参数对速率、灵敏度与空口时间的影响
@@ -151,4 +154,4 @@ LmHandlerSend(&d, LORAMAC_HANDLER_UNCONFIRMED_MSG, false);
 </div>
 
 ---
-🏷️ #domain/protocol #topic/lorawan | 🔗 [ch82-BLE开发GATT设计BlueZ-DFU](/posts/ch82-BLE开发GATT设计BlueZ-DFU/) ← **本章** → [ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网](/posts/ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网/) | 📚 [P8-MOC](/posts/P8-MOC/)
+🏷️ #domain/protocol #topic/lorawan | 🔗 [ch82-BLE开发GATT设计BlueZ-DFU](/Learning-Obsidian./posts/ch82-BLE开发GATT设计BlueZ-DFU/) ← **本章** → [ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网](/Learning-Obsidian./posts/ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网/) | 📚 [P8-MOC](/Learning-Obsidian./posts/P8-MOC/)

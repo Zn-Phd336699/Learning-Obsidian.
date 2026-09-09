@@ -1,6 +1,6 @@
 ---
 title: 第3章 C 工程化：预处理黑科技、位操作库与定点数运算
-date: 2025-01-01
+date: 2025-05-29
 categories:
   - 编程基础
 tags:
@@ -18,10 +18,13 @@ chapter: 3
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 25min | ★★☆☆☆ | 前置 [ch02-C语言进阶指针与内存模型](/posts/ch02-C语言进阶指针与内存模型/) | → [ch04-CPP嵌入式子集与RAII](/posts/ch04-CPP嵌入式子集与RAII/)
+⏱ 25min | ★★☆☆☆ | 前置 [ch02-C语言进阶指针与内存模型](/Learning-Obsidian./posts/ch02-C语言进阶指针与内存模型/) | → [ch04-CPP嵌入式子集与RAII](/Learning-Obsidian./posts/ch04-CPP嵌入式子集与RAII/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 
@@ -189,10 +192,10 @@ q15_t lp_filter1(q15_t xn, q15_t *state, q15_t alpha) {
 
 1. 用 X-Macro 为你的项目生成 GPIO 引脚配置表（端口/引脚/模式一处定义，同时生成初始化函数与名字表）
 2. 推导 Q31 乘法为什么取高 32 位而非右移 31 位后取（提示：乘积占 62 位，int64 承载）
-3. 给 lp_filter1 写三个边界测试用例（Unity 框架见 [ch09-MISRA-C与单元测试](/posts/ch09-MISRA-C与单元测试/)）
+3. 给 lp_filter1 写三个边界测试用例（Unity 框架见 [ch09-MISRA-C与单元测试](/Learning-Obsidian./posts/ch09-MISRA-C与单元测试/)）
 
 </div>
 </div>
 
 ---
-🏷️ #c-language #fixed-point #x-macro | 🔗 [ch02-C语言进阶指针与内存模型](/posts/ch02-C语言进阶指针与内存模型/) ← **本章** → [ch04-CPP嵌入式子集与RAII](/posts/ch04-CPP嵌入式子集与RAII/) | 📚 [P1-MOC](/posts/P1-MOC/)
+🏷️ #c-language #fixed-point #x-macro | 🔗 [ch02-C语言进阶指针与内存模型](/Learning-Obsidian./posts/ch02-C语言进阶指针与内存模型/) ← **本章** → [ch04-CPP嵌入式子集与RAII](/Learning-Obsidian./posts/ch04-CPP嵌入式子集与RAII/) | 📚 [P1-MOC](/Learning-Obsidian./posts/P1-MOC/)

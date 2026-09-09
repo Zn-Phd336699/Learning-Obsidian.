@@ -1,6 +1,6 @@
 ---
 title: 第24章 中断系统与NVIC深度应用
-date: 2025-01-01
+date: 2025-05-08
 categories:
   - 单片机开发
 tags:
@@ -17,10 +17,13 @@ chapter: 24
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★☆ | 前置 [ch23-GPIO与时钟树实战](/posts/ch23-GPIO与时钟树实战/) | → [ch25-定时器全家桶](/posts/ch25-定时器全家桶/)
+⏱ 45min | ★★★★☆ | 前置 [ch23-GPIO与时钟树实战](/Learning-Obsidian./posts/ch23-GPIO与时钟树实战/) | → [ch25-定时器全家桶](/Learning-Obsidian./posts/ch25-定时器全家桶/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 精确区分抢占优先级与子优先级的仲裁规则及分组影响
@@ -107,7 +110,7 @@ SCB->VTOR = FLASH_BASE | 0x8000;          /* APP 区起始偏移 16KB */
 | 被更高优先级阻塞时长 | **不确定——真正的元凶** | 缩短同级以上 ISR；BASEPRI 分层隔离 |
 | Cache miss(M7) | +数十周期 | 热 ISR 放 RAM/锁入 ICache |
 
-测量方法联动 [ch19-逻辑分析仪与sigrok](/posts/ch19-逻辑分析仪与sigrok/)：外部信号触发引脚 + ISR 入口翻转另一引脚，LA 光标直接读差值；或 DWT CYCCNT 在 ISR 首尾打点统计分布。均值无意义——P99/max 由最长同级以上临界段决定，优化目标永远是缩短那个最坏的 ISR。
+测量方法联动 [ch19-逻辑分析仪与sigrok](/Learning-Obsidian./posts/ch19-逻辑分析仪与sigrok/)：外部信号触发引脚 + ISR 入口翻转另一引脚，LA 光标直接读差值；或 DWT CYCCNT 在 ISR 首尾打点统计分布。均值无意义——P99/max 由最长同级以上临界段决定，优化目标永远是缩短那个最坏的 ISR。
 
 ## 24.7 实测数据表：延迟分布（外部信号→ISR 翻转脚，LA 统计 10 万次）
 
@@ -141,7 +144,7 @@ SCB->VTOR = FLASH_BASE | 0x8000;          /* APP 区起始偏移 16KB */
 
 - 软触发的正确用法：STIR 特权级限定 + IRQ 号偏移规则，用于单测注入最优雅
 - 向量表在 RAM 的红利：拷贝向量到 SRAM 后 VTOR 指过去，中断响应快一拍且支持运行期换表（bootloader 场景刚需）
-- 优先级矩阵设计法：为「CAN 收发 + ADC DMA 完成 + SysTick」三中断先列实时性需求再分配层级（实战见 [ch53-RTOS综合实战三轴云台控制器](/posts/ch53-RTOS综合实战三轴云台控制器/)）；权威出处 RM0090 第 10 章 + PM0056 异常模型章
+- 优先级矩阵设计法：为「CAN 收发 + ADC DMA 完成 + SysTick」三中断先列实时性需求再分配层级（实战见 [ch53-RTOS综合实战三轴云台控制器](/Learning-Obsidian./posts/ch53-RTOS综合实战三轴云台控制器/)）；权威出处 RM0090 第 10 章 + PM0056 异常模型章
 
 > [!warning]- ❓ FAQ
 > **Q1：BASEPRI=0 是什么意思？** 表示「不屏蔽任何优先级」，不是屏蔽全部——想全关用 PRIMASK，两者语义混淆是经典事故。
@@ -158,4 +161,4 @@ SCB->VTOR = FLASH_BASE | 0x8000;          /* APP 区起始偏移 16KB */
 </div>
 
 ---
-🏷️ #domain/mcu #topic/interrupt #topic/freertos | 🔗 [ch23-GPIO与时钟树实战](/posts/ch23-GPIO与时钟树实战/) ← **本章** → [ch25-定时器全家桶](/posts/ch25-定时器全家桶/) | 📚 [P3-MOC](/posts/P3-MOC/)
+🏷️ #domain/mcu #topic/interrupt #topic/freertos | 🔗 [ch23-GPIO与时钟树实战](/Learning-Obsidian./posts/ch23-GPIO与时钟树实战/) ← **本章** → [ch25-定时器全家桶](/Learning-Obsidian./posts/ch25-定时器全家桶/) | 📚 [P3-MOC](/Learning-Obsidian./posts/P3-MOC/)

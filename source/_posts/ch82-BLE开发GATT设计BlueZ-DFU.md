@@ -1,6 +1,6 @@
 ---
 title: 第82章 蓝牙 BLE 开发：GATT 设计、BlueZ 与 OTA DFU
-date: 2025-01-01
+date: 2025-03-11
 categories:
   - 协议开发
 tags:
@@ -17,10 +17,13 @@ chapter: 82
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch81-WiFi协议栈实战wpa_supplicant-hostapd](/posts/ch81-WiFi协议栈实战wpa_supplicant-hostapd/) | → [ch83-LoRaWAN组网LoRaMac-node-ChirpStack](/posts/ch83-LoRaWAN组网LoRaMac-node-ChirpStack/)
+⏱ 40min | ★★★★☆ | 前置 [ch81-WiFi协议栈实战wpa_supplicant-hostapd](/Learning-Obsidian./posts/ch81-WiFi协议栈实战wpa_supplicant-hostapd/) | → [ch83-LoRaWAN组网LoRaMac-node-ChirpStack](/Learning-Obsidian./posts/ch83-LoRaWAN组网LoRaMac-node-ChirpStack/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 用 GATT 服务/特征值/描述符建模业务数据并算清 MTU 吞吐账，完成 BlueZ D-Bus 扫描/连接/订阅编程
@@ -153,4 +156,4 @@ static const ble_gatt_svc_def svcs[] = {
 </div>
 
 ---
-🏷️ #domain/protocol #topic/ble | 🔗 [ch81-WiFi协议栈实战wpa_supplicant-hostapd](/posts/ch81-WiFi协议栈实战wpa_supplicant-hostapd/) ← **本章** → [ch83-LoRaWAN组网LoRaMac-node-ChirpStack](/posts/ch83-LoRaWAN组网LoRaMac-node-ChirpStack/) | 📚 [P8-MOC](/posts/P8-MOC/)
+🏷️ #domain/protocol #topic/ble | 🔗 [ch81-WiFi协议栈实战wpa_supplicant-hostapd](/Learning-Obsidian./posts/ch81-WiFi协议栈实战wpa_supplicant-hostapd/) ← **本章** → [ch83-LoRaWAN组网LoRaMac-node-ChirpStack](/Learning-Obsidian./posts/ch83-LoRaWAN组网LoRaMac-node-ChirpStack/) | 📚 [P8-MOC](/Learning-Obsidian./posts/P8-MOC/)

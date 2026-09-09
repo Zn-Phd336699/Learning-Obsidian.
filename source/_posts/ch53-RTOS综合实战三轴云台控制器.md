@@ -1,6 +1,6 @@
 ---
 title: 第53章 RTOS 综合实战：三轴云台控制器
-date: 2025-01-01
+date: 2025-04-09
 categories:
   - RTOS
 tags:
@@ -17,10 +17,13 @@ chapter: 53
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★★ | 前置 [ch52-seL4微内核能力模型形式化验证](/posts/ch52-seL4微内核能力模型形式化验证/) | → [ch54-全景认知与发行版抉择QEMU路线](/posts/ch54-全景认知与发行版抉择QEMU路线/)
+⏱ 45min | ★★★★★ | 前置 [ch52-seL4微内核能力模型形式化验证](/Learning-Obsidian./posts/ch52-seL4微内核能力模型形式化验证/) | → [ch54-全景认知与发行版抉择QEMU路线](/Learning-Obsidian./posts/ch54-全景认知与发行版抉择QEMU路线/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 给出云台项目的任务划分、优先级设计与实时预算表
@@ -82,14 +85,14 @@ void foc_task(void *arg) {                 /* prio 7 最高业务优先级 */
 |------|----------|--------|------|
 | 抖动随温度恶化 | 上电校零+关管采底噪自校 | 换低温漂采样电阻/周期校准 | P999 抖动全程稳定 |
 | IMU 姿态抽搐 | 示波器查 SCK 质量 | 缓冲 aligned(32)+CRC+3σ 离群剔除 | 静止姿态波动收敛 |
-| 速度环偶发延迟/阶跃超调大 | Tracealyzer 泳道（见 [ch51a-可视化追踪Tracealyzer-SystemView](/posts/ch51a-可视化追踪Tracealyzer-SystemView/)）+ 阶跃响应录制 | 遥测任务降级限频；PI 整定（[chfd-A4-PID工程化全集抗饱和自整定](/posts/chfd-A4-PID工程化全集抗饱和自整定/)） | 泳道干扰源消失；超调 <15% |
+| 速度环偶发延迟/阶跃超调大 | Tracealyzer 泳道（见 [ch51a-可视化追踪Tracealyzer-SystemView](/Learning-Obsidian./posts/ch51a-可视化追踪Tracealyzer-SystemView/)）+ 阶跃响应录制 | 遥测任务降级限频；PI 整定（[chfd-A4-PID工程化全集抗饱和自整定](/Learning-Obsidian./posts/chfd-A4-PID工程化全集抗饱和自整定/)） | 泳道干扰源消失；超调 <15% |
 
 ## 53.7 排故速查表
 | 现象 | 根因候选 | 定位路径 |
 |------|----------|----------|
 | 电流环抖动温升后恶化 | 采样电阻温漂+偏置漂移 | 上电校零存参；运行中「关管采底噪」自校 |
 | IMU 数据偶发跳变 | SPI 干扰/DMA 缓冲未对齐 | 查 SCK 波形；aligned(32)+CRC 校验 |
-| 高优任务互抢使速度环延迟 | 实时预算表失守 | 回 [ch45-实时性理论与调度算法](/posts/ch45-实时性理论与调度算法/) 预算表；遥测降级限频 |
+| 高优任务互抢使速度环延迟 | 实时预算表失守 | 回 [ch45-实时性理论与调度算法](/Learning-Obsidian./posts/ch45-实时性理论与调度算法/) 预算表；遥测降级限频 |
 | 冻结某任务整机不复位 | WDG 分级未覆盖该任务 | 对照看门狗矩阵补喂狗点 |
 
 ## 53.8 BOM 清单与部署注意事项
@@ -131,7 +134,7 @@ M6 老化与报告: 8h 温升+jitter 分布归档
 | BetaFlight | 多旋翼 PID 分层与滤波链(biquad/PT1)编排 |
 | 立创开源「云台/平衡车」类项目 | 机械结构与驱动选型对照 |
 
-- CAN 遥测协议可升级 UDS 诊断体系；FOC 经验直通 ODrive 级双电机项目，数学内核详见 [chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO](/posts/chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO/)；
+- CAN 遥测协议可升级 UDS 诊断体系；FOC 经验直通 ODrive 级双电机项目，数学内核详见 [chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO](/Learning-Obsidian./posts/chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO/)；
 - SimpleFOC 的 foc.c 定点化改造练习：浮点版移植 Q15 是绝佳内功训练；
 - 迁移 STM32H7（480MHz）需重算预算表，瓶颈将转向外设与采样链而非 CPU。
 
@@ -152,4 +155,4 @@ M6 老化与报告: 8h 温升+jitter 分布归档
 </div>
 
 ---
-🏷️ #domain/rtos #topic/foc #motor-control | 🔗 [ch52-seL4微内核能力模型形式化验证](/posts/ch52-seL4微内核能力模型形式化验证/) ← **本章** → [ch54-全景认知与发行版抉择QEMU路线](/posts/ch54-全景认知与发行版抉择QEMU路线/) | 📚 [P5-MOC](/posts/P5-MOC/)
+🏷️ #domain/rtos #topic/foc #motor-control | 🔗 [ch52-seL4微内核能力模型形式化验证](/Learning-Obsidian./posts/ch52-seL4微内核能力模型形式化验证/) ← **本章** → [ch54-全景认知与发行版抉择QEMU路线](/Learning-Obsidian./posts/ch54-全景认知与发行版抉择QEMU路线/) | 📚 [P5-MOC](/Learning-Obsidian./posts/P5-MOC/)

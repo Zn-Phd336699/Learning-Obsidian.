@@ -12,6 +12,9 @@ tags:
 
 > 把调试经验从大脑和聊天记录中解放出来——**Obsidian 做唯一事实源，LLM 做加工引擎**，让每一行排障日志都变成可检索、可关联、可复习的结构化知识。
 
+
+<!-- more -->
+
 ## 核心纪律：AI 起草 → 人审核 → 入库
 
 永远不要让 AI 直接写最终笔记。这条纪律是防止幻觉污染知识库的生命线：
@@ -59,10 +62,10 @@ STM32F407 + SP3485 收发器；115200-8N1
 固件在 TC 回调之外切了方向，最后 1~2 bit 被截断 → 从站收到不完整帧 → CRC 错。
 
 ## 修复方案
-DE 切换逻辑移入 TC 中断回调（方法见 [ch28-串口工程化IDLE-DMA-RS485](/posts/ch28-串口工程化IDLE-DMA-RS485/)）
+DE 切换逻辑移入 TC 中断回调（方法见 [ch28-串口工程化IDLE-DMA-RS485](/Learning-Obsidian./posts/ch28-串口工程化IDLE-DMA-RS485/)）
 
 ## 关联
-- 相关章节：[ch28-串口工程化IDLE-DMA-RS485](/posts/ch28-串口工程化IDLE-DMA-RS485/) [ch75-UART-RS485与Modbus-RTU实战libmodbus](/posts/ch75-UART-RS485与Modbus-RTU实战libmodbus/)
+- 相关章节：[ch28-串口工程化IDLE-DMA-RS485](/Learning-Obsidian./posts/ch28-串口工程化IDLE-DMA-RS485/) [ch75-UART-RS485与Modbus-RTU实战libmodbus](/Learning-Obsidian./posts/ch75-UART-RS485与Modbus-RTU实战libmodbus/)
 - 类似案例：（补 wiki-link）
 ```
 
@@ -96,11 +99,11 @@ WHERE date >= date(today) - dur(7 days)
 
 ## AI 辅助复习法（SDD 回顾）
 
-把 SDD（Spec-Driven Development 规格驱动开发，见 [ch09a-AI辅助开发实践](/posts/ch09a-AI辅助开发实践/)）迁移到复习：**不要让 AI 猜你想学什么，先把「学会」的标准写成规格**。
+把 SDD（Spec-Driven Development 规格驱动开发，见 [ch09a-AI辅助开发实践](/Learning-Obsidian./posts/ch09a-AI辅助开发实践/)）迁移到复习：**不要让 AI 猜你想学什么，先把「学会」的标准写成规格**。
 
 1. **写规格**：对每个主题写下验收标准——「能盲讲 HardFault 五步取证」「能手推 RMS 充分条件公式」
 2. **按规格出题**：让 LLM 只针对规格生成追问链，答不上即暴露差距
-3. **对照验收**：答案逐条比对评分关键词（素材直接用 [A-面试题库](/posts/A-面试题库/) 的答题要点表）
+3. **对照验收**：答案逐条比对评分关键词（素材直接用 [A-面试题库](/Learning-Obsidian./posts/A-面试题库/) 的答题要点表）
 4. **季度差距分析**：把笔记目录投喂 LLM——「假设面试高级嵌入式系统工程师，哪些话题空白？已有话题深度够吗？未来三个月最值得补的 3 个主题及理由」
 
 ## Anki 导出卡片约定
@@ -136,4 +139,4 @@ WHERE date >= date(today) - dur(7 days)
 - [ ] 启用 Obsidian Git 自动备份，打开 Graph View 欣赏你的知识网络
 
 ---
-🏷️ #appendix #reference | 📚 [附录-MOC](/posts/附录-MOC/)
+🏷️ #appendix #reference | 📚 [附录-MOC](/Learning-Obsidian./posts/附录-MOC/)

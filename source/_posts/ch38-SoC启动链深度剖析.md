@@ -1,6 +1,6 @@
 ---
 title: 第38章 SoC启动链深度剖析
-date: 2025-01-01
+date: 2025-04-24
 categories:
   - SoC开发
 tags:
@@ -17,10 +17,13 @@ chapter: 38
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★★☆ | 前置 [ch37-全志H3-OrangePiZero-NanoPiNEO实战](/posts/ch37-全志H3-OrangePiZero-NanoPiNEO实战/) | → [ch39-U-Boot移植与网络开发模式](/posts/ch39-U-Boot移植与网络开发模式/)
+⏱ 35min | ★★★★☆ | 前置 [ch37-全志H3-OrangePiZero-NanoPiNEO实战](/Learning-Obsidian./posts/ch37-全志H3-OrangePiZero-NanoPiNEO实战/) | → [ch39-U-Boot移植与网络开发模式](/Learning-Obsidian./posts/ch39-U-Boot移植与网络开发模式/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 画出 BootROM→SPL→ATF→U-Boot→Kernel 五级启动链，说清每级职责边界与交接物
@@ -81,7 +84,7 @@ bootargs 加 earlycon（RK）  ：earlycon,8250,mmio32,0xfe660000
 | U-Boot→Kernel | FIT 镜像逐组件 | U-Boot 公钥验 kernel/dtb/fdt 签名+hash |
 | Kernel→rootfs | dm-verity 树哈希 | 每块校验，防运行期篡改(Android verified boot 同构) |
 
-设计要点：**每一级的公钥由上一级保护**；任何一环跳过=整链作废。FIT 签名工程细节见 [chsa-S1安全架构与SecureBoot实战](/posts/chsa-S1安全架构与SecureBoot实战/)。
+设计要点：**每一级的公钥由上一级保护**；任何一环跳过=整链作废。FIT 签名工程细节见 [chsa-S1安全架构与SecureBoot实战](/Learning-Obsidian./posts/chsa-S1安全架构与SecureBoot实战/)。
 
 ## 38.7 平台差异总表：三家启动链一句话对照
 
@@ -147,4 +150,4 @@ bootargs 加 earlycon（RK）  ：earlycon,8250,mmio32,0xfe660000
 </div>
 
 ---
-🏷️ #domain/soc #topic/bootloader | 🔗 [ch37-全志H3-OrangePiZero-NanoPiNEO实战](/posts/ch37-全志H3-OrangePiZero-NanoPiNEO实战/) ← **本章** → [ch39-U-Boot移植与网络开发模式](/posts/ch39-U-Boot移植与网络开发模式/) | 📚 [P4-MOC](/posts/P4-MOC/)
+🏷️ #domain/soc #topic/bootloader | 🔗 [ch37-全志H3-OrangePiZero-NanoPiNEO实战](/Learning-Obsidian./posts/ch37-全志H3-OrangePiZero-NanoPiNEO实战/) ← **本章** → [ch39-U-Boot移植与网络开发模式](/Learning-Obsidian./posts/ch39-U-Boot移植与网络开发模式/) | 📚 [P4-MOC](/Learning-Obsidian./posts/P4-MOC/)

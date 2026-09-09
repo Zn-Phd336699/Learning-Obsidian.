@@ -1,6 +1,6 @@
 ---
 title: 第10章 GCC交叉编译全景
-date: 2025-01-01
+date: 2025-05-22
 categories:
   - 调试工具链
 tags:
@@ -17,12 +17,15 @@ chapter: 10
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★☆☆☆ | 前置 [ch09a-AI辅助开发实践](/posts/ch09a-AI辅助开发实践/) | → [ch11-构建系统Makefile-CMake-Kconfig](/posts/ch11-构建系统Makefile-CMake-Kconfig/)
+⏱ 35min | ★★☆☆☆ | 前置 [ch09a-AI辅助开发实践](/Learning-Obsidian./posts/ch09a-AI辅助开发实践/) | → [ch11-构建系统Makefile-CMake-Kconfig](/Learning-Obsidian./posts/ch11-构建系统Makefile-CMake-Kconfig/)
 
 </div>
 </div>
 
 同一个 .c 文件，`-O0` 和 `-O2` 编出来的可能是两个程序——本章讲透交叉编译体系与「优化惹的祸」。
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 分清 arm-none-eabi / arm-linux-gnueabihf / riscv 工具链的适用场景
@@ -54,7 +57,7 @@ gcc -g -O2 -mcpu=cortex-m4 -mthumb -T link.ld main.c startup.s -o fw.elf
 | expected ';' before… | 编译 | 首个 error 行号；宏嫌疑时 `gcc -E` 复查 |
 | undefined reference to x | 链接 | `nm` 查符号归属；漏链库/顺序错/extern "C" 缺失 |
 | multiple definition | 链接 | 头文件里定义了变量；改 extern 声明+单点定义 |
-| region 'RAM' overflowed | 链接 | `size` 看 bss；map 文件找大户（[ch06-链接器与内存布局](/posts/ch06-链接器与内存布局/)） |
+| region 'RAM' overflowed | 链接 | `size` 看 bss；map 文件找大户（[ch06-链接器与内存布局](/Learning-Obsidian./posts/ch06-链接器与内存布局/)） |
 
 ## 10.2 newlib-nano 浮点坑与链接顺序
 
@@ -122,7 +125,7 @@ uint8_t tmp[N]; memcpy(tmp, buf, N); memcpy(buf, tmp, N);
 2. 启用 `-flto` 必须给中断向量段加 KEEP() + used 双保险。
 3. 团队锁定工具链来源与版本，把升级当 UB 体检而非风险回避。
 4. CI 保留 map 与 .su 产物做体积/栈用量回归监控。
-5. nano.specs 与 syscall 重定向在 [ch14-日志系统设计RTT与远程回传](/posts/ch14-日志系统设计RTT与远程回传/) 落地。
+5. nano.specs 与 syscall 重定向在 [ch14-日志系统设计RTT与远程回传](/Learning-Obsidian./posts/ch14-日志系统设计RTT与远程回传/) 落地。
 
 > [!example]- 🧪 动手实验 L10-1：亲眼抓一次 volatile 优化案（30 分钟）
 > **步骤**：① 写 `while(!flag){}` 且 flag 为普通 int 的最小程序；② `gcc -O2 -save-temps` 与 -O0 版本对比 .s，找循环体删除证据行；③ 加 volatile 重编对比并贴三份反汇编片段。**验收**：能口头解释「编译器基于什么假设删掉了循环」。
@@ -131,8 +134,8 @@ uint8_t tmp[N]; memcpy(tmp, buf, N); memcpy(buf, tmp, N);
 
 - **_sbrk 与堆**：newlib malloc 最终调 `_sbrk(increment)` 上挪 `_end` 符号——重定向即接管全部动态内存。
 - **-flto 与中断向量恩怨**：跨文件内联可折叠 ISR 致向量符号消失，KEEP+used 是唯一可靠解。
-- **GDB 反汇编验证**：优化陷阱最终靠反汇编对照实锤，见 [ch12-GDB深度实战](/posts/ch12-GDB深度实战/)。
-- **仪器级时序验证**：时序敏感代码用示波器复测，方法见 [ch18-示波器实战](/posts/ch18-示波器实战/)。
+- **GDB 反汇编验证**：优化陷阱最终靠反汇编对照实锤，见 [ch12-GDB深度实战](/Learning-Obsidian./posts/ch12-GDB深度实战/)。
+- **仪器级时序验证**：时序敏感代码用示波器复测，方法见 [ch18-示波器实战](/Learning-Obsidian./posts/ch18-示波器实战/)。
 
 > [!warning]- ❓ FAQ
 > **Q1：为什么两个 volatile 寄存器写之间不需要 barrier？** 同一 volatile 访问间编译器保证顺序；「写 A 再读 B」跨外设仍可能被总线乱序，需要 DSB/DMB（第26章展开）。
@@ -150,4 +153,4 @@ uint8_t tmp[N]; memcpy(tmp, buf, N); memcpy(buf, tmp, N);
 </div>
 
 ---
-🏷️ #domain/fundamentals #topic/toolchain | 🔗 [ch09a-AI辅助开发实践](/posts/ch09a-AI辅助开发实践/) ← **本章** → [ch11-构建系统Makefile-CMake-Kconfig](/posts/ch11-构建系统Makefile-CMake-Kconfig/) | 📚 [P2-MOC](/posts/P2-MOC/)
+🏷️ #domain/fundamentals #topic/toolchain | 🔗 [ch09a-AI辅助开发实践](/Learning-Obsidian./posts/ch09a-AI辅助开发实践/) ← **本章** → [ch11-构建系统Makefile-CMake-Kconfig](/Learning-Obsidian./posts/ch11-构建系统Makefile-CMake-Kconfig/) | 📚 [P2-MOC](/Learning-Obsidian./posts/P2-MOC/)

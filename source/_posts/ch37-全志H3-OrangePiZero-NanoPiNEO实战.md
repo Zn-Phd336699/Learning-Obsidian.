@@ -1,6 +1,6 @@
 ---
 title: 第37章 全志 H3：Orange Pi Zero / NanoPi NEO 实战
-date: 2025-01-01
+date: 2025-04-25
 categories:
   - SoC开发
 tags:
@@ -17,10 +17,13 @@ chapter: 37
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 28min | ★★★☆☆ | 前置 [ch36-RK平台ATK-DLRK3568-RK3588-Luckfox](/posts/ch36-RK平台ATK-DLRK3568-RK3588-Luckfox/) | → [ch38-SoC启动链深度剖析](/posts/ch38-SoC启动链深度剖析/)
+⏱ 28min | ★★★☆☆ | 前置 [ch36-RK平台ATK-DLRK3568-RK3588-Luckfox](/Learning-Obsidian./posts/ch36-RK平台ATK-DLRK3568-RK3588-Luckfox/) | → [ch38-SoC启动链深度剖析](/Learning-Obsidian./posts/ch38-SoC启动链深度剖析/)
 
 </div>
 </div>
+
+<!-- more -->
+
 ## 🎯 学习目标
 - [ ] 说清 H3 启动链 BROM→SPL→U-Boot→主线内核的最短路径与 eGON 头偏移
 - [ ] 用 sunxi-fel 完成 FEL 免卡刷 RAM 引导与内存读写
@@ -60,7 +63,7 @@ git clone https://github.com/armbian/build && cd build
 # 用户补丁放 userpatches/ 目录自动套用 —— 二次开发的标准姿势
 ```
 
-armbianEnv overlays 机制与 [ch40-内核适配与设备树dts语法-pinctrl-overlay](/posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/) 的 dtbo 完全同构，学会一处等于学会两处。
+armbianEnv overlays 机制与 [ch40-内核适配与设备树dts语法-pinctrl-overlay](/Learning-Obsidian./posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/) 的 dtbo 完全同构，学会一处等于学会两处。
 ## 37.4 板上 IO 操作三法
 
 ```bash
@@ -74,7 +77,7 @@ echo 17 > /sys/class/gpio/export ; echo out > .../gpio17/direction
 #   gpiod_line_request_output(line, "led", 0);
 ```
 
-编号换算公式：引脚名 PA10 → linux 编号 = (组字母-'A')×32 + 组内号 → PA10=10。Orange Pi Zero 26pin 排针的 GPIO 映射查官方 wiki 表；libgpiod 工程化用法在 [ch60-子系统驱动GPIO-input-IIO-RTC-WDT](/posts/ch60-子系统驱动GPIO-input-IIO-RTC-WDT/) 复用展开。
+编号换算公式：引脚名 PA10 → linux 编号 = (组字母-'A')×32 + 组内号 → PA10=10。Orange Pi Zero 26pin 排针的 GPIO 映射查官方 wiki 表；libgpiod 工程化用法在 [ch60-子系统驱动GPIO-input-IIO-RTC-WDT](/Learning-Obsidian./posts/ch60-子系统驱动GPIO-input-IIO-RTC-WDT/) 复用展开。
 ## 37.5 典型玩法：百元软路由
 
 ```text
@@ -83,7 +86,7 @@ USB 百兆网卡(AX88772) 做 WAN → LAN 口桥接 WiFi(ap6212 或外置)
 性能预期：NAT 转发 ~90Mbps(HW flowtable 可再提升)
 ```
 
-OpenWrt 定制、QoS 与插件开发的完整实战见 [ch92-P6-OpenWrt定制路由器全志H3](/posts/ch92-P6-OpenWrt定制路由器全志H3/)——本章只负责把板子跑起来。
+OpenWrt 定制、QoS 与插件开发的完整实战见 [ch92-P6-OpenWrt定制路由器全志H3](/Learning-Obsidian./posts/ch92-P6-OpenWrt定制路由器全志H3/)——本章只负责把板子跑起来。
 ## 37.6 实测数据表：H3 小板的真实性能水位
 
 | 指标 | 实测值(Orange Pi Zero) |
@@ -142,4 +145,4 @@ OpenWrt 定制、QoS 与插件开发的完整实战见 [ch92-P6-OpenWrt定制路
 </div>
 
 ---
-🏷️ #domain/soc #topic/gpio #topic/openwrt | 🔗 [ch36-RK平台ATK-DLRK3568-RK3588-Luckfox](/posts/ch36-RK平台ATK-DLRK3568-RK3588-Luckfox/) ← **本章** → [ch38-SoC启动链深度剖析](/posts/ch38-SoC启动链深度剖析/) | 📚 [P4-MOC](/posts/P4-MOC/)
+🏷️ #domain/soc #topic/gpio #topic/openwrt | 🔗 [ch36-RK平台ATK-DLRK3568-RK3588-Luckfox](/Learning-Obsidian./posts/ch36-RK平台ATK-DLRK3568-RK3588-Luckfox/) ← **本章** → [ch38-SoC启动链深度剖析](/Learning-Obsidian./posts/ch38-SoC启动链深度剖析/) | 📚 [P4-MOC](/Learning-Obsidian./posts/P4-MOC/)

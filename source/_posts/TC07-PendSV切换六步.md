@@ -10,6 +10,9 @@ tags:
 
 # TC07 PendSV 切换六步速记与 EXC_RETURN 踩坑
 
+
+<!-- more -->
+
 ## 现象
 移植或手改 FreeRTOS 移植层后，调度器一启动、第一次任务切换就 HardFault 或跳飞到野地址；典型触发条件：PendSV 汇编里 LR（EXC_RETURN）被 `bl` 指令悄悄覆盖。
 
@@ -52,5 +55,5 @@ PendSV_Handler:                    ; 六步速记：存→记→护→选→取�
 - FPU 场景注意 lazy stacking 与 EXC_RETURN bit4 语义
 
 ## 关联
-- 源章节：[ch47-FreeRTOS-PendSV上下文切换逐行汇编](/posts/ch47-FreeRTOS-PendSV上下文切换逐行汇编/)
-- 相关章节：[ch46-FreeRTOS内核源码导读任务TCB与调度器](/posts/ch46-FreeRTOS内核源码导读任务TCB与调度器/)、[ch21-Cortex-M架构精讲](/posts/ch21-Cortex-M架构精讲/)
+- 源章节：[ch47-FreeRTOS-PendSV上下文切换逐行汇编](/Learning-Obsidian./posts/ch47-FreeRTOS-PendSV上下文切换逐行汇编/)
+- 相关章节：[ch46-FreeRTOS内核源码导读任务TCB与调度器](/Learning-Obsidian./posts/ch46-FreeRTOS内核源码导读任务TCB与调度器/)、[ch21-Cortex-M架构精讲](/Learning-Obsidian./posts/ch21-Cortex-M架构精讲/)

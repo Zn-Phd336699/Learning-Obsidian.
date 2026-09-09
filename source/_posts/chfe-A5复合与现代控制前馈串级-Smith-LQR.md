@@ -17,12 +17,15 @@ chapter: A5
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [chfd-A4-PID工程化全集抗饱和自整定](/posts/chfd-A4-PID工程化全集抗饱和自整定/) | → [chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO](/posts/chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO/)
+⏱ 40min | ★★★★☆ | 前置 [chfd-A4-PID工程化全集抗饱和自整定](/Learning-Obsidian./posts/chfd-A4-PID工程化全集抗饱和自整定/) | → [chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO](/Learning-Obsidian./posts/chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO/)
 
 </div>
 </div>
 
 单环 PID 调到顶之后，性能的下一级台阶来自「结构」：可测扰动用前馈（Feedforward），大惯性对象用串级（Cascade），大滞后用 Smith 预估器（Smith Predictor），多变量最优用 LQR（Linear Quadratic Regulator）。
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 能为可测扰动设计前馈+反馈复合结构，并用开环辨识标定前馈系数
@@ -154,4 +157,4 @@ float lqr_speed(float w_err, float i_err){
 </div>
 
 ---
-🏷️ #domain/algorithms #topic/control | 🔗 [chfd-A4-PID工程化全集抗饱和自整定](/posts/chfd-A4-PID工程化全集抗饱和自整定/) ← **本章** → [chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO](/posts/chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO/) | 📚 [P11-MOC](/posts/P11-MOC/)
+🏷️ #domain/algorithms #topic/control | 🔗 [chfd-A4-PID工程化全集抗饱和自整定](/Learning-Obsidian./posts/chfd-A4-PID工程化全集抗饱和自整定/) ← **本章** → [chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO](/Learning-Obsidian./posts/chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO/) | 📚 [P11-MOC](/Learning-Obsidian./posts/P11-MOC/)

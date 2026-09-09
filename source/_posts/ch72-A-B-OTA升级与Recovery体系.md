@@ -1,6 +1,6 @@
 ---
 title: 第72章 A/B OTA 升级与 Recovery 体系
-date: 2025-01-01
+date: 2025-03-21
 categories:
   - Android底层
 tags:
@@ -18,10 +18,13 @@ chapter: 72
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch71-设备适配DTB-sepolicy-vendor-blobs](/posts/ch71-设备适配DTB-sepolicy-vendor-blobs/) | → [ch73-底层调试Perfetto-logcat-adb进阶](/posts/ch73-底层调试Perfetto-logcat-adb进阶/)
+⏱ 40min | ★★★★☆ | 前置 [ch71-设备适配DTB-sepolicy-vendor-blobs](/Learning-Obsidian./posts/ch71-设备适配DTB-sepolicy-vendor-blobs/) | → [ch73-底层调试Perfetto-logcat-adb进阶](/Learning-Obsidian./posts/ch73-底层调试Perfetto-logcat-adb进阶/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 对比传统 Recovery / A/B / Virtual A/B 三代升级架构的机制与痛点
@@ -138,7 +141,7 @@ watchdog 联动： bootanim 卡死也算失败——由 rescue_party(crash 计�
 > [!warning]- ❓ FAQ
 > **Q1：Virtual A/B 相比传统 A/B 省多少空间？** A1：传统 A/B 需要整套双份动态分区；Virtual A/B 只需约等于改动块的 COW 空间——推导见思考题 1。
 > **Q2：merge 中掉电会变砖吗？** A2：不会。snapshot/merge 两阶段各自断点续作，metadata 是唯一事实源。
-> **Q3：与 MCU 端 OTA 什么关系？** A3：slot 状态机思想与 [ch30-Bootloader-IAP-OTA固件升级体系](/posts/ch30-Bootloader-IAP-OTA固件升级体系/)/[ch89-P3-MCUboot双分区OTA安全升级系统](/posts/ch89-P3-MCUboot双分区OTA安全升级系统/) 三方对照是面试高频题。
+> **Q3：与 MCU 端 OTA 什么关系？** A3：slot 状态机思想与 [ch30-Bootloader-IAP-OTA固件升级体系](/Learning-Obsidian./posts/ch30-Bootloader-IAP-OTA固件升级体系/)/[ch89-P3-MCUboot双分区OTA安全升级系统](/Learning-Obsidian./posts/ch89-P3-MCUboot双分区OTA安全升级系统/) 三方对照是面试高频题。
 
 <div style="border-left: 4px solid #d97706; background: #fffbeb; padding: 12px 16px; margin: 16px 0; border-radius: 0 6px 6px 0;">
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">❓ 📝 思考题</p>
@@ -152,4 +155,4 @@ watchdog 联动： bootanim 卡死也算失败——由 rescue_party(crash 计�
 </div>
 
 ---
-🏷️ #domain/android #topic/ota #topic/recovery | 🔗 [ch71-设备适配DTB-sepolicy-vendor-blobs](/posts/ch71-设备适配DTB-sepolicy-vendor-blobs/) ← **本章** → [ch73-底层调试Perfetto-logcat-adb进阶](/posts/ch73-底层调试Perfetto-logcat-adb进阶/) | 📚 [P7-MOC](/posts/P7-MOC/)
+🏷️ #domain/android #topic/ota #topic/recovery | 🔗 [ch71-设备适配DTB-sepolicy-vendor-blobs](/Learning-Obsidian./posts/ch71-设备适配DTB-sepolicy-vendor-blobs/) ← **本章** → [ch73-底层调试Perfetto-logcat-adb进阶](/Learning-Obsidian./posts/ch73-底层调试Perfetto-logcat-adb进阶/) | 📚 [P7-MOC](/Learning-Obsidian./posts/P7-MOC/)

@@ -1,6 +1,6 @@
 ---
 title: 第4章 C++ 嵌入式子集与 RAII 实战
-date: 2025-01-01
+date: 2025-05-28
 categories:
   - 编程基础
 tags:
@@ -18,10 +18,13 @@ chapter: 4
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 30min | ★★★☆☆ | 前置 [ch02-C语言进阶指针与内存模型](/posts/ch02-C语言进阶指针与内存模型/) [ch03-C工程化预处理与定点数](/posts/ch03-C工程化预处理与定点数/) | → [ch05-ARM汇编与反汇编排障](/posts/ch05-ARM汇编与反汇编排障/)
+⏱ 30min | ★★★☆☆ | 前置 [ch02-C语言进阶指针与内存模型](/Learning-Obsidian./posts/ch02-C语言进阶指针与内存模型/) [ch03-C工程化预处理与定点数](/Learning-Obsidian./posts/ch03-C工程化预处理与定点数/) | → [ch05-ARM汇编与反汇编排障](/Learning-Obsidian./posts/ch05-ARM汇编与反汇编排障/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 
@@ -167,4 +170,4 @@ void operator delete(void* p) noexcept { (void)p; } /* 仅初始化期分配策�
 </div>
 
 ---
-🏷️ #cpp #raii #vtable | 🔗 [ch03-C工程化预处理与定点数](/posts/ch03-C工程化预处理与定点数/) ← **本章** → [ch05-ARM汇编与反汇编排障](/posts/ch05-ARM汇编与反汇编排障/) | 📚 [P1-MOC](/posts/P1-MOC/)
+🏷️ #cpp #raii #vtable | 🔗 [ch03-C工程化预处理与定点数](/Learning-Obsidian./posts/ch03-C工程化预处理与定点数/) ← **本章** → [ch05-ARM汇编与反汇编排障](/Learning-Obsidian./posts/ch05-ARM汇编与反汇编排障/) | 📚 [P1-MOC](/Learning-Obsidian./posts/P1-MOC/)

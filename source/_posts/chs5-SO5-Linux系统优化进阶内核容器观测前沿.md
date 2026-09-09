@@ -18,10 +18,13 @@ chapter: SO5
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [chs4-SO4综合优化战役复盘五大战役](/posts/chs4-SO4综合优化战役复盘五大战役/) | → [SE-专家之路技能地图](/posts/SE-专家之路技能地图/)
+⏱ 40min | ★★★★☆ | 前置 [chs4-SO4综合优化战役复盘五大战役](/Learning-Obsidian./posts/chs4-SO4综合优化战役复盘五大战役/) | → [SE-专家之路技能地图](/Learning-Obsidian./posts/SE-专家之路技能地图/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 建立 sysctl 参数的「语义级」理解框架而非死记数值
@@ -34,7 +37,7 @@ chapter: SO5
 |--------|----------|----------------|
 | vm.dirty_ratio / dirty_background_* | 「脏页何时强制落盘」——写缓存水位线 | 写入毛刺→降低 background 阈值让后台提前分担；掉电安全→缩短 expire 时间 |
 | net.core.somaxconn / netdev_max_backlog | 「突发到达时的排队容量」 | SYN 丢包→增大 somaxconn 且应用 accept 跟上；软中断丢包→加 backlog 但先查 CPU(ch16) |
-| sched_autogroup / migration_cost_ns | 「调度器对交互性与亲和性的取舍」 | 实时抖动→CPU 隔离+RT 策略优先于改调度器参数([ch65-性能优化CPU隔离cgroup-io调优](/posts/ch65-性能优化CPU隔离cgroup-io调优/)) |
+| sched_autogroup / migration_cost_ns | 「调度器对交互性与亲和性的取舍」 | 实时抖动→CPU 隔离+RT 策略优先于改调度器参数([ch65-性能优化CPU隔离cgroup-io调优](/Learning-Obsidian./posts/ch65-性能优化CPU隔离cgroup-io调优/)) |
 
 方法论：**每个参数先问「它默认保护什么」，再决定是否打破——盲抄网上的 sysctl 清单是事故制造机。**
 
@@ -150,4 +153,4 @@ L2 深挖层(临时)：自动 perf record -F299 -g --sleep 30 + eBPF offcputime
 </div>
 
 ---
-🏷️ #performance #linux #ebpf #observability | 🔗 [chs4-SO4综合优化战役复盘五大战役](/posts/chs4-SO4综合优化战役复盘五大战役/) ← **本章** → [SE-专家之路技能地图](/posts/SE-专家之路技能地图/) | 📚 [P12-MOC](/posts/P12-MOC/)
+🏷️ #performance #linux #ebpf #observability | 🔗 [chs4-SO4综合优化战役复盘五大战役](/Learning-Obsidian./posts/chs4-SO4综合优化战役复盘五大战役/) ← **本章** → [SE-专家之路技能地图](/Learning-Obsidian./posts/SE-专家之路技能地图/) | 📚 [P12-MOC](/Learning-Obsidian./posts/P12-MOC/)

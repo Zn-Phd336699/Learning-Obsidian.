@@ -1,6 +1,6 @@
 ---
 title: 第34章 ARM-A 架构与国产 SoC 选型地图
-date: 2025-01-01
+date: 2025-04-28
 categories:
   - SoC开发
 tags:
@@ -17,10 +17,13 @@ chapter: 34
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 32min | ★★★★☆ | 前置 [ch33-综合实战环境监测终端](/posts/ch33-综合实战环境监测终端/) | → [ch35-i-MX6U-ALPHA平台详解](/posts/ch35-i-MX6U-ALPHA平台详解/)
+⏱ 32min | ★★★★☆ | 前置 [ch33-综合实战环境监测终端](/Learning-Obsidian./posts/ch33-综合实战环境监测终端/) | → [ch35-i-MX6U-ALPHA平台详解](/Learning-Obsidian./posts/ch35-i-MX6U-ALPHA平台详解/)
 
 </div>
 </div>
+
+<!-- more -->
+
 ## 🎯 学习目标
 - [ ] 说清 Cortex-M 与 Cortex-A 的六大本质差异及其对软件栈的影响
 - [ ] 手推 AArch64 四级页表（Page Table）VA→PA 走查路径并解释 TLB 的作用
@@ -42,16 +45,16 @@ M 核工程师最常翻的车：把物理地址当虚拟地址直接解引用 �
 
 四级页表走查(AArch64, 48位VA, 4KB粒度)：`TTBR0_EL1 → L0 表 → L1(1GB 块) → L2(2MB 块) → L3(4KB 页) → PA`，TLB 缓存翻译结果，miss 才走页表遍历(硬件 walker)。
 
-对嵌入式 BSP 的三个实际影响：① 设备树 `reg` 里写的是**物理地址**——驱动经 `ioremap` 之后拿到的才是虚拟地址；② DMA 缓冲必须走一致性映射或 swiotlb 弹跳缓冲（对照 [ch26-DMA与Cache一致性](/posts/ch26-DMA与Cache一致性/)）；③ 改页表属性（XN/缓存策略）要走 `set_memory_xx` 接口，手改 TTE 会踩 TLB 一致性坑。
+对嵌入式 BSP 的三个实际影响：① 设备树 `reg` 里写的是**物理地址**——驱动经 `ioremap` 之后拿到的才是虚拟地址；② DMA 缓冲必须走一致性映射或 swiotlb 弹跳缓冲（对照 [ch26-DMA与Cache一致性](/Learning-Obsidian./posts/ch26-DMA与Cache一致性/)）；③ 改页表属性（XN/缓存策略）要走 `set_memory_xx` 接口，手改 TTE 会踩 TLB 一致性坑。
 ## 34.3 GIC 中断路由模型
 
 路由模型：SPI(共享外设中断 32~1019) → GIC Distributor(按 CPU 掩码路由) → CPU Interface(每核一个) → IRQ/FIQ 进核心；SGI(0~15) 核间通信——smp_call_function 靠它踢其他核；PPI(16~31) 每核私有——各核自己的 timer/watchdog。
 
-设备树写法（dts 实战在 [ch40-内核适配与设备树dts语法-pinctrl-overlay](/posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/) 展开）：`interrupt-parent = <&gic>; interrupts = <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>;`
+设备树写法（dts 实战在 [ch40-内核适配与设备树dts语法-pinctrl-overlay](/Learning-Obsidian./posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/) 展开）：`interrupt-parent = <&gic>; interrupts = <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>;`
 ## 34.4 多核启动、DSU 与大小核
 
 - **冷启动不对称**：BootROM 固定从核 0 起，其余核停在 holding pen（WFI 循环），由 U-Boot/ATF 通过 PSCI 接口唤醒——这就是 Linux `maxcpus=` / cpu-hotplug 的底层机制；
-- **big.LITTLE**（RK3588）：A76+A55 异构，调度器按负载迁移任务；性能敏感线程用 `sched_setaffinity` 绑大核（[ch65-性能优化CPU隔离cgroup-io调优](/posts/ch65-性能优化CPU隔离cgroup-io调优/)实操）；
+- **big.LITTLE**（RK3588）：A76+A55 异构，调度器按负载迁移任务；性能敏感线程用 `sched_setaffinity` 绑大核（[ch65-性能优化CPU隔离cgroup-io调优](/Learning-Obsidian./posts/ch65-性能优化CPU隔离cgroup-io调优/)实操）；
 - **DSU 一致性单元**：多核共享 L3，缓存行靠 MESI 协议维持一致——所以 A 核上 spinlock 不必像 M 核那样关中断，但要防伪共享（False Sharing）：结构体成员跨缓存行做 64B padding 隔离。
 
 **利特尔法则(Little's Law)做容量核算**：并发实体数 L = 吞吐率 λ × 平均驻留时间 W。例：目标 200 帧/s × 单帧处理 20ms = 同时有 4 帧在处理 → 4 个 A55 刚好贴水位，必须上大核或 NPU 才有安全余量；再乘安全系数 2 对照核数/TOPS 决策。
@@ -146,4 +149,4 @@ static int __init addr_probe(struct platform_device *pdev)
 </div>
 
 ---
-🏷️ #domain/soc #topic/architecture | 🔗 [ch33-综合实战环境监测终端](/posts/ch33-综合实战环境监测终端/) ← **本章** → [ch35-i-MX6U-ALPHA平台详解](/posts/ch35-i-MX6U-ALPHA平台详解/) | 📚 [P4-MOC](/posts/P4-MOC/)
+🏷️ #domain/soc #topic/architecture | 🔗 [ch33-综合实战环境监测终端](/Learning-Obsidian./posts/ch33-综合实战环境监测终端/) ← **本章** → [ch35-i-MX6U-ALPHA平台详解](/Learning-Obsidian./posts/ch35-i-MX6U-ALPHA平台详解/) | 📚 [P4-MOC](/Learning-Obsidian./posts/P4-MOC/)

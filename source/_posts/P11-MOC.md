@@ -1,6 +1,6 @@
 ---
 title: P11 工程算法
-date: 2025-01-01
+date: 2025-06-20
 categories:
   - 工程算法
 tags:
@@ -11,15 +11,15 @@ tags:
 # 第十一篇 · 工程常用算法
 | 章 | 链接 | 难度 |
 |---|---|---|
-|A0|[chf0-A0算法篇导学与前置知识](/posts/chf0-A0算法篇导学与前置知识/)|★|
-|A1|[chfa-A1数字滤波七件套](/posts/chfa-A1数字滤波七件套/)|★★★|
-|A2|[chfb-A2卡尔曼滤波族谱KF-EKF-UKF](/posts/chfb-A2卡尔曼滤波族谱KF-EKF-UKF/)|★★★★|
-|A3|[chfc-A3姿态解算双雄互补-Mahony-Madgwick](/posts/chfc-A3姿态解算双雄互补-Mahony-Madgwick/)|★★★★|
-|A4|[chfd-A4-PID工程化全集抗饱和自整定](/posts/chfd-A4-PID工程化全集抗饱和自整定/)|★★★★|
-|A5|[chfe-A5复合与现代控制前馈串级-Smith-LQR](/posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/)|★★★★★|
-|A6|[chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO](/posts/chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO/)|★★★★★|
-|A7|[chfg-A7运动轨迹规划梯形S曲线前馈跟踪](/posts/chfg-A7运动轨迹规划梯形S曲线前馈跟踪/)|★★★|
-|A8|[chfh-A8校验族谱CRC全家汉明HMAC边界](/posts/chfh-A8校验族谱CRC全家汉明HMAC边界/)|★★★|
-|A9|[chfi-A9信号处理FFT-Goertzel-NTC-SOC融合](/posts/chfi-A9信号处理FFT-Goertzel-NTC-SOC融合/)|★★★★|
-|A10|[chfj-A10轻量加密编码XTEA-AES-HMAC-RLE](/posts/chfj-A10轻量加密编码XTEA-AES-HMAC-RLE/)|★★★|
-|A11|[chfk-A11机器人导航定位建图路径规划](/posts/chfk-A11机器人导航定位建图路径规划/)|★★★|
+|A0|[chf0-A0算法篇导学与前置知识](/Learning-Obsidian./posts/chf0-A0算法篇导学与前置知识/)|★|
+|A1|[chfa-A1数字滤波七件套](/Learning-Obsidian./posts/chfa-A1数字滤波七件套/)|★★★|
+|A2|[chfb-A2卡尔曼滤波族谱KF-EKF-UKF](/Learning-Obsidian./posts/chfb-A2卡尔曼滤波族谱KF-EKF-UKF/)|★★★★|
+|A3|[chfc-A3姿态解算双雄互补-Mahony-Madgwick](/Learning-Obsidian./posts/chfc-A3姿态解算双雄互补-Mahony-Madgwick/)|★★★★|
+|A4|[chfd-A4-PID工程化全集抗饱和自整定](/Learning-Obsidian./posts/chfd-A4-PID工程化全集抗饱和自整定/)|★★★★|
+|A5|[chfe-A5复合与现代控制前馈串级-Smith-LQR](/Learning-Obsidian./posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/)|★★★★★|
+|A6|[chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO](/Learning-Obsidian./posts/chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO/)|★★★★★|
+|A7|[chfg-A7运动轨迹规划梯形S曲线前馈跟踪](/Learning-Obsidian./posts/chfg-A7运动轨迹规划梯形S曲线前馈跟踪/)|★★★|
+|A8|[chfh-A8校验族谱CRC全家汉明HMAC边界](/Learning-Obsidian./posts/chfh-A8校验族谱CRC全家汉明HMAC边界/)|★★★|
+|A9|[chfi-A9信号处理FFT-Goertzel-NTC-SOC融合](/Learning-Obsidian./posts/chfi-A9信号处理FFT-Goertzel-NTC-SOC融合/)|★★★★|
+|A10|[chfj-A10轻量加密编码XTEA-AES-HMAC-RLE](/Learning-Obsidian./posts/chfj-A10轻量加密编码XTEA-AES-HMAC-RLE/)|★★★|
+|A11|[chfk-A11机器人导航定位建图路径规划](/Learning-Obsidian./posts/chfk-A11机器人导航定位建图路径规划/)|★★★|

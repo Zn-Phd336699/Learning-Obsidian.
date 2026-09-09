@@ -17,10 +17,13 @@ chapter: A6
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★★ | 前置 [chfe-A5复合与现代控制前馈串级-Smith-LQR](/posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/) | → [chfg-A7运动轨迹规划梯形S曲线前馈跟踪](/posts/chfg-A7运动轨迹规划梯形S曲线前馈跟踪/)
+⏱ 45min | ★★★★★ | 前置 [chfe-A5复合与现代控制前馈串级-Smith-LQR](/Learning-Obsidian./posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/) | → [chfg-A7运动轨迹规划梯形S曲线前馈跟踪](/Learning-Obsidian./posts/chfg-A7运动轨迹规划梯形S曲线前馈跟踪/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 推导 Clarke/Park 变换，并在 Q15 定点域实现 sin/cos 与坐标变换
@@ -153,4 +156,4 @@ else                               duty += 0;         /* 过零不补(防抖) */
 </div>
 
 ---
-🏷️ #domain/algorithms #topic/motor-control | 🔗 [chfe-A5复合与现代控制前馈串级-Smith-LQR](/posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/) ← **本章** → [chfg-A7运动轨迹规划梯形S曲线前馈跟踪](/posts/chfg-A7运动轨迹规划梯形S曲线前馈跟踪/) | 📚 [P11-MOC](/posts/P11-MOC/)
+🏷️ #domain/algorithms #topic/motor-control | 🔗 [chfe-A5复合与现代控制前馈串级-Smith-LQR](/Learning-Obsidian./posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/) ← **本章** → [chfg-A7运动轨迹规划梯形S曲线前馈跟踪](/Learning-Obsidian./posts/chfg-A7运动轨迹规划梯形S曲线前馈跟踪/) | 📚 [P11-MOC](/Learning-Obsidian./posts/P11-MOC/)

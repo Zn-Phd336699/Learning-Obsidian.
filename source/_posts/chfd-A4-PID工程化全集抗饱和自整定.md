@@ -17,10 +17,13 @@ chapter: A4
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★☆ | 前置 [chfc-A3姿态解算双雄互补-Mahony-Madgwick](/posts/chfc-A3姿态解算双雄互补-Mahony-Madgwick/) | → [chfe-A5复合与现代控制前馈串级-Smith-LQR](/posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/)
+⏱ 45min | ★★★★☆ | 前置 [chfc-A3姿态解算双雄互补-Mahony-Madgwick](/Learning-Obsidian./posts/chfc-A3姿态解算双雄互补-Mahony-Madgwick/) | → [chfe-A5复合与现代控制前馈串级-Smith-LQR](/Learning-Obsidian./posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 写出工业级 PID：增量式+抗饱和+微分先行+不完全微分四位一体
@@ -113,7 +116,7 @@ integ=clamp(integ,-integ_max,+integ_max);
 | 现象 | 根因候选 | 定位路径 |
 |------|----------|----------|
 | 接近设定值长时间低频摆动 | Ki 过大或执行器死区 | Ki 减半试；输出加静摩擦前馈脉冲补偿死区 |
-| 负载突变恢复慢且过冲大 | 纯反馈固有局限 | 上可测扰动前馈(见 [chfe-A5复合与现代控制前馈串级-Smith-LQR](/posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/))而非狂加 Kp |
+| 负载突变恢复慢且过冲大 | 纯反馈固有局限 | 上可测扰动前馈(见 [chfe-A5复合与现代控制前馈串级-Smith-LQR](/Learning-Obsidian./posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/))而非狂加 Kp |
 | 采样抖动导致输出毛刺 | dt 不恒定使 Ki/Kd 失真，或 Kd 放大测量噪声 | 定时器严格周期调用；不完全微分低通+先滤 PV |
 | PWM 10bit 下小范围永久摆动 | 量化死区 limit cycle | 提高分辨率或 Δu 加抖动(dither)打散量化 |
 
@@ -147,4 +150,4 @@ integ=clamp(integ,-integ_max,+integ_max);
 </div>
 
 ---
-🏷️ #domain/algorithms #topic/control #PID #抗饱和 #自整定 | 🔗 [chfc-A3姿态解算双雄互补-Mahony-Madgwick](/posts/chfc-A3姿态解算双雄互补-Mahony-Madgwick/) ← **本章** → [chfe-A5复合与现代控制前馈串级-Smith-LQR](/posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/) | 📚 [P11-MOC](/posts/P11-MOC/)
+🏷️ #domain/algorithms #topic/control #PID #抗饱和 #自整定 | 🔗 [chfc-A3姿态解算双雄互补-Mahony-Madgwick](/Learning-Obsidian./posts/chfc-A3姿态解算双雄互补-Mahony-Madgwick/) ← **本章** → [chfe-A5复合与现代控制前馈串级-Smith-LQR](/Learning-Obsidian./posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/) | 📚 [P11-MOC](/Learning-Obsidian./posts/P11-MOC/)

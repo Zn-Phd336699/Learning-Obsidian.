@@ -17,10 +17,13 @@ chapter: Z1
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 25min | ★★☆☆☆ | 前置 [SE-专家之路技能地图](/posts/SE-专家之路技能地图/) | → [chz2-Z2-ZYNQ7020架构全景](/posts/chz2-Z2-ZYNQ7020架构全景/)
+⏱ 25min | ★★☆☆☆ | 前置 [SE-专家之路技能地图](/Learning-Obsidian./posts/SE-专家之路技能地图/) | → [chz2-Z2-ZYNQ7020架构全景](/Learning-Obsidian./posts/chz2-Z2-ZYNQ7020架构全景/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 说清 ZYNQ PS+PL 异构架构与纯 MCU、纯 FPGA 方案的本质区别
@@ -151,4 +154,4 @@ Z1 导学(本章)
 </div>
 
 ---
-🏷️ #domain/fpga #topic/soc | 🔗 [SE-专家之路技能地图](/posts/SE-专家之路技能地图/) ← **本章** → [chz2-Z2-ZYNQ7020架构全景](/posts/chz2-Z2-ZYNQ7020架构全景/) | 📚 [P13-MOC](/posts/P13-MOC/)
+🏷️ #domain/fpga #topic/soc | 🔗 [SE-专家之路技能地图](/Learning-Obsidian./posts/SE-专家之路技能地图/) ← **本章** → [chz2-Z2-ZYNQ7020架构全景](/Learning-Obsidian./posts/chz2-Z2-ZYNQ7020架构全景/) | 📚 [P13-MOC](/Learning-Obsidian./posts/P13-MOC/)

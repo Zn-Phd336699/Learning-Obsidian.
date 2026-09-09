@@ -1,6 +1,6 @@
 ---
 title: 第57章 根文件系统构建只读overlayfs
-date: 2025-01-01
+date: 2025-04-05
 categories:
   - 嵌入式Linux
 tags:
@@ -17,10 +17,13 @@ chapter: 57
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★☆☆ | 前置 [ch56-启动流程深度剖析systemd提速](/posts/ch56-启动流程深度剖析systemd提速/) | → [ch58-字符设备驱动hello-drv到并发安全](/posts/ch58-字符设备驱动hello-drv到并发安全/)
+⏱ 40min | ★★★☆☆ | 前置 [ch56-启动流程深度剖析systemd提速](/Learning-Obsidian./posts/ch56-启动流程深度剖析systemd提速/) | → [ch58-字符设备驱动hello-drv到并发安全](/Learning-Obsidian./posts/ch58-字符设备驱动hello-drv到并发安全/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 手工组装 BusyBox 最小系统七件套并完成登录闭环验证
@@ -98,7 +101,7 @@ switch_root /mnt/merged /sbin/init
 ```
 
 ## 57.6 数据分区分离策略
-分区布局三板斧：p1=只读系统(squashfs)、p2=数据(/data, ext4 rw)、不配 swap（嵌入式禁用）。所有可变状态归拢 /data：应用配置、overlay upper、日志持久部分；易失部分归 tmpfs。出厂重置的正确实现：**清 upper 层而非重刷固件**——删空 `/data/ov` 后重启即恢复出厂，秒级完成且绝不伤及 lower 只读层。该布局同时是 [ch72-A-B-OTA升级与Recovery体系](/posts/ch72-A-B-OTA升级与Recovery体系/) 动态分区的公共底座。
+分区布局三板斧：p1=只读系统(squashfs)、p2=数据(/data, ext4 rw)、不配 swap（嵌入式禁用）。所有可变状态归拢 /data：应用配置、overlay upper、日志持久部分；易失部分归 tmpfs。出厂重置的正确实现：**清 upper 层而非重刷固件**——删空 `/data/ov` 后重启即恢复出厂，秒级完成且绝不伤及 lower 只读层。该布局同时是 [ch72-A-B-OTA升级与Recovery体系](/Learning-Obsidian./posts/ch72-A-B-OTA升级与Recovery体系/) 动态分区的公共底座。
 
 ## 57.7 参数调试技巧
 | 症状 | 测量手段 | 调什么 | 判据 |
@@ -125,7 +128,7 @@ switch_root /mnt/merged /sbin/init
 ## 57.10 部署注意事项
 1. workdir 必须与 upperdir 同一文件系统且为空目录，否则 mount 直接报 EINVAL。
 2. fstab 里根分区务必 `ro,noatime`；`commit=60` 只加在 /data 这类 rw 分区上。
-3. 升级流程只替换 lower 镜像，禁止在线改 upper 里的系统文件；挂载脚本范本抄 OpenWrt（squashfs+overlay 宗师，见 [ch92-P6-OpenWrt定制路由器全志H3](/posts/ch92-P6-OpenWrt定制路由器全志H3/)）。
+3. 升级流程只替换 lower 镜像，禁止在线改 upper 里的系统文件；挂载脚本范本抄 OpenWrt（squashfs+overlay 宗师，见 [ch92-P6-OpenWrt定制路由器全志H3](/Learning-Obsidian./posts/ch92-P6-OpenWrt定制路由器全志H3/)）。
 4. 首开机种子复制脚本要有幂等标记，防止每次开机重复覆盖用户配置。
 
 > [!example]- 🧪 动手实验 L57-1：亲手搭一套只读系统（70 分钟）
@@ -152,4 +155,4 @@ switch_root /mnt/merged /sbin/init
 </div>
 
 ---
-🏷️ #domain/linux #topic/rootfs | 🔗 [ch56-启动流程深度剖析systemd提速](/posts/ch56-启动流程深度剖析systemd提速/) ← **本章** → [ch58-字符设备驱动hello-drv到并发安全](/posts/ch58-字符设备驱动hello-drv到并发安全/) | 📚 [P6-MOC](/posts/P6-MOC/)
+🏷️ #domain/linux #topic/rootfs | 🔗 [ch56-启动流程深度剖析systemd提速](/Learning-Obsidian./posts/ch56-启动流程深度剖析systemd提速/) ← **本章** → [ch58-字符设备驱动hello-drv到并发安全](/Learning-Obsidian./posts/ch58-字符设备驱动hello-drv到并发安全/) | 📚 [P6-MOC](/Learning-Obsidian./posts/P6-MOC/)

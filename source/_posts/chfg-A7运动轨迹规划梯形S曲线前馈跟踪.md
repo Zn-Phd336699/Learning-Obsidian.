@@ -17,12 +17,15 @@ chapter: A7
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★★☆ | 前置 [chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO](/posts/chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO/) | → [chfh-A8校验族谱CRC全家汉明HMAC边界](/posts/chfh-A8校验族谱CRC全家汉明HMAC边界/)
+⏱ 35min | ★★★★☆ | 前置 [chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO](/Learning-Obsidian./posts/chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO/) | → [chfh-A8校验族谱CRC全家汉明HMAC边界](/Learning-Obsidian./posts/chfh-A8校验族谱CRC全家汉明HMAC边界/)
 
 </div>
 </div>
 
 「点到点」与「优雅地到点」之间差一条规划好的速度曲线。本章让电机不丢步、机构不撞墙、伺服不过冲。
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 实现梯形速度规划的在线（步进式）版本，覆盖三种边界情况
@@ -154,4 +157,4 @@ PID 仅处理残差 e = pos_ref − pos_meas
 </div>
 
 ---
-🏷️ #domain/algorithms #topic/motion-planning | 🔗 [chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO](/posts/chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO/) ← **本章** → [chfh-A8校验族谱CRC全家汉明HMAC边界](/posts/chfh-A8校验族谱CRC全家汉明HMAC边界/) | 📚 [P11-MOC](/posts/P11-MOC/)
+🏷️ #domain/algorithms #topic/motion-planning | 🔗 [chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO](/Learning-Obsidian./posts/chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO/) ← **本章** → [chfh-A8校验族谱CRC全家汉明HMAC边界](/Learning-Obsidian./posts/chfh-A8校验族谱CRC全家汉明HMAC边界/) | 📚 [P11-MOC](/Learning-Obsidian./posts/P11-MOC/)

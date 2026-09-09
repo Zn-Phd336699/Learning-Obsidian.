@@ -1,6 +1,6 @@
 ---
 title: 第81章 WiFi协议栈实战：wpa_supplicant/hostapd
-date: 2025-01-01
+date: 2025-03-12
 categories:
   - 协议开发
 tags:
@@ -17,10 +17,13 @@ chapter: 81
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch80a-MQTT-CoAP云协议本体与实现](/posts/ch80a-MQTT-CoAP云协议本体与实现/) | → [ch82-BLE开发GATT设计BlueZ-DFU](/posts/ch82-BLE开发GATT设计BlueZ-DFU/)
+⏱ 40min | ★★★★☆ | 前置 [ch80a-MQTT-CoAP云协议本体与实现](/Learning-Obsidian./posts/ch80a-MQTT-CoAP云协议本体与实现/) | → [ch82-BLE开发GATT设计BlueZ-DFU](/Learning-Obsidian./posts/ch82-BLE开发GATT设计BlueZ-DFU/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 复述关联五步曲与各步抓包失败指纹，完成 wpa_supplicant(STA)/hostapd(软AP) 双角色配置与 wpa_cli/iw 诊断
@@ -151,4 +154,4 @@ esp_now_send(peer_mac, payload, len);
 </div>
 
 ---
-🏷️ #domain/protocol #topic/wifi | 🔗 [ch80a-MQTT-CoAP云协议本体与实现](/posts/ch80a-MQTT-CoAP云协议本体与实现/) ← **本章** → [ch82-BLE开发GATT设计BlueZ-DFU](/posts/ch82-BLE开发GATT设计BlueZ-DFU/) | 📚 [P8-MOC](/posts/P8-MOC/)
+🏷️ #domain/protocol #topic/wifi | 🔗 [ch80a-MQTT-CoAP云协议本体与实现](/Learning-Obsidian./posts/ch80a-MQTT-CoAP云协议本体与实现/) ← **本章** → [ch82-BLE开发GATT设计BlueZ-DFU](/Learning-Obsidian./posts/ch82-BLE开发GATT设计BlueZ-DFU/) | 📚 [P8-MOC](/Learning-Obsidian./posts/P8-MOC/)

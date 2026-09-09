@@ -1,6 +1,6 @@
 ---
 title: 第19章 逻辑分析仪实战：sigrok/PulseView 协议解码与时序测量
-date: 2025-01-01
+date: 2025-05-13
 categories:
   - 调试工具链
 tags:
@@ -17,12 +17,15 @@ chapter: 19
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★☆☆ | 前置 [ch18-示波器实战](/posts/ch18-示波器实战/) | → [ch20-频谱仪与射频排障](/posts/ch20-频谱仪与射频排障/)
+⏱ 40min | ★★★☆☆ | 前置 [ch18-示波器实战](/Learning-Obsidian./posts/ch18-示波器实战/) | → [ch20-频谱仪与射频排障](/Learning-Obsidian./posts/ch20-频谱仪与射频排障/)
 
 </div>
 </div>
 
 ¥30 的 24MHz 逻辑分析仪（Logic Analyzer, LA）是嵌入式性价比之王：多通道并行、深存储、自动协议解码。
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 完成 PulseView 配置三要素：采样率、阈值电压、触发条件
@@ -59,14 +62,14 @@ chapter: 19
 ```text
 参数：sda/scl 通道，7bit 地址；健康链 START→ADDR+R/W→ACK(从机拉低)→DATA...→STOP
 病灶：ADDR 后 NACK=地址错/器件未上电/被其他主机占用；DATA 中途 NACK=从机忙(EEPROM 写周期!)
-     SCL 卡死在低=从机 clock stretch 失控→[ch76-I2C协议与排障时钟拉伸总线锁死多主机](/posts/ch76-I2C协议与排障时钟拉伸总线锁死多主机/)九步解锁
+     SCL 卡死在低=从机 clock stretch 失控→[ch76-I2C协议与排障时钟拉伸总线锁死多主机](/Learning-Obsidian./posts/ch76-I2C协议与排障时钟拉伸总线锁死多主机/)九步解锁
      连续 START 重复=主机重试风暴，查上层超时参数
 ```
 **SPI**：
 ```text
 参数：MOSI/MISO/CLK/CS + CPOL/CPHA 模式 + 位序
 高频陷阱：模式配错→数据整体移位半个 bit，解码乱码但波形看着"正常"——对照手册第一个采样时钟沿确认
-Flash 利器：解码出 9F(JEDEC ID) 应答 EF4018...；读 ID 不对→查 WP#/HOLD# 电平、QPI 残留([ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡](/posts/ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡/))
+Flash 利器：解码出 9F(JEDEC ID) 应答 EF4018...；读 ID 不对→查 WP#/HOLD# 电平、QPI 残留([ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡](/Learning-Obsidian./posts/ch77-SPI-QSPI与Flash驱动JEDEC-XIP磨损均衡/))
 ```
 **UART/RS485**：停止位处仍是低=framing error（波特率失配/线路噪声）；fx2 不支持数学通道，RS485 差分直接测 A/B 各一路对地肉眼合成。
 
@@ -153,4 +156,4 @@ sigrok-cli -d fx2 -c samplerate=1M --time 2s -P uart:baudrate=115200
 </div>
 
 ---
-🏷️ #domain/fundamentals #topic/logic-analyzer | 🔗 [ch18-示波器实战](/posts/ch18-示波器实战/) ← **本章** → [ch20-频谱仪与射频排障](/posts/ch20-频谱仪与射频排障/) | 📚 [P2-MOC](/posts/P2-MOC/)
+🏷️ #domain/fundamentals #topic/logic-analyzer | 🔗 [ch18-示波器实战](/Learning-Obsidian./posts/ch18-示波器实战/) ← **本章** → [ch20-频谱仪与射频排障](/Learning-Obsidian./posts/ch20-频谱仪与射频排障/) | 📚 [P2-MOC](/Learning-Obsidian./posts/P2-MOC/)

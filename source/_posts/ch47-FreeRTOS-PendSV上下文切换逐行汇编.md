@@ -1,6 +1,6 @@
 ---
 title: 第47章 FreeRTOS 内核源码导读②：PendSV 上下文切换逐行汇编
-date: 2025-01-01
+date: 2025-04-15
 categories:
   - RTOS
 tags:
@@ -17,10 +17,13 @@ chapter: 47
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★★ | 前置 [ch46-FreeRTOS内核源码导读任务TCB与调度器](/posts/ch46-FreeRTOS内核源码导读任务TCB与调度器/) | → [ch48-FreeRTOS-IPC五件套源码解析](/posts/ch48-FreeRTOS-IPC五件套源码解析/)
+⏱ 40min | ★★★★★ | 前置 [ch46-FreeRTOS内核源码导读任务TCB与调度器](/Learning-Obsidian./posts/ch46-FreeRTOS内核源码导读任务TCB与调度器/) | → [ch48-FreeRTOS-IPC五件套源码解析](/Learning-Obsidian./posts/ch48-FreeRTOS-IPC五件套源码解析/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 逐行解读 xPortPendSVHandler 三阶段汇编，说清硬件/软件压栈分界与 FPU 懒压栈时机
@@ -158,4 +161,4 @@ SysTick 自己**不做切换**——只做记账与「踢一脚」，真正交�
 </div>
 
 ---
-🏷️ #domain/rtos #topic/context-switch | 🔗 [ch46-FreeRTOS内核源码导读任务TCB与调度器](/posts/ch46-FreeRTOS内核源码导读任务TCB与调度器/) ← **本章** → [ch48-FreeRTOS-IPC五件套源码解析](/posts/ch48-FreeRTOS-IPC五件套源码解析/) | 📚 [P5-MOC](/posts/P5-MOC/)
+🏷️ #domain/rtos #topic/context-switch | 🔗 [ch46-FreeRTOS内核源码导读任务TCB与调度器](/Learning-Obsidian./posts/ch46-FreeRTOS内核源码导读任务TCB与调度器/) ← **本章** → [ch48-FreeRTOS-IPC五件套源码解析](/Learning-Obsidian./posts/ch48-FreeRTOS-IPC五件套源码解析/) | 📚 [P5-MOC](/Learning-Obsidian./posts/P5-MOC/)

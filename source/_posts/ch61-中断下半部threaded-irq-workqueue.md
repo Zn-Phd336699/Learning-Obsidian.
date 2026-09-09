@@ -1,6 +1,6 @@
 ---
 title: 第61章 中断下半部机制：threaded_irq / workqueue / tasklet 兴衰
-date: 2025-01-01
+date: 2025-04-01
 categories:
   - 嵌入式Linux
 tags:
@@ -18,10 +18,13 @@ chapter: 61
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 30min | ★★★★☆ | 前置 [ch60-子系统驱动GPIO-input-IIO-RTC-WDT](/posts/ch60-子系统驱动GPIO-input-IIO-RTC-WDT/) | → [ch62-应用编程epoll进程线程IPC](/posts/ch62-应用编程epoll进程线程IPC/)
+⏱ 30min | ★★★★☆ | 前置 [ch60-子系统驱动GPIO-input-IIO-RTC-WDT](/Learning-Obsidian./posts/ch60-子系统驱动GPIO-input-IIO-RTC-WDT/) | → [ch62-应用编程epoll进程线程IPC](/Learning-Obsidian./posts/ch62-应用编程epoll进程线程IPC/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 讲清 softirq/tasklet/workqueue/threaded irq 四者的执行上下文差异与选型现状
@@ -30,7 +33,7 @@ chapter: 61
 - [ ] 用 ftrace irqsoff 量化最长关中断区间并给出优化路径
 
 ## 61.1 上半部/下半部分工原则
-铁律：**上半部越短越好**。上半部（hardirq）在中断关闭的上下文执行，只做判源、清标志、应答硬件三件事，快进快出；一切耗时或需睡眠的处理全部推给下半部。判断标准：「这段代码必须立刻在中断上下文做完吗？」不是就下放。MCU 裸机的中断标志纪律（[ch24-中断系统与NVIC深度应用](/posts/ch24-中断系统与NVIC深度应用/)）在 Linux 演化成了机制化的下半部家族。
+铁律：**上半部越短越好**。上半部（hardirq）在中断关闭的上下文执行，只做判源、清标志、应答硬件三件事，快进快出；一切耗时或需睡眠的处理全部推给下半部。判断标准：「这段代码必须立刻在中断上下文做完吗？」不是就下放。MCU 裸机的中断标志纪律（[ch24-中断系统与NVIC深度应用](/Learning-Obsidian./posts/ch24-中断系统与NVIC深度应用/)）在 Linux 演化成了机制化的下半部家族。
 
 ## 61.2 三种（+1）下半部对照
 
@@ -99,9 +102,9 @@ schedule_work(&priv->work);              /* 提交到系统共享队列 */
 检测手法：`watch -n1 cat /proc/interrupts` 看目标 IRQ 计数是否「频闪式暴涨」，同时 top 观察 si 列飙升；配合 `cat /proc/irq/N/spurious` 看 nobody cared 计数。
 
 ## 61.6 中断延迟优化工具箱
-1. **IRQ affinity**：`echo 2 > /proc/irq/N/smp_affinity` 把网口中断钉到核 1、业务跑核 0——隔离互扰（衔接 [ch65-性能优化CPU隔离cgroup-io调优](/posts/ch65-性能优化CPU隔离cgroup-io调优/)）；
+1. **IRQ affinity**：`echo 2 > /proc/irq/N/smp_affinity` 把网口中断钉到核 1、业务跑核 0——隔离互扰（衔接 [ch65-性能优化CPU隔离cgroup-io调优](/Learning-Obsidian./posts/ch65-性能优化CPU隔离cgroup-io调优/)）；
 2. **NAPI 思想**：高流量场景「关中断+轮询」混合模式，避免每包一中断的风暴；
-3. **PREEMPT_RT 视角**：几乎所有 spinlock 变可睡眠，threaded irq 优先级可用 chrt 调——实时调优主战场；**测量**用 ftrace 的 irqsoff/preemptoff tracer（[ch16-perf-ftrace-strace性能剖析](/posts/ch16-perf-ftrace-strace性能剖析/)）直接输出最长关中断区间及责任链。
+3. **PREEMPT_RT 视角**：几乎所有 spinlock 变可睡眠，threaded irq 优先级可用 chrt 调——实时调优主战场；**测量**用 ftrace 的 irqsoff/preemptoff tracer（[ch16-perf-ftrace-strace性能剖析](/Learning-Obsidian./posts/ch16-perf-ftrace-strace性能剖析/)）直接输出最长关中断区间及责任链。
 
 ## 61.7 实测数据表：三种下半部方案延迟与吞吐（模拟 1kHz 中断 + 1ms 处理）
 
@@ -130,7 +133,7 @@ schedule_work(&priv->work);              /* 提交到系统共享队列 */
 > **步骤**：① 用 gpio-keys 或自制驱动故意不清 EXTI 源；② 观察 /proc/interrupts 增速与 CPU si 飙升；③ 等 "nobody cared" 出现并记录阈值行为；④ 修复清源逻辑恢复系统；⑤ 用 irqsoff tracer 对比修复前后最长关中断时长。**验收**：产出完整「病理与康复报告」——包含风暴计数曲线、阈值日志、修复后 tracer 对比数据。
 
 ## 61.10 进阶话题
-- IRQ affinity 与 RPS 配合：多队列网卡分核收中断、RPS 再分发软中断——4 核板吞吐翻倍组合拳（NAPI 在 [ch80-以太网与lwIP协议栈源码导读](/posts/ch80-以太网与lwIP协议栈源码导读/) 再现）；
+- IRQ affinity 与 RPS 配合：多队列网卡分核收中断、RPS 再分发软中断——4 核板吞吐翻倍组合拳（NAPI 在 [ch80-以太网与lwIP协议栈源码导读](/Learning-Obsidian./posts/ch80-以太网与lwIP协议栈源码导读/) 再现）；
 - PREEMPT_RT 变化：hardirq 多数也线程化，「关中断时长」指标退位，「抢占延迟」登场；ksoftirqd 冒头=软中断过载，先调 NAPI weight/预算再换协议路径；
 - perf record -e irq:irq_handler_entry 聚合各 ISR 耗时分布；范本 drivers/input/touchscreen/goodix.c 是 threaded irq 教科书实例。
 
@@ -152,4 +155,4 @@ schedule_work(&priv->work);              /* 提交到系统共享队列 */
 </div>
 
 ---
-🏷️ #domain/linux #topic/interrupt #topic/bottom-half | 🔗 [ch60-子系统驱动GPIO-input-IIO-RTC-WDT](/posts/ch60-子系统驱动GPIO-input-IIO-RTC-WDT/) ← **本章** → [ch62-应用编程epoll进程线程IPC](/posts/ch62-应用编程epoll进程线程IPC/) | 📚 [P6-MOC](/posts/P6-MOC/)
+🏷️ #domain/linux #topic/interrupt #topic/bottom-half | 🔗 [ch60-子系统驱动GPIO-input-IIO-RTC-WDT](/Learning-Obsidian./posts/ch60-子系统驱动GPIO-input-IIO-RTC-WDT/) ← **本章** → [ch62-应用编程epoll进程线程IPC](/Learning-Obsidian./posts/ch62-应用编程epoll进程线程IPC/) | 📚 [P6-MOC](/Learning-Obsidian./posts/P6-MOC/)

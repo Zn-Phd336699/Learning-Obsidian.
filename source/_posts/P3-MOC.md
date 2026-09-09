@@ -1,6 +1,6 @@
 ---
 title: P3 单片机开发
-date: 2025-01-01
+date: 2025-06-28
 categories:
   - 单片机开发
 tags:
@@ -11,17 +11,17 @@ tags:
 # 第三篇 · 单片机开发
 | 章 | 链接 | 难度 |
 |---|---|---|
-|21|[ch21-Cortex-M架构精讲](/posts/ch21-Cortex-M架构精讲/)|★★★★|
-|22|[ch22-STM32生态与F407硬件](/posts/ch22-STM32生态与F407硬件/)|★★|
-|23|[ch23-GPIO与时钟树实战](/posts/ch23-GPIO与时钟树实战/)|★|
-|24|[ch24-中断系统与NVIC深度应用](/posts/ch24-中断系统与NVIC深度应用/)|★★★★|
-|25|[ch25-定时器全家桶](/posts/ch25-定时器全家桶/)|★★★|
-|26|[ch26-DMA与Cache一致性](/posts/ch26-DMA与Cache一致性/)|★★★★|
-|27|[ch27-ADC-DAC与模拟前端](/posts/ch27-ADC-DAC与模拟前端/)|★★★|
-|28|[ch28-串口工程化IDLE-DMA-RS485](/posts/ch28-串口工程化IDLE-DMA-RS485/)|★★★|
-|29|[ch29-低功耗设计](/posts/ch29-低功耗设计/)|★★★|
-|29A|[ch29a-电源异常与掉电保护](/posts/ch29a-电源异常与掉电保护/)|★★★|
-|30|[ch30-Bootloader-IAP-OTA固件升级体系](/posts/ch30-Bootloader-IAP-OTA固件升级体系/)|★★★★|
-|31|[ch31-ESP-IDF入门](/posts/ch31-ESP-IDF入门/)|★★|
-|32|[ch32-ESP32外设与WiFi-BLE上手](/posts/ch32-ESP32外设与WiFi-BLE上手/)|★★|
-|33|[ch33-综合实战环境监测终端](/posts/ch33-综合实战环境监测终端/)|★★★|
+|21|[ch21-Cortex-M架构精讲](/Learning-Obsidian./posts/ch21-Cortex-M架构精讲/)|★★★★|
+|22|[ch22-STM32生态与F407硬件](/Learning-Obsidian./posts/ch22-STM32生态与F407硬件/)|★★|
+|23|[ch23-GPIO与时钟树实战](/Learning-Obsidian./posts/ch23-GPIO与时钟树实战/)|★|
+|24|[ch24-中断系统与NVIC深度应用](/Learning-Obsidian./posts/ch24-中断系统与NVIC深度应用/)|★★★★|
+|25|[ch25-定时器全家桶](/Learning-Obsidian./posts/ch25-定时器全家桶/)|★★★|
+|26|[ch26-DMA与Cache一致性](/Learning-Obsidian./posts/ch26-DMA与Cache一致性/)|★★★★|
+|27|[ch27-ADC-DAC与模拟前端](/Learning-Obsidian./posts/ch27-ADC-DAC与模拟前端/)|★★★|
+|28|[ch28-串口工程化IDLE-DMA-RS485](/Learning-Obsidian./posts/ch28-串口工程化IDLE-DMA-RS485/)|★★★|
+|29|[ch29-低功耗设计](/Learning-Obsidian./posts/ch29-低功耗设计/)|★★★|
+|29A|[ch29a-电源异常与掉电保护](/Learning-Obsidian./posts/ch29a-电源异常与掉电保护/)|★★★|
+|30|[ch30-Bootloader-IAP-OTA固件升级体系](/Learning-Obsidian./posts/ch30-Bootloader-IAP-OTA固件升级体系/)|★★★★|
+|31|[ch31-ESP-IDF入门](/Learning-Obsidian./posts/ch31-ESP-IDF入门/)|★★|
+|32|[ch32-ESP32外设与WiFi-BLE上手](/Learning-Obsidian./posts/ch32-ESP32外设与WiFi-BLE上手/)|★★|
+|33|[ch33-综合实战环境监测终端](/Learning-Obsidian./posts/ch33-综合实战环境监测终端/)|★★★|

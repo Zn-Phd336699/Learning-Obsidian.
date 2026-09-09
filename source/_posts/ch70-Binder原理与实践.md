@@ -1,6 +1,6 @@
 ---
 title: 第70章 Binder原理与实践
-date: 2025-01-01
+date: 2025-03-23
 categories:
   - Android底层
 tags:
@@ -17,10 +17,13 @@ chapter: 70
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★★ | 前置 [ch69-HAL演进与AIDL-HAL实战](/posts/ch69-HAL演进与AIDL-HAL实战/) | → [ch71-设备适配DTB-sepolicy-vendor-blobs](/posts/ch71-设备适配DTB-sepolicy-vendor-blobs/)
+⏱ 45min | ★★★★★ | 前置 [ch69-HAL演进与AIDL-HAL实战](/Learning-Obsidian./posts/ch69-HAL演进与AIDL-HAL实战/) | → [ch71-设备适配DTB-sepolicy-vendor-blobs](/Learning-Obsidian./posts/ch71-设备适配DTB-sepolicy-vendor-blobs/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 讲清 Binder「一次拷贝」的 mmap 物理内存映射原理
@@ -134,7 +137,7 @@ debugfs 路径 `/sys/kernel/debug/binder/`（多数设备有 `/d/binder` 符号�
 ## 70.9 进阶话题
 - **context manager 即 DNS**：handle 0 的 ServiceManager 本身也是 binder 服务——鸡生蛋问题由 init 内置解决
 - **frozen state(Android 11+)**：后台进程 cgroup freezer 冻结后 binder 事务挂起，唤醒后恢复
-- **源码级精读**：内核 drivers/android/binder.c 注释 + AOSP「Binder IPC」设计文档；面试高频见 [A-面试题库](/posts/A-面试题库/)
+- **源码级精读**：内核 drivers/android/binder.c 注释 + AOSP「Binder IPC」设计文档；面试高频见 [A-面试题库](/Learning-Obsidian./posts/A-面试题库/)
 
 > [!warning]- ❓ FAQ
 > **Q1：为什么单事务上限约 1MB 且不能随意加大？** mmap 缓冲是每进程共享总池，加大将放大碎片与 DoS 攻击面——安全考虑固定大小。
@@ -152,4 +155,4 @@ debugfs 路径 `/sys/kernel/debug/binder/`（多数设备有 `/d/binder` 符号�
 </div>
 
 ---
-🏷️ #domain/android #topic/binder | 🔗 [ch69-HAL演进与AIDL-HAL实战](/posts/ch69-HAL演进与AIDL-HAL实战/) ← **本章** → [ch71-设备适配DTB-sepolicy-vendor-blobs](/posts/ch71-设备适配DTB-sepolicy-vendor-blobs/) | 📚 [P7-MOC](/posts/P7-MOC/)
+🏷️ #domain/android #topic/binder | 🔗 [ch69-HAL演进与AIDL-HAL实战](/Learning-Obsidian./posts/ch69-HAL演进与AIDL-HAL实战/) ← **本章** → [ch71-设备适配DTB-sepolicy-vendor-blobs](/Learning-Obsidian./posts/ch71-设备适配DTB-sepolicy-vendor-blobs/) | 📚 [P7-MOC](/Learning-Obsidian./posts/P7-MOC/)

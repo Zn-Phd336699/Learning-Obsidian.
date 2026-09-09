@@ -17,10 +17,13 @@ chapter: S2
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [chsa-S1安全架构与SecureBoot实战](/posts/chsa-S1安全架构与SecureBoot实战/) | → [chsc-S3-HIL测试台架与Renode仿真](/posts/chsc-S3-HIL测试台架与Renode仿真/)
+⏱ 40min | ★★★★☆ | 前置 [chsa-S1安全架构与SecureBoot实战](/Learning-Obsidian./posts/chsa-S1安全架构与SecureBoot实战/) | → [chsc-S3-HIL测试台架与Renode仿真](/Learning-Obsidian./posts/chsc-S3-HIL测试台架与Renode仿真/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 建立设备密钥 L1~L4 分级体系与全生命周期流程（生成→注入→使用→轮换→吊销）
@@ -106,7 +109,7 @@ device_secret = HMAC-SHA256( factory_seed, UNIQUE_UID )   // 服务端计算
 | ATECC608(I2C@1MHz) | ~35ms(I2C 往返主导) | +25ms |
 | SE050(I2C 快速档) | ~20ms | +10ms |
 
-结论：会话复用（见 [ch63-网络编程与TLS从socket到安全上云](/posts/ch63-网络编程与TLS从socket到安全上云/)）后握手低频化，+25ms 的一次性代价完全值得换来「私钥不出片」。
+结论：会话复用（见 [ch63-网络编程与TLS从socket到安全上云](/Learning-Obsidian./posts/ch63-网络编程与TLS从socket到安全上云/)）后握手低频化，+25ms 的一次性代价完全值得换来「私钥不出片」。
 
 ## S2.9 参数调试技巧
 | 症状 | 测量手段 | 调什么 | 判据 |
@@ -119,7 +122,7 @@ device_secret = HMAC-SHA256( factory_seed, UNIQUE_UID )   // 服务端计算
 |------|----------|----------|
 | 配置区锁定后想改槽策略被拒 | Lock 是单向操作不可逆 | 只能换新芯片重走产线流程；流程里加「锁定前双人复核」关卡 |
 | 回读「公钥」时拿到全 0xFF | Wake 未生效或通信速率过高 | 降 I2C 速率至 100kHz 复测；检查 tWAKE 时序参数 |
-| 设备被盗刷他人固件仍入网 | L1 根信任未烧入，仅靠应用层校验 | 回查 [chsa-S1安全架构与SecureBoot实战](/posts/chsa-S1安全架构与SecureBoot实战/) 流程补齐 eFuse 公钥哈希 |
+| 设备被盗刷他人固件仍入网 | L1 根信任未烧入，仅靠应用层校验 | 回查 [chsa-S1安全架构与SecureBoot实战](/Learning-Obsidian./posts/chsa-S1安全架构与SecureBoot实战/) 流程补齐 eFuse 公钥哈希 |
 
 ## S2.11 部署注意事项
 1. 注入 PC 物理隔离不联网，材料经 U 盘摆渡，全程双人复核日志；
@@ -152,4 +155,4 @@ device_secret = HMAC-SHA256( factory_seed, UNIQUE_UID )   // 服务端计算
 </div>
 
 ---
-🏷️ #安全 #密钥管理 #ATECC608 #ECDSA #Provisioning | 🔗 [chsa-S1安全架构与SecureBoot实战](/posts/chsa-S1安全架构与SecureBoot实战/) ← **本章** → [chsc-S3-HIL测试台架与Renode仿真](/posts/chsc-S3-HIL测试台架与Renode仿真/) | 📚 [P10-MOC](/posts/P10-MOC/)
+🏷️ #安全 #密钥管理 #ATECC608 #ECDSA #Provisioning | 🔗 [chsa-S1安全架构与SecureBoot实战](/Learning-Obsidian./posts/chsa-S1安全架构与SecureBoot实战/) ← **本章** → [chsc-S3-HIL测试台架与Renode仿真](/Learning-Obsidian./posts/chsc-S3-HIL测试台架与Renode仿真/) | 📚 [P10-MOC](/Learning-Obsidian./posts/P10-MOC/)

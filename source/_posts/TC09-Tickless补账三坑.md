@@ -10,6 +10,9 @@ tags:
 
 # TC09 Tickless 补账三大坑
 
+
+<!-- more -->
+
 ## 现象
 低功耗产品日历每天漂移几秒到几分钟，或周期性任务忽长忽短；触发条件：Tickless 唤醒后直接用「预期睡眠时长」补账 tick，而非实测流逝时间。
 
@@ -50,5 +53,5 @@ void vPortSuppressTicksAndSleep(TickType_t xExpectedIdleTime)
 - 测试矩阵必须覆盖「睡满整周期」与「中途被打断」两条路径
 
 ## 关联
-- 源章节：[ch50-FreeRTOS中断管理与Tickless低功耗](/posts/ch50-FreeRTOS中断管理与Tickless低功耗/)
-- 相关章节：[ch29-低功耗设计](/posts/ch29-低功耗设计/)、[ch25-定时器全家桶](/posts/ch25-定时器全家桶/)
+- 源章节：[ch50-FreeRTOS中断管理与Tickless低功耗](/Learning-Obsidian./posts/ch50-FreeRTOS中断管理与Tickless低功耗/)
+- 相关章节：[ch29-低功耗设计](/Learning-Obsidian./posts/ch29-低功耗设计/)、[ch25-定时器全家桶](/Learning-Obsidian./posts/ch25-定时器全家桶/)

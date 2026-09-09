@@ -1,6 +1,6 @@
 ---
 title: 第35章 正点原子 I.MX6U ALPHA 平台详解
-date: 2025-01-01
+date: 2025-04-27
 categories:
   - SoC开发
 tags:
@@ -17,10 +17,13 @@ chapter: 35
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 28min | ★★★☆☆ | 前置 [ch34-ARM-A架构与国产SoC选型地图](/posts/ch34-ARM-A架构与国产SoC选型地图/) | → [ch36-RK平台ATK-DLRK3568-RK3588-Luckfox](/posts/ch36-RK平台ATK-DLRK3568-RK3588-Luckfox/)
+⏱ 28min | ★★★☆☆ | 前置 [ch34-ARM-A架构与国产SoC选型地图](/Learning-Obsidian./posts/ch34-ARM-A架构与国产SoC选型地图/) | → [ch36-RK平台ATK-DLRK3568-RK3588-Luckfox](/Learning-Obsidian./posts/ch36-RK平台ATK-DLRK3568-RK3588-Luckfox/)
 
 </div>
 </div>
+
+<!-- more -->
+
 ## 🎯 学习目标
 - [ ] 盘点 i.MX6ULL 资源与 ALPHA 板载外设映射
 - [ ] 字节级说清 IVT/DCD 结构与拨码开关三种启动方式
@@ -67,7 +70,7 @@ setenv bootargs 'console=ttymxc0,115200 root=/dev/nfs nfsroot=192.168.1.100:/opt
 |------|------------------|----------|
 | NFS 根(ch39) | <5 秒(改文件即生效) | 驱动/应用开发期 ★主力 |
 | eMMC 直烧(rootfs.ext4) | ~3 分钟(uuu 整盘) | 联调稳定后验证启动链 |
-| SquashFS 只读+overlay | ~4 分钟 | 量产形态演练([ch57-根文件系统构建只读overlayfs](/posts/ch57-根文件系统构建只读overlayfs/)) |
+| SquashFS 只读+overlay | ~4 分钟 | 量产形态演练([ch57-根文件系统构建只读overlayfs](/Learning-Obsidian./posts/ch57-根文件系统构建只读overlayfs/)) |
 ## 35.5 HAB 安全启动实操五步
 
 | 步骤 | 操作 | 工具/命令 |
@@ -101,7 +104,7 @@ sleep 30; ssh root@192.168.1.1 "echo $SN > /etc/device_sn; ifconfig eth0 hw ethe
 ssh root@192.168.1.1 "/usr/bin/selftest" | tee result_$SN.log
 grep -q "ALL PASS" result_$SN.log && echo "PASS" >> trace.log || echo "FAIL" >> trace.log
 echo "$SN done at $(date)" >> trace.log
-# ④ 台账闭环：trace.log 是产测追溯的唯一事实源(联动 [chsd-S4-量产工程产测工装与老化](/posts/chsd-S4-量产工程产测工装与老化/))
+# ④ 台账闭环：trace.log 是产测追溯的唯一事实源(联动 [chsd-S4-量产工程产测工装与老化](/Learning-Obsidian./posts/chsd-S4-量产工程产测工装与老化/))
 ```
 ## 35.8 参数调试技巧
 
@@ -151,4 +154,4 @@ echo "$SN done at $(date)" >> trace.log
 </div>
 
 ---
-🏷️ #domain/soc #topic/bootloader #topic/security | 🔗 [ch34-ARM-A架构与国产SoC选型地图](/posts/ch34-ARM-A架构与国产SoC选型地图/) ← **本章** → [ch36-RK平台ATK-DLRK3568-RK3588-Luckfox](/posts/ch36-RK平台ATK-DLRK3568-RK3588-Luckfox/) | 📚 [P4-MOC](/posts/P4-MOC/)
+🏷️ #domain/soc #topic/bootloader #topic/security | 🔗 [ch34-ARM-A架构与国产SoC选型地图](/Learning-Obsidian./posts/ch34-ARM-A架构与国产SoC选型地图/) ← **本章** → [ch36-RK平台ATK-DLRK3568-RK3588-Luckfox](/Learning-Obsidian./posts/ch36-RK平台ATK-DLRK3568-RK3588-Luckfox/) | 📚 [P4-MOC](/Learning-Obsidian./posts/P4-MOC/)

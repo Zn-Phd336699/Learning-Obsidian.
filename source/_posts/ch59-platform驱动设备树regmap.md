@@ -1,6 +1,6 @@
 ---
 title: 第59章 Platform驱动与设备树：of API、regmap 与资源获取
-date: 2025-01-01
+date: 2025-04-03
 categories:
   - 嵌入式Linux
 tags:
@@ -18,10 +18,13 @@ chapter: 59
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 30min | ★★★☆☆ | 前置 [ch58-字符设备驱动hello-drv到并发安全](/posts/ch58-字符设备驱动hello-drv到并发安全/) | → [ch60-子系统驱动GPIO-input-IIO-RTC-WDT](/posts/ch60-子系统驱动GPIO-input-IIO-RTC-WDT/)
+⏱ 30min | ★★★☆☆ | 前置 [ch58-字符设备驱动hello-drv到并发安全](/Learning-Obsidian./posts/ch58-字符设备驱动hello-drv到并发安全/) | → [ch60-子系统驱动GPIO-input-IIO-RTC-WDT](/Learning-Obsidian./posts/ch60-子系统驱动GPIO-input-IIO-RTC-WDT/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 默写 platform 驱动骨架五件套：probe/remove/of_match_table/pm_ops/module_platform_driver
@@ -98,7 +101,7 @@ EPROBE_DEFER：devm_clk_get 失败且原因=供应商未注册 → 返回 -517�
 device 挂回 deferred_probe_list 尾部；supplier 注册完成 → 重扫全列表重试。
 ```
 
-模块参数 `module_param(name, int, 0644)` 自动生成 `/sys/module/mydrv/parameters/name` 运行时开关（本章实验用它控制 defer 次数）；`DEVICE_ATTR_RO(label)` + sysfs group 给设备挂只读属性，用户态直接 `cat`，是 [ch58-字符设备驱动hello-drv到并发安全](/posts/ch58-字符设备驱动hello-drv到并发安全/) ioctl 方案的轻量替代。
+模块参数 `module_param(name, int, 0644)` 自动生成 `/sys/module/mydrv/parameters/name` 运行时开关（本章实验用它控制 defer 次数）；`DEVICE_ATTR_RO(label)` + sysfs group 给设备挂只读属性，用户态直接 `cat`，是 [ch58-字符设备驱动hello-drv到并发安全](/Learning-Obsidian./posts/ch58-字符设备驱动hello-drv到并发安全/) ioctl 方案的轻量替代。
 
 ## 59.6 参数调试技巧
 
@@ -135,7 +138,7 @@ device 挂回 deferred_probe_list 尾部；supplier 注册完成 → 重扫全�
 
 ## 59.10 进阶话题
 - device links（fw_devlink）：把 supplier/consumer 依赖显式化，defer 重试更精准；
-- probe 异步化缩短整机串行 probe 时间——开机提速利器（衔接 [ch56-启动流程深度剖析systemd提速](/posts/ch56-启动流程深度剖析systemd提速/)）；电源管理钩子 SET_SYSTEM_SLEEP_PM_OPS/SET_RUNTIME_PM_OPS 的 suspend 四步职责清单见内核文档 devres/device_link；
+- probe 异步化缩短整机串行 probe 时间——开机提速利器（衔接 [ch56-启动流程深度剖析systemd提速](/Learning-Obsidian./posts/ch56-启动流程深度剖析systemd提速/)）；电源管理钩子 SET_SYSTEM_SLEEP_PM_OPS/SET_RUNTIME_PM_OPS 的 suspend 四步职责清单见内核文档 devres/device_link；
 - 开源范本 drivers/hwmon/tmp102.c 是本节骨架的官方真身，值得逐行精读。
 
 > [!warning]- ❓ FAQ
@@ -154,4 +157,4 @@ device 挂回 deferred_probe_list 尾部；supplier 注册完成 → 重扫全�
 </div>
 
 ---
-🏷️ #domain/linux #topic/platform #topic/regmap | 🔗 [ch58-字符设备驱动hello-drv到并发安全](/posts/ch58-字符设备驱动hello-drv到并发安全/) ← **本章** → [ch60-子系统驱动GPIO-input-IIO-RTC-WDT](/posts/ch60-子系统驱动GPIO-input-IIO-RTC-WDT/) | 📚 [P6-MOC](/posts/P6-MOC/)
+🏷️ #domain/linux #topic/platform #topic/regmap | 🔗 [ch58-字符设备驱动hello-drv到并发安全](/Learning-Obsidian./posts/ch58-字符设备驱动hello-drv到并发安全/) ← **本章** → [ch60-子系统驱动GPIO-input-IIO-RTC-WDT](/Learning-Obsidian./posts/ch60-子系统驱动GPIO-input-IIO-RTC-WDT/) | 📚 [P6-MOC](/Learning-Obsidian./posts/P6-MOC/)

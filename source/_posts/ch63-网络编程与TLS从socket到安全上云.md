@@ -1,6 +1,6 @@
 ---
 title: 第63章 网络编程与TLS：从socket到安全上云
-date: 2025-01-01
+date: 2025-03-30
 categories:
   - 嵌入式Linux
 tags:
@@ -18,10 +18,13 @@ chapter: 63
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch62-应用编程epoll进程线程IPC](/posts/ch62-应用编程epoll进程线程IPC/) | → [ch64-内核调试Oops解读debugfs-kdump](/posts/ch64-内核调试Oops解读debugfs-kdump/)
+⏱ 40min | ★★★★☆ | 前置 [ch62-应用编程epoll进程线程IPC](/Learning-Obsidian./posts/ch62-应用编程epoll进程线程IPC/) | → [ch64-内核调试Oops解读debugfs-kdump](/Learning-Obsidian./posts/ch64-内核调试Oops解读debugfs-kdump/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 写出生产级 TCP 客户端：非阻塞 connect 超时、TCP_NODELAY、keepalive 三件套
@@ -119,12 +122,12 @@ mosquitto_pub -h cloud.example.com -p 8883 \
 | TLS 握手耗 2~5 秒 | RSA2048 软算慢/无会话复用 | 换 ECDSA 证书；session resumption；OCSP stapling 关闭 |
 | 运行数天内存涨 | 每次连接新建 SSL 上下文未释放 | valgrind 定位；上下文池化复用 |
 | 偶发 connection reset by peer | NAT 超时静默断链 | TCP keepalive < NAT 表项寿命；应用心跳双保险 |
-| UDP 大包收不到 | 分片丢失/IP_RECVERR 未开 | 应用层分块；MTU 探测（联动 [ch17-Wireshark-tcpdump抓包分析](/posts/ch17-Wireshark-tcpdump抓包分析/)） |
+| UDP 大包收不到 | 分片丢失/IP_RECVERR 未开 | 应用层分块；MTU 探测（联动 [ch17-Wireshark-tcpdump抓包分析](/Learning-Obsidian./posts/ch17-Wireshark-tcpdump抓包分析/)） |
 ## 63.8 部署注意事项
 1. 无 RTC 电池设备先 SNTP 再 TLS；时钟不可靠场景用「有效期放宽+首次连接信任窗口+云端异常监控」兜底；
 2. 出厂烧录唯一设备证书，私钥进安全元件/OTP 区最佳，云端注册白名单；
 3. 续期走 EST/SCEP 自动协议或运维通道下发新 cert（私钥不动）；
-4. 蜂窝/NAT 网络 keepalive 间隔必须小于 NAT 表项寿命（联动 [ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网](/posts/ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网/)）；
+4. 蜂窝/NAT 网络 keepalive 间隔必须小于 NAT 表项寿命（联动 [ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网](/Learning-Obsidian./posts/ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网/)）；
 5. 证书轮换：内置「信任锚+可更新中间层」，云端双证书并行期平滑过渡——别等过期才想起。
 
 > [!example]- 🧪 动手实验 L63-1：双向认证全流程+断链自愈演练（70 分钟）
@@ -152,4 +155,4 @@ mosquitto_pub -h cloud.example.com -p 8883 \
 </div>
 
 ---
-🏷️ #domain/linux #topic/network #topic/tls | 🔗 [ch62-应用编程epoll进程线程IPC](/posts/ch62-应用编程epoll进程线程IPC/) ← **本章** → [ch64-内核调试Oops解读debugfs-kdump](/posts/ch64-内核调试Oops解读debugfs-kdump/) | 📚 [P6-MOC](/posts/P6-MOC/)
+🏷️ #domain/linux #topic/network #topic/tls | 🔗 [ch62-应用编程epoll进程线程IPC](/Learning-Obsidian./posts/ch62-应用编程epoll进程线程IPC/) ← **本章** → [ch64-内核调试Oops解读debugfs-kdump](/Learning-Obsidian./posts/ch64-内核调试Oops解读debugfs-kdump/) | 📚 [P6-MOC](/Learning-Obsidian./posts/P6-MOC/)

@@ -1,6 +1,6 @@
 ---
 title: 第44B章 RK3588 项目实战②：NAS 与边缘服务器
-date: 2025-01-01
+date: 2025-04-18
 categories:
   - SoC开发
 tags:
@@ -18,10 +18,13 @@ chapter: 44B
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch44a-RK3588四目AI视觉工作站](/posts/ch44a-RK3588四目AI视觉工作站/) | → [ch44c-新板矩阵五块新硬件开箱与分析](/posts/ch44c-新板矩阵五块新硬件开箱与分析/)
+⏱ 40min | ★★★★☆ | 前置 [ch44a-RK3588四目AI视觉工作站](/Learning-Obsidian./posts/ch44a-RK3588四目AI视觉工作站/) | → [ch44c-新板矩阵五块新硬件开箱与分析](/Learning-Obsidian./posts/ch44c-新板矩阵五块新硬件开箱与分析/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 会做 RK3588 平台 PCIe 拓扑规划与 SATA 存储栈选型
@@ -117,7 +120,7 @@ ip link add bond0 type bond && ip link set eth1 master bond0            # mode=8
 | 10 | 出厂设备残留测试数据 | 忘清测试容器卷 | 产测 SOP 增加「恢复出厂」步骤(ch57 重置方案) |
 
 ## 44B.8 部署注意事项（可靠性工程清单）
-1. eMMC 写放大治理：日志/journald volatile 化、数据库容器强制落 HDD/SSD 分区（[ch57-根文件系统构建只读overlayfs](/posts/ch57-根文件系统构建只读overlayfs/) 只读方案复用）；
+1. eMMC 写放大治理：日志/journald volatile 化、数据库容器强制落 HDD/SSD 分区（[ch57-根文件系统构建只读overlayfs](/Learning-Obsidian./posts/ch57-根文件系统构建只读overlayfs/) 只读方案复用）；
 2. 看门狗三级：硬件 WDT + systemd WatchdogSec + 容器 healthcheck（ch44 同款三级守护思想）；
 3. 温度分级策略：HDD 仓 45℃ 风扇起转、SoC 75℃ 降频——thermal zones 显式配置；
 4. 供应链双源：核心板与 HDD 各锁第二供货源；固件仓库保存全量可复现构建；
@@ -149,4 +152,4 @@ ip link add bond0 type bond && ip link set eth1 master bond0            # mode=8
 </div>
 
 ---
-🏷️ #domain/soc #topic/storage #topic/network | 🔗 [ch44a-RK3588四目AI视觉工作站](/posts/ch44a-RK3588四目AI视觉工作站/) ← **本章** → [ch44c-新板矩阵五块新硬件开箱与分析](/posts/ch44c-新板矩阵五块新硬件开箱与分析/) | 📚 [P4-MOC](/posts/P4-MOC/)
+🏷️ #domain/soc #topic/storage #topic/network | 🔗 [ch44a-RK3588四目AI视觉工作站](/Learning-Obsidian./posts/ch44a-RK3588四目AI视觉工作站/) ← **本章** → [ch44c-新板矩阵五块新硬件开箱与分析](/Learning-Obsidian./posts/ch44c-新板矩阵五块新硬件开箱与分析/) | 📚 [P4-MOC](/Learning-Obsidian./posts/P4-MOC/)

@@ -1,6 +1,6 @@
 ---
 title: 第11章 构建系统 Makefile-CMake-Kconfig
-date: 2025-01-01
+date: 2025-05-21
 categories:
   - 调试工具链
 tags:
@@ -17,10 +17,13 @@ chapter: 11
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★☆☆ | 前置 [ch10-GCC交叉编译全景](/posts/ch10-GCC交叉编译全景/) | → [ch12-GDB深度实战](/posts/ch12-GDB深度实战/)
+⏱ 35min | ★★★☆☆ | 前置 [ch10-GCC交叉编译全景](/Learning-Obsidian./posts/ch10-GCC交叉编译全景/) | → [ch12-GDB深度实战](/Learning-Obsidian./posts/ch12-GDB深度实战/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 手写带依赖自动生成、多目录的生产级 Makefile
@@ -154,4 +157,4 @@ config ENABLE_OTA
 </div>
 
 ---
-🏷️ #domain/fundamentals #topic/build-system | 🔗 [ch10-GCC交叉编译全景](/posts/ch10-GCC交叉编译全景/) ← **本章** → [ch12-GDB深度实战](/posts/ch12-GDB深度实战/) | 📚 [P2-MOC](/posts/P2-MOC/)
+🏷️ #domain/fundamentals #topic/build-system | 🔗 [ch10-GCC交叉编译全景](/Learning-Obsidian./posts/ch10-GCC交叉编译全景/) ← **本章** → [ch12-GDB深度实战](/Learning-Obsidian./posts/ch12-GDB深度实战/) | 📚 [P2-MOC](/Learning-Obsidian./posts/P2-MOC/)

@@ -1,6 +1,6 @@
 ---
 title: 第31章 ESP-IDF 入门：环境、组件与 menuconfig
-date: 2025-01-01
+date: 2025-05-01
 categories:
   - 单片机开发
 tags:
@@ -17,10 +17,13 @@ chapter: 31
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 30min | ★★☆☆☆ | 前置 [ch30-Bootloader-IAP-OTA固件升级体系](/posts/ch30-Bootloader-IAP-OTA固件升级体系/) | → [ch32-ESP32外设与WiFi-BLE上手](/posts/ch32-ESP32外设与WiFi-BLE上手/)
+⏱ 30min | ★★☆☆☆ | 前置 [ch30-Bootloader-IAP-OTA固件升级体系](/Learning-Obsidian./posts/ch30-Bootloader-IAP-OTA固件升级体系/) | → [ch32-ESP32外设与WiFi-BLE上手](/Learning-Obsidian./posts/ch32-ESP32外设与WiFi-BLE上手/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 完成 ESP-IDF v5.x 安装与 ESP32-S3 板级适配（menuconfig 五个高频项）
@@ -73,7 +76,7 @@ factory  , app , factory, , 0x10000 , 4M
 assets   , data, spiffs, , 0x410000, 8M
 ```
 
-启用 OTA 再加 ota_0/ota_1 双 slot（[ch89-P3-MCUboot双分区OTA安全升级系统](/posts/ch89-P3-MCUboot双分区OTA安全升级系统/) 实战）。NVS = 非易失键值存储：抗磨损均衡+掉电安全，替代 EEPROM 首选。API 三步走：`nvs_flash_init()` → `nvs_open("wifi",READWRITE,&h)` → `nvs_set_str(h,"ssid",...)`。注意：NVS 满时返回 `NVS_NO_FREE_PAGES`，处理策略=擦除重建或扩容分区。
+启用 OTA 再加 ota_0/ota_1 双 slot（[ch89-P3-MCUboot双分区OTA安全升级系统](/Learning-Obsidian./posts/ch89-P3-MCUboot双分区OTA安全升级系统/) 实战）。NVS = 非易失键值存储：抗磨损均衡+掉电安全，替代 EEPROM 首选。API 三步走：`nvs_flash_init()` → `nvs_open("wifi",READWRITE,&h)` → `nvs_set_str(h,"ssid",...)`。注意：NVS 满时返回 `NVS_NO_FREE_PAGES`，处理策略=擦除重建或扩容分区。
 
 ## 31.5 关键代码：日志五级、Guru Meditation 解码与 heap_caps 多堆
 
@@ -93,7 +96,7 @@ Core dump 默认 UART 输出 backtrace，`idf.py monitor` 自动符号化——G
 | SPIRAM / SPIRAM_SPEED | PSRAM 启用与频率 | y / 80MHz octal |
 | FREERTOS_HZ | tick 频率 | 1000 |
 | COMPILER_OPTIMIZATION | -Og/-O2 | 调试 -Og 发布 Perf |
-| PARTITION_TABLE_CUSTOM | 自定分区 CSV | y(配合 [ch89-P3-MCUboot双分区OTA安全升级系统](/posts/ch89-P3-MCUboot双分区OTA安全升级系统/) OTA) |
+| PARTITION_TABLE_CUSTOM | 自定分区 CSV | y(配合 [ch89-P3-MCUboot双分区OTA安全升级系统](/Learning-Obsidian./posts/ch89-P3-MCUboot双分区OTA安全升级系统/) OTA) |
 
 ## 31.7 参数调试技巧
 
@@ -133,7 +136,7 @@ Core dump 默认 UART 输出 backtrace，`idf.py monitor` 自动符号化——G
 ## 31.11 进阶话题
 
 - **esp_event 是观察者总线**：系统事件(WIFI/IP)与自定义循环共用一套派发——业务事件别再裸回调，统一进 loop 可追溯。
-- **ULP 协处理器预筛**：温度超阈值才唤醒主核——深睡电流 µA 级的关键招数，[ch29-低功耗设计](/posts/ch29-低功耗设计/) 思想的 ESP 版对照。
+- **ULP 协处理器预筛**：温度超阈值才唤醒主核——深睡电流 µA 级的关键招数，[ch29-低功耗设计](/Learning-Obsidian./posts/ch29-低功耗设计/) 思想的 ESP 版对照。
 - **学组件组织的活教材**：esp-idf 的 `examples/get-started` 与 `components/` 目录，外加社区组件集 esp-idf-lib。
 
 > [!warning]- ❓ FAQ
@@ -144,11 +147,11 @@ Core dump 默认 UART 输出 backtrace，`idf.py monitor` 自动符号化——G
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #d97706;">❓ 📝 思考题</p>
 <div>
 
-1. 对比 ESP-IDF 组件模型与 [ch08-分层架构与设计模式](/posts/ch08-分层架构与设计模式/) 的分层架构规范，列出可直接复用的思想。
+1. 对比 ESP-IDF 组件模型与 [ch08-分层架构与设计模式](/Learning-Obsidian./posts/ch08-分层架构与设计模式/) 的分层架构规范，列出可直接复用的思想。
 2. 设计 assets 分区的版本化更新方案（spiffs 镜像 + CRC 目录）。
 3. 阅读 esp_event 组件源码，画出事件循环与 handler 的派发流程。
 
 </div>
 </div>
 ---
-🏷️ #domain/mcu #topic/espidf #topic/build-system | 🔗 [ch30-Bootloader-IAP-OTA固件升级体系](/posts/ch30-Bootloader-IAP-OTA固件升级体系/) ← **本章** → [ch32-ESP32外设与WiFi-BLE上手](/posts/ch32-ESP32外设与WiFi-BLE上手/) | 📚 [P3-MOC](/posts/P3-MOC/)
+🏷️ #domain/mcu #topic/espidf #topic/build-system | 🔗 [ch30-Bootloader-IAP-OTA固件升级体系](/Learning-Obsidian./posts/ch30-Bootloader-IAP-OTA固件升级体系/) ← **本章** → [ch32-ESP32外设与WiFi-BLE上手](/Learning-Obsidian./posts/ch32-ESP32外设与WiFi-BLE上手/) | 📚 [P3-MOC](/Learning-Obsidian./posts/P3-MOC/)

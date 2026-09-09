@@ -10,6 +10,9 @@ tags:
 
 # TC24 LQR 增益鲁棒性验证
 
+
+<!-- more -->
+
 ## 现象
 名义模型上 LQR 闭环快速收敛、指标 J 最优；换实物或负载/延迟一变（±20~30%）就震荡甚至发散。典型触发：忽略了执行器带宽、传感延迟与建模误差。
 
@@ -46,5 +49,5 @@ end
 - 状态误差超限自动切安全模式（降增益或停机）
 
 ## 关联
-- 源章节：[chfe-A5复合与现代控制前馈串级-Smith-LQR](/posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/)
-- 相关章节：[chfd-A4-PID工程化全集抗饱和自整定](/posts/chfd-A4-PID工程化全集抗饱和自整定/) [chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO](/posts/chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO/) [ch53-RTOS综合实战三轴云台控制器](/posts/ch53-RTOS综合实战三轴云台控制器/)
+- 源章节：[chfe-A5复合与现代控制前馈串级-Smith-LQR](/Learning-Obsidian./posts/chfe-A5复合与现代控制前馈串级-Smith-LQR/)
+- 相关章节：[chfd-A4-PID工程化全集抗饱和自整定](/Learning-Obsidian./posts/chfd-A4-PID工程化全集抗饱和自整定/) [chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO](/Learning-Obsidian./posts/chff-A6电机控制数学内核Clarke-Park-SVPWM-SMO/) [ch53-RTOS综合实战三轴云台控制器](/Learning-Obsidian./posts/ch53-RTOS综合实战三轴云台控制器/)

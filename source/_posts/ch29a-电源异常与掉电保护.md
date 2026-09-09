@@ -1,6 +1,6 @@
 ---
 title: 第29A章 电源异常与掉电保护软件设计
-date: 2025-01-01
+date: 2025-05-03
 categories:
   - 单片机开发
 tags:
@@ -17,12 +17,15 @@ chapter: 29A
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★★☆ | 前置 [ch29-低功耗设计](/posts/ch29-低功耗设计/) | → [ch30-Bootloader-IAP-OTA固件升级体系](/posts/ch30-Bootloader-IAP-OTA固件升级体系/)
+⏱ 35min | ★★★★☆ | 前置 [ch29-低功耗设计](/Learning-Obsidian./posts/ch29-低功耗设计/) | → [ch30-Bootloader-IAP-OTA固件升级体系](/Learning-Obsidian./posts/ch30-Bootloader-IAP-OTA固件升级体系/)
 
 </div>
 </div>
 
 电网不会跟你商量。Brown-out、瞬断、慢衰减三类异常各有不同的软件应对姿势——本章把「掉电一瞬间该做什么」讲成标准作业流程。
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 区分 POR/PDR、BOR、PVD 三种电源事件的行为差异与配置方法
@@ -110,7 +113,7 @@ void PVD_IRQHandler(void){
 2. PVD 阈值 = 系统最低工作电压 + ~0.3V，既保证抢救窗口又远离误触发。
 3. 黑匣子页必须「预先擦好、运行中只追加」，抢救窗口内绝不做毫秒级的擦除动作。
 4. 抢救 ISR 保持极简：封波→停 DMA→存状态→写日志，禁止 printf 等阻塞调用。
-5. 产测规范中加入随机掉电注入项（联动 [chsd-S4-量产工程产测工装与老化](/posts/chsd-S4-量产工程产测工装与老化/)）；MCUboot 场景的状态保存结构同样适用本套路（[ch89-P3-MCUboot双分区OTA安全升级系统](/posts/ch89-P3-MCUboot双分区OTA安全升级系统/)）。
+5. 产测规范中加入随机掉电注入项（联动 [chsd-S4-量产工程产测工装与老化](/Learning-Obsidian./posts/chsd-S4-量产工程产测工装与老化/)）；MCUboot 场景的状态保存结构同样适用本套路（[ch89-P3-MCUboot双分区OTA安全升级系统](/Learning-Obsidian./posts/ch89-P3-MCUboot双分区OTA安全升级系统/)）。
 
 > [!example]- 🧪 动手实验 L29A-1：亲手制造并战胜一次掉电（60 分钟）
 > **步骤**：① 继电器/MOS 开关串联电源，GPIO 控制随机断电；② 示波器 CH1 监 VDD、CH2 监「保存完成」标志脚；③ 无 PVD 版本跑 100 次断电统计文件系统/参数损坏率；④ 加入 PVD 抢救流程再跑 100 次对比；⑤ 用示波器游标实测从 PVD 触发到保存完成的真实耗时。
@@ -139,4 +142,4 @@ void PVD_IRQHandler(void){
 </div>
 
 ---
-🏷️ #domain/mcu #topic/brownout #topic/lowpower | 🔗 [ch29-低功耗设计](/posts/ch29-低功耗设计/) ← **本章** → [ch30-Bootloader-IAP-OTA固件升级体系](/posts/ch30-Bootloader-IAP-OTA固件升级体系/) | 📚 [P3-MOC](/posts/P3-MOC/)
+🏷️ #domain/mcu #topic/brownout #topic/lowpower | 🔗 [ch29-低功耗设计](/Learning-Obsidian./posts/ch29-低功耗设计/) ← **本章** → [ch30-Bootloader-IAP-OTA固件升级体系](/Learning-Obsidian./posts/ch30-Bootloader-IAP-OTA固件升级体系/) | 📚 [P3-MOC](/Learning-Obsidian./posts/P3-MOC/)

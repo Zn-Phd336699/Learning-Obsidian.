@@ -1,6 +1,6 @@
 ---
 title: 第13章 探针实战 OpenOCD-JLink-probe-rs
-date: 2025-01-01
+date: 2025-05-19
 categories:
   - 调试工具链
 tags:
@@ -17,11 +17,14 @@ chapter: 13
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★☆☆ | 前置 [ch12-GDB深度实战](/posts/ch12-GDB深度实战/) | → [ch14-日志系统设计RTT与远程回传](/posts/ch14-日志系统设计RTT与远程回传/)
+⏱ 35min | ★★★☆☆ | 前置 [ch12-GDB深度实战](/Learning-Obsidian./posts/ch12-GDB深度实战/) | → [ch14-日志系统设计RTT与远程回传](/Learning-Obsidian./posts/ch14-日志系统设计RTT与远程回传/)
 SWD 两根线承载烧写、断点、日志、供电检测的全部能力——本章讲透连接序列、救砖与选型。
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 理解 JTAG/SWD 协议差异、引脚定义与常见接线错误
@@ -110,7 +113,7 @@ probe-rs（Rust系新贵）:
 | 探针要求 | 任意 SWD 探针（probe-rs 支持） | 必须接 SWO 引脚+支持工具 |
 | 掉线行为 | 缓冲满丢新数据可统计 | FIFO 满静默丢弃 |
 
-结论：调试期首选 RTT（通用性）；量产黑匣子另走 Flash 通道，详见 [ch14-日志系统设计RTT与远程回传](/posts/ch14-日志系统设计RTT与远程回传/)。
+结论：调试期首选 RTT（通用性）；量产黑匣子另走 Flash 通道，详见 [ch14-日志系统设计RTT与远程回传](/Learning-Obsidian./posts/ch14-日志系统设计RTT与远程回传/)。
 
 ## 13.6 排故速查表
 
@@ -152,4 +155,4 @@ probe-rs（Rust系新贵）:
 </div>
 
 ---
-🏷️ #domain/fundamentals #topic/probe | 🔗 [ch12-GDB深度实战](/posts/ch12-GDB深度实战/) ← **本章** → [ch14-日志系统设计RTT与远程回传](/posts/ch14-日志系统设计RTT与远程回传/) | 📚 [P2-MOC](/posts/P2-MOC/)
+🏷️ #domain/fundamentals #topic/probe | 🔗 [ch12-GDB深度实战](/Learning-Obsidian./posts/ch12-GDB深度实战/) ← **本章** → [ch14-日志系统设计RTT与远程回传](/Learning-Obsidian./posts/ch14-日志系统设计RTT与远程回传/) | 📚 [P2-MOC](/Learning-Obsidian./posts/P2-MOC/)

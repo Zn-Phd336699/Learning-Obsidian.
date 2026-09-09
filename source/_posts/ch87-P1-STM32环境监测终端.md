@@ -1,6 +1,6 @@
 ---
 title: 第87章 P1 · STM32 环境监测终端（工业级数据采集节点）
-date: 2025-01-01
+date: 2025-03-06
 categories:
   - 项目集
 tags:
@@ -18,10 +18,13 @@ chapter: 87
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★☆☆☆ | 前置 [ch86-综合案例无线共存干扰排障全流程](/posts/ch86-综合案例无线共存干扰排障全流程/) | → [ch88-P2-ESP32S3桌面信息站WiFi工具箱](/posts/ch88-P2-ESP32S3桌面信息站WiFi工具箱/)
+⏱ 40min | ★★☆☆☆ | 前置 [ch86-综合案例无线共存干扰排障全流程](/Learning-Obsidian./posts/ch86-综合案例无线共存干扰排障全流程/) | → [ch88-P2-ESP32S3桌面信息站WiFi工具箱](/Learning-Obsidian./posts/ch88-P2-ESP32S3桌面信息站WiFi工具箱/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 按 R1~R5 规格，交付一台可长期无人值守运行的多路环境采集终端
@@ -134,12 +137,12 @@ int store_append(const sample_t *s)
 
 ## 87.10 进阶话题
 
-- **原型到小批量**：DFM 检查、丝印版本管理、长周期物料锁单（[chsd-S4-量产工程产测工装与老化](/posts/chsd-S4-量产工程产测工装与老化/) 展开）；
+- **原型到小批量**：DFM 检查、丝印版本管理、长周期物料锁单（[chsd-S4-量产工程产测工装与老化](/Learning-Obsidian./posts/chsd-S4-量产工程产测工装与老化/) 展开）；
 - **LVGL 移植八步法速记**：源码→lv_conf.h→flush_cb DMA 行推送→触摸 read_cb→tick/handler→lv_fs→双缓冲调优→gui_task 队列驱动刷新，验收锚点 FPS≥30；
 - **开源策略选择**：核心驱动开源引流+应用闭源，或全开攒影响力——两条路线都有真实案例可研究。
 
 > [!warning]- ❓ FAQ
-> **Q1：MQTT 版第二迭代怎么演进？** 在 modbus_svc 同层新增 net_svc 上云（协议本体见 [ch80a-MQTT-CoAP云协议本体与实现](/posts/ch80a-MQTT-CoAP云协议本体与实现/)），App 其余服务与 Bsp 零改动——正是分层抽象的收益验证。
+> **Q1：MQTT 版第二迭代怎么演进？** 在 modbus_svc 同层新增 net_svc 上云（协议本体见 [ch80a-MQTT-CoAP云协议本体与实现](/Learning-Obsidian./posts/ch80a-MQTT-CoAP云协议本体与实现/)），App 其余服务与 Bsp 零改动——正是分层抽象的收益验证。
 > **Q2：为什么「喂狗矩阵」而不是主循环单点喂狗？** 单点发现不了「某任务卡死但监督任务还活着」的局部故障；缺席即拒喂，R5 的 60s 恢复才成立。
 
 <div style="border-left: 4px solid #d97706; background: #fffbeb; padding: 12px 16px; margin: 16px 0; border-radius: 0 6px 6px 0;">
@@ -153,4 +156,4 @@ int store_append(const sample_t *s)
 </div>
 
 ---
-🏷️ #domain/mcu #topic/rtos #topic/uart | 🔗 [ch86-综合案例无线共存干扰排障全流程](/posts/ch86-综合案例无线共存干扰排障全流程/) ← **本章** → [ch88-P2-ESP32S3桌面信息站WiFi工具箱](/posts/ch88-P2-ESP32S3桌面信息站WiFi工具箱/) | 📚 [P9-MOC](/posts/P9-MOC/)
+🏷️ #domain/mcu #topic/rtos #topic/uart | 🔗 [ch86-综合案例无线共存干扰排障全流程](/Learning-Obsidian./posts/ch86-综合案例无线共存干扰排障全流程/) ← **本章** → [ch88-P2-ESP32S3桌面信息站WiFi工具箱](/Learning-Obsidian./posts/ch88-P2-ESP32S3桌面信息站WiFi工具箱/) | 📚 [P9-MOC](/Learning-Obsidian./posts/P9-MOC/)

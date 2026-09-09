@@ -1,6 +1,6 @@
 ---
 title: 第73章 底层调试武器库：Perfetto / logcat / adb 进阶
-date: 2025-01-01
+date: 2025-03-20
 categories:
   - Android底层
 tags:
@@ -18,10 +18,13 @@ chapter: 73
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★☆☆ | 前置 [ch72-A-B-OTA升级与Recovery体系](/posts/ch72-A-B-OTA升级与Recovery体系/) | → [ch74-总线与无线选型总表](/posts/ch74-总线与无线选型总表/)
+⏱ 35min | ★★★☆☆ | 前置 [ch72-A-B-OTA升级与Recovery体系](/Learning-Obsidian./posts/ch72-A-B-OTA升级与Recovery体系/) | → [ch74-总线与无线选型总表](/Learning-Obsidian./posts/ch74-总线与无线选型总表/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 用 perfetto 命令行抓取全量 trace，并在泳道图上判读 CPU/binder/帧调度
@@ -101,7 +104,7 @@ trace_processor_shell --query-string \
 | 启动慢 | boottrace 属性开启 + Perfetto | am_proc_start→draw 序列间隙 |
 | 滑动掉帧 | Perfetto FrameTimeline+Sched | 红帧的主线程状态=Running？还是等 binder |
 | 内存涨 | heapprofd 定期采样 + pmap 对比 | 按调用栈聚合的增长榜 |
-| 偶发重启 | pstore+tombstone+dropbox 三源合并 | 重启前最后一条内核日志定级（[ch64-内核调试Oops解读debugfs-kdump](/posts/ch64-内核调试Oops解读debugfs-kdump/) 联动） |
+| 偶发重启 | pstore+tombstone+dropbox 三源合并 | 重启前最后一条内核日志定级（[ch64-内核调试Oops解读debugfs-kdump](/Learning-Obsidian./posts/ch64-内核调试Oops解读debugfs-kdump/) 联动） |
 
 ## 73.7 排故速查表
 
@@ -117,7 +120,7 @@ trace_processor_shell --query-string \
 2. 符号归档进 CI：无符号 backtrace 等于废纸，tombstone 必须能离线符号化。
 3. Android 11+ 配对式无线调试可简化产线与实验室布线。
 4. userdebug 的 adb root/remount 权限严禁带入用户版镜像。
-5. 售后远程取证的 bugreport 流程规范进 S4（[chsd-S4-量产工程产测工装与老化](/posts/chsd-S4-量产工程产测工装与老化/)）。
+5. 售后远程取证的 bugreport 流程规范进 S4（[chsd-S4-量产工程产测工装与老化](/Learning-Obsidian./posts/chsd-S4-量产工程产测工装与老化/)）。
 
 > [!example]- 🧪 动手实验 L73-1：ANR 因果链完整破案（70 分钟）
 > **步骤**：① 制造一次主线程等 binder 的 ANR（服务端故意睡）；② 收集 traces.txt 找 "held by" 与等待链；③ perfetto 回放时段，在 binder 泳道上标出请求-阻塞-超时三点；④ 修复（改 oneway 或服务端提速）后复测验证 ANR 消失；⑤ 全程材料整理成复盘文档。
@@ -127,7 +130,7 @@ trace_processor_shell --query-string \
 - **logcat 环形缓冲策略**：分区隔离是防证据丢失的第一道设计。
 - **tombstone 符号化管线**：symbolizer + CI 符号归档联动。
 - **traced 触发式快照**：问题发生瞬间回捞前 30s，长时低开销采集成为可能。
-- **工具链三位一体**：perfetto 技法与 [ch16-perf-ftrace-strace性能剖析](/posts/ch16-perf-ftrace-strace性能剖析/)、[ch51a-可视化追踪Tracealyzer-SystemView](/posts/ch51a-可视化追踪Tracealyzer-SystemView/) 互补——perfetto 底层即 ftrace 数据源的统一 SQL 化。
+- **工具链三位一体**：perfetto 技法与 [ch16-perf-ftrace-strace性能剖析](/Learning-Obsidian./posts/ch16-perf-ftrace-strace性能剖析/)、[ch51a-可视化追踪Tracealyzer-SystemView](/Learning-Obsidian./posts/ch51a-可视化追踪Tracealyzer-SystemView/) 互补——perfetto 底层即 ftrace 数据源的统一 SQL 化。
 
 > [!warning]- ❓ FAQ
 > **Q1：Perfetto 与 ch16 的 perf/ftrace 重叠在哪？** A1：perfetto 以 ftrace 为核心数据源并统一 SQL 化；Linux 侧继续用 perf/ftrace 直采，Android 系统级问题首选 perfetto。
@@ -145,4 +148,4 @@ trace_processor_shell --query-string \
 </div>
 
 ---
-🏷️ #domain/android #topic/debugging #topic/perfetto | 🔗 [ch72-A-B-OTA升级与Recovery体系](/posts/ch72-A-B-OTA升级与Recovery体系/) ← **本章** → [ch74-总线与无线选型总表](/posts/ch74-总线与无线选型总表/) | 📚 [P7-MOC](/posts/P7-MOC/)
+🏷️ #domain/android #topic/debugging #topic/perfetto | 🔗 [ch72-A-B-OTA升级与Recovery体系](/Learning-Obsidian./posts/ch72-A-B-OTA升级与Recovery体系/) ← **本章** → [ch74-总线与无线选型总表](/Learning-Obsidian./posts/ch74-总线与无线选型总表/) | 📚 [P7-MOC](/Learning-Obsidian./posts/P7-MOC/)

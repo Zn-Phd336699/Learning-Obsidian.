@@ -1,6 +1,6 @@
 ---
 title: 第16章 性能剖析：perf / ftrace / strace 与火焰图
-date: 2025-01-01
+date: 2025-05-16
 categories:
   - 调试工具链
 tags:
@@ -17,12 +17,15 @@ chapter: 16
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 35min | ★★★☆☆ | 前置 [ch15-内存问题排查三板斧](/posts/ch15-内存问题排查三板斧/) | → [ch17-Wireshark-tcpdump抓包分析](/posts/ch17-Wireshark-tcpdump抓包分析/)
+⏱ 35min | ★★★☆☆ | 前置 [ch15-内存问题排查三板斧](/Learning-Obsidian./posts/ch15-内存问题排查三板斧/) | → [ch17-Wireshark-tcpdump抓包分析](/Learning-Obsidian./posts/ch17-Wireshark-tcpdump抓包分析/)
 
 </div>
 </div>
 
 「感觉卡」不是证据。本章用量化数据回答三个问题：谁耗的 CPU？哪段代码慢？系统调用花在哪？Linux 侧用 perf/ftrace/strace，MCU 侧用 GPIO 翻转与 DWT 周期计数器。
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 用 perf top/record/report 定位热点函数，并生成火焰图作为性能沟通语言
@@ -46,7 +49,7 @@ chapter: 16
 | CPU 高 | perf top/report | 看 self 列；用户态还是内核态占比 |
 | 响应偶发抖动 | ftrace sched_wakeup→sched_switch 时延 | wakeup-to-run 差值直方图；被谁抢占 |
 | IO 慢 | strace -T + iostat | read/write 单次耗时；是否缺 page cache |
-| 网络吞吐低 | ss -ti + tcpdump（[ch17-Wireshark-tcpdump抓包分析](/posts/ch17-Wireshark-tcpdump抓包分析/)） | cwnd/重传率/RTT 三件套 |
+| 网络吞吐低 | ss -ti + tcpdump（[ch17-Wireshark-tcpdump抓包分析](/Learning-Obsidian./posts/ch17-Wireshark-tcpdump抓包分析/)） | cwnd/重传率/RTT 三件套 |
 
 ## 16.3 关键代码：perf 三板斧、ftrace、strace 与 MCU 剖析
 
@@ -125,7 +128,7 @@ uint32_t t0=DWT->CYCCNT; work(); uint32_t cyc=DWT->CYCCNT-t0; /* 168MHz 下精�
 1. 嵌入式板的标准分工：板上 `perf record -o`，主机 `perf report -i`——别在资源紧张的板上做重型分析。
 2. i.MX6ULL/RK3568 的 Debian/Armbian 一般自带 perf；若无则 `CONFIG_PERF_EVENTS=y` 重编内核 + 交叉编 userspace。
 3. strip 发布二进制前保留 debuginfo 存档，线上问题才能离线翻译符号。
-4. irqsoff 的纳秒级证据链是实时性整改起点，联动 [ch61-中断下半部threaded-irq-workqueue](/posts/ch61-中断下半部threaded-irq-workqueue/) 与 [ch65-性能优化CPU隔离cgroup-io调优](/posts/ch65-性能优化CPU隔离cgroup-io调优/)。
+4. irqsoff 的纳秒级证据链是实时性整改起点，联动 [ch61-中断下半部threaded-irq-workqueue](/Learning-Obsidian./posts/ch61-中断下半部threaded-irq-workqueue/) 与 [ch65-性能优化CPU隔离cgroup-io调优](/Learning-Obsidian./posts/ch65-性能优化CPU隔离cgroup-io调优/)。
 
 > [!example]- 🧪 动手实验 L16-1：揪出最长关中断元凶（30 分钟）
 > **步骤**：① 板上挂载 debugfs 进入 tracing 目录；② `echo irqsoff > current_tracer; echo 0 > tracing_max_latency`；③ 跑正常业务 60 秒；④ 读 trace 文件顶部长度与责任函数链；⑤ 对该函数做缩短临界区改造并复测对比。**验收**：拿到前后两组纳秒级数据，形成「测量驱动优化」的第一份实战报告。
@@ -151,4 +154,4 @@ uint32_t t0=DWT->CYCCNT; work(); uint32_t cyc=DWT->CYCCNT-t0; /* 168MHz 下精�
 </div>
 
 ---
-🏷️ #domain/fundamentals #topic/profiling | 🔗 [ch15-内存问题排查三板斧](/posts/ch15-内存问题排查三板斧/) ← **本章** → [ch17-Wireshark-tcpdump抓包分析](/posts/ch17-Wireshark-tcpdump抓包分析/) | 📚 [P2-MOC](/posts/P2-MOC/)
+🏷️ #domain/fundamentals #topic/profiling | 🔗 [ch15-内存问题排查三板斧](/Learning-Obsidian./posts/ch15-内存问题排查三板斧/) ← **本章** → [ch17-Wireshark-tcpdump抓包分析](/Learning-Obsidian./posts/ch17-Wireshark-tcpdump抓包分析/) | 📚 [P2-MOC](/Learning-Obsidian./posts/P2-MOC/)

@@ -1,6 +1,6 @@
 ---
 title: 第67章 AOSP架构与源码编译
-date: 2025-01-01
+date: 2025-03-26
 categories:
   - Android底层
 tags:
@@ -17,10 +17,13 @@ chapter: 67
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★☆☆ | 前置 [ch66-综合实战USB摄像头流采集服务](/posts/ch66-综合实战USB摄像头流采集服务/) | → [ch68-启动流程与Zygote](/posts/ch68-启动流程与Zygote/)
+⏱ 40min | ★★★☆☆ | 前置 [ch66-综合实战USB摄像头流采集服务](/Learning-Obsidian./posts/ch66-综合实战USB摄像头流采集服务/) | → [ch68-启动流程与Zygote](/Learning-Obsidian./posts/ch68-启动流程与Zygote/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 画出 AOSP 分层架构（App/Framework/Native/HAL/Kernel）并说出各层对应源码目录
@@ -151,4 +154,4 @@ cc_binary {
 </div>
 
 ---
-🏷️ #domain/android #topic/aosp-build | 🔗 [ch66-综合实战USB摄像头流采集服务](/posts/ch66-综合实战USB摄像头流采集服务/) ← **本章** → [ch68-启动流程与Zygote](/posts/ch68-启动流程与Zygote/) | 📚 [P7-MOC](/posts/P7-MOC/)
+🏷️ #domain/android #topic/aosp-build | 🔗 [ch66-综合实战USB摄像头流采集服务](/Learning-Obsidian./posts/ch66-综合实战USB摄像头流采集服务/) ← **本章** → [ch68-启动流程与Zygote](/Learning-Obsidian./posts/ch68-启动流程与Zygote/) | 📚 [P7-MOC](/Learning-Obsidian./posts/P7-MOC/)

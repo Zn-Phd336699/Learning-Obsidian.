@@ -1,6 +1,6 @@
 ---
 title: P10 安全测试量产
-date: 2025-01-01
+date: 2025-06-21
 categories:
   - 安全测试量产
 tags:
@@ -11,7 +11,7 @@ tags:
 # 第十篇 · 安全·测试与量产
 | 章 | 链接 | 难度 |
 |---|---|---|
-|S1|[chsa-S1安全架构与SecureBoot实战](/posts/chsa-S1安全架构与SecureBoot实战/)|★★★★|
-|S2|[chsb-S2密钥管理与安全元件ATECC608](/posts/chsb-S2密钥管理与安全元件ATECC608/)|★★★★|
-|S3|[chsc-S3-HIL测试台架与Renode仿真](/posts/chsc-S3-HIL测试台架与Renode仿真/)|★★★|
-|S4|[chsd-S4-量产工程产测工装与老化](/posts/chsd-S4-量产工程产测工装与老化/)|★★★|
+|S1|[chsa-S1安全架构与SecureBoot实战](/Learning-Obsidian./posts/chsa-S1安全架构与SecureBoot实战/)|★★★★|
+|S2|[chsb-S2密钥管理与安全元件ATECC608](/Learning-Obsidian./posts/chsb-S2密钥管理与安全元件ATECC608/)|★★★★|
+|S3|[chsc-S3-HIL测试台架与Renode仿真](/Learning-Obsidian./posts/chsc-S3-HIL测试台架与Renode仿真/)|★★★|
+|S4|[chsd-S4-量产工程产测工装与老化](/Learning-Obsidian./posts/chsd-S4-量产工程产测工装与老化/)|★★★|

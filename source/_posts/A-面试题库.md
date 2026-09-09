@@ -17,6 +17,9 @@ tags:
 2. 口述卡壳的题，展开右栏关键词逐条补齐证据链
 3. 行为面故事提前写成 STAR-L 五段稿并量化结果
 
+
+<!-- more -->
+
 ## C 语言与编程基础专项
 
 | 题目 | 答题要点（评分关键词） |
@@ -74,17 +77,17 @@ tags:
 
 | 题目 | 答题要点 |
 |------|----------|
-| **低算力 MCU 上姿态解算选卡尔曼还是互补？** | KF/EKF 需要噪声统计模型且算力开销大；互补/Mahony 计算量小、调参直观——资源紧张场景首选互补族（[chfc-A3姿态解算双雄互补-Mahony-Madgwick](/posts/chfc-A3姿态解算双雄互补-Mahony-Madgwick/)） |
-| **PID 为什么必须抗积分饱和？两种实现？** | 执行器限幅期间积分持续累积导致超响应；钳位法简单、反算法平滑——工程上常配合自整定（[chfd-A4-PID工程化全集抗饱和自整定](/posts/chfd-A4-PID工程化全集抗饱和自整定/)） |
-| **CRC 如何选型与高效实现？** | 生成多项式跟着协议走（如 Modbus 用 0xA001）；查表法空间换时间，逐位法省 RAM（[chfh-A8校验族谱CRC全家汉明HMAC边界](/posts/chfh-A8校验族谱CRC全家汉明HMAC边界/)） |
-| **频谱分析何时用 Goertzel 替代 FFT？** | 只检测少数已知频点时 Goertzel 省算力省内存；宽带谱才用 FFT（[chfi-A9信号处理FFT-Goertzel-NTC-SOC融合](/posts/chfi-A9信号处理FFT-Goertzel-NTC-SOC融合/)） |
+| **低算力 MCU 上姿态解算选卡尔曼还是互补？** | KF/EKF 需要噪声统计模型且算力开销大；互补/Mahony 计算量小、调参直观——资源紧张场景首选互补族（[chfc-A3姿态解算双雄互补-Mahony-Madgwick](/Learning-Obsidian./posts/chfc-A3姿态解算双雄互补-Mahony-Madgwick/)） |
+| **PID 为什么必须抗积分饱和？两种实现？** | 执行器限幅期间积分持续累积导致超响应；钳位法简单、反算法平滑——工程上常配合自整定（[chfd-A4-PID工程化全集抗饱和自整定](/Learning-Obsidian./posts/chfd-A4-PID工程化全集抗饱和自整定/)） |
+| **CRC 如何选型与高效实现？** | 生成多项式跟着协议走（如 Modbus 用 0xA001）；查表法空间换时间，逐位法省 RAM（[chfh-A8校验族谱CRC全家汉明HMAC边界](/Learning-Obsidian./posts/chfh-A8校验族谱CRC全家汉明HMAC边界/)） |
+| **频谱分析何时用 Goertzel 替代 FFT？** | 只检测少数已知频点时 Goertzel 省算力省内存；宽带谱才用 FFT（[chfi-A9信号处理FFT-Goertzel-NTC-SOC融合](/Learning-Obsidian./posts/chfi-A9信号处理FFT-Goertzel-NTC-SOC融合/)） |
 
 ## 项目深挖与行为面速答框架
 
 - **STAR-L 叙事法**：Situation 场景 → Task 任务 → Action 行动 → Result 结果（量化）→ Learning 沉淀
 - **高频追问预案**：
-  - 「最难 Bug」→ 讲 HardFault 取证或无线共存干扰案例（[ch86-综合案例无线共存干扰排障全流程](/posts/ch86-综合案例无线共存干扰排障全流程/)），有仪器证据链最加分
-  - 「架构决策」→ 讲分层抽象或双 slot OTA 权衡（[ch30-Bootloader-IAP-OTA固件升级体系](/posts/ch30-Bootloader-IAP-OTA固件升级体系/)）
+  - 「最难 Bug」→ 讲 HardFault 取证或无线共存干扰案例（[ch86-综合案例无线共存干扰排障全流程](/Learning-Obsidian./posts/ch86-综合案例无线共存干扰排障全流程/)），有仪器证据链最加分
+  - 「架构决策」→ 讲分层抽象或双 slot OTA 权衡（[ch30-Bootloader-IAP-OTA固件升级体系](/Learning-Obsidian./posts/ch30-Bootloader-IAP-OTA固件升级体系/)）
   - 「团队冲突」→ 讲接口文档驱动协作
 - **反问环节高质量问题**：团队的 CI/HIL 覆盖率水平？代码评审文化？产品生命周期内的 OTA 策略？
 - **简历成果量化句式**（源自本库模板）：背景一句话说清「给谁解决什么问题」；成果必须带数字（MTBF / 百分比 / 次数）；每条成果对应一个可深挖的故事；技术栈只列敢被追问的——面试官会挑最冷门的那个问
@@ -93,18 +96,18 @@ tags:
 
 | 能力项 | 自检问题（答不上就回炉） | 关联章 |
 |--------|--------------------------|--------|
-| 语言底层 | 能画出任意函数的栈帧并解释 volatile 的反汇编差异？ | [ch02-C语言进阶指针与内存模型](/posts/ch02-C语言进阶指针与内存模型/) / [ch05-ARM汇编与反汇编排障](/posts/ch05-ARM汇编与反汇编排障/) / [ch06-链接器与内存布局](/posts/ch06-链接器与内存布局/) |
-| 调试体系 | HardFault 与 Oops 各自的五步取证能否盲讲？ | [ch05-ARM汇编与反汇编排障](/posts/ch05-ARM汇编与反汇编排障/) / [ch64-内核调试Oops解读debugfs-kdump](/posts/ch64-内核调试Oops解读debugfs-kdump/) |
-| 实时系统 | RMS 判定 + 优先级翻转修复 + tickless 补偿三连？ | [ch45-实时性理论与调度算法](/posts/ch45-实时性理论与调度算法/) ~ [ch50-FreeRTOS中断管理与Tickless低功耗](/posts/ch50-FreeRTOS中断管理与Tickless低功耗/) |
-| Linux 驱动 | 从 dts 到 probe 的完整调用链 + 三种下半部取舍？ | [ch40-内核适配与设备树dts语法-pinctrl-overlay](/posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/) / [ch58-字符设备驱动hello-drv到并发安全](/posts/ch58-字符设备驱动hello-drv到并发安全/) / [ch61-中断下半部threaded-irq-workqueue](/posts/ch61-中断下半部threaded-irq-workqueue/) |
-| 无线排障 | 链路预算公式 + 共存三线取证法？ | [ch74-总线与无线选型总表](/posts/ch74-总线与无线选型总表/) / [ch86-综合案例无线共存干扰排障全流程](/posts/ch86-综合案例无线共存干扰排障全流程/) |
-| 产品闭环 | OTA 掉电安全机制 + 产测 SOP 能否独立交付？ | [ch30-Bootloader-IAP-OTA固件升级体系](/posts/ch30-Bootloader-IAP-OTA固件升级体系/) / [ch72-A-B-OTA升级与Recovery体系](/posts/ch72-A-B-OTA升级与Recovery体系/) / [ch89-P3-MCUboot双分区OTA安全升级系统](/posts/ch89-P3-MCUboot双分区OTA安全升级系统/) / [chsd-S4-量产工程产测工装与老化](/posts/chsd-S4-量产工程产测工装与老化/) |
+| 语言底层 | 能画出任意函数的栈帧并解释 volatile 的反汇编差异？ | [ch02-C语言进阶指针与内存模型](/Learning-Obsidian./posts/ch02-C语言进阶指针与内存模型/) / [ch05-ARM汇编与反汇编排障](/Learning-Obsidian./posts/ch05-ARM汇编与反汇编排障/) / [ch06-链接器与内存布局](/Learning-Obsidian./posts/ch06-链接器与内存布局/) |
+| 调试体系 | HardFault 与 Oops 各自的五步取证能否盲讲？ | [ch05-ARM汇编与反汇编排障](/Learning-Obsidian./posts/ch05-ARM汇编与反汇编排障/) / [ch64-内核调试Oops解读debugfs-kdump](/Learning-Obsidian./posts/ch64-内核调试Oops解读debugfs-kdump/) |
+| 实时系统 | RMS 判定 + 优先级翻转修复 + tickless 补偿三连？ | [ch45-实时性理论与调度算法](/Learning-Obsidian./posts/ch45-实时性理论与调度算法/) ~ [ch50-FreeRTOS中断管理与Tickless低功耗](/Learning-Obsidian./posts/ch50-FreeRTOS中断管理与Tickless低功耗/) |
+| Linux 驱动 | 从 dts 到 probe 的完整调用链 + 三种下半部取舍？ | [ch40-内核适配与设备树dts语法-pinctrl-overlay](/Learning-Obsidian./posts/ch40-内核适配与设备树dts语法-pinctrl-overlay/) / [ch58-字符设备驱动hello-drv到并发安全](/Learning-Obsidian./posts/ch58-字符设备驱动hello-drv到并发安全/) / [ch61-中断下半部threaded-irq-workqueue](/Learning-Obsidian./posts/ch61-中断下半部threaded-irq-workqueue/) |
+| 无线排障 | 链路预算公式 + 共存三线取证法？ | [ch74-总线与无线选型总表](/Learning-Obsidian./posts/ch74-总线与无线选型总表/) / [ch86-综合案例无线共存干扰排障全流程](/Learning-Obsidian./posts/ch86-综合案例无线共存干扰排障全流程/) |
+| 产品闭环 | OTA 掉电安全机制 + 产测 SOP 能否独立交付？ | [ch30-Bootloader-IAP-OTA固件升级体系](/Learning-Obsidian./posts/ch30-Bootloader-IAP-OTA固件升级体系/) / [ch72-A-B-OTA升级与Recovery体系](/Learning-Obsidian./posts/ch72-A-B-OTA升级与Recovery体系/) / [ch89-P3-MCUboot双分区OTA安全升级系统](/Learning-Obsidian./posts/ch89-P3-MCUboot双分区OTA安全升级系统/) / [chsd-S4-量产工程产测工装与老化](/Learning-Obsidian./posts/chsd-S4-量产工程产测工装与老化/) |
 
 ## 关联导航
 
-- 命令层面的取证动作：[B-命令速查卡](/posts/B-命令速查卡/)
-- 项目深挖素材库：[ch86-综合案例无线共存干扰排障全流程](/posts/ch86-综合案例无线共存干扰排障全流程/) · [ch44-综合实战RK3568多协议边缘网关](/posts/ch44-综合实战RK3568多协议边缘网关/)
-- 复习方法（把本题库变成 SDD 规格验收）：[E-Obsidian×LLM工作流](/posts/E-Obsidian×LLM工作流/)
+- 命令层面的取证动作：[B-命令速查卡](/Learning-Obsidian./posts/B-命令速查卡/)
+- 项目深挖素材库：[ch86-综合案例无线共存干扰排障全流程](/Learning-Obsidian./posts/ch86-综合案例无线共存干扰排障全流程/) · [ch44-综合实战RK3568多协议边缘网关](/Learning-Obsidian./posts/ch44-综合实战RK3568多协议边缘网关/)
+- 复习方法（把本题库变成 SDD 规格验收）：[E-Obsidian×LLM工作流](/Learning-Obsidian./posts/E-Obsidian×LLM工作流/)
 
 ---
-🏷️ #appendix #reference | 📚 [附录-MOC](/posts/附录-MOC/)
+🏷️ #appendix #reference | 📚 [附录-MOC](/Learning-Obsidian./posts/附录-MOC/)

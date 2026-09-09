@@ -1,6 +1,6 @@
 ---
 title: 第21章 Cortex-M架构精讲
-date: 2025-01-01
+date: 2025-05-11
 categories:
   - 单片机开发
 tags:
@@ -17,10 +17,13 @@ chapter: 21
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch20-频谱仪与射频排障](/posts/ch20-频谱仪与射频排障/) | → [ch22-STM32生态与F407硬件](/posts/ch22-STM32生态与F407硬件/)
+⏱ 40min | ★★★★☆ | 前置 [ch20-频谱仪与射频排障](/Learning-Obsidian./posts/ch20-频谱仪与射频排障/) | → [ch22-STM32生态与F407硬件](/Learning-Obsidian./posts/ch22-STM32生态与F407硬件/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 默画 M3/M4 四段存储映射，说清双栈四种组合及 RTOS 标配选法
@@ -82,7 +85,7 @@ void *get_stacked_ctx(uint32_t exc_return)
 
 ## 21.6 启动四步曲与 MPU 五区域模板
 
-启动四步曲：①BOOT 引脚采样（BOOT0=0→Flash 常规启动；BOOT0=1,BOOT1=0→系统 bootloader 串口/USB ISP 救砖；全 1→SRAM 调试）；②SCB->VTOR 定位向量表（可重定位，IAP 双程序区的关键，见 [ch30-Bootloader-IAP-OTA固件升级体系](/posts/ch30-Bootloader-IAP-OTA固件升级体系/)）；③Reset_Handler：设栈→SystemInit(时钟)→data/bss→__libc_init_array→main；④__libc_init_array 跑全局构造与 .init_array 表。
+启动四步曲：①BOOT 引脚采样（BOOT0=0→Flash 常规启动；BOOT0=1,BOOT1=0→系统 bootloader 串口/USB ISP 救砖；全 1→SRAM 调试）；②SCB->VTOR 定位向量表（可重定位，IAP 双程序区的关键，见 [ch30-Bootloader-IAP-OTA固件升级体系](/Learning-Obsidian./posts/ch30-Bootloader-IAP-OTA固件升级体系/)）；③Reset_Handler：设栈→SystemInit(时钟)→data/bss→__libc_init_array→main；④__libc_init_array 跑全局构造与 .init_array 表。
 
 FreeRTOS 环境实用划分：
 
@@ -90,9 +93,9 @@ FreeRTOS 环境实用划分：
 |------|------|------|------|
 | R0 | Flash 全部 | RO、XN=否 | 代码只读防篡改 |
 | R1 | .data/.bss 全局区 | RW、XN | 数据不可执行（防注入） |
-| R2 | 每任务栈底哨兵页 | no-access | 栈溢出立即触发（[ch15-内存问题排查三板斧](/posts/ch15-内存问题排查三板斧/)） |
+| R2 | 每任务栈底哨兵页 | no-access | 栈溢出立即触发（[ch15-内存问题排查三板斧](/Learning-Obsidian./posts/ch15-内存问题排查三板斧/)） |
 | R3 | 外设区 | 特权 RW、XN | 用户态任务禁摸寄存器 |
-| R4 | DMA 缓冲池 | non-cacheable(M7) | 一致性简化（[ch26-DMA与Cache一致性](/posts/ch26-DMA与Cache一致性/)） |
+| R4 | DMA 缓冲池 | non-cacheable(M7) | 一致性简化（[ch26-DMA与Cache一致性](/Learning-Obsidian./posts/ch26-DMA与Cache一致性/)） |
 
 ## 21.7 实测数据表：关键操作真实周期（M4@168MHz）
 
@@ -116,7 +119,7 @@ FreeRTOS 环境实用划分：
 | 现象 | 根因候选 | 定位路径 |
 |------|----------|----------|
 | 中断偶发丢失一次 | pending 清除时机不当/优先级配置冲突 | 查 NVIC 分组一致性；DWT 计数比对预期 |
-| HardFault 后进不了 fault handler | handler 自身用了非法资源（如未初始化外设） | naked handler+纯寄存器取证（[ch05-ARM汇编与反汇编排障](/posts/ch05-ARM汇编与反汇编排障/)）；锁死向量表地址 |
+| HardFault 后进不了 fault handler | handler 自身用了非法资源（如未初始化外设） | naked handler+纯寄存器取证（[ch05-ARM汇编与反汇编排障](/Learning-Obsidian./posts/ch05-ARM汇编与反汇编排障/)）；锁死向量表地址 |
 | SVC 调用后死循环 | SVC handler 里又触发 SVC（同类不可嵌套） | 系统调用避免递归入口；用 PendSV 做切换载体 |
 | MPU 使能后莫名 BusFault | 区域未覆盖背景区/对齐边界错误 | 区域须 32B 对齐且 size 为 2^n；打印 RBAR/RASR 核对 |
 
@@ -135,10 +138,10 @@ FreeRTOS 环境实用划分：
 
 - 架构对照 RISC-V RV32IMAC：定长指令+C 压缩扩展、CLINT/CLIC 平台定义中断、软件全量保存现场、A 扩展 amo/LR-SC 原子操作——迁移时上下文保存成本要重估
 - 位带别名是 M3 专属，M4 没有——移植老代码遇到位带宏需改写为 BSRR 或掩码操作
-- DWT 是免费 profiler：EXCCNT/SLEEPCNT/LICNT 拆解「CPU 时间去哪了」（联动 [ch16-perf-ftrace-strace性能剖析](/posts/ch16-perf-ftrace-strace性能剖析/)）；权威出处 ARMv7-M ARM(DDI 0403E) B1.5.8/B1.5.13
+- DWT 是免费 profiler：EXCCNT/SLEEPCNT/LICNT 拆解「CPU 时间去哪了」（联动 [ch16-perf-ftrace-strace性能剖析](/Learning-Obsidian./posts/ch16-perf-ftrace-strace性能剖析/)）；权威出处 ARMv7-M ARM(DDI 0403E) B1.5.8/B1.5.13
 
 > [!warning]- ❓ FAQ
-> **Q1：为什么 FreeRTOS 把上下文切换放在 PendSV 里做？** PendSV 可挂起且优先级能设最低，保证切换发生在所有中断处理完之后，不会把现场「卡在中途」（逐行汇编见 [ch47-FreeRTOS-PendSV上下文切换逐行汇编](/posts/ch47-FreeRTOS-PendSV上下文切换逐行汇编/)）。
+> **Q1：为什么 FreeRTOS 把上下文切换放在 PendSV 里做？** PendSV 可挂起且优先级能设最低，保证切换发生在所有中断处理完之后，不会把现场「卡在中途」（逐行汇编见 [ch47-FreeRTOS-PendSV上下文切换逐行汇编](/Learning-Obsidian./posts/ch47-FreeRTOS-PendSV上下文切换逐行汇编/)）。
 > **Q2：EXC_RETURN 为什么长得像非法地址？** 它是内核内部标记而非可访问内存，BX LR 时由硬件识别并触发异常返回流程，绝不能当普通地址解引用。
 
 <div style="border-left: 4px solid #d97706; background: #fffbeb; padding: 12px 16px; margin: 16px 0; border-radius: 0 6px 6px 0;">
@@ -152,4 +155,4 @@ FreeRTOS 环境实用划分：
 </div>
 
 ---
-🏷️ #domain/mcu #topic/architecture | 🔗 [ch20-频谱仪与射频排障](/posts/ch20-频谱仪与射频排障/) ← **本章** → [ch22-STM32生态与F407硬件](/posts/ch22-STM32生态与F407硬件/) | 📚 [P3-MOC](/posts/P3-MOC/)
+🏷️ #domain/mcu #topic/architecture | 🔗 [ch20-频谱仪与射频排障](/Learning-Obsidian./posts/ch20-频谱仪与射频排障/) ← **本章** → [ch22-STM32生态与F407硬件](/Learning-Obsidian./posts/ch22-STM32生态与F407硬件/) | 📚 [P3-MOC](/Learning-Obsidian./posts/P3-MOC/)

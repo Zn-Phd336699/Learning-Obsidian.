@@ -1,6 +1,6 @@
 ---
 title: 第90章 P4 · LoRa 温湿度采集网关 + ChirpStack 后端
-date: 2025-01-01
+date: 2025-03-03
 categories:
   - 项目集
 tags:
@@ -18,10 +18,13 @@ chapter: 90
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★☆ | 前置 [ch89-P3-MCUboot双分区OTA安全升级系统](/posts/ch89-P3-MCUboot双分区OTA安全升级系统/) | → [ch91-P5-RK3568边缘AI盒子多路视频检测推流](/posts/ch91-P5-RK3568边缘AI盒子多路视频检测推流/)
+⏱ 45min | ★★★★☆ | 前置 [ch89-P3-MCUboot双分区OTA安全升级系统](/Learning-Obsidian./posts/ch89-P3-MCUboot双分区OTA安全升级系统/) | → [ch91-P5-RK3568边缘AI盒子多路视频检测推流](/Learning-Obsidian./posts/ch91-P5-RK3568边缘AI盒子多路视频检测推流/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 交付「5 终端 + 1 网关 + 私有 NS + 可视化」完整私有 LoRaWAN 网络
@@ -135,7 +138,7 @@ function decodeUplink(input) {          // input.bytes 为 LoRaWAN 载荷
 
 - **多网关去重的价值验证**：同一包双站接收、NS 按 MIC 去重——边缘覆盖提升的本质是「空间分集」；
 - **下行受限的架构应对**：把控制类需求改为「配置下发+本地规则执行」而非实时遥控；
-- **与 NB-IoT 混合组网**：广域稀疏点用 LoRa 自建、城区密集点用蜂窝，按点位成本曲线分区选型（[ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网](/posts/ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网/)）。
+- **与 NB-IoT 混合组网**：广域稀疏点用 LoRa 自建、城区密集点用蜂窝，按点位成本曲线分区选型（[ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网](/Learning-Obsidian./posts/ch84-NB-IoT-Cat1蜂窝IoT-AT指令PPP组网/)）。
 
 > [!warning]- ❓ FAQ
 > **Q1：编解码器为什么放 ChirpStack 而非终端或 Grafana？** 它是业务解耦层：终端只发紧凑二进制，NS 侧统一转 JSON，下游共享语义——改协议只改一处 JS。
@@ -153,4 +156,4 @@ function decodeUplink(input) {          // input.bytes 为 LoRaWAN 载荷
 </div>
 
 ---
-🏷️ #domain/soc #topic/lora #topic/mqtt | 🔗 [ch89-P3-MCUboot双分区OTA安全升级系统](/posts/ch89-P3-MCUboot双分区OTA安全升级系统/) ← **本章** → [ch91-P5-RK3568边缘AI盒子多路视频检测推流](/posts/ch91-P5-RK3568边缘AI盒子多路视频检测推流/) | 📚 [P9-MOC](/posts/P9-MOC/)
+🏷️ #domain/soc #topic/lora #topic/mqtt | 🔗 [ch89-P3-MCUboot双分区OTA安全升级系统](/Learning-Obsidian./posts/ch89-P3-MCUboot双分区OTA安全升级系统/) ← **本章** → [ch91-P5-RK3568边缘AI盒子多路视频检测推流](/Learning-Obsidian./posts/ch91-P5-RK3568边缘AI盒子多路视频检测推流/) | 📚 [P9-MOC](/Learning-Obsidian./posts/P9-MOC/)

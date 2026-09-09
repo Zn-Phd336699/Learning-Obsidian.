@@ -4,9 +4,9 @@
 
 # Site
 title: 嵌入式软件开发知识库
-subtitle: '从0到1的嵌入式全栈学习笔记'
-description: '嵌入式软件开发知识库：编程基础、调试工具链、单片机、SoC、RTOS、嵌入式Linux、Android底层、协议开发、项目实战、安全量产、工程算法、性能工程、ZYNQ异构'
-keywords: 嵌入式, Linux, STM32, RTOS, ZYNQ, FPGA, 驱动开发, 单片机
+subtitle: '从0到1 · 嵌入式全栈学习笔记'
+description: '嵌入式软件开发知识库：编程基础、调试工具链、单片机、SoC、RTOS、嵌入式Linux、Android底层、协议开发、项目实战、安全量产、工程算法、性能工程、ZYNQ异构。182篇系统笔记，覆盖Cortex-M到Cortex-A，从裸机到Linux。'
+keywords: 嵌入式, Linux, STM32, RTOS, ZYNQ, FPGA, 驱动开发, 单片机, ARM, Buildroot, Yocto, FreeRTOS
 author: Zn-Phd336699
 language: zh-CN
 timezone: 'Asia/Shanghai'
@@ -59,7 +59,7 @@ prismjs:
 # Home page setting
 index_generator:
   path: ''
-  per_page: 10
+  per_page: 15
   order_by: -date
 
 # Category & Tag
@@ -78,7 +78,7 @@ time_format: HH:mm:ss
 updated_option: 'mtime'
 
 # Pagination
-per_page: 10
+per_page: 15
 pagination_dir: page
 
 # Include / Exclude file(s)

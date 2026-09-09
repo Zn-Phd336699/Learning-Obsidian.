@@ -1,6 +1,6 @@
 ---
 title: 第62章 应用编程：文件 IO / epoll / 进程线程 / IPC 全景
-date: 2025-01-01
+date: 2025-03-31
 categories:
   - 嵌入式Linux
 tags:
@@ -18,10 +18,13 @@ chapter: 62
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★☆ | 前置 [ch61-中断下半部threaded-irq-workqueue](/posts/ch61-中断下半部threaded-irq-workqueue/) | → [ch63-网络编程与TLS从socket到安全上云](/posts/ch63-网络编程与TLS从socket到安全上云/)
+⏱ 40min | ★★★★☆ | 前置 [ch61-中断下半部threaded-irq-workqueue](/Learning-Obsidian./posts/ch61-中断下半部threaded-irq-workqueue/) | → [ch63-网络编程与TLS从socket到安全上云](/Learning-Obsidian./posts/ch63-网络编程与TLS从socket到安全上云/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 区分五种 IO 模型并按嵌入式场景选型
@@ -47,7 +50,7 @@ int fd = open("/dev/mydev", O_RDWR | O_NONBLOCK | O_CLOEXEC);
 pread/pwrite(fd,buf,n,offset)  /* 多线程安全：不移动共享偏移 */
 /* read 三态： >0 数据 / 0 EOF / -1+EAGAIN 无数据(非阻塞) */
 while (w<n) { r=write(fd,buf+w,n-w); if (r<0&&errno!=EINTR) break; w+=r; }
-fsync vs fdatasync：前者连元数据一起刷 —— 掉电安全写（[ch57-根文件系统构建只读overlayfs](/posts/ch57-根文件系统构建只读overlayfs/)）
+fsync vs fdatasync：前者连元数据一起刷 —— 掉电安全写（[ch57-根文件系统构建只读overlayfs](/Learning-Obsidian./posts/ch57-根文件系统构建只读overlayfs/)）
 mmap(NULL,len,PROT_READ,MAP_PRIVATE,fd,off);   /* 大文件零拷贝读 */
 ```
 
@@ -82,7 +85,7 @@ for (;;) {
 | 隔离性 | 强（崩溃不传染） | 弱（一个段错误全灭） |
 | 数据共享 | 需 IPC | 直接共享（但要锁） |
 | 创建开销 | 大（fork 页表） | 小 |
-| 嵌入式推荐 | 服务化架构（[ch44-综合实战RK3568多协议边缘网关](/posts/ch44-综合实战RK3568多协议边缘网关/)） | 单一职责工具进程内并发 |
+| 嵌入式推荐 | 服务化架构（[ch44-综合实战RK3568多协议边缘网关](/Learning-Obsidian./posts/ch44-综合实战RK3568多协议边缘网关/)） | 单一职责工具进程内并发 |
 
 ```c
 pid_t pid = fork();
@@ -106,7 +109,7 @@ if (pid == 0) { execl("/usr/bin/helper","helper","-v",(char*)NULL); _exit(127); 
 1. 第一次 fork 父退出 + `setsid()` 新会话——脱离 shell 与控制终端；
 2. 第二次 fork 防止重新获得控制终端；
 3. `chdir("/")` + `umask(0)`，关重定向 stdio，装 SIGCHLD/SIGPIPE 处理，写 pidfile；
-4. 现代做法：直接交 systemd（Type=simple/notify）托管，免手工 daemonize 且自带重启与资源限制（[ch56-启动流程深度剖析systemd提速](/posts/ch56-启动流程深度剖析systemd提速/)）。
+4. 现代做法：直接交 systemd（Type=simple/notify）托管，免手工 daemonize 且自带重启与资源限制（[ch56-启动流程深度剖析systemd提速](/Learning-Obsidian./posts/ch56-启动流程深度剖析systemd提速/)）。
 
 ## 62.7 实测数据表：三种多路复用真实开销（i.MX6ULL echo 服务）
 
@@ -128,14 +131,14 @@ if (pid == 0) { execl("/usr/bin/helper","helper","-v",(char*)NULL); _exit(127); 
 ## 62.9 部署注意事项
 1. 高并发前先调 fs.file-max 与进程 nofile，否则白搭；
 2. 多 worker 用 SO_REUSEPORT 让内核分流——免惊群标准答案（内核≥3.9）；偶发 EINTR 统一用 TEMP_FAILURE_RETRY 重试封装；
-3. 定时器 timerfd 化进 epoll——单循环管 IO+定时，消灭信号处理的不可靠；用 `systemd-run --scope -p MemoryMax=64M ./app` 划资源，失控不拖垮整机（衔接 [ch65-性能优化CPU隔离cgroup-io调优](/posts/ch65-性能优化CPU隔离cgroup-io调优/)）。
+3. 定时器 timerfd 化进 epoll——单循环管 IO+定时，消灭信号处理的不可靠；用 `systemd-run --scope -p MemoryMax=64M ./app` 划资源，失控不拖垮整机（衔接 [ch65-性能优化CPU隔离cgroup-io调优](/Learning-Obsidian./posts/ch65-性能优化CPU隔离cgroup-io调优/)）。
 
 > [!example]- 🧪 动手实验 L62-1：迷你 C100K 体验（60 分钟）
 > **步骤**：① 用 62.3 epoll 骨架起 echo 服务器；② 板上调大 fs.file-max 与 nofile；③ 主机 python 异步客户端压 2000 连接；④ 对比 LT/ET 的 CPU 与延迟；⑤ 注入慢客户端（只连不 read）验证其他连接不受饿。**验收**：产出四组数据表格（select/poll/LT/ET），慢客户端存在时其余连接 P99 延迟无劣化。
 
 ## 62.10 进阶话题
 - SO_REUSEPORT 负载均衡：多进程各自 bind 同端口内核自动分流；timerfd 统一时间源 + eventfd 作轻量唤醒通道（对比 pipe：一个 fd、无字节流开销）；
-- 本章 epoll 骨架正是 [ch66-综合实战USB摄像头流采集服务](/posts/ch66-综合实战USB摄像头流采集服务/) RTSP 服务与 P4 网关的并发底座，socket/TLS 进阶看 [ch63-网络编程与TLS从socket到安全上云](/posts/ch63-网络编程与TLS从socket到安全上云/)。
+- 本章 epoll 骨架正是 [ch66-综合实战USB摄像头流采集服务](/Learning-Obsidian./posts/ch66-综合实战USB摄像头流采集服务/) RTSP 服务与 P4 网关的并发底座，socket/TLS 进阶看 [ch63-网络编程与TLS从socket到安全上云](/Learning-Obsidian./posts/ch63-网络编程与TLS从socket到安全上云/)。
 
 > [!warning]- ❓ FAQ
 > **Q1：LT 还是 ET 怎么选？** 团队贯彻不了「读空到 EAGAIN」就用 LT——正确性优先；追求极限性能且有测试兜底再上 ET。
@@ -153,4 +156,4 @@ if (pid == 0) { execl("/usr/bin/helper","helper","-v",(char*)NULL); _exit(127); 
 </div>
 
 ---
-🏷️ #domain/linux #topic/epoll #topic/ipc | 🔗 [ch61-中断下半部threaded-irq-workqueue](/posts/ch61-中断下半部threaded-irq-workqueue/) ← **本章** → [ch63-网络编程与TLS从socket到安全上云](/posts/ch63-网络编程与TLS从socket到安全上云/) | 📚 [P6-MOC](/posts/P6-MOC/)
+🏷️ #domain/linux #topic/epoll #topic/ipc | 🔗 [ch61-中断下半部threaded-irq-workqueue](/Learning-Obsidian./posts/ch61-中断下半部threaded-irq-workqueue/) ← **本章** → [ch63-网络编程与TLS从socket到安全上云](/Learning-Obsidian./posts/ch63-网络编程与TLS从socket到安全上云/) | 📚 [P6-MOC](/Learning-Obsidian./posts/P6-MOC/)

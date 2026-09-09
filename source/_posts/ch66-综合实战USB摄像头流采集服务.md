@@ -1,6 +1,6 @@
 ---
 title: 第66章 综合实战：USB摄像头流采集服务
-date: 2025-01-01
+date: 2025-03-27
 categories:
   - 嵌入式Linux
 tags:
@@ -18,10 +18,13 @@ chapter: 66
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★★ | 前置 [ch65-性能优化CPU隔离cgroup-io调优](/posts/ch65-性能优化CPU隔离cgroup-io调优/) | → [ch67-AOSP架构与源码编译](/posts/ch67-AOSP架构与源码编译/)
+⏱ 45min | ★★★★★ | 前置 [ch65-性能优化CPU隔离cgroup-io调优](/Learning-Obsidian./posts/ch65-性能优化CPU隔离cgroup-io调优/) | → [ch67-AOSP架构与源码编译](/Learning-Obsidian./posts/ch67-AOSP架构与源码编译/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 独立实现 V4L2 MMAP 流式采集循环并检测丢帧
@@ -65,7 +68,7 @@ videoconvert ! vpuenc_h264 ! h264parse ! rtph264pay config-interval=1 ! udpsink 
 ```
 
 ## 66.4 epoll 单线程分发：一次编码多路转发
-架构原则（[ch62-应用编程epoll进程线程IPC](/posts/ch62-应用编程epoll进程线程IPC/)）：采集线程 DQBUF→硬编→RTP 包入队列即返回；主循环只做 `epoll_wait` 分发已编码 RTP 包给各客户端 socket。**客户端增删绝不触碰采集管线**，多客户端卡顿的根因几乎都是「每路触发独立转码」。
+架构原则（[ch62-应用编程epoll进程线程IPC](/Learning-Obsidian./posts/ch62-应用编程epoll进程线程IPC/)）：采集线程 DQBUF→硬编→RTP 包入队列即返回；主循环只做 `epoll_wait` 分发已编码 RTP 包给各客户端 socket。**客户端增删绝不触碰采集管线**，多客户端卡顿的根因几乎都是「每路触发独立转码」。
 
 ```c
 struct epoll_event evs[32];
@@ -112,7 +115,7 @@ WantedBy=multi-user.target
 | GStreamer 一条龙（硬编） | <15%（实测值） | 快速验证首选 |
 | 自研服务（libimxvpu/mpp 硬编） | <10%（实测值） | 可控性最高 |
 | 软编 x264 | 显著更高（典型值） | 仅作反面基线 |
-生产水位：帧率/丢帧率/CPU/温度四指标每秒采样上报（复用 [ch44-综合实战RK3568多协议边缘网关](/posts/ch44-综合实战RK3568多协议边缘网关/) 监控代理），任一越限告警。
+生产水位：帧率/丢帧率/CPU/温度四指标每秒采样上报（复用 [ch44-综合实战RK3568多协议边缘网关](/Learning-Obsidian./posts/ch44-综合实战RK3568多协议边缘网关/) 监控代理），任一越限告警。
 
 ## 66.9 排故速查表
 | 现象 | 根因候选 | 定位路径 |
@@ -135,7 +138,7 @@ WantedBy=multi-user.target
 ## 66.11 进阶话题
 - **开源对照**：mediamtx(原 rtsp-simple-server) 学会话管理；MotionEyeOS 学产品化形态；rockchip-rga demos 学零拷贝 pipeline 接法；
 - **事件链设计**：「移动侦测触发录像」在哪一环做检测最省 CPU——编码前抽帧降采样；
-- **产品化下一步**：ONVIF 协议栈；叠加检测能力即 [ch91-P5-RK3568边缘AI盒子多路视频检测推流](/posts/ch91-P5-RK3568边缘AI盒子多路视频检测推流/) 项目雏形。
+- **产品化下一步**：ONVIF 协议栈；叠加检测能力即 [ch91-P5-RK3568边缘AI盒子多路视频检测推流](/Learning-Obsidian./posts/ch91-P5-RK3568边缘AI盒子多路视频检测推流/) 项目雏形。
 
 > [!warning]- ❓ FAQ
 > **Q1：DQBUF 偶发 EPIPE 后设备「消失」？** USB 带宽不足或供电跌落导致 UVC 断开；换 MJPEG 减带宽、独立供电、走 66.5 状态机自愈。
@@ -153,4 +156,4 @@ WantedBy=multi-user.target
 </div>
 
 ---
-🏷️ #domain/linux #topic/v4l2 #topic/video | 🔗 [ch65-性能优化CPU隔离cgroup-io调优](/posts/ch65-性能优化CPU隔离cgroup-io调优/) ← **本章** → [ch67-AOSP架构与源码编译](/posts/ch67-AOSP架构与源码编译/) | 📚 [P6-MOC](/posts/P6-MOC/)
+🏷️ #domain/linux #topic/v4l2 #topic/video | 🔗 [ch65-性能优化CPU隔离cgroup-io调优](/Learning-Obsidian./posts/ch65-性能优化CPU隔离cgroup-io调优/) ← **本章** → [ch67-AOSP架构与源码编译](/Learning-Obsidian./posts/ch67-AOSP架构与源码编译/) | 📚 [P6-MOC](/Learning-Obsidian./posts/P6-MOC/)

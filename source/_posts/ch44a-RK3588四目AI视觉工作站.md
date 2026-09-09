@@ -1,6 +1,6 @@
 ---
 title: 第44A章 RK3588 项目实战①：四目 AI 视觉工作站
-date: 2025-01-01
+date: 2025-04-18
 categories:
   - SoC开发
 tags:
@@ -16,10 +16,13 @@ chapter: 44A
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★★★ | 前置 [ch44-综合实战RK3568多协议边缘网关](/posts/ch44-综合实战RK3568多协议边缘网关/) | → [ch44b-RK3588-NAS边缘服务器](/posts/ch44b-RK3588-NAS边缘服务器/)
+⏱ 45min | ★★★★★ | 前置 [ch44-综合实战RK3568多协议边缘网关](/Learning-Obsidian./posts/ch44-综合实战RK3568多协议边缘网关/) | → [ch44b-RK3588-NAS边缘服务器](/Learning-Obsidian./posts/ch44b-RK3588-NAS边缘服务器/)
 
 </div>
 </div>
+
+<!-- more -->
+
 ## 🎯 学习目标
 - [ ] 说清 4 路 MIPI 接入的双 ISP 分担策略与 dts 多摄配置要点
 - [ ] 独立完成 media 管线拓扑验证与 RAW 抓帧黑电平质检
@@ -31,7 +34,7 @@ chapter: 44A
 | 需求项 | 指标 | 技术路线 |
 |--------|------|----------|
 | 视频接入 | 4×IMX415 MIPI，1080p30 有效流 | RKCIF→RKISP 双 ISP 分担 |
-| AI 检测 | yolov8n 人车检测 ≥20fps/路，mAP50≥0.85 | NPU 三核 int8（[ch43-NPU-GPU应用开发RKNN-MPP](/posts/ch43-NPU-GPU应用开发RKNN-MPP/) 流程） |
+| AI 检测 | yolov8n 人车检测 ≥20fps/路，mAP50≥0.85 | NPU 三核 int8（[ch43-NPU-GPU应用开发RKNN-MPP](/Learning-Obsidian./posts/ch43-NPU-GPU应用开发RKNN-MPP/) 流程） |
 | 编码存储 | 主码流 H265 2Mbps×4 → NVMe 循环录像 ≥7 天 | MPP 编码 + ext4 轮转删除 |
 | 实时预览 | HDMI 单屏四宫格 + RTSP 远程各路 | VOP3 图层合成 + RGA 缩放 |
 | 整机约束 | ≤25W、无风扇散热壳、-10~60℃ 启动 | 导热垫 + 铝壳被动散热 |
@@ -75,7 +78,7 @@ IMX415×4 ─2lane─> DPHY(2组) ─> CIF0/1 ─> ISP0/ISP1 ─> NV12 dmabuf fd
 | 编码参考帧 | 每路 DPB 4 帧×NV12 | ~40MB |
 | CMA 总预留(dts) | reserved-memory 显式声明，含 RGA/GPU 余量 | **256MB** |
 | 系统+应用 | 16GB LPDDR5 下余量充足 | — |
-带宽复核（沿用 [ch36-RK平台ATK-DLRK3568-RK3588-Luckfox](/posts/ch36-RK平台ATK-DLRK3568-RK3588-Luckfox/) 方法）：4×(RAW 读+NV12 写 ≈200MB/s/路) + NPU 权重特征 ~3GB/s + 编码读写 ~1.6GB/s + 显示读 ~0.8GB/s ≈ **11GB/s @34GB/s 峰值 = 32% ✓**——带宽不是瓶颈，散热才是。
+带宽复核（沿用 [ch36-RK平台ATK-DLRK3568-RK3588-Luckfox](/Learning-Obsidian./posts/ch36-RK平台ATK-DLRK3568-RK3588-Luckfox/) 方法）：4×(RAW 读+NV12 写 ≈200MB/s/路) + NPU 权重特征 ~3GB/s + 编码读写 ~1.6GB/s + 显示读 ~0.8GB/s ≈ **11GB/s @34GB/s 峰值 = 32% ✓**——带宽不是瓶颈，散热才是。
 ## 44A.6 关键代码：NPU 三核调度
 ```c
 /* 三路各自独占一个 NPU 物理核 —— 确定性最好 */
@@ -144,4 +147,4 @@ for (int i = 0; i < CAM_NUM; ++i) {
 </div>
 </div>
 ---
-🏷️ #domain/soc #topic/npu | 🔗 [ch44-综合实战RK3568多协议边缘网关](/posts/ch44-综合实战RK3568多协议边缘网关/) ← **本章** → [ch44b-RK3588-NAS边缘服务器](/posts/ch44b-RK3588-NAS边缘服务器/) | 📚 [P4-MOC](/posts/P4-MOC/)
+🏷️ #domain/soc #topic/npu | 🔗 [ch44-综合实战RK3568多协议边缘网关](/Learning-Obsidian./posts/ch44-综合实战RK3568多协议边缘网关/) ← **本章** → [ch44b-RK3588-NAS边缘服务器](/Learning-Obsidian./posts/ch44b-RK3588-NAS边缘服务器/) | 📚 [P4-MOC](/Learning-Obsidian./posts/P4-MOC/)

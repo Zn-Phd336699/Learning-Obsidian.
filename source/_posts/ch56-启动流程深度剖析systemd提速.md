@@ -1,6 +1,6 @@
 ---
 title: 第56章 启动流程深度剖析systemd提速
-date: 2025-01-01
+date: 2025-04-06
 categories:
   - 嵌入式Linux
 tags:
@@ -17,10 +17,13 @@ chapter: 56
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 45min | ★★★☆☆ | 前置 [ch38-SoC启动链深度剖析](/posts/ch38-SoC启动链深度剖析/) | → [ch57-根文件系统构建只读overlayfs](/posts/ch57-根文件系统构建只读overlayfs/)
+⏱ 45min | ★★★☆☆ | 前置 [ch38-SoC启动链深度剖析](/Learning-Obsidian./posts/ch38-SoC启动链深度剖析/) | → [ch57-根文件系统构建只读overlayfs](/Learning-Obsidian./posts/ch57-根文件系统构建只读overlayfs/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 能画出从 zImage 自解压到 PID=1 接管的内核十步启动序列并标注调试锚点
@@ -45,7 +48,7 @@ U-Boot 之后发生了什么？zImage 自解压 → `__start` → `start_kernel(
 
 ## 56.2 initramfs 三种用途与最小构建
 1. **过渡跳板**：真 rootfs 在 LVM/加密分区/NFS 上时，先在内存里装好驱动再 switch_root；
-2. **恢复环境**：独立 recovery 系统（[ch72-A-B-OTA升级与Recovery体系](/posts/ch72-A-B-OTA升级与Recovery体系/) 的 recovery 同思想）；
+2. **恢复环境**：独立 recovery 系统（[ch72-A-B-OTA升级与Recovery体系](/Learning-Obsidian./posts/ch72-A-B-OTA升级与Recovery体系/) 的 recovery 同思想）；
 3. **极速启动**：整个系统就是 initramfs（内存盘），适合只读小型设备——开机即就绪无 IO 等待。
 ```sh
 mkdir -p initramfs/{bin,dev,proc,sys}
@@ -124,7 +127,7 @@ readahead 类预读在 eMMC+现代内核上收益有限，优先做并行化与�
 | 重启比冷启动还慢 | shutdown 卡某单元超时 | journalctl -b -1 看上次停止日志；DefaultTimeoutStopSec 调整 |
 
 ## 56.10 部署注意事项
-1. 自研服务统一走 56.5 单元模板入库(journalctl 统一日志)，禁止 rc.local 里 nohup 手拉进程；模板复用于 [ch44-综合实战RK3568多协议边缘网关](/posts/ch44-综合实战RK3568多协议边缘网关/) 与 [ch66-综合实战USB摄像头流采集服务](/posts/ch66-综合实战USB摄像头流采集服务/)。
+1. 自研服务统一走 56.5 单元模板入库(journalctl 统一日志)，禁止 rc.local 里 nohup 手拉进程；模板复用于 [ch44-综合实战RK3568多协议边缘网关](/Learning-Obsidian./posts/ch44-综合实战RK3568多协议边缘网关/) 与 [ch66-综合实战USB摄像头流采集服务](/Learning-Obsidian./posts/ch66-综合实战USB摄像头流采集服务/)。
 2. WatchdogSec 必须配套应用内 sd_notify 心跳，否则等于自杀开关。
 3. 提速改动逐项提交并附 systemd-analyze 前后截图，形成可回滚的优化序列。
 4. mask 操作前确认服务无隐式依赖者，避免 network-online 类连锁失效。
@@ -152,4 +155,4 @@ readahead 类预读在 eMMC+现代内核上收益有限，优先做并行化与�
 </div>
 
 ---
-🏷️ #domain/linux #topic/boot | 🔗 [ch55-交叉编译与sysroot](/posts/ch55-交叉编译与sysroot/) ← **本章** → [ch57-根文件系统构建只读overlayfs](/posts/ch57-根文件系统构建只读overlayfs/) | 📚 [P6-MOC](/posts/P6-MOC/)
+🏷️ #domain/linux #topic/boot | 🔗 [ch55-交叉编译与sysroot](/Learning-Obsidian./posts/ch55-交叉编译与sysroot/) ← **本章** → [ch57-根文件系统构建只读overlayfs](/Learning-Obsidian./posts/ch57-根文件系统构建只读overlayfs/) | 📚 [P6-MOC](/Learning-Obsidian./posts/P6-MOC/)

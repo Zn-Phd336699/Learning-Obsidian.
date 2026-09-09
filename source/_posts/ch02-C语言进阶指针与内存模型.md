@@ -1,6 +1,6 @@
 ---
 title: 第2章 C 语言进阶：指针与内存模型
-date: 2025-01-01
+date: 2025-05-30
 categories:
   - 编程基础
 tags:
@@ -18,10 +18,13 @@ chapter: 2
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 25min | ★★★☆☆ | 前置 [ch01-导学与能力地图](/posts/ch01-导学与能力地图/) | → [ch06-链接器与内存布局](/posts/ch06-链接器与内存布局/) [ch15-内存问题排查三板斧](/posts/ch15-内存问题排查三板斧/)
+⏱ 25min | ★★★☆☆ | 前置 [ch01-导学与能力地图](/Learning-Obsidian./posts/ch01-导学与能力地图/) | → [ch06-链接器与内存布局](/Learning-Obsidian./posts/ch06-链接器与内存布局/) [ch15-内存问题排查三板斧](/Learning-Obsidian./posts/ch15-内存问题排查三板斧/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 
@@ -91,4 +94,4 @@ volatile 管「可见性」，锁管「原子性」，屏障管「顺序性」�
 
 ---
 
-🏷️ #c-language #memory #ub | 🔗 [ch03-C工程化预处理与定点数](/posts/ch03-C工程化预处理与定点数/) ← **本章** → [ch04-CPP嵌入式子集与RAII](/posts/ch04-CPP嵌入式子集与RAII/) | 📚 [P1-MOC](/posts/P1-MOC/)
+🏷️ #c-language #memory #ub | 🔗 [ch03-C工程化预处理与定点数](/Learning-Obsidian./posts/ch03-C工程化预处理与定点数/) ← **本章** → [ch04-CPP嵌入式子集与RAII](/Learning-Obsidian./posts/ch04-CPP嵌入式子集与RAII/) | 📚 [P1-MOC](/Learning-Obsidian./posts/P1-MOC/)

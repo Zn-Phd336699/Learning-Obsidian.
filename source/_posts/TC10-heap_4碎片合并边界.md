@@ -10,6 +10,9 @@ tags:
 
 # TC10 heap_4 碎片合并边界与复现实验
 
+
+<!-- more -->
+
 ## 现象
 `xPortGetFreeHeapSize()` 显示剩余充足，`pvPortMalloc()` 却返回 NULL；触发条件：长期不规则 malloc/free 把堆切成大量被存活块隔断的小空洞。
 
@@ -54,5 +57,5 @@ void fragmentation_demo(void)
 - 怀疑双重释放时换带魔数校验的自定义分配器过渡排查
 
 ## 关联
-- 源章节：[ch49-FreeRTOS内存管理heap与栈检测](/posts/ch49-FreeRTOS内存管理heap与栈检测/)
-- 相关章节：[ch15-内存问题排查三板斧](/posts/ch15-内存问题排查三板斧/)、[chs3-SO3-RTOS多任务系统调优](/posts/chs3-SO3-RTOS多任务系统调优/)
+- 源章节：[ch49-FreeRTOS内存管理heap与栈检测](/Learning-Obsidian./posts/ch49-FreeRTOS内存管理heap与栈检测/)
+- 相关章节：[ch15-内存问题排查三板斧](/Learning-Obsidian./posts/ch15-内存问题排查三板斧/)、[chs3-SO3-RTOS多任务系统调优](/Learning-Obsidian./posts/chs3-SO3-RTOS多任务系统调优/)

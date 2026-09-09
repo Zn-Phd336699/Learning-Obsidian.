@@ -17,10 +17,13 @@ chapter: SO4
 <p style="margin: 0 0 8px 0; font-weight: 600; color: #0284c7;">ℹ️ 导航</p>
 <div>
 
-⏱ 40min | ★★★★★ | 前置 [chs3-SO3-RTOS多任务系统调优](/posts/chs3-SO3-RTOS多任务系统调优/) | → [chs5-SO5-Linux系统优化进阶内核容器观测前沿](/posts/chs5-SO5-Linux系统优化进阶内核容器观测前沿/)
+⏱ 40min | ★★★★★ | 前置 [chs3-SO3-RTOS多任务系统调优](/Learning-Obsidian./posts/chs3-SO3-RTOS多任务系统调优/) | → [chs5-SO5-Linux系统优化进阶内核容器观测前沿](/Learning-Obsidian./posts/chs5-SO5-Linux系统优化进阶内核容器观测前沿/)
 
 </div>
 </div>
+
+
+<!-- more -->
 
 ## 🎯 学习目标
 - [ ] 用「证据链→假设→实验→结论」四段式完整复盘一次跨平台性能战役
@@ -38,7 +41,7 @@ chapter: SO4
 | 5 | 可靠性/IO 吞吐 | OTA 升级链路 | 成功率 91 % | **99.8 %** | 失败分类遥测+弱网断电注入 |
 
 ## SO4.2 战役一：启动提速 4.5 s → 900 ms
-**背景与测量**：GPIO 打点瀑布图([ch56-启动流程深度剖析systemd提速](/posts/ch56-启动流程深度剖析systemd提速/))——U-Boot 1.6 s+内核 2.1 s+init 0.8 s 三块都大；**最大单点是 initcalls 中一个 800 ms 的 PHY 就绪等待**。
+**背景与测量**：GPIO 打点瀑布图([ch56-启动流程深度剖析systemd提速](/Learning-Obsidian./posts/ch56-启动流程深度剖析systemd提速/))——U-Boot 1.6 s+内核 2.1 s+init 0.8 s 三块都大；**最大单点是 initcalls 中一个 800 ms 的 PHY 就绪等待**。
 
 | 假设 | 实验 | 结果 |
 |------|------|------|
@@ -61,12 +64,12 @@ chapter: SO4
 ```
 
 ## SO4.4 战役三：RTOS 控制环 jitter 87 µs → 7 µs
-**背景与测量**：DWT 打点直方图呈双峰——主峰 4 µs+次峰 80 µs(占 3%)；[ch51a-可视化追踪Tracealyzer-SystemView](/posts/ch51a-可视化追踪Tracealyzer-SystemView/)回放锁定次峰时刻=Flash 参数写入任务的运行窗口。
+**背景与测量**：DWT 打点直方图呈双峰——主峰 4 µs+次峰 80 µs(占 3%)；[ch51a-可视化追踪Tracealyzer-SystemView](/Learning-Obsidian./posts/ch51a-可视化追踪Tracealyzer-SystemView/)回放锁定次峰时刻=Flash 参数写入任务的运行窗口。
 **根因与对策**：H1 Flash 擦写阻塞总线致取指停顿(ch06)→ramfunc 化擦写函数+关 Cache 维护期补偿 ✓；H2 参数任务优先级过高抢占控制链路缓存/代码→降 prio 至控制环以下并分片写入 ✓。两措施叠加后次峰消失。
 **结论**：P99 jitter 87 µs→7 µs；新增「参数写入影响实时性」检查项进设计 checklist。**双峰分布是周期性干扰的铁指纹——看到双峰先找周期源。**
 
 ## SO4.5 战役四：无线节点待机功耗 500 µA → 52 µA
-**背景与测量**：Joulescope 电流瀑布([ch29-低功耗设计](/posts/ch29-低功耗设计/))分层——LED 指示 180 µA、I2C 上拉网络穿流 120 µA、传感器未休眠 95 µA、MCU 引脚振荡 60 µA、DC-DC 静态 45 µA，合计基线 500 µA。
+**背景与测量**：Joulescope 电流瀑布([ch29-低功耗设计](/Learning-Obsidian./posts/ch29-低功耗设计/))分层——LED 指示 180 µA、I2C 上拉网络穿流 120 µA、传感器未休眠 95 µA、MCU 引脚振荡 60 µA、DC-DC 静态 45 µA，合计基线 500 µA。
 
 | 假设 | 实验 | 单步电流 |
 |------|------|----------|
@@ -75,16 +78,16 @@ chapter: SO4
 | H3 传感器支持休眠协议 | sensor sleep+PMOS 断电 | ✓ −93 µA |
 | H4 存在浮空引脚(ch23) | 全引脚钉电平扫描 | ✓ −58 µA |
 
-**结论与制度**：终值 **52 µA 超目标**；沉淀《低功耗设计 checklist》(原理图评审项 12 条)+《GPIO 钉电平自动扫描脚本》进产测([chsd-S4-量产工程产测工装与老化](/posts/chsd-S4-量产工程产测工装与老化/))。**功耗优化 70% 在硬件选型与电路，软件是最后 30% 的精修者。**
+**结论与制度**：终值 **52 µA 超目标**；沉淀《低功耗设计 checklist》(原理图评审项 12 条)+《GPIO 钉电平自动扫描脚本》进产测([chsd-S4-量产工程产测工装与老化](/Learning-Obsidian./posts/chsd-S4-量产工程产测工装与老化/))。**功耗优化 70% 在硬件选型与电路，软件是最后 30% 的精修者。**
 
 ## SO4.6 战役五：OTA 升级成功率 91% → 99.8%
 **背景与测量**：云端 5000 次样本失败分类——下载中断 46%、校验失败 22%、写入掉电 17%、切换失败 9%、其他 6%。**失败分布饼图直接指出主攻方向。**
 
 | 失败类别 | 对策(假设) | 出处思想 |
 |----------|------------|----------|
-| 下载中断 46% | 分块+断点续传+指数退避重试 | [ch63-网络编程与TLS从socket到安全上云](/posts/ch63-网络编程与TLS从socket到安全上云/) |
-| 校验失败 22% | 每块 CRC+整包 SHA 双层校验 | [chfh-A8校验族谱CRC全家汉明HMAC边界](/posts/chfh-A8校验族谱CRC全家汉明HMAC边界/) |
-| 写入掉电 17% | swap 日志幂等化 | [ch30-Bootloader-IAP-OTA固件升级体系](/posts/ch30-Bootloader-IAP-OTA固件升级体系/) |
+| 下载中断 46% | 分块+断点续传+指数退避重试 | [ch63-网络编程与TLS从socket到安全上云](/Learning-Obsidian./posts/ch63-网络编程与TLS从socket到安全上云/) |
+| 校验失败 22% | 每块 CRC+整包 SHA 双层校验 | [chfh-A8校验族谱CRC全家汉明HMAC边界](/Learning-Obsidian./posts/chfh-A8校验族谱CRC全家汉明HMAC边界/) |
+| 写入掉电 17% | swap 日志幂等化 | [ch30-Bootloader-IAP-OTA固件升级体系](/Learning-Obsidian./posts/ch30-Bootloader-IAP-OTA固件升级体系/) |
 | 切换失败 9% | 自检项补齐+revert 兜底确认 | ch30 |
 
 **实验矩阵与结果**：弱网模拟(丢包 5/10/20%)×断电注入(随机时刻)×200 台灰度三周收集 4200 次升级；91%→**99.8%**，剩余 0.2% 全部二次尝试自恢复，新增失败原因码上报使定位时间天级→分钟级。**可靠性提升的本质是把失败从黑盒变成分类清晰的遥测数据。**
@@ -108,9 +111,9 @@ chapter: SO4
 | 2 | 只调参数不改结构 | 结构性瓶颈下参数收益趋零且反复震荡 |
 | 3 | 测量代码改变被测行为 | 海森 Bug 制造机(ch16 教训) |
 | 4 | 同时上多个优化再测总账 | 功劳无法归因，负优化被掩盖 |
-| 5 | 用平均延迟汇报实时性能 | 掩盖 P99/max 尾部灾难([ch45-实时性理论与调度算法](/posts/ch45-实时性理论与调度算法/)) |
+| 5 | 用平均延迟汇报实时性能 | 掩盖 P99/max 尾部灾难([ch45-实时性理论与调度算法](/Learning-Obsidian./posts/ch45-实时性理论与调度算法/)) |
 | 6 | 为省 RAM 关闭栈保护 | 省几百字节换来随机崩溃排查周 |
-| 7 | 把 DMA 化当万能药 | 小数据量场景管理开销>收益([ch26-DMA与Cache一致性](/posts/ch26-DMA与Cache一致性/)) |
+| 7 | 把 DMA 化当万能药 | 小数据量场景管理开销>收益([ch26-DMA与Cache一致性](/Learning-Obsidian./posts/ch26-DMA与Cache一致性/)) |
 | 8 | 优化未证明的热点函数 | Amdahl 定律：非热点优化对整体无感 |
 | 9 | 优化后不跑功能回归 | 性能换正确性是最亏的交易 |
 | 10 | 一次性大规模重构式优化 | 不可回退不可评审不可归因——应拆成可验证的小步 |
@@ -152,4 +155,4 @@ chapter: SO4
 </div>
 
 ---
-🏷️ #performance #optimization #复盘 | 🔗 [chs3-SO3-RTOS多任务系统调优](/posts/chs3-SO3-RTOS多任务系统调优/) ← **本章** → [chs5-SO5-Linux系统优化进阶内核容器观测前沿](/posts/chs5-SO5-Linux系统优化进阶内核容器观测前沿/) | 📚 [P12-MOC](/posts/P12-MOC/)
+🏷️ #performance #optimization #复盘 | 🔗 [chs3-SO3-RTOS多任务系统调优](/Learning-Obsidian./posts/chs3-SO3-RTOS多任务系统调优/) ← **本章** → [chs5-SO5-Linux系统优化进阶内核容器观测前沿](/Learning-Obsidian./posts/chs5-SO5-Linux系统优化进阶内核容器观测前沿/) | 📚 [P12-MOC](/Learning-Obsidian./posts/P12-MOC/)
